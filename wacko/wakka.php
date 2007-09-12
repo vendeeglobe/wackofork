@@ -89,7 +89,7 @@ $wakkaDefaultConfig = array(
   "disable_safehtml" => 0,
   "urls_underscores" => 0,
 
-  "allrecentchanges_page" => "", 
+  "allrecentchanges_page" => "",
   "allpageindex_page" => "",
 
   "default_write_acl"   => "*",
@@ -129,7 +129,7 @@ $wakkaDefaultConfig = array(
 
   "db_collation" => 0,
   "rename_globalacl" => "Admins",
-  
+
   "spam_filter" => 1,
 
   );
@@ -168,7 +168,7 @@ if (@file_exists("locked")) {
 // compare versions, start installer if necessary
 if ($wakkaConfig["wacko_version"] != WACKO_VERSION)
 {
-  if (!$_REQUEST["installAction"] && !strstr($_SERVER["SERVER_SOFTWARE"], "IIS")) 
+  if (!$_REQUEST["installAction"] && !strstr($_SERVER["SERVER_SOFTWARE"], "IIS"))
   {
    $req = $_SERVER["REQUEST_URI"];
    if ($req{strlen($req)-1}!="/" && strstr($req, ".php")!=".php") {
@@ -200,7 +200,7 @@ if (stristr($_SERVER["SERVER_SOFTWARE"], "Apache/1") && stristr($_SERVER["SERVER
 {
  $dir = str_replace("http://".$_SERVER["SERVER_NAME"].($_SERVER["SERVER_PORT"] != 80 ? ":".$_SERVER["SERVER_PORT"] : ""),"",$wakkaConfig["base_url"]);
  $request = preg_replace("+^".preg_quote(rtrim($dir,"/"))."+i","",$_SERVER["REDIRECT_URL"]);//$request);
-} 
+}
 
 // remove leading slash
 $request = preg_replace("/^\//", "", $request);
@@ -208,12 +208,12 @@ $method = '';
 
 // split into page/method
 $p = strrpos($request, "/");
-if ($p === false) { 
+if ($p === false) {
  $page = $request;
 } else {
  $page = substr($request, 0, $p);
  $m1 = $method = strtolower(substr($request, $p-strlen($request)+1));
- if (!@file_exists($wakkaConfig["handler_path"]."/page/".$method.".php")) 
+ if (!@file_exists($wakkaConfig["handler_path"]."/page/".$method.".php"))
  {
   $page = $request;
   $method = "";
@@ -253,13 +253,12 @@ $wacko = &new Wacko($wakkaConfig);
 $wacko->headerCount = 0;
 $cache->wacko = &$wacko;
 $wacko->cache = &$cache;
-$cache->Log("Before Run wacko=".$wacko);
-if ($method && $method != "show") unset($wacko->config["youarehere_text"]); 
+if ($method && $method != "show") unset($wacko->config["youarehere_text"]);
 
 // go!
 $pg = $wacko->Run($page, $method);
 
-if ($iscache) 
+if ($iscache)
 {
  $data = ob_get_contents();
  $cache->StoreToCache($data);
@@ -267,7 +266,7 @@ if ($iscache)
 
 // how much time script take
 $ddd = $wacko->GetMicroTime();
-if ($wacko->GetConfigValue("debug")>=1 && strpos($method,".xml")===false && $method!="print") 
+if ($wacko->GetConfigValue("debug")>=1 && strpos($method,".xml")===false && $method!="print")
 {
  echo ("<div style='margin:5px 20px; color:#999999'><small>".$wacko->GetResourceValue("MeasuredTime").": ".(number_format(($ddd-$wacko->timer),3))." s<br />");
  if ($mem = @memory_get_usage()) echo ($wacko->GetResourceValue("MeasuredMemory").": ".(number_format(($mem/(1024*1024)),3))." Mb");
@@ -280,12 +279,12 @@ if ($wacko->GetConfigValue("debug")>=1 && strpos($method,".xml")===false && $met
  }
  echo "</small></div>";
 }
-if (strpos($method,".xml")===false) 
+if (strpos($method,".xml")===false)
  echo "</body></html>";
 
 //spesta - del in release
 //$s_addurl="stat/";
-//@include ($s_addurl."counter.php"); 
+//@include ($s_addurl."counter.php");
 
 
 ?>
