@@ -891,6 +891,7 @@ class Wacko
    }
 
    $this->WriteRecentChangesXML();
+   $this->WriteGoogleSiteMapXML();
 
    return $body_r;
  }
@@ -1972,6 +1973,57 @@ class Wacko
      fclose($fp);
    }
  }
+
+function WriteGoogleSiteMapXML()
+   {
+      $xml = "<?xml version=\"1.0\" encoding=\"windows-1251\"?>\n";
+      $xml .= "<urlset xmlns=\"http://www.google.com/schemas/sitemap/0.84\">\n"; [^]
+
+      if ($pages = $this->LoadRecentlyChanged())
+         {
+            foreach ($pages as $i => $page)
+               {
+                  if ($this->config["hide_locked"]) $access =$this->HasAccess("read",$page["tag"],"guest@wacko");
+                  if ($access && ($count < 50000))
+                     {
+                        $count++;
+                        $xml .= "<url>\n";
+                        $xml .= "<loc>".$this->href("", $page["tag"])."</loc>\n";
+                        $xml .= "<lastmod>". substr($page["time"], 0, 10) ."</lastmod>\n";
+
+                        $daysSinceLastChanged = floor((time() - strtotime(substr($page["time"], 0, 10)))/86400);
+
+                        if($daysSinceLastChanged < 30)
+                           {
+                              $xml .= "<changefreq>daily</changefreq>\n";
+                           }
+                        else if($daysSinceLastChanged < 60)
+                           {
+                              $xml .= "<changefreq>monthly</changefreq>\n";
+                           }
+                        else
+                           {
+                              $xml .= "<changefreq>yearly</changefreq>\n";
+                           }
+
+                        // The only thing I'm not sure about how to handle dynamically...
+                        $xml .= "<priority>0.8</priority>\n";
+                        $xml .= "</url>\n";
+                     }
+               }
+         }
+
+      $xml .= "</urlset>\n";
+
+      $filename = "/sitemap.xml";
+
+      $fp = @fopen($filename, "w");
+      if ($fp)
+         {
+            fwrite($fp, $xml);
+            fclose($fp);
+         }
+   }
 
  // MAINTENANCE
  function Maintenance()
