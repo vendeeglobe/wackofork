@@ -4,9 +4,9 @@ function array_to_str ($arr, $name="") {
  $str = "\$wakkaConfig".($name?"[\"".$name."\"]":"")." = array(\n";
  foreach ($arr as $k => $v)
  {
-   if (is_array($v)) 
+   if (is_array($v))
     $arrays .= array_to_str($v, $k);
-   else 
+   else
     $entries .= "\t\"".$k."\" => \"".str_replace("\n","\\n",$v)."\",\n";
  }
  $str .= $entries.");\n";
@@ -19,6 +19,7 @@ test($lang["apply rights"]."_cache...",       @chmod ("_cache", 0777),        $l
 test($lang["apply rights"]."xml...",          @chmod ("xml", 0777),           $lang["apply rights yourself"]."xml", 0);
 test($lang["apply rights"]."files...",        @chmod ("files", 0777),         $lang["apply rights yourself"]."files", 0);
 test($lang["apply rights"]."files/perpage...",@chmod ("files/perpage", 0777), $lang["apply rights yourself"]."files/perpage", 0);
+test($lang["apply rights"]."sitemap.xml...",  @chmod ("sitemap.xml", 0777),   $lang["apply rights yourself"]."sitemap.xml", 0);
 
 // fetch config
 $config = $config2 = unserialize($_POST["config_s"]);
@@ -61,7 +62,7 @@ if ($fp)
 /*      fclose($fp);
     }
   }
-*/  
+*/
   echo $lang["ready"]." <a href=\"".$config["base_url"]."\">".$lang["return"]."</a>. ".$lang["SecurityRisk"]."</p>";
 }
 else
@@ -73,7 +74,7 @@ else
   <input type="hidden" name="config_s" value="<?php echo htmlspecialchars(serialize($config2)) ?>" />
   <input type="hidden" name="config[language]" value="<?php echo $config["language"]; ?>" />
   <input type="submit" value="<?php echo $lang["try again"];?>" />
-  </form> 
+  </form>
   <?php
   print("<div style=\"background-color: #EEEEEE; padding: 10px 10px;\">\n<xmp>".$configCode."</xmp>\n</div>\n");
 }

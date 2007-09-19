@@ -90,7 +90,6 @@
 
    if ($config2["multilanguage"])
       {
-         echo "Im crazy, lets install all the languages!";
          $handle=opendir("setup/lang");
          while (false!==($file = readdir($handle)))
             {
@@ -109,7 +108,6 @@
       }
    else
       {
-         echo "Just do the one language please!";
          require("setup/lang/inserts.".$config2["language"].".php");
       }
 ?>
