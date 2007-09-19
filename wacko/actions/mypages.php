@@ -10,9 +10,9 @@ if ($user = $this->GetUser())
   if ($_GET["bydate"] == 1 || $bydate==1)
   {
     print("<strong>".$this->GetResourceValue("ListOwnedPages2").".</strong>");
-    print("<br /><small><strong>(<a href=\"".$this->href("", $tag)."\">".$this->GetResourceValue("OrderABC")."</a>) (<a href=\"".$this->href("", $tag)."".($this->GetConfigValue("rewrite_mode")?"?":"&amp;")."bychange=1\">".$this->GetResourceValue("OrderChange")."</a>) </strong></small><br /><br />\n");  
+    print("<br /><small><strong>(<a href=\"".$this->href("", $tag)."\">".$this->GetResourceValue("OrderABC")."</a>) (<a href=\"".$this->href("", $tag)."".($this->GetConfigValue("rewrite_mode")?"?":"&amp;")."bychange=1\">".$this->GetResourceValue("OrderChange")."</a>) </strong></small><br /><br />\n");
 
-    if ($pages = $this->LoadAll("SELECT tag, time FROM ".$this->config["table_prefix"]."revisions WHERE owner = '".quote($this->GetUserName())."' AND tag NOT LIKE 'Comment%' ORDER BY time DESC, tag ASC"))
+    if ($pages = $this->LoadAll("SELECT tag, time FROM ".$this->config["table_prefix"]."revisions WHERE owner = '".quote($this->dblink, $this->GetUserName())."' AND tag NOT LIKE 'Comment%' ORDER BY time DESC, tag ASC"))
     {
 
       foreach ($pages as $page)
@@ -20,7 +20,7 @@ if ($user = $this->GetUser())
         $edited_pages[$page["tag"]] = $page["time"];
       }
 
-      $pages = $this->LoadAll("SELECT tag, time FROM ".$this->config["table_prefix"]."pages WHERE owner = '".quote($this->GetUserName())."' AND tag NOT LIKE 'Comment%' ORDER BY time DESC, tag ASC");
+      $pages = $this->LoadAll("SELECT tag, time FROM ".$this->config["table_prefix"]."pages WHERE owner = '".quote($this->dblink, $this->GetUserName())."' AND tag NOT LIKE 'Comment%' ORDER BY time DESC, tag ASC");
       foreach ($pages as $page)
       {
         if (!$edited_pages[$page["tag"]]) $edited_pages[$page["tag"]] = $page["time"];
@@ -53,10 +53,10 @@ if ($user = $this->GetUser())
   }
   else if ($_GET["bychange"] == 1 || $bychange==1)
   {
-    print("<strong>".$this->GetResourceValue("ListOwnedPages3")."</strong>.");  
-    print("<br /><small><strong>(<a href=\"".$this->href("", $tag)."\">".$this->GetResourceValue("OrderABC")."</a>) (<a href=\"".$this->href("", $tag)."".($this->GetConfigValue("rewrite_mode")?"?":"&amp;")."bydate=1\">".$this->GetResourceValue("OrderDate")."</a>)</strong></small><br /><br />\n");  
+    print("<strong>".$this->GetResourceValue("ListOwnedPages3")."</strong>.");
+    print("<br /><small><strong>(<a href=\"".$this->href("", $tag)."\">".$this->GetResourceValue("OrderABC")."</a>) (<a href=\"".$this->href("", $tag)."".($this->GetConfigValue("rewrite_mode")?"?":"&amp;")."bydate=1\">".$this->GetResourceValue("OrderDate")."</a>)</strong></small><br /><br />\n");
 
-    if ($pages = $this->LoadAll("SELECT tag, time FROM ".$this->config["table_prefix"]."pages WHERE owner = '".quote($this->GetUserName())."' AND tag NOT LIKE 'Comment%' ORDER BY time ASC, tag ASC"))
+    if ($pages = $this->LoadAll("SELECT tag, time FROM ".$this->config["table_prefix"]."pages WHERE owner = '".quote($this->dblink, $this->GetUserName())."' AND tag NOT LIKE 'Comment%' ORDER BY time ASC, tag ASC"))
     {
       foreach ($pages as $page)
       {
@@ -89,9 +89,9 @@ if ($user = $this->GetUser())
   }
   else {
    print("<strong>".$this->GetResourceValue("ListOwnedPages").".</strong>\n");
-    print("<br /><small><strong>(<a href=\"".$this->href("", $tag)."".($this->GetConfigValue("rewrite_mode")?"?":"&amp;")."bydate=1\">".$this->GetResourceValue("OrderDate")."</a>) (<a href=\"".$this->href("", $tag)."".($this->GetConfigValue("rewrite_mode")?"?":"&amp;")."bychange=1\">".$this->GetResourceValue("OrderChange")."</a>) </strong></small><br /><br />\n");  
+    print("<br /><small><strong>(<a href=\"".$this->href("", $tag)."".($this->GetConfigValue("rewrite_mode")?"?":"&amp;")."bydate=1\">".$this->GetResourceValue("OrderDate")."</a>) (<a href=\"".$this->href("", $tag)."".($this->GetConfigValue("rewrite_mode")?"?":"&amp;")."bychange=1\">".$this->GetResourceValue("OrderChange")."</a>) </strong></small><br /><br />\n");
 
-   if ($pages = $this->LoadAll("SELECT tag, time FROM ".$this->config["table_prefix"]."pages WHERE owner = '".quote($this->GetUserName())."' AND tag NOT LIKE 'Comment%' AND latest='Y' ORDER BY tag ASC"))
+   if ($pages = $this->LoadAll("SELECT tag, time FROM ".$this->config["table_prefix"]."pages WHERE owner = '".quote($this->dblink, $this->GetUserName())."' AND tag NOT LIKE 'Comment%' AND latest='Y' ORDER BY tag ASC"))
    {
     foreach ($pages as $page)
     {
@@ -99,15 +99,15 @@ if ($user = $this->GetUser())
      if (!preg_match("/".$this->language["ALPHA"]."/", $firstChar)) {
       $firstChar = "#";
      }
-  
+
      if ($firstChar != $curChar) {
       if ($curChar) print("<br />\n");
       print("<strong>$firstChar</strong><br />\n");
       $curChar = $firstChar;
      }
-  
+
      print($this->ComposeLinkToPage($page["tag"])."<br />\n");
-     
+
      $my_pages_count++;
     }
    }

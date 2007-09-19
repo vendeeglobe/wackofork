@@ -8,7 +8,7 @@ if (!function_exists('LoadRecentlyCommented')){
 
     // load ids of the first revisions of latest comments. err, huh?
     if ($ids = $wacko->LoadAll("select min(id) as id from ".$wacko->config["table_prefix"]."pages where ".
-                ($for?"super_comment_on like '".quote($wacko->NpjTranslit($for))."/%' ":"comment_on != '' ").
+                ($for?"super_comment_on like '".quote($this->dblink, $wacko->NpjTranslit($for))."/%' ":"comment_on != '' ").
                 "group by tag order by id desc"));
     {
       // load complete comments

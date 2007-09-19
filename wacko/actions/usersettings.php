@@ -3,12 +3,12 @@
 if ($_REQUEST["confirm"])
 {
   if ($this->LoadSingle("select * from ".$this->config["user_table"]." where email_confirm = '".
-                quote($_REQUEST["confirm"])."'"))
+                quote($this->dblink, $_REQUEST["confirm"])."'"))
   {
     $this->Query("UPDATE ".$this->config["user_table"]." SET email_confirm = '' WHERE email_confirm = '".
-                quote($_REQUEST["confirm"])."'");
+                quote($this->dblink, $_REQUEST["confirm"])."'");
     echo "<br /><br /><center>".$this->GetResourceValue("EmailConfirmed")."</center><br /><br />";
-  } 
+  }
   else
     echo "<br /><br /><center>".$this->GetResourceValue("EmailNotConfirmed")."</center><br /><br />";
 }
@@ -21,7 +21,7 @@ else if ($_REQUEST["action"] == "logout")
 else if ($user = $this->GetUser())
 {
   $this->SetPageLang($this->userlang);
-  
+
   // is user trying to update?
   if ($_REQUEST["action"] == "update")
   {
@@ -41,33 +41,33 @@ else if ($user = $this->GetUser())
 
       $subject = $this->GetResourceValue("Mail.Confirm");
       $message = $this->GetResourceValue("MailHello"). $user["name"].".<br /> <br /> ";
-      $message.= str_replace('%1', $this->GetConfigValue("wakka_name"), 
-                 str_replace('%2', $user["name"], 
-                 str_replace('%3', $this->Href().($this->config["rewrite_mode"] ? "?" : "&amp;")."confirm=".$confirm, 
+      $message.= str_replace('%1', $this->GetConfigValue("wakka_name"),
+                 str_replace('%2', $user["name"],
+                 str_replace('%3', $this->Href().($this->config["rewrite_mode"] ? "?" : "&amp;")."confirm=".$confirm,
                   $this->GetResourceValue("Mail.Verify"))))."<br />  ";
       $message.= "<br />".$this->GetResourceValue("MailGoodbye")." ".$this->GetConfigValue("wakka_name");
       $this->SendMail($_POST["email"], $subject, $message);
     }
 
     $this->Query("update ".$this->config["user_table"]." set ".
-      "email = '".quote($_POST["email"])."', ".
-      ($confirm?"email_confirm = '".quote($confirm)."', ":"").
-      "doubleclickedit = '".quote($_POST["doubleclickedit"])."', ".
-      "showdatetime = '".quote($_POST["showdatetimeinlinks"])."', ".
-      "show_comments = '".quote($_POST["show_comments"])."', ".
-      "revisioncount = '".quote($_POST["revisioncount"])."', ".
-      "changescount = '".quote($_POST["changescount"])."', ".
-      "motto = '".quote($_POST["motto"])."', ".
-      "bookmarks = '".quote($bookmarks)."', ".
-      "show_spaces = '".quote($_POST["show_spaces"])."', ".
-      "typografica = '".quote($_POST["typografica"])."', ".
-      "lang = '".quote($_POST["lang"])."', ".
-      "more = '".quote($more)."' ".
-      "where name = '".quote($user["name"])."' limit 1");
-    
+      "email = '".quote($this->dblink, $_POST["email"])."', ".
+      ($confirm?"email_confirm = '".quote($this->dblink, $confirm)."', ":"").
+      "doubleclickedit = '".quote($this->dblink, $_POST["doubleclickedit"])."', ".
+      "showdatetime = '".quote($this->dblink, $_POST["showdatetimeinlinks"])."', ".
+      "show_comments = '".quote($this->dblink, $_POST["show_comments"])."', ".
+      "revisioncount = '".quote($this->dblink, $_POST["revisioncount"])."', ".
+      "changescount = '".quote($this->dblink, $_POST["changescount"])."', ".
+      "motto = '".quote($this->dblink, $_POST["motto"])."', ".
+      "bookmarks = '".quote($this->dblink, $bookmarks)."', ".
+      "show_spaces = '".quote($this->dblink, $_POST["show_spaces"])."', ".
+      "typografica = '".quote($this->dblink, $_POST["typografica"])."', ".
+      "lang = '".quote($this->dblink, $_POST["lang"])."', ".
+      "more = '".quote($this->dblink, $more)."' ".
+      "where name = '".quote($this->dblink, $user["name"])."' limit 1");
+
     $this->SetUser($this->LoadUser($user["name"]));
     $this->SetBookmarks(BM_USER);
-    
+
     // forward
     $this->SetMessage($this->GetResourceValue("SettingsStored",$_POST["lang"]));
 
@@ -129,7 +129,7 @@ else if ($user = $this->GetUser())
       <td>
       <select name="lang">
       <option value=""></option>
-      <?php 
+      <?php
       $langs = $this->AvailableLanguages();
       for ($i=0;$i<count($langs);$i++) {
         echo '<option value="'.$langs[$i].'" '.($user["lang"]==$langs[$i]?"selected=\"selected\"":"").'>'.$langs[$i].'</option>';
@@ -143,7 +143,7 @@ else if ($user = $this->GetUser())
       <td>
       <select name="theme">
       <option value=""></option>
-      <?php 
+      <?php
       $themes = $this->AvailableThemes();
       for ($i=0;$i<count($themes);$i++) {
         echo '<option value="'.$themes[$i].'" '.($user["options"]["theme"]==$themes[$i]?"selected=\"selected\"":"").'>'.$themes[$i].'</option>';
@@ -170,12 +170,12 @@ else if ($user = $this->GetUser())
     </tr>
     <tr>
       <td colspan="2" align="center">
-          <input class="OkBtn" onmouseover='this.className="OkBtn_";' 
-                                 onmouseout ='this.className="OkBtn";' 
+          <input class="OkBtn" onmouseover='this.className="OkBtn_";'
+                                 onmouseout ='this.className="OkBtn";'
                  type="submit" align="top" value="<?php echo $this->GetResourceValue("UpdateSettingsButton"); ?>" />
           <img src="<?php echo $this->GetConfigValue("root_url");?>images/z.gif" width="10" height="1" alt="" border="0" />
-          <input class="CancelBtn" onmouseover='this.className="CancelBtn_";' 
-                                     onmouseout ='this.className="CancelBtn";' 
+          <input class="CancelBtn" onmouseover='this.className="CancelBtn_";'
+                                     onmouseout ='this.className="CancelBtn";'
                  type="button" align="top" value="<?php echo $this->GetResourceValue("LogoutButton"); ?>" onclick="document.location='<?php echo $this->href("", "", "action=logout"); ?>'" />
     </tr>
   </table>

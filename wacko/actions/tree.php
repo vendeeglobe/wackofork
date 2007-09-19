@@ -4,7 +4,7 @@
 
   if (!function_exists('create_cluster_tree'))
   {
- 
+
     function create_cluster_tree(&$wacko, $supertag, $tag, $depth)
     {
 
@@ -29,7 +29,7 @@
         }
 
 
-        //Считаем supertag подстраницы 
+        //Считаем supertag подстраницы
 
         //Относительный
         if ($supertag!="/"){
@@ -50,7 +50,7 @@
           //Надо посчитать таг для этого супертага
           $sub_tag = "";
           $exists = 0;
-        
+
           if ($tree_pages_array[$sub_supertag]){
              //Такая страница есть, берем ее таг.
              $sub_tag = $tree_pages_array[$sub_supertag];
@@ -58,7 +58,7 @@
           }else{
              //Такой страницы нет, есть ее подстраницы. Будем считать вероятный таг.
              $sub_sub_tag = $page_tag;
-          
+
              //Отбираем столько слэшей, сколько есть в супертаге
              $scount = substr_count($sub_supertag,"/");
              for ($i = 0;$i<$scount-1;$i++){
@@ -68,7 +68,7 @@
               //Отбрасываем все после следующего слеша.
               $sub_tag = $sub_tag.substr($sub_sub_tag,0,strpos($sub_sub_tag,"/"));
           }
- 
+
           $sub_pages_tree[$sub_tag]["supertag"] = $sub_supertag;
           $sub_pages_tree[$sub_tag]["exists"] = $exists;
         }
@@ -105,7 +105,7 @@
 
       if (is_array($tree))
       {
-    
+
         ksort ( $tree, SORT_STRING );
 
         static $letter = "";
@@ -125,14 +125,14 @@
           $linktext = $sub_tag;
           if ($style!="br" && (!strpos($linktext,"/")===false))
           {
-            //Выводим только последнее слово 
+            //Выводим только последнее слово
             $linktext=substr($linktext,strrpos($linktext,"/")+1);
           }
 
           if ($abc && ( $current_depth == 1 ))
           {
             $newletter = strtoupper(substr($linktext,0,1));
-            if (!preg_match("/[".$wacko->language["ALPHA_P"]."]/", $newletter)) { $newletter = "#"; } 
+            if (!preg_match("/[".$wacko->language["ALPHA_P"]."]/", $newletter)) { $newletter = "#"; }
             if ($newletter=='') $newletter = $linktext{0};
             if ( $letter <> $newletter){
               $need_letter = 1; //Напечатать при первом удобном случае
@@ -152,11 +152,11 @@
             }
 
             if ($style=="ul" || $style=="ol") print "<li>";
-            
+
             $_page = $wacko->LoadPage(ltrim($sub_supertag, "/"));
             if ($_page["tag"]) $_tag = $_page["tag"];
             else $_tag = $sub_supertag;
-            
+
             print($wacko->Link("/".$_tag, "", $linktext)."\n");
 
             if ($style=="indent" || $style=="br") print "<br />";
@@ -180,19 +180,19 @@
   if ($root) $root = $this->UnwrapLink($root);
 
   if (!$depth) $depth=0;
-  if (!is_numeric($depth)) $depth=0; 
+  if (!is_numeric($depth)) $depth=0;
   if ($depth==0) $depth=2147483647;//Что значит неограниченно
   if (!$style) $style="indent";
   if (!in_array($style,array("br","ul","ol","indent"))) $style="indent";
 
-   
-  if ($root){ 
+
+  if ($root){
     if (!$nomark){
       $title = $this->GetResourceValue("Tree:ClusterTitle");
       $title = str_replace("%1",  $this->Link("/".$root,"",$root),  $title);
        print("<fieldset><legend>".$title.":</legend>\n");
     }
-    $query = "'".quote($this->NpjTranslit($root))."/%'";
+    $query = "'".quote($this->dblink, $this->NpjTranslit($root))."/%'";
   }else{
     if (!$nomark)  print("<fieldset><legend>".$this->GetResourceValue("Tree:SiteTitle")."</legend>\n");
     $query = "'%'";
@@ -200,7 +200,7 @@
 
   $pages = $this->LoadAll("select ".$this->pages_meta." from ".
            $this->config["table_prefix"]."pages where supertag like ".$query.
-           ($owner?" AND owner='".quote($owner)."'":"").
+           ($owner?" AND owner='".quote($this->dblink, $owner)."'":"").
            " and comment_on = ''");
 
   if ($pages)
@@ -214,7 +214,7 @@
 
     //Составляем строчку запроса для acl
     for ($i=0; $i<count($supertag_list); $i++) {
-       $supertag_str .= "'".quote($supertag_list[$i])."', ";
+       $supertag_str .= "'".quote($this->dblink, $supertag_list[$i])."', ";
     }
     $supertag_str=substr($supertag_str,0,strlen($supertag_str)-2);
 
@@ -235,7 +235,7 @@
 
     //Сортируем в порядке супертагов
     ksort ( $tree_pages_array, SORT_STRING );
-    
+
     $tree = create_cluster_tree($this,"/".$this->NpjTranslit($root),$root,$depth);
 
     print_cluster_tree($this, $tree, $style, 1, $abc, $filter);

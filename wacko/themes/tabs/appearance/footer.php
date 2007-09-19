@@ -12,7 +12,7 @@
         $this->method != "revisions"
                        ) ?>
 
-   
+
 <?php
     // if this page exists
     if ($this->page)
@@ -47,7 +47,7 @@
                        ) ?>
 
 
-   
+
    <div class="TabSpace"><div class="TabText" style="padding-left:10px"><?php
     // if this page exists
     if ($this->page)
@@ -58,7 +58,7 @@
       else
        if ($owner = $this->GetPageOwner())
         print($this->GetResourceValue("Owner").$this->Link($owner));
-       else if (!$this->page["comment_on"]) 
+       else if (!$this->page["comment_on"])
         print($this->GetResourceValue("Nobody").($this->GetUser() ? " (<a href=\"".$this->href("claim")."\">".$this->GetResourceValue("TakeOwnership")."</a>)" : ""));
     }
 ?></div></div>
@@ -78,7 +78,7 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_files") != 1)
   $tag = $this->GetPageTag();
   if (!isset($_SESSION["show_files"][$tag]))
     $_SESSION["show_files"][$tag] = ($this->UserWantsFiles() ? "1" : "0");
-    
+
   switch($_REQUEST["show_files"])
   {
   case "0":
@@ -88,7 +88,7 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_files") != 1)
     $_SESSION["show_files"][$tag] = 1;
     break;
   }
-  
+
   // display files!
   if ($this->page && $_SESSION["show_files"][$tag])
   {
@@ -99,27 +99,27 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_files") != 1)
       <?php echo $this->GetResourceValue("Files_all") ?> [<a href="<?php echo $this->href("", "", "show_files=0")."\">".$this->GetResourceValue("HideFiles"); ?></a>]
     </div>
     <?php
-    
+
     echo "<div class=\"files\">";
     echo $this->Action("files",array("nomark"=>1));
     echo "</div>";
     // display form
     print("<div class=\"filesform\">\n");
     if ($user = $this->GetUser())
-    { 
+    {
       $user = strtolower($this->GetUserName());
       $registered = true;
     }
     else
       $user = "guest@wacko";
 
-    if ($registered 
-        && 
+    if ($registered
+        &&
         (
          ($this->config["upload"] === true) || ($this->config["upload"] == "1") ||
          ($this->CheckACL($user,$this->config["upload"]))
         )
-       )  
+       )
     echo $this->Action("upload",array("nomark"=>1));
     print("</div>\n");
   }
@@ -130,13 +130,13 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_files") != 1)
     <?php
       if ($this->page["id"])
        $files = $this->LoadAll( "select id from ".$this->config["table_prefix"]."upload where ".
-                             " page_id = '". quote($this->page["id"]) ."'");
+                             " page_id = '". quote($this->dblink, $this->page["id"]) ."'");
       else $files = array();
 
       switch (count($files))
       {
       case 0:
-        print($this->GetResourceValue("Files_0"));       
+        print($this->GetResourceValue("Files_0"));
         break;
       case 1:
         print($this->GetResourceValue("Files_1"));
@@ -145,7 +145,7 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_files") != 1)
         print(str_replace("%1",count($files), $this->GetResourceValue("Files_n")));
       }
     ?>
-    
+
     [<a href="<?php echo $this->href("", "", "show_files=1#files")."\">".$this->GetResourceValue("ShowFiles"); ?></a>]
 
     </div>
@@ -159,12 +159,12 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_comments") != 1)
 {
   // load comments for this page
   $comments = $this->LoadComments($this->tag);
-  
+
   // store comments display in session
   $tag = $this->GetPageTag();
   if (!isset($_SESSION["show_comments"][$tag]))
     $_SESSION["show_comments"][$tag] = ($this->UserWantsComments() ? "1" : "0");
-    
+
   switch($_REQUEST["show_comments"])
   {
   case "0":
@@ -174,7 +174,7 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_comments") != 1)
     $_SESSION["show_comments"][$tag] = 1;
     break;
   }
-  
+
   // display comments!
   if ($this->page && $_SESSION["show_comments"][$tag])
   {
@@ -185,7 +185,7 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_comments") != 1)
       <?php echo $this->GetResourceValue("Comments_all") ?> [<a href="<?php echo $this->href("", "", "show_comments=0")."\">".$this->GetResourceValue("HideComments"); ?></a>]
     </div>
     <?php
-    
+
     // display comments themselves
     if ($comments)
     {
@@ -194,7 +194,7 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_comments") != 1)
         print("<a name=\"".$comment["tag"]."\"></a>\n");
         print("<div class=\"comment\">\n");
         $del = "";
-        if ($this->IsAdmin() || $this->UserIsOwner($comment["tag"]) || ($this->GetConfigValue("owners_can_remove_comments") && $this->UserIsOwner($this->GetPageTag()))) 
+        if ($this->IsAdmin() || $this->UserIsOwner($comment["tag"]) || ($this->GetConfigValue("owners_can_remove_comments") && $this->UserIsOwner($this->GetPageTag())))
           print("<div style=\"float:right;\" style='background:#ffcfa8; border: solid 1px; border-color:#cccccc'>".
           "<a href=\"".$this->href("remove",$comment["tag"])."\" title=\"".$this->GetResourceValue("DeleteTip")."\">".
           "<img src=\"".$this->GetConfigValue("theme_url")."icons/del.gif\" hspace=4 vspace=4 title=\"".$this->GetResourceValue("DeleteText")."\"  align=\"absmiddle\" border=\"0\" /></a>".
@@ -204,7 +204,7 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_comments") != 1)
         print("</div>\n");
       }
     }
-    
+
     // display comment form
     print("<div class=\"commentform\">\n");
     if ($this->HasAccess("comment"))
@@ -227,7 +227,7 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_comments") != 1)
       switch (count($comments))
       {
       case 0:
-        print($this->GetResourceValue("Comments_0"));       
+        print($this->GetResourceValue("Comments_0"));
         break;
       case 1:
         print($this->GetResourceValue("Comments_1"));
@@ -236,7 +236,7 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_comments") != 1)
         print(str_replace("%1",count($comments), $this->GetResourceValue("Comments_n")));
       }
     ?>
-    
+
     [<a href="<?php echo $this->href("", "", "show_comments=1#comments")."\">".$this->GetResourceValue("ShowComments"); ?></a>]
 
     </div>

@@ -2,7 +2,7 @@
 
 $str  = "SELECT tag, user ";
 $str .= "FROM ".$this->config["table_prefix"]."pagewatches ";
-$str .= "WHERE user='".quote($this->GetUserName())."'";
+$str .= "WHERE user='".quote($this->dblink, $this->GetUserName())."'";
 
 if ($pages = $this->LoadAll($str))
 {

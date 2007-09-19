@@ -2,13 +2,13 @@
 
 //Primitive DBAL for mysql
 
-function quote($string) 
+function quote($dblink, $string)
 {
  return mysql_escape_string($string);
 }
 
 //All DBALs (mysql excluded) must replace LIMIT with some other instruction.
-function query($query, $dblink="")
+function query($dblink, $query)
 {
   $result = mysql_query($query, $dblink);
   if (mysql_errno())
@@ -19,17 +19,17 @@ function query($query, $dblink="")
   return $result;
 }
 
-function fetch_assoc($rs) 
+function fetch_assoc($rs)
 {
  return mysql_fetch_assoc($rs);
 }
 
-function free_result($rs) 
+function free_result($rs)
 {
  return mysql_free_result($rs);
 }
 
-function connect($host, $user, $passw, $db, $collation = false) 
+function connect($host, $user, $passw, $db, $collation = false)
 {
  if(!extension_loaded("mysql")) dl("mysql.so");
  $dblink = mysql_connect($host, $user, $passw);

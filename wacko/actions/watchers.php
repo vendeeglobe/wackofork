@@ -6,7 +6,7 @@
    $tag = $this->getPageTag();
   if ($this->UserIsOwner($tag)){
 
-    $watchers = $this->LoadAll("select * from ".$this->config["table_prefix"]."pagewatches where tag = '".quote($tag)."'");
+    $watchers = $this->LoadAll("select * from ".$this->config["table_prefix"]."pagewatches where tag = '".quote($this->dblink, $tag)."'");
     if ($watchers){
 
       $title = $this->GetResourceValue("Watchers");

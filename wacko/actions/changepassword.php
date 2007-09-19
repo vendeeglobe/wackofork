@@ -3,7 +3,7 @@
 if ($_REQUEST["secret_code"]){
     //Password forgotten. Provided secret code
     $code = $_REQUEST["secret_code"];
-    $user = $this->LoadSingle("select * from ".$this->config["user_table"]." where changepassword='".quote($code)."'");
+    $user = $this->LoadSingle("select * from ".$this->config["user_table"]." where changepassword='".quote($this->dblink, $code)."'");
     if ($user){
       if ($_REQUEST["newpassword"]){
 
@@ -18,12 +18,12 @@ if ($_REQUEST["secret_code"]){
         else
         {
           $this->Query("update ".$this->config["user_table"]." set ".
-           "password = '".quote(md5($newpassword))."' ".
-           "where name = '".quote($user["name"])."' limit 1");
-     
+           "password = '".quote($this->dblink, md5($newpassword))."' ".
+           "where name = '".quote($this->dblink, $user["name"])."' limit 1");
+
           $this->SetUser($user = $this->LoadUser($user["name"]));
           $this->LogUserIn($user);
-     
+
           // forward
           $this->SetMessage($this->GetResourceValue("PasswordChanged"));
           $this->Redirect($this->href());
@@ -49,8 +49,8 @@ if ($_REQUEST["secret_code"]){
           <tr>
             <td></td>
             <td>
-              <input class="OkBtn" onmouseover='this.className="OkBtn_";' 
-                                   onmouseout ='this.className="OkBtn";' 
+              <input class="OkBtn" onmouseover='this.className="OkBtn_";'
+                                   onmouseout ='this.className="OkBtn";'
                  type="submit" align="top" value="<?php echo $this->GetResourceValue("RegistrationButton"); ?>" /></td>
           </tr>
         </table>
@@ -78,12 +78,12 @@ if ($_REQUEST["secret_code"]){
     else
     {
      $this->Query("update ".$this->config["user_table"]." set ".
-       "password = '".quote(md5($newpassword))."' ".
-       "where name = '".quote($user["name"])."' limit 1");
-     
+       "password = '".quote($this->dblink, md5($newpassword))."' ".
+       "where name = '".quote($this->dblink, $user["name"])."' limit 1");
+
      $this->SetUser($user = $this->LoadUser($user["name"]));
      $this->LogUserIn($user);
-     
+
      // forward
      $this->SetMessage($this->GetResourceValue("PasswordChanged"));
 
@@ -119,8 +119,8 @@ if ($_REQUEST["secret_code"]){
     <tr>
       <td></td>
       <td>
-          <input class="OkBtn" onmouseover='this.className="OkBtn_";' 
-                                 onmouseout ='this.className="OkBtn";' 
+          <input class="OkBtn" onmouseover='this.className="OkBtn_";'
+                                 onmouseout ='this.className="OkBtn";'
                  type="submit" align="top" value="<?php echo $this->GetResourceValue("RegistrationButton"); ?>" /></td>
     </tr>
   </table>
@@ -130,24 +130,24 @@ if ($_REQUEST["secret_code"]){
 }else{
   if ($_REQUEST["action"] == "send")
   {
-    
+
     //Password forgotten. Send mail
-    $name = str_replace(" ","", $_POST["loginormail"]);    
-    $user = $this->LoadSingle("select * from ".$this->config["user_table"]." where  name='".quote($name)."'  or  email='".quote($name)."'");
+    $name = str_replace(" ","", $_POST["loginormail"]);
+    $user = $this->LoadSingle("select * from ".$this->config["user_table"]." where  name='".quote($this->dblink, $name)."'  or  email='".quote($this->dblink, $name)."'");
     if ($user){
       if ($user["email_confirm"]==""){
 
         $code = md5(date("D d M Y H:i:s").$user["email"].rand());
 
         $this->Query("update ".$this->config["user_table"]." set ".
-          "changepassword = '".quote(quote($code))."' ".
-          "where name = '".quote($user["name"])."' limit 1");
+          "changepassword = '".quote($this->dblink, $code)."' ".
+          "where name = '".quote($this->dblink, $user["name"])."' limit 1");
 
         $subject = $this->GetResourceValue("Mail.ForgotSubject").$this->GetConfigValue("wakka_name");
         $message = $this->GetResourceValue("MailHello"). $name.".<br /> <br /> ";
-        $message.= str_replace('%1', $this->GetConfigValue("wakka_name"), 
-                   str_replace('%2', $user["name"], 
-                   str_replace('%3', $this->Href().($this->config["rewrite_mode"] ? "?" : "&amp;")."secret_code=".$code, 
+        $message.= str_replace('%1', $this->GetConfigValue("wakka_name"),
+                   str_replace('%2', $user["name"],
+                   str_replace('%3', $this->Href().($this->config["rewrite_mode"] ? "?" : "&amp;")."secret_code=".$code,
                     $this->GetResourceValue("Mail.ForgotMessage"))))."<br />  ";
         $message.= "<br />".$this->GetResourceValue("MailGoodbye")." ".$this->GetConfigValue("wakka_name");
         $this->SendMail($user["email"], $subject, $message);
@@ -179,7 +179,7 @@ if ($_REQUEST["secret_code"]){
       <td colspan="2" align="center"><?php echo $error; ?><br /></td>
     </tr>
 <?php
-     
+
     }
 ?>
     <tr>
@@ -192,8 +192,8 @@ if ($_REQUEST["secret_code"]){
     <tr>
       <td></td>
       <td>
-          <input class="OkBtn" onmouseover='this.className="OkBtn_";' 
-                                 onmouseout ='this.className="OkBtn";' 
+          <input class="OkBtn" onmouseover='this.className="OkBtn_";'
+                                 onmouseout ='this.className="OkBtn";'
                  type="submit" align="top" value="<?php echo $this->GetResourceValue("SendButton"); ?>" /></td>
     </tr>
     </table>

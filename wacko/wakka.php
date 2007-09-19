@@ -46,11 +46,15 @@ if (strstr($_SERVER["SERVER_SOFTWARE"], "IIS")) $_SERVER["REQUEST_URI"] = $_SERV
 
 // default configuration values
 $wakkaDefaultConfig = array(
-  "mysql_host"      => "localhost",
-  "mysql_database"    => "wakka",
-  "mysql_user"      => "wakka",
-  "table_prefix"      => "wakka_",
-  "cookie_prefix"      => "wakka_",
+  "database_driver" => "",
+  "database_host"      => "localhost",
+  "database_port" => "",
+  "database_database"    => "wacko",
+  "database_user"      => "wacko",
+  "database_password" => "",
+
+  "table_prefix"      => "wacko_",
+  "cookie_prefix"      => "wacko_",
 
   "root_page"       => "HomePage",
   "wakka_name"      => "MyWackoSite",
@@ -224,11 +228,24 @@ if ($p === false) {
  }
 }
 
-// load dbal
-if (!isset( $wakkaConfig["db_layer"] )) $wakkaConfig["db_layer"] = "mysql";
-$dbfile = "db/".$wakkaConfig["db_layer"].".php";
+// Load the correct database connector
+if (!isset( $wakkaConfig["database_driver"] )) $wakkaConfig["database_driver"] = "mysql";
+
+switch($wakkaConfig["database_driver"])
+   {
+      case "mysql_legacy":
+         $dbfile = "db/mysql.php";
+         break;
+      case "mysqli_legacy":
+         $dbfile = "db/mysqli.php";
+         break;
+      default:
+         $dbfile = "db/pdo.php";
+         break;
+   }
+
 if (@file_exists($dbfile)) include($dbfile);
-else die("Error loading DBAL.");
+else die("Error loading Database Connector.");
 
 // cache!
 require("classes/cache.php");
@@ -281,10 +298,4 @@ if ($wacko->GetConfigValue("debug")>=1 && strpos($method,".xml")===false && $met
 }
 if (strpos($method,".xml")===false)
  echo "</body></html>";
-
-//spesta - del in release
-//$s_addurl="stat/";
-//@include ($s_addurl."counter.php");
-
-
 ?>

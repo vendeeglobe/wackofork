@@ -1,5 +1,5 @@
 <?php
-  
+
   $file404 = "images/upload404.gif";
   $file403 = "images/upload403.gif";
 
@@ -8,16 +8,16 @@
   else                 $page_id=$this->page["id"];
 
   $what = $this->LoadAll( "select user, id, filename, filesize, description from ".$this->config["table_prefix"]."upload where ".
-                          "page_id = '".quote($page_id)."' and filename='".quote($_GET["get"])."'");
+                          "page_id = '".quote($this->dblink, $page_id)."' and filename='".quote($this->dblink, $_GET["get"])."'");
 
   if (sizeof($what) > 0)
   {
     // 2. check rights
       if ($this->IsAdmin() || ($desc["id"] && ($this->GetPageOwner($this->tag) == $this->GetUserName())) ||
-          ($this->HasAccess("read")) || ($desc["user"] == $this->GetUserName()) )    
+          ($this->HasAccess("read")) || ($desc["user"] == $this->GetUserName()) )
       {
         $filepath = $this->config["upload_path".($page_id?"_per_page":"")]."/".
-                    ($page_id?("@".str_replace("/","@",$this->supertag)."@"):"").  
+                    ($page_id?("@".str_replace("/","@",$this->supertag)."@"):"").
                     $what[0]["filename"];
       }
       else $error=403;
@@ -33,7 +33,7 @@
   {
     $isimage = true;
     header("Content-Type: image/jpeg");
-    if ($error) 
+    if ($error)
     {
       $filepath = "images/upload".$error.".gif";
 //      header("HTTP/1.0 404 Not Found");

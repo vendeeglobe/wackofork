@@ -1,17 +1,17 @@
 <!--notypo-->
 <?php
   // user is not logged in or logged in -- nomatter
-  
+
   // is user trying to confirm email, login or register?
   if ($_REQUEST["confirm"])
   {
     if ($this->LoadSingle("select * from ".$this->config["user_table"]." where email_confirm = '".
-                  quote($_REQUEST["confirm"])."'"))
+                  quote($this->dblink, $_REQUEST["confirm"])."'"))
     {
       $this->Query("UPDATE ".$this->config["user_table"]." SET email_confirm = '' WHERE email_confirm = '".
-                  quote($_REQUEST["confirm"])."'");
+                  quote($this->dblink, $_REQUEST["confirm"])."'");
       echo "<br /><br /><center>".$this->GetResourceValue("EmailConfirmed")."</center><br /><br />";
-    } 
+    }
     else
       echo "<br /><br /><center>".$this->GetResourceValue("EmailNotConfirmed")."</center><br /><br />";
   }
@@ -45,21 +45,21 @@
 
         $this->Query("insert into ".$this->config["user_table"]." set ".
           "signuptime = now(), ".
-          "name = '".quote($name)."', ".
-          "email = '".quote($email)."', ".
-          "email_confirm = '".quote($confirm)."', ".
-          "bookmarks = '".quote($this->GetDefaultBookmarks($lang))."', ".
+          "name = '".quote($this->dblink, $name)."', ".
+          "email = '".quote($this->dblink, $email)."', ".
+          "email_confirm = '".quote($this->dblink, $confirm)."', ".
+          "bookmarks = '".quote($this->dblink, $this->GetDefaultBookmarks($lang))."', ".
           "typografica = '".(($this->config["default_typografica"]==1)?"Y":"N")."', ".
           "showdatetime = '".(($this->config["default_showdatetime"]==1)?"Y":"N")."', ".
-          "more = '".quote($more)."', ".
-          ($lang?"lang = '".quote($lang)."', ":"").
-          "password = md5('".quote($_POST["password"])."')");
+          "more = '".quote($this->dblink, $more)."', ".
+          ($lang?"lang = '".quote($this->dblink, $lang)."', ":"").
+          "password = md5('".quote($this->dblink, $_POST["password"])."')");
 
         $subject = $this->GetResourceValue("Mail.Welcome").$this->GetConfigValue("wakka_name");
         $message = $this->GetResourceValue("MailHello"). $name.".<br /> <br /> ";
-        $message.= str_replace('%1', $this->GetConfigValue("wakka_name"), 
-                   str_replace('%2', $name, 
-                   str_replace('%3', $this->Href().($this->config["rewrite_mode"] ? "?" : "&amp;")."confirm=".$confirm, 
+        $message.= str_replace('%1', $this->GetConfigValue("wakka_name"),
+                   str_replace('%2', $name,
+                   str_replace('%3', $this->Href().($this->config["rewrite_mode"] ? "?" : "&amp;")."confirm=".$confirm,
                     $this->GetResourceValue("Mail.Registered"))))."<br />  ";
         $message.= "<br />".$this->GetResourceValue("MailGoodbye")." ".$this->GetConfigValue("wakka_name");
         $this->SendMail($email, $subject, $message);
@@ -90,14 +90,14 @@
     {
       print("<tr><td colspan=\"2\" align=\"center\"><div class=\"error\">".$this->Format($error)."</div></td></tr>\n");
     }
-    if ($this->GetConfigValue("multilanguage")) 
+    if ($this->GetConfigValue("multilanguage"))
     {
     ?>
     <tr>
       <td align="right"><?php echo $this->FormatResourceValue("RegistrationLang");?>:</td>
       <td><select name="lang">
       <option value=""></option>
-      <?php 
+      <?php
       $langs = $this->AvailableLanguages();
       for ($i=0;$i<count($langs);$i++)
         echo '<option value="'.$langs[$i].'">'.$langs[$i].'</option>';
@@ -127,8 +127,8 @@
     <tr>
       <td></td>
       <td>
-          <input class="OkBtn" onmouseover='this.className="OkBtn_";' 
-                                 onmouseout ='this.className="OkBtn";' 
+          <input class="OkBtn" onmouseover='this.className="OkBtn_";'
+                                 onmouseout ='this.className="OkBtn";'
                  type="submit" align="top" value="<?php echo $this->GetResourceValue("RegistrationButton"); ?>" /></td>
     </tr>
   </table>

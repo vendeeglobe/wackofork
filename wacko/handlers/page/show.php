@@ -18,17 +18,17 @@ if ($this->HasAccess("read"))
     if ($this->page["latest"] == "N")
     {
       print("<div class=\"revisioninfo\">".
-        str_replace("%1",$this->href(), 
+        str_replace("%1",$this->href(),
           str_replace("%2",$this->GetPageTag(),
-            str_replace("%3",$this->page["time"], 
+            str_replace("%3",$this->page["time"],
               $this->GetResourceValue("Revision")))).".</div>");
     }
 
-    $this->Query("UPDATE ".$this->config["table_prefix"]."pages SET hits=hits+1 WHERE supertag='".quote($this->GetPageSuperTag())."'");
+    $this->Query("UPDATE ".$this->config["table_prefix"]."pages SET hits=hits+1 WHERE supertag='".quote($this->dblink, $this->GetPageSuperTag())."'");
 
     $this->SetLanguage($this->pagelang);
-    if (($this->page["body_r"] == "") || 
-        (($this->page["body_toc"] == "") && $this->GetConfigValue("paragrafica"))) 
+    if (($this->page["body_r"] == "") ||
+        (($this->page["body_toc"] == "") && $this->GetConfigValue("paragrafica")))
     {
       $this->page["body_r"] = $this->Format($this->page["body"], "wacko");
       if ($this->GetConfigValue("paragrafica"))
@@ -39,9 +39,9 @@ if ($this->HasAccess("read"))
       // store to DB
       if ($this->page["latest"] != "N")
        $this->Query("update ".$this->config["table_prefix"]."pages set ".
-         "body_r = '".quote($this->page["body_r"])."', ".
-         "body_toc = '".quote($this->page["body_toc"])."' ".
-         "where id = '".quote($this->page["id"])."' LIMIT 1");
+         "body_r = '".quote($this->dblink, $this->page["body_r"])."', ".
+         "body_toc = '".quote($this->dblink, $this->page["body_toc"])."' ".
+         "where id = '".quote($this->dblink, $this->page["id"])."' LIMIT 1");
     }
 
     // display page
@@ -86,7 +86,7 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_files") != 1)
   $tag = $this->GetPageTag();
   if (!isset($_SESSION["show_files"][$tag]))
     $_SESSION["show_files"][$tag] = ($this->UserWantsFiles() ? "1" : "0");
-    
+
   switch($_REQUEST["show_files"])
   {
   case "0":
@@ -96,7 +96,7 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_files") != 1)
     $_SESSION["show_files"][$tag] = 1;
     break;
   }
-  
+
   // display files!
   if ($this->page && $_SESSION["show_files"][$tag])
   {
@@ -107,27 +107,27 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_files") != 1)
       <?php echo $this->GetResourceValue("Files_all") ?> [<a href="<?php echo $this->href("", "", "show_files=0")."\">".$this->GetResourceValue("HideFiles"); ?></a>]
     </div>
     <?php
-    
+
     echo "<div class=\"files\">";
     echo $this->Action("files",array("nomark"=>1));
     echo "</div>";
     // display form
     print("<div class=\"filesform\">\n");
     if ($user = $this->GetUser())
-    { 
+    {
       $user = strtolower($this->GetUserName());
       $registered = true;
     }
     else
       $user = "guest@wacko";
 
-    if ($registered 
-        && 
+    if ($registered
+        &&
         (
          ($this->config["upload"] === true) || ($this->config["upload"] == "1") ||
          ($this->CheckACL($user,$this->config["upload"]))
         )
-       )  
+       )
     echo $this->Action("upload",array("nomark"=>1));
     print("</div>\n");
   }
@@ -138,13 +138,13 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_files") != 1)
     <?php
       if ($this->page["id"])
        $files = $this->LoadAll( "select id from ".$this->config["table_prefix"]."upload where ".
-                             " page_id = '". quote($this->page["id"]) ."'");
+                             " page_id = '". quote($this->dblink, $this->page["id"]) ."'");
       else $files = array();
 
       switch (count($files))
       {
       case 0:
-        print($this->GetResourceValue("Files_0"));       
+        print($this->GetResourceValue("Files_0"));
         break;
       case 1:
         print($this->GetResourceValue("Files_1"));
@@ -153,7 +153,7 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_files") != 1)
         print(str_replace("%1",count($files), $this->GetResourceValue("Files_n")));
       }
     ?>
-    
+
     [<a href="<?php echo $this->href("", "", "show_files=1#files")."\">".$this->GetResourceValue("ShowFiles"); ?></a>]
 
     </div>
@@ -169,12 +169,12 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_comments") != 1)
 {
   // load comments for this page
   $comments = $this->LoadComments($this->tag);
-  
+
   // store comments display in session
   $tag = $this->GetPageTag();
   if (!isset($_SESSION["show_comments"][$tag]))
     $_SESSION["show_comments"][$tag] = ($this->UserWantsComments() ? "1" : "0");
-    
+
   switch($_REQUEST["show_comments"])
   {
   case "0":
@@ -184,7 +184,7 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_comments") != 1)
     $_SESSION["show_comments"][$tag] = 1;
     break;
   }
-  
+
   // display comments!
   if ($this->page && $_SESSION["show_comments"][$tag])
   {
@@ -195,7 +195,7 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_comments") != 1)
       <?php echo $this->GetResourceValue("Comments_all") ?> [<a href="<?php echo $this->href("", "", "show_comments=0")."\">".$this->GetResourceValue("HideComments"); ?></a>]
     </div>
     <?php
-    
+
     // display comments themselves
     if ($comments)
     {
@@ -205,7 +205,7 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_comments") != 1)
         print("<a name=\"".$comment["tag"]."\"></a>\n");
         print("<div class=\"comment\">\n");
         $del = "";
-        if ($this->IsAdmin() || $this->UserIsOwner($comment["tag"]) || ($this->GetConfigValue("owners_can_remove_comments") && $this->UserIsOwner($this->GetPageTag()))) 
+        if ($this->IsAdmin() || $this->UserIsOwner($comment["tag"]) || ($this->GetConfigValue("owners_can_remove_comments") && $this->UserIsOwner($this->GetPageTag())))
           print("<a href=\"".$this->href("remove",$comment["tag"])."\"><img src=\"".$this->GetConfigValue("theme_url")."icons/1del.gif\" hspace=4 vspace=4 title=\"".$this->GetResourceValue("DeleteTip")."\" alt=\"".$this->GetResourceValue("DeleteText")."\"  align=\"right\" border=\"0\" /></a>");
         if ($comment["body_r"]) $strings = $comment["body_r"];
         else $strings = $this->Format($comment["body"], "wacko");
@@ -214,7 +214,7 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_comments") != 1)
         print("</div>\n");
       }
     }
-    
+
     // display comment form
     print("<div class=\"commentform\">\n");
     if ($this->HasAccess("comment"))
@@ -237,7 +237,7 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_comments") != 1)
       switch (count($comments))
       {
       case 0:
-        print($this->GetResourceValue("Comments_0"));       
+        print($this->GetResourceValue("Comments_0"));
         break;
       case 1:
         print($this->GetResourceValue("Comments_1"));
@@ -246,7 +246,7 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_comments") != 1)
         print(str_replace("%1",count($comments), $this->GetResourceValue("Comments_n")));
       }
     ?>
-    
+
     [<a href="<?php echo $this->href("", "", "show_comments=1#comments")."\">".$this->GetResourceValue("ShowComments"); ?></a>]
 
     </div>

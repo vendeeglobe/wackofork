@@ -2,7 +2,7 @@
 /*
    Showing uploaded by {{upload}} files
 
-   {{Files 
+   {{Files
      [param0="PageName" or global=1]
      [order="time|FILENAME|size|size_desc|ext"]
      [owner="UserName"]
@@ -15,8 +15,8 @@
   if ($order == "size_desc") $orderby = "filesize DESC";
   if ($order == "ext") $orderby = "file_ext ASC";
 
-  if ($owner) $user_add = "and user='".quote($owner)."' ";
-  else        $user_add = ""; 
+  if ($owner) $user_add = "and user='".quote($this->dblink, $owner)."' ";
+  else        $user_add = "";
 
   // do we allowed to see?
   if (!$global)
@@ -25,7 +25,7 @@
     else                $vars[0] = $this->UnwrapLink($vars[0]);
     $can_view   = $this->HasAccess("read",$vars[0]) || $this->IsAdmin() || $this->UserIsOwner($vars[0]);
     $can_delete = $this->IsAdmin() || $this->UserIsOwner($vars[0]);
-  } else 
+  } else
   {
     $can_view = 1;
     $vars[0] = $this->tag;
@@ -33,7 +33,7 @@
 
   if ($can_view)
   {
-    
+
     if ($global || ($tag == $vars[0])) $filepage = $this->page;
     else $filepage = $this->LoadPage($vars[0]);
     if (!$global && !$filepage["id"]) return;
@@ -80,7 +80,7 @@
       $link = $this->Link($path2.$filename, "", $filename );
 
       if ($this->IsAdmin() || (!$is_global && ($this->GetPageOwner($vars[0]) == $this->GetUserName()))
-                           || ($file["user"]                                 == $this->GetUserName()))    
+                           || ($file["user"]                                 == $this->GetUserName()))
        $remove_mode=1;
       else $remove_mode=0;
 

@@ -1,12 +1,12 @@
 <?php
 
 if (!function_exists('LoadRecentComments')){
-  function LoadRecentComments(&$wacko, $for = "", $limit = 50) 
-  { 
-    return 
+  function LoadRecentComments(&$wacko, $for = "", $limit = 50)
+  {
+    return
      $wacko->LoadAll("select ".$wacko->pages_meta." from ".$wacko->config["table_prefix"]."pages where ".
-                    ($for?"super_comment_on like '".quote($wacko->NpjTranslit($for))."/%' ":"comment_on != '' ").
-                    "AND latest = 'Y' order by time desc LIMIT ".(int)$limit); 
+                    ($for?"super_comment_on like '".quote($this->dblink, $wacko->NpjTranslit($for))."/%' ":"comment_on != '' ").
+                    "AND latest = 'Y' order by time desc LIMIT ".(int)$limit);
   }
 }
 
@@ -31,7 +31,7 @@ if ($comments = LoadRecentComments($this, $root, (int)$max))
         print("<strong>$day:</strong><br />\n");
         $curday = $day;
       }
-  
+
       // print entry
       print("&nbsp;&nbsp;&nbsp;(".$comment["time"].") <a href=\"".$this->href("", $comment["comment_on"], "show_comments=1")."#".$comment["tag"]."\">".$comment["comment_on"]."</a> . . . . <small>".
            ($this->IsWikiName($comment["user"])?$this->Link("/".$comment["user"],"",$comment["user"]):$comment["user"])."</small><br />\n");

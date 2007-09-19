@@ -6,9 +6,9 @@ if ($this->UserIsOwner())
   if ($_POST)
   {
    $pages = $this->LoadAll("select ".$this->pages_meta." from ".
-            $this->config["table_prefix"]."pages where (supertag = '".quote($this->tag)."'".
-            " OR supertag like '".quote($this->tag."/%")."')".
-            " AND owner='".quote($this->GetUserName())."'".
+            $this->config["table_prefix"]."pages where (supertag = '".quote($this->dblink, $this->tag)."'".
+            " OR supertag like '".quote($this->dblink, $this->tag."/%")."')".
+            " AND owner='".quote($this->dblink, $this->GetUserName())."'".
             " and comment_on = ''");
    foreach ($pages as $num=>$page)
    {
@@ -39,7 +39,7 @@ if ($this->UserIsOwner())
     ?>
     <h3><?php echo str_replace("%1",$this->Link("/".$this->GetPageTag()),$this->GetResourceValue("ACLForCluster")); ?></h3>
     <br />
-    
+
     <?php echo $this->FormOpen("massacls") ?>
     <table border="0" cellspacing="0" cellpadding="0">
       <tr>
@@ -76,12 +76,12 @@ if ($this->UserIsOwner())
       <tr>
         <td colspan="3">
           <br />
-          <input class="OkBtn" onmouseover='this.className="OkBtn_";' 
+          <input class="OkBtn" onmouseover='this.className="OkBtn_";'
              onmouseout ='this.className="OkBtn";' onclick='return confirm("<?php echo $this->GetResourceValue("ACLAreYouSure"); ?>")'
                  type="submit" align="top" value="<?php echo $this->GetResourceValue("ACLStoreButton"); ?>" style="width: 120px" />
           <img src="<?php echo $this->GetConfigValue("root_url");?>images/z.gif" width="100" height="1" alt="" border="0" />
-          <input class="CancelBtn" onmouseover='this.className="CancelBtn_";' 
-                                     onmouseout ='this.className="CancelBtn";' 
+          <input class="CancelBtn" onmouseover='this.className="CancelBtn_";'
+                                     onmouseout ='this.className="CancelBtn";'
                  type="button" align="top" value="<?php echo $this->GetResourceValue("ACLCancelButton"); ?>" onclick="history.back();" style="width: 120px" />
         </td>
       </tr>

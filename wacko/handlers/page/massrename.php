@@ -67,13 +67,13 @@ function RecursiveMove(&$parent, $root)
   $new_root = trim($_POST["newname"], "/");
 
   if($root == "/" )  exit; // кто и куда собрался перемещать корень???
-  
-  $query = "'".quote($parent->NpjTranslit($root))."%'";
+
+  $query = "'".quote($parent->dblink, $parent->NpjTranslit($root))."%'";
   $pages = $parent->LoadAll("select ".$parent->pages_meta." from ".
            $parent->config["table_prefix"]."pages where supertag like ".$query.
-           ($owner?" AND owner='".quote($owner)."'":"").
+           ($owner?" AND owner='".quote($parent->dblink, $owner)."'":"").
            " and comment_on = ''");
-  foreach( $pages as $page ) 
+  foreach( $pages as $page )
   {
     $new_name = str_replace( $root, $new_root, $page["tag"] );
     Move( $parent, $page, $new_name );
@@ -84,7 +84,7 @@ function Move(&$parent, $OldPage, $NewName )
 {
 //     $NewName = trim($_POST["newname"], "/");
   $user = $parent->GetUser();
-  if (($parent->CheckACL($user,$parent->config["rename_globalacl"]) 
+  if (($parent->CheckACL($user,$parent->config["rename_globalacl"])
      || strtolower($parent->GetPageOwner($OldPage["tag"])) == $user))
   {
      $supernewname = $parent->NpjTranslit($NewName);
@@ -105,7 +105,7 @@ function Move(&$parent, $OldPage, $NewName )
       }
       else
       {// Rename page
-        
+
         $need_redirect = 0;
         if ($_POST["redirect"]=="on")  $need_redirect = 1;
 
@@ -127,9 +127,9 @@ function Move(&$parent, $OldPage, $NewName )
 
         if ($parent->RenameComments($OldPage["tag"], $NewName, $supernewname))
           print("\n");
-        
-        $parent->ClearCacheWantedPage($NewName);  
-        $parent->ClearCacheWantedPage($supernewname);  
+
+        $parent->ClearCacheWantedPage($NewName);
+        $parent->ClearCacheWantedPage($supernewname);
 
         if ($need_redirect==1)
         {
@@ -139,13 +139,13 @@ function Move(&$parent, $OldPage, $NewName )
           if ($parent->SavePage($OldPage["tag"], "{{Redirect page=\"/".$NewName."\"}}"))
            print(str_replace("%1",$OldPage["tag"],$parent->GetResourceValue("RedirectCreated"))."<br />\n");
 
-          $parent->ClearCacheWantedPage($OldPage["tag"]);  
-          $parent->ClearCacheWantedPage($OldPage["supertag"]);  
+          $parent->ClearCacheWantedPage($OldPage["tag"]);
+          $parent->ClearCacheWantedPage($OldPage["supertag"]);
         }
 
         print("<br />".$parent->GetResourceValue("NewNameOfPage").$parent->Link("/".$NewName));
-          
+
        }
      }
   }
-} 
+}

@@ -1,11 +1,11 @@
 <?php
 
-function quote($dblink,$string)
+function quote($dblink, $string)
    {
       return mysqli_escape_string($dblink, $string);
    }
 
-function query($query, $dblink="")
+function query($dblink, $query)
    {
       $result = mysqli_query($dblink, $query);
       if (mysqli_connect_errno())

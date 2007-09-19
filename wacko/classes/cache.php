@@ -12,7 +12,7 @@ class Cache
  {
   $this->cache_dir = $cache_dir;
   $this->cache_ttl = $cache_ttl;
-  $this->timer = $this->GetMicroTime(); 
+  $this->timer = $this->GetMicroTime();
  }
 
  //Get content from cache
@@ -25,7 +25,7 @@ class Cache
     return false;
   $fp = fopen ($filename, "r");
   $contents = fread ($fp, filesize ($filename));
-  fclose ($fp); 
+  fclose ($fp);
   return $contents;
  }
 
@@ -44,10 +44,10 @@ class Cache
   $filename = $this->ConstructID($page, $method, $query);
   if (!@file_exists($filename))
     return false;
-  
+
   if ((time()-@filemtime($filename)) > $this->cache_ttl)
     return false;
-  
+
   return @filemtime($filename);
  }
 
@@ -61,11 +61,11 @@ class Cache
   $filename = $this->ConstructID($page, $method, $query);
   $fp = fopen ($filename, "w");
   fputs ($fp, $data);
-  fclose ($fp); 
+  fclose ($fp);
   if ($this->wacko) $this->wacko->Query("insert into ".$this->wacko->config["table_prefix"]."cache set ".
-   "name  ='".quote(md5($page))."', ".
-   "method='".quote($method)."', ".
-   "query ='".quote($query)."'");
+   "name  ='".quote($this->dblink, md5($page))."', ".
+   "method='".quote($this->dblink, $method)."', ".
+   "query ='".quote($this->dblink, $query)."'");
   @chmod($newname, octdec('0777'));
   return true;
  }
@@ -73,12 +73,12 @@ class Cache
  //Invalidate the cache
  function CacheInvalidate($page)
  {
-   if ($this->wacko) 
+   if ($this->wacko)
    {
      $page = strtolower(str_replace("\\", "", str_replace("'", "", str_replace("_", "", $page))));
      $this->Log("CacheInvalidate page=".$page);
-     $this->Log("CacheInvalidate query="."select * from ".$this->wacko->config["table_prefix"]."cache where name ='".quote(md5($page))."'");
-     $params = $this->wacko->LoadAll("select * from ".$this->wacko->config["table_prefix"]."cache where name ='".quote(md5($page))."'");
+     $this->Log("CacheInvalidate query="."select * from ".$this->wacko->config["table_prefix"]."cache where name ='".quote($this->dblink, md5($page))."'");
+     $params = $this->wacko->LoadAll("select * from ".$this->wacko->config["table_prefix"]."cache where name ='".quote($this->dblink, md5($page))."'");
      $this->Log("CacheInvalidate count params=".count($params));
      foreach ($params as $param)
      {
@@ -87,7 +87,7 @@ class Cache
        if (@file_exists($filename))
          @unlink($filename);
      }
-     $this->wacko->Query("delete from ".$this->wacko->config["table_prefix"]."cache where name ='".quote(md5($page))."'");
+     $this->wacko->Query("delete from ".$this->wacko->config["table_prefix"]."cache where name ='".quote($this->dblink, md5($page))."'");
      $this->Log("CacheInvalidate end");
      return true;
    }
@@ -100,7 +100,7 @@ class Cache
   {
    $fp = fopen ($this->cache_dir."log", "a");
    fputs ($fp, $msg."\n");
-   fclose ($fp); 
+   fclose ($fp);
   }
  }
 
@@ -130,7 +130,7 @@ class Cache
    {
 
    $this->Log("CheckHttpRequest incache mtime=".$mtime);
-   
+
      $gmt = gmdate('D, d M Y H:i:s \G\M\T', $mtime);
      $etag = $_SERVER["HTTP_IF_NONE_MATCH"];
      $lastm = $_SERVER["HTTP_IF_MODIFIED_SINCE"];
@@ -160,19 +160,19 @@ class Cache
        echo ($cached);
 
        // how much time script take
-       if ($this->debug>=1 && strpos($method,".xml")===false) 
+       if ($this->debug>=1 && strpos($method,".xml")===false)
        {
         $ddd = $this->GetMicroTime();
         echo ("<div style='margin:5px 20px; color:#999999'><small>cache time: ".(number_format(($ddd-$this->timer),3))." s<br />");
         echo "</small></div>";
        }
-       if (strpos($method,".xml")===false) 
+       if (strpos($method,".xml")===false)
          echo "</body></html>";
 
        die();
      }
    }
-   
+
    //We have no valid cached page
    $this->page = $page;
    $this->method = $method;

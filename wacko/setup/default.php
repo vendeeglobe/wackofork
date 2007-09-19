@@ -4,42 +4,69 @@ if (!$wakkaConfig["wakka_version"])
 {
 ?>
 <script language="JavaScript" type="text/javascript">
-function check() {
-var f = document.forms.form1;
-var re;
-re = new RegExp("^[A-Z][a-z]+[A-Z0-9][A-Za-z0-9]*$");
-if (f.elements["config[admin_name]"].value.search(re)==-1) {
- alert('<?php echo $lang["incorrect wikiname"];?>');
- return false;
-}
-re = new RegExp("[a-zA-Z0-9_\-]+@[a-zA-Z0-9_\-]+\.[a-zA-Z]+", "i");
-if (f.elements["config[admin_email]"].value.search(re)==-1) {
- alert('<?php echo $lang["incorrect email"];?>');
- return false;
-}
-if (f.elements["password"].value.length<5) {
- alert('<?php echo $lang["password too short"];?>');
- return false;
-}
-if (f.elements["password"].value!=f.elements["password2"].value) {
- alert('<?php echo $lang["passwords don't match"];?>');
- return false;
-}
+   function check()
+      {
+         var f = document.forms.form1;
+         var re;
+         re = new RegExp("^[A-Z][a-z]+[A-Z0-9][A-Za-z0-9]*$");
 
-if (f.elements["config[base_url]"].value.indexOf( "?" ) != -1)
-  if (f.elements["config[rewrite_mode]"].value != 0)
-    if (!confirm('<?php echo addcslashes($lang["RewriteModeAlert"],"\n"); ?>'))
-    return false;
+         if(!f.elements["config[database_driver]"][0].checked &&
+            !f.elements["config[database_driver]"][1].checked &&
+            !f.elements["config[database_driver]"][2].checked &&
+            !f.elements["config[database_driver]"][3].checked &&
+            !f.elements["config[database_driver]"][4].checked &&
+            !f.elements["config[database_driver]"][5].checked &&
+            !f.elements["config[database_driver]"][6].checked &&
+            !f.elements["config[database_driver]"][7].checked &&
+            !f.elements["config[database_driver]"][8].checked &&
+            !f.elements["config[database_driver]"][9].checked &&
+            !f.elements["config[database_driver]"][10].checked)
+            {
+               alert('<?php echo $lang["no database driver selected"];?>');
+               return false;
+            }
 
-return true;
-}
+         if (f.elements["config[admin_name]"].value.search(re) == -1)
+            {
+               alert('<?php echo $lang["incorrect wikiname"];?>');
+               return false;
+            }
+
+         re = new RegExp("[a-zA-Z0-9_\-]+@[a-zA-Z0-9_\-]+\.[a-zA-Z]+", "i");
+
+         if (f.elements["config[admin_email]"].value.search(re)==-1)
+            {
+               alert('<?php echo $lang["incorrect email"];?>');
+               return false;
+            }
+
+         if (f.elements["password"].value.length<5)
+            {
+               alert('<?php echo $lang["password too short"];?>');
+               return false;
+            }
+
+         if (f.elements["password"].value!=f.elements["password2"].value)
+            {
+               alert('<?php echo $lang["passwords don't match"];?>');
+               return false;
+            }
+
+         if (f.elements["config[base_url]"].value.indexOf( "?" ) != -1)
+
+         if (f.elements["config[rewrite_mode]"].value != 0)
+            if (!confirm('<?php echo addcslashes($lang["RewriteModeAlert"],"\n"); ?>'))
+               return false;
+
+         return true;
+   }
 </script>
 <?php } else {?>
 <script language="JavaScript">
-function check() {
- return true;
-}
-
+   function check()
+      {
+         return true;
+      }
 </script>
 <?php } ?>
 <form action="<?php echo myLocation() ?>?installAction=install" name="form1" method="post">
@@ -49,35 +76,51 @@ function check() {
  <tr><td></td><td><strong><?php echo $lang["title"];?></strong></td></tr>
 
  <?php
- if ($wakkaConfig["wakka_version"])
- {
+   if ($wakkaConfig["wakka_version"])
+      {
          print("<tr><td></td><td>".$lang["installed"].($wakkaConfig["wacko_version"]?$wakkaConfig["wacko_version"]:$wakkaConfig["wakka_version"]).". ".$lang["toUpgrade"].WACKO_VERSION.". ".$lang["review"]."</td></tr>\n");
          print("<tr><td></td><td class='warning'>".$lang["PleaseBackup"]."</td></tr>\n");
- }
- else
- {
+      }
+   else
+      {
          print("<tr><td></td><td>".$lang["fresh"].WACKO_VERSION.". ".$lang["pleaseConfigure"]."</td></tr>\n");
- }
+      }
  ?>
 
  <tr><td></td><td><br /><?php echo $lang["note"];?></td></tr>
-
 <?php
- if (!$wakkaConfig["wakka_version"])
- {
+   if (!$wakkaConfig["wakka_version"])
+      {
 ?>
  <tr><td></td><td><br /><strong><?php echo $lang["databaseConf"];?></strong></td></tr>
- <tr><td></td><td><?php echo $lang["mysqlHostDesc"];?></td></tr>
- <tr><td align="right" nowrap><?php echo $lang["mysqlHost"];?>:</td><td><input type="text" size="50" name="config[mysql_host]" value="<?php echo $wakkaConfig["mysql_host"] ?>" /></td></tr>
+
+<?php
+         // If none of the PHP SQL extensions are loaded then let the user know there is a problem
+         if(!extension_loaded("mysql") && !extension_loaded("mysqli") && !extension_loaded("pdo"))
+            {
+               // We don't dl("mysql.so"); anymore since PHP5 and PHP6 have deprecated this
+               print("<tr><td></td><td class='warning'>".$lang["NoDatabaseDriverDetected"]."</td></tr>\n");
+            }
+         else
+            {
+?>
+ <tr><td></td><td><?php echo $lang["databaseDriverDesc"];?></td></tr>
+ <tr><td align="right" nowrap style="vertical-align: top;"><?php echo $lang["databaseDriver"]; ?>:</td><td><?php if(extension_loaded("mysql")) { ?><input type="radio" name="config[database_driver]" value="mysql_legacy" />MySQL<br /><?php } if(extension_loaded("mysqli")) { ?><input type="radio" name="config[database_driver]" value="mysqli_legacy" />MySQLi<br /><?php } if(extension_loaded("pdo")) { ?><input type="radio" name="config[database_driver]" value="mysql" />PDO MySQL<br /><input type="radio" name="config[database_driver]" value="dblib" />PDO DB-Lib<br /><input type="radio" name="config[database_driver]" value="mssql" />PDO MS SQL<br /><input type="radio" name="config[database_driver]" value="sybase" />PDO Sybase<br /><input type="radio" name="config[database_driver]" value="firebird" />PDO Firebird/Interbase<br /><input type="radio" name="config[database_driver]" value="ibm" />PDO IBM DB2<br /><input type="radio" name="config[database_driver]" value="informix" />PDO Informix<br /><input type="radio" name="config[database_driver]" value="oci" />PDO Oracle<br /><input type="radio" name="config[database_driver]" value="pgsql" />PDO PostgreSQL<br /><input type="radio" name="config[database_driver]" value="sqlite" />PDO SQLite<br /><input type="radio" name="config[database_driver]" value="sqlite2" />PDO SQLite2<?php } ?></td></tr>
+ <tr><td></td><td><?php echo $lang["databaseHostDesc"];?></td></tr>
+ <tr><td align="right" nowrap><?php echo $lang["databaseHost"];?>:</td><td><input type="text" size="50" name="config[database_host]" value="<?php echo $wakkaConfig["database_host"] ?>" /></td></tr>
+ <tr><td></td><td><?php echo $lang["databasePortDesc"];?></td></tr>
+ <tr><td align="right" nowrap><?php echo $lang["databasePort"];?>:</td><td><input type="text" size="50" name="config[database_port]" value="<?php echo $wakkaConfig["database_port"] ?>" /></td></tr>
+
  <tr><td></td><td><?php echo $lang["dbDesc"];?></td></tr>
- <tr><td align="right" nowrap><?php echo $lang["db"];?>:</td><td><input type="text" size="50" name="config[mysql_database]" value="<?php echo $wakkaConfig["mysql_database"] ?>" /></td></tr>
- <tr><td></td><td><?php echo $lang["mysqlPasswDesc"];?></td></tr>
- <tr><td align="right" nowrap><?php echo $lang["mysqlUser"];?>:</td><td><input type="text" size="50" name="config[mysql_user]" value="<?php echo $wakkaConfig["mysql_user"] ?>" /></td></tr>
- <tr><td align="right" nowrap><?php echo $lang["mysqlPassw"];?>:</td><td><input type="password" size="50" name="config[mysql_password]" value="<?php echo $wakkaConfig["mysql_password"] ?>" /></td></tr>
+ <tr><td align="right" nowrap><?php echo $lang["db"];?>:</td><td><input type="text" size="50" name="config[database_database]" value="<?php echo $wakkaConfig["database_database"] ?>" /></td></tr>
+ <tr><td></td><td><?php echo $lang["databasePasswDesc"];?></td></tr>
+ <tr><td align="right" nowrap><?php echo $lang["databaseUser"];?>:</td><td><input type="text" size="50" name="config[database_user]" value="<?php echo $wakkaConfig["database_user"] ?>" /></td></tr>
+ <tr><td align="right" nowrap><?php echo $lang["databasePassw"];?>:</td><td><input type="password" size="50" name="config[database_password]" value="<?php echo $wakkaConfig["database_password"] ?>" /></td></tr>
  <tr><td></td><td><?php echo $lang["prefixDesc"];?></td></tr>
  <tr><td align="right" nowrap><?php echo $lang["prefix"];?>:</td><td><input type="text" size="50" name="config[table_prefix]" value="<?php echo $wakkaConfig["table_prefix"] ?>" /></td></tr>
 <?php
- }
+            }
+      }
 ?>
 
  <tr><td></td><td><br /><strong><?php echo $lang["SiteConf"];?></strong></td></tr>
@@ -89,11 +132,6 @@ function check() {
  <tr><td align="right" nowrap><?php echo $lang["home"];?>:</td><td><input type="text" size="50" name="config[root_page]" value="<?php echo $wakkaConfig["root_page"] ?>" /></td></tr>
 
 <?php
-/*
- <tr><td></td><td><?php echo $lang["metaDesc"];?></td></tr>
- <tr><td align="right" nowrap><?php echo $lang["meta1"];?>:</td><td><input type="text" size="50" name="config[meta_keywords]" value="<?php echo $wakkaConfig["meta_keywords"] ?>" /></td></tr>
- <tr><td align="right" nowrap><?php echo $lang["meta2"];?>:</td><td><input type="text" size="50" name="config[meta_description]" value="<?php echo $wakkaConfig["meta_description"] ?>" /></td></tr>
-*/
  if (!$wakkaConfig["wakka_version"])
  {
 ?>

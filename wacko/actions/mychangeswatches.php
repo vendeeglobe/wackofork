@@ -4,8 +4,8 @@ if (!$max) $max = 50;
 
 $str  = "SELECT p.tag, w.user FROM ".$this->config["table_prefix"]."pages as p, ".
         $this->config["table_prefix"]."pagewatches as w ".
-        "WHERE p.tag = w.tag AND latest='Y' AND p.time > w.time AND w.user='".quote($this->GetUserName())."'".
-        "AND p.user<>'".quote($this->GetUserName())."' LIMIT ".(int)$max;
+        "WHERE p.tag = w.tag AND latest='Y' AND p.time > w.time AND w.user='".quote($this->dblink, $this->GetUserName())."'".
+        "AND p.user<>'".quote($this->dblink, $this->GetUserName())."' LIMIT ".(int)$max;
 
 if ($pages = $this->LoadAll($str))
 {
