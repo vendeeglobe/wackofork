@@ -1977,7 +1977,7 @@ class Wacko
 function WriteGoogleSiteMapXML()
    {
       $xml = "<?xml version=\"1.0\" encoding=\"windows-1251\"?>\n";
-      $xml .= "<urlset xmlns=\"http://www.google.com/schemas/sitemap/0.84\">\n"; [^]
+      $xml .= "<urlset xmlns=\"http://www.google.com/schemas/sitemap/0.84\">\n";
 
       if ($pages = $this->LoadRecentlyChanged())
          {
@@ -2360,6 +2360,35 @@ function WriteGoogleSiteMapXML()
    return $this->Query("update ".$this->config["table_prefix"]."revisions set tag = '".quote($this->dblink, $NewTag)."', supertag = '".quote($this->dblink, $NewSuperTag)."' where tag = '".quote($this->dblink, $tag)."' ") &&
    $this->Query("update ".$this->config["table_prefix"]."pages  set tag = '".quote($this->dblink, $NewTag)."', supertag = '".quote($this->dblink, $NewSuperTag)."' where tag = '".quote($this->dblink, $tag)."' ");
  }
+
+   function RenameFiles($tag, $NewTag, $NewSuperTag="")
+      {
+         if($NewSuperTag=="")
+            $NewSuperTag = $this->NpjTranslit($NewTag);
+
+         $dir = $this->config["upload_path_per_page"]."/";
+
+         $old_name = "@".str_replace("/", "@", $tag)."@";
+         $new_name = "@".str_replace("/", "@", $NewSuperTag)."@";
+
+         if($handle = opendir($dir))
+            {
+               while(false !== ($file = readdir($handle)))
+                  {
+                     if($file != "." && $file != "..")
+                        {
+                           $pos = stristr($file, $old_name);
+                           if ($pos !== false)
+                              {
+                                 rename($dir.$file, $dir.$new_name.substr($file, strlen($old_name)));
+                              }
+                        }
+                  }
+               closedir($handle);
+            }
+
+         return true;
+      }
 
  function RenameAcls($tag, $NewTag, $NewSuperTag="") {
    if ($NewSuperTag=="")

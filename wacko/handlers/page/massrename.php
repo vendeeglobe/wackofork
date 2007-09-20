@@ -122,6 +122,9 @@ function Move(&$parent, $OldPage, $NewName )
         if ($parent->RenameAcls($OldPage["tag"], $NewName, $supernewname))
           print(str_replace("%1",$OldPage["tag"],$parent->GetResourceValue("AclsRenamed"))."<br />\n");
 
+       if ($parent->RenameFiles($OldPage["tag"], $NewName, $supernewname))
+          print(str_replace("%1",$OldPage["tag"],$parent->GetResourceValue("FilesRenamed"))."<br />\n");
+
         if ($parent->RenameWatches($OldPage["tag"], $NewName, $supernewname))
           print("\n");
 

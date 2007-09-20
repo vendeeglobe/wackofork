@@ -1,6 +1,6 @@
 <div class="pageBefore"><img src="<?php echo $this->GetConfigValue("root_url"); ?>images/z.gif" width="1" height="1" border="0" alt="" style="display:block" align="top" /></div><div class="page">
 <?php
- if ($user = $this->GetUser()) 
+ if ($user = $this->GetUser())
  {
    $user = strtolower($this->GetUserName());
    $registered = true;
@@ -8,9 +8,9 @@
  else
    $user = "guest@wacko";
 
- if ($registered 
-    && 
-   ($this->CheckACL($user,$this->config["rename_globalacl"]) || strtolower($this->GetPageOwner($this->tag)) == $user) 
+ if ($registered
+    &&
+   ($this->CheckACL($user,$this->config["rename_globalacl"]) || strtolower($this->GetPageOwner($this->tag)) == $user)
    )
  {
   if (!$this->page)
@@ -19,29 +19,29 @@
   }
   else
   {
-   if ($_POST["newname"] && $_POST["rename"]=="1") 
+   if ($_POST["newname"] && $_POST["rename"]=="1")
    {
      $NewName = trim($_POST["newname"], "/");
-     
+
      $supernewname = $this->NpjTranslit($NewName);
 
      if (!preg_match("/^(".$this->language["ALPHANUM"]."+)$/", $NewName))
      {
        print($this->GetResourceValue("BadName")."<br />\n");
-     } 
+     }
 //     if ($this->supertag == $supernewname)
      else if ($this->tag == $NewName)
      {
        print(str_replace("%1",$this->Link($NewName),$this->GetResourceValue("AlredyNamed"))."<br />\n");
-     } 
-     else 
+     }
+     else
      {
       if ($this->supertag != $supernewname && $page=$this->LoadPage($supernewname, "", LOAD_CACHE, LOAD_META)){
        print(str_replace("%1",$this->Link($NewName),$this->GetResourceValue("AlredyExists"))."<br />\n");
       }
       else
       {// Rename page
-        
+
         $need_redirect = 0;
         if ($_POST["redirect"]=="on")  $need_redirect = 1;
 
@@ -58,14 +58,17 @@
         if ($this->RenameAcls($this->tag, $NewName, $supernewname))
           print(str_replace("%1",$this->tag,$this->GetResourceValue("AclsRenamed"))."<br />\n");
 
+       if ($this->RenameFiles($this->tag, $NewName, $supernewname))
+          print(str_replace("%1",$this->tag,$this->GetResourceValue("FilesRenamed"))."<br />\n");
+
         if ($this->RenameWatches($this->tag, $NewName, $supernewname))
           print("\n");
 
         if ($this->RenameComments($this->tag, $NewName, $supernewname))
           print("\n");
-        
-        $this->ClearCacheWantedPage($NewName);  
-        $this->ClearCacheWantedPage($supernewname);  
+
+        $this->ClearCacheWantedPage($NewName);
+        $this->ClearCacheWantedPage($supernewname);
 
         if ($need_redirect==1)
         {
@@ -75,17 +78,17 @@
           if ($this->SavePage($this->tag, "{{Redirect page=\"/".$NewName."\"}}"))
            print(str_replace("%1",$this->tag,$this->GetResourceValue("RedirectCreated"))."<br />\n");
 
-          $this->ClearCacheWantedPage($this->tag);  
-          $this->ClearCacheWantedPage($this->supertag);  
+          $this->ClearCacheWantedPage($this->tag);
+          $this->ClearCacheWantedPage($this->supertag);
         }
 
         print("<br />".$this->GetResourceValue("NewNameOfPage").$this->Link("/".$NewName));
-          
+
        }
      }
-          
-   } 
-   else 
+
+   }
+   else
    {
      echo $this->GetResourceValue("NewName");
      echo $this->FormOpen("rename");
@@ -98,13 +101,13 @@
 <br/><br/>
 
 <br/>
-<input name="submit" class="OkBtn_Top" onmouseover='this.className="OkBtn_Top_";' 
-                       onmouseout ='this.className="OkBtn_Top";' 
+<input name="submit" class="OkBtn_Top" onmouseover='this.className="OkBtn_Top_";'
+                       onmouseout ='this.className="OkBtn_Top";'
        type="submit" align="top" value="<?php echo $this->GetResourceValue("RenameButton"); ?>" />
 <img src="<?php echo $this->GetConfigValue("root_url");?>images/z.gif" width="100" height="1" alt="" border="0" />
-<input class="CancelBtn_Top" onmouseover='this.className="CancelBtn_Top_";' 
-                           onmouseout ='this.className="CancelBtn_Top";' 
-       type="button" align="top" value="<?php echo str_replace("\n"," ",$this->GetResourceValue("EditCancelButton")); ?>" onclick="document.location='<?php echo addslashes($this->href(""))?>';" 
+<input class="CancelBtn_Top" onmouseover='this.className="CancelBtn_Top_";'
+                           onmouseout ='this.className="CancelBtn_Top";'
+       type="button" align="top" value="<?php echo str_replace("\n"," ",$this->GetResourceValue("EditCancelButton")); ?>" onclick="document.location='<?php echo addslashes($this->href(""))?>';"
         /><br />
 <?php echo $this->FormClose();
    }

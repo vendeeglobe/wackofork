@@ -197,8 +197,9 @@ $wakkaResource = array(
   "RenameButton"=>"Rename!",
   "AlredyExists"=>"<em>Page <strong>%1</strong> already exists.</em>",
   "AlredyNamed"=>"<em>This page already named <strong>%1</strong>.</em>",
-  "AclsRenamed"   =>"<em>Page acls %1 renamed.</em>",
+  "AclsRenamed"   =>"<em>Page acls for %1 renamed.</em>",
   "PageRenamed"   =>"<em>Page %1 renamed.</em>",
+  "FilesRenamed"   =>"<em>Page files for %1 renamed.</em>",
   "NewNameOfPage" =>"New name of this page: ",
   "NotOwnerAndCantRename"  =>"<em>You aren't owner of this page and hence can't rename it</em>",
   "NeedRedirect"=>"Create redirect to the new page on the old page",
@@ -314,7 +315,7 @@ $wakkaResource = array(
   "MassNeedRedirect"=>"Create redirect to the new pages on the old pages",
   "SettingsMassAcls"  => "for entire cluster",
   "SettingsMassRename"  => "for entire cluster",
-  
+
   "By" => "by",
   "UserGroups" => "Groups of users",
 
