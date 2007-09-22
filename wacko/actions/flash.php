@@ -8,7 +8,7 @@
    however it should be noted that the majorversion and build will be set to 9 and 0 as default
 
    {{flash
-      [url="file:the_movie.swf"] // note that the file must be uploaded to the wiki and be set to globally viewable
+      [url="file:the_movie.swf"]
       [width="100"]
       [height="100"]
       [name="TheFlashMovie"] // the id to assign to the div tag that UFO will replace
@@ -39,7 +39,7 @@
    if($url)
       {
          echo '<script type="text/javascript">
-                  var FO = { movie:"'.$this->GetConfigValue("root_url").'/files/'.$url.'", width:"'.$width.'", height:"'.$height.'", majorversion:"9", build:"0"'.($xi ? ', xi:"true"' : '').($flashvars ? ', flashvars:"'.$flashvars.'"' : '').($bgcolor ? ', bgcolor:"'.$bgcolor.'"' : '').($wmode ? ', wmode:"'.$wmode.'"' : '').($allowscriptaccess ? ', allowscriptaccess:"'.$allowscriptaccess.'"' : '').($swliveconnect ? ', swliveconnect:"'.$swliveconnect.'"' : '').($base ? ', base:"'.$base.'"' : '').($ximovie ? ', ximovie:"'.$ximovie.'"' : '').($xiwidth ? ', xiwidth:"'.$xiwidth.'"' : '').($xiheight ? ', xiheight:"'.$xiheight.'"' : '').($xiurlcancel ? ', xiurlcancel:"'.$xiurlcancel.'"' : '').($xiurlfailed ? ', xiurlfailed:"'.$xiurlfailed.'"' : '').($setcontainercss ? ', setcontainercss:"true"' : '').' };
+                  var FO = { movie:"'.$url.'", width:"'.$width.'", height:"'.$height.'", majorversion:"9", build:"0"'.($xi ? ', xi:"true"' : '').($flashvars ? ', flashvars:"'.$flashvars.'"' : '').($bgcolor ? ', bgcolor:"'.$bgcolor.'"' : '').($wmode ? ', wmode:"'.$wmode.'"' : '').($allowscriptaccess ? ', allowscriptaccess:"'.$allowscriptaccess.'"' : '').($swliveconnect ? ', swliveconnect:"'.$swliveconnect.'"' : '').($base ? ', base:"'.$base.'"' : '').($ximovie ? ', ximovie:"'.$ximovie.'"' : '').($xiwidth ? ', xiwidth:"'.$xiwidth.'"' : '').($xiheight ? ', xiheight:"'.$xiheight.'"' : '').($xiurlcancel ? ', xiurlcancel:"'.$xiurlcancel.'"' : '').($xiurlfailed ? ', xiurlfailed:"'.$xiurlfailed.'"' : '').($setcontainercss ? ', setcontainercss:"true"' : '').' };
                   UFO.create(FO, "'.$name.'");
                </script>
                <div id="'.$name.'"></div>';
