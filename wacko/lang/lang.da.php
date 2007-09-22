@@ -3,7 +3,7 @@
 $wackoLanguage = array(
   "name" => "Dansk",
   "code" => "da",
-  "charset" => "iso8859-1",
+  "charset" => "iso-8859-1",
   "utfdecode" => array(),
   "UPPER_P"  => "A-Z\xc0-\xd6\xd8-\xdd",
   "LOWER_P"  => "a-z\xdf-\xf6\xf8-\xfd\xff\/'",
@@ -11,7 +11,7 @@ $wackoLanguage = array(
   "locale" => "C",
   "NpjLettersFrom" => "àáâãåçèéêëìíîïòóôõùúûýÀÁÂÃÅÇÈÉÊËÌÍÎÏÒÓÔÕÙÚÛÝ",
   "NpjLettersTo"   => "aaaaaceeeeiiiioooouuuyAAAAACEEEEIIIIOOOOUUUY",
-  "NpjBiLetters" => array("ä"=>"ae", "ñ"=>"ny", "ö"=>"oe", "ü"=>"ue", "æ"=>"ae", "Ä"=>"Ae", "Ñ"=>"Ny", 
+  "NpjBiLetters" => array("ä"=>"ae", "ñ"=>"ny", "ö"=>"oe", "ü"=>"ue", "æ"=>"ae", "Ä"=>"Ae", "Ñ"=>"Ny",
                           "Ö"=>"Oe", "Ü"=>"Ue", "Æ"=>"Ae", "ÿ"=>"yu", "ß"=>"ss", ),
   "unicode_entities" => array(
    "À"=>"&#192;", "Á"=>"&#193;", "Â"=>"&#194;", "Ã"=>"&#195;", "Ä"=>"&#196;", "Å"=>"&#197;", "Æ"=>"&#198;",
@@ -24,7 +24,7 @@ $wackoLanguage = array(
    "ó"=>"&#243;", "ô"=>"&#244;", "õ"=>"&#245;", "ö"=>"&#246;", "ù"=>"&#249;", "ú"=>"&#250;", "û"=>"&#251;",
    "ü"=>"&#252;", "ý"=>"&#253;", "þ"=>"&#254;", "ÿ"=>"&#255;",
   ),
-  
+
 );
 
 ?>
