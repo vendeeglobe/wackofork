@@ -1,5 +1,5 @@
 <?php
-header("Content-Type: text/html; charset=windows-1251");
+header("Content-Type: text/html; charset=iso-8859-1");
 
 function test($text, $condition, $errorText = "", $stopOnError = 1)
    {
