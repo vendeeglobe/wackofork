@@ -165,8 +165,14 @@
              $small_name = explode("@", $result_name);
              $small_name = $small_name[ sizeof($small_name) -1 ];
             }
+
             $description = substr(quote($this->dblink, $_POST["description"]),0,250);
             $description = rtrim( $description, "\\" );
+
+            // Make HTML in the description redundant ;¬)
+            $description = $this->Format($description, "preformat");
+            $description = $this->Format($description, "safehtml");
+            $description = htmlentities($description);
 
             // 5. insert line into DB
             $this->Query("insert into ".$this->config["table_prefix"]."upload set ".
@@ -186,6 +192,7 @@
             ?>
     <br /><ul>
     <li><?php echo $this->Link( "file:".(($is_global)?"":($this->tag."/")).$small_name ); ?></li>
+    <li>"<?php echo $description; ?>"</li>
     </ul><br />
             <?php
 
