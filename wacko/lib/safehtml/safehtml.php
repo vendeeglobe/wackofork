@@ -6,6 +6,7 @@
  * @author  Roman Ivanov <thingol@mail.ru>
  * @copyright  2004-2005 Roman Ivanov
  * @license http://www.debian.org/misc/bsd.license  BSD License (3 Clause)
+ * @version    1.3.7
  * @link    http://pixel-apes.com/safehtml/
  */
 
@@ -54,7 +55,8 @@ class SafeHTML
 
  var $whiteProtocols = array(
   'ed2k',   'file', 'ftp',  'gopher', 'http',  'https', 
-  'mailto', 'news', 'nntp', 'telnet', 'webcal', 
+  'irc',    'mailto', 'news', 'nntp', 'telnet', 'webcal', 
+  'xmpp', 'callto',
   );
 
  var $protocolAttributes = array(
@@ -81,9 +83,11 @@ class SafeHTML
   'thead',   'tr', 
   );
 
- var $listTags = array('dir', 'menu', 'ol', 'ul', );
+ var $listTags = array('dir', 'menu', 'ol', 'ul', 'dl', );
 
  var $attributes = array('dynsrc', 'id', 'name', );
+
+ var $attributesNS = array('xml:lang', );
 
  function SafeHTML() 
  {
@@ -120,7 +124,10 @@ class SafeHTML
      continue;
     }
     if (!preg_match("/^[a-z0-9]+$/i", $name)) {
-     continue;
+      if (!in_array($name, $this->attributesNS))
+      {
+       continue;
+      }
     }
 
     if (($value === TRUE) || (is_null($value))) {
@@ -128,9 +135,22 @@ class SafeHTML
     }
 
     if ($name == 'style') {
+                   
+                   // removes insignificant backslahes
        $value = str_replace("\\", '', $value);
+
+                   // removes CSS comments
+                   while (1)
+                   {
+                     $_value = preg_replace("!/\*.*?\*/!s", '', $value);
+                     if ($_value == $value) break;
+                     $value = $_value;
+                   }
+                   
+                   // replace all & to &amp;
        $value = str_replace('&amp;', '&', $value);
        $value = str_replace('&', '&amp;', $value);
+
        foreach ($this->_cssRegexps as $css) {
         if (preg_match($css, $value)) { 
          continue 2;
@@ -162,12 +182,8 @@ class SafeHTML
      }
     }
 
-    if (strpos($value, '"') !== false) {
-     $q = "'";
-    } else {
-     $q = '"';
-    }
-    $this->_xhtml .= ' ' . $name . '=' . $q . $value . $q;
+    $value = str_replace("\"", "&quot;", $value);
+    $this->_xhtml .= ' ' . $name . '="' . $value . '"';
    }
   }
   return true;
@@ -325,6 +341,9 @@ class SafeHTML
     // Opera6 bug workaround
     $doc = str_replace("\xC0\xBC", '&lt;', $doc);
 
+    // UTF-7 encoding ASCII decode
+    $doc = $this->repackUTF7($doc);
+
     // Instantiate the parser
     $parser=& new XML_HTMLSax3();
 
@@ -341,6 +360,22 @@ class SafeHTML
 
  }
 
+    function repackUTF7($str)
+    {
+       return preg_replace_callback('!\+([0-9a-zA-Z/]+)\-!', array($this, 'repackUTF7Callback'), $str);
+    }
+
+    function repackUTF7Callback($str)
+    {
+       $str = base64_decode($str[1]);
+       $str = preg_replace_callback('/^((?:\x00.)*)((?:[^\x00].)+)/', array($this, 'repackUTF7Back'), $str);
+       return preg_replace('/\x00(.)/', '$1', $str);
+    }
+
+    function repackUTF7Back($str)
+    {
+       return $str[1].'+'.rtrim(base64_encode($str[2]), '=').'-';
+    }
 }
 
 ?>
