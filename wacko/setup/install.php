@@ -220,7 +220,8 @@ $alter_revisions_r3_4 = "ALTER TABLE ".$config2["table_prefix"]."revisions ADD l
 $alter_revisions_r3_5 = "ALTER TABLE ".$config2["table_prefix"]."revisions ADD description varchar(250) NOT NULL default ''";
 $alter_revisions_r3_6 = "ALTER TABLE ".$config2["table_prefix"]."revisions ADD keywords varchar(250) binary NOT NULL default ''";
 
-$insert_logo_image = "INSERT INTO ".$config2["table_prefix"]."upload (id, page_id, filename, description, uploaded_dt, filesize, picture_w, picture_h, file_ext, user) VALUES ('1', '1','wacko4.gif', 'WackoWiki', now(), '1580', '108', '50', 'gif', '".$config2["admin_name"]."')";
+$insert_logo_image = "INSERT INTO ".$config2["table_prefix"]."upload (id, page_id, filename, description, uploaded_dt, filesize, picture_w, picture_h, file_ext, user) VALUES ('1', '0','wacko4.gif', 'WackoWiki', now(), '1580', '108', '50', 'gif', '".$config2["admin_name"]."')";
+$insert_ufo = "INSERT INTO ".$config2["table_prefix"]."upload (id, page_id, filename, description, uploaded_dt, filesize, picture_w, picture_h, file_ext, user) VALUES ('2', '0','ufo.swf', 'UFO Express Install Helper', now(), '730', '0', '0', 'swf', '".$config2["admin_name"]."')";
 
 /*
    Setup the tables depending on which database we selected
@@ -355,6 +356,7 @@ switch($config2["database_driver"])
                case "R4.2":
                   print("<strong>Wacko R4.2 ".$lang["to"]." R4.3</strong><br />\n");
                   test("", @mysql_query($insert_logo_image, $dblink), $lang["Already exists?"], 0);
+                  test("", @mysql_query($insert_ufo, $dblink), $lang["Already exists?"], 0);
             }
          break;
       case "mysqli_legacy":
@@ -481,6 +483,7 @@ switch($config2["database_driver"])
                case "R4.2":
                   print("<strong>Wacko R4.2 ".$lang["to"]." R4.3</strong><br />\n");
                   test("", @mysqli_query($dblink, $insert_logo_image), $lang["Already exists?"], 0);
+                  test("", @mysqli_query($dblink, $insert_ufo), $lang["Already exists?"], 0);
             }
          break;
       default:
@@ -634,6 +637,7 @@ switch($config2["database_driver"])
                case "R4.2":
                   print("<strong>Wacko R4.2 ".$lang["to"]." R4.3</strong><br />\n");
                   test("", @dblink->query($insert_logo_image), $lang["Already exists?"], 0);
+                  test("", @dblink->query($insert_ufo), $lang["Already exists?"], 0);
             }
          break;
    }

@@ -19,14 +19,27 @@
   <script language="JavaScript" type="text/javascript" src="<?php echo $this->GetConfigValue("root_url");?>js/protoedit.js"></script>
   <script language="JavaScript" type="text/javascript" src="<?php echo $this->GetConfigValue("root_url");?>js/wikiedit2.js"></script>
   <script language="JavaScript" type="text/javascript" src="<?php echo $this->GetConfigValue("root_url");?>js/autocomplete.js"></script>
-<?php 
-        if ($user = $this->GetUser()) 
+<?php
+        if ($user = $this->GetUser())
                 if ($user["doubleclickedit"] == "Y") {
 ?>
                   <script language="JavaScript" type="text/javascript">
                    var edit = "<?php echo $this->href("edit");?>";
   </script>
 <?php }?>
+      <script src="<?php echo $this->GetConfigValue("root_url");?>js/ufo.js" type="text/javascript"></script>
+      <script type="text/javascript">
+         function cleanupFP9IELeaks()
+            {
+               __flash_unloadHandler = function() {};
+               __flash_savedUnloadHandler = function() {};
+            }
+
+         if (typeof window.attachEvent != "undefined" && UFO.uaHas("ieWin"))
+            {
+               window.attachEvent("onbeforeunload", cleanupFP9IELeaks);
+            }
+      </script>
 </head>
 
 <body onload="all_init();<?php if ($message) echo "alert('".$message."');";?>">
@@ -46,7 +59,7 @@
                 <span class="nobr"><input type="hidden" name="goback" value="<?php echo $this->SlimUrl($this->tag);?>" /><strong><?php echo $this->GetResourceValue("LoginWelcome") ?>:&nbsp;</strong><input type="text" name="name" size="18" class="login" />&nbsp;<?php echo $this->GetResourceValue("LoginPassword") ?>:&nbsp;<input type="password" name="password" class="login" size="8" />&nbsp;<input type="submit" value="Ok" /></span>
 
         <?php } ?>
-                
+
         </div>
         <div class="title">
                 <?php echo $this->config["wakka_name"] ?>: <?php echo $this->GetPagePath(); ?>
@@ -56,20 +69,20 @@
 </div>
 
 <div class="bookmarks">
-<?php 
+<?php
 
         echo $this->ComposeLinkToPage($this->config["root_page"]);
         echo " | ";
-        //echo $this->GetBookmarksFormatted(); 
+        //echo $this->GetBookmarksFormatted();
         echo $this->Format($this->GetBookmarksFormatted(), "post_wacko");
-        //echo $this->Format(implode(" | ", $this->GetBookmarks())); 
-?> | <?php 
+        //echo $this->Format(implode(" | ", $this->GetBookmarks()));
+?> | <?php
 
         if ($this->GetUser()) {
                 if (!in_array($this->GetPageSuperTag(),$this->GetBookmarkLinks())) {?>
-                        <a href="<?php echo $this->Href('', '', "addbookmark=yes")?>"><img src="<?php echo $this->GetConfigValue("theme_url") ?>icons/toolbar1.gif" alt="+" title="<?php echo $this->GetResourceValue("AddToBookmarks") ?>" border="0" align="absmiddle" /></a><?php 
-                } else { 
-                        ?><a href="<?php echo $this->Href('', '', "removebookmark=yes")?>"><img src="<?php echo $this->GetConfigValue("theme_url") ?>icons/toolbar2.gif" alt="-" title="<?php echo $this->GetResourceValue("RemoveFromBookmarks") ?>" border="0" align="absmiddle" /></a><?php 
+                        <a href="<?php echo $this->Href('', '', "addbookmark=yes")?>"><img src="<?php echo $this->GetConfigValue("theme_url") ?>icons/toolbar1.gif" alt="+" title="<?php echo $this->GetResourceValue("AddToBookmarks") ?>" border="0" align="absmiddle" /></a><?php
+                } else {
+                        ?><a href="<?php echo $this->Href('', '', "removebookmark=yes")?>"><img src="<?php echo $this->GetConfigValue("theme_url") ?>icons/toolbar2.gif" alt="-" title="<?php echo $this->GetResourceValue("RemoveFromBookmarks") ?>" border="0" align="absmiddle" /></a><?php
                 }
         } ?>
 
