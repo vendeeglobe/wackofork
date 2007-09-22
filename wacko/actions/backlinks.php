@@ -7,7 +7,11 @@
 
   if ($pages = $this->LoadPagesLinkingTo($tag))
   {
-    print("<fieldset><legend>".$this->GetResourceValue("ReferringPages").":</legend>\n");
+    if(!$nomark)
+      {
+         print("<fieldset><legend>".$this->GetResourceValue("ReferringPages").":</legend>\n");
+      }
+
     foreach ($pages as $page)
     {
       if ($page["tag"])
@@ -19,10 +23,14 @@
           $lnk = $this->Link("/".$page["tag"]."#".$this->NpjTranslit($tag), "", $page["tag"]);
           if (strpos($lnk, 'span class="missingpage"') === false)
             echo($lnk."<br />\n");
-        }  
-      }  
+        }
+      }
     }
-    echo "</fieldset>\n";
+
+    if(!$nomark)
+      {
+         echo "</fieldset>\n";
+      }
   }
   else
   {

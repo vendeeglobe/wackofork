@@ -17,7 +17,6 @@ while (false!==($file = readdir($handle))) {
 closedir($handle);
 ?>
   </select>
-  <!--input type="text" size="50" name="" value="<?php echo $wakkaConfig["language"] ?>" /-->
   </td></tr>
 
   <tr><td></td><td><input type="submit" value="<?php echo $lang["Continue"];?>" /></td></tr>
