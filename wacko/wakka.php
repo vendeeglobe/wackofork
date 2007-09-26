@@ -87,6 +87,7 @@ $wakkaDefaultConfig = array(
 
   "hide_files"     => 0,
   "hide_comments"     => 0,
+
   "debug"     => 0,
   "youarehere_text"     => "",
   "hide_locked"     => 1,

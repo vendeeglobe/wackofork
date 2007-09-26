@@ -80,8 +80,10 @@ else
 </div>
 <?php
 if ($this->GetConfigValue("footer_files")) {
-if ($this->HasAccess("read") && $this->GetConfigValue("hide_files") != 1)
+
+if ($this->HasAccess("read") && $this->GetConfigValue("hide_files") != 1 && ($this->GetConfigValue("hide_files") != 2 || $this->GetUser()))
 {
+
   // store files display in session
   $tag = $this->GetPageTag();
   if (!isset($_SESSION["show_files"][$tag]))
@@ -165,7 +167,7 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_files") != 1)
 
 <?php
 if ($this->GetConfigValue("footer_comments")) {
-if ($this->HasAccess("read") && $this->GetConfigValue("hide_comments") != 1)
+if ($this->HasAccess("read") && $this->GetConfigValue("hide_comments") != 1 && ($this->GetConfigValue("hide_comments") != 2 || $this->GetUser()))
 {
   // load comments for this page
   $comments = $this->LoadComments($this->tag);
@@ -210,7 +212,7 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_comments") != 1)
         if ($comment["body_r"]) $strings = $comment["body_r"];
         else $strings = $this->Format($comment["body"], "wacko");
         print($this->Format($strings,"post_wacko")."\n");
-        print("<div class=\"commentinfo\">\n-- ".($this->IsWikiName($comment["user"])?$this->Link("/".$comment["user"],"",$comment["user"]):$comment["user"])." (".$comment["time"].")\n</div>\n");
+        print("<div class=\"commentinfo\">\n-- ".($this->IsWikiName($comment["user"])?$this->Link("/".$comment["user"],"",$comment["user"]) : $comment["user"])." (".$comment["time"].")\n</div>\n");
         print("</div>\n");
       }
     }

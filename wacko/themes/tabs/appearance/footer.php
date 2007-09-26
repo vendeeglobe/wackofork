@@ -17,10 +17,14 @@
     // if this page exists
     if ($this->page)
     {
-      $this->EchoTab( $this->href("settings"),  $this->GetResourceValue("SettingsTip"),
-         $this->GetResourceValue("SettingsText"),
-         $this->method != "settings"
-                       );
+      if($this->HasAccess("write"))
+         {
+            $this->EchoTab( $this->href("settings"),  $this->GetResourceValue("SettingsTip"),
+               $this->GetResourceValue("SettingsText"),
+               $this->method != "settings"
+                             );
+        }
+
       // if owner is current user
       if ($this->UserIsOwner())
       {
@@ -72,7 +76,7 @@
   if ($this->method == "show") {
 ?>
 <?php
-if ($this->HasAccess("read") && $this->GetConfigValue("hide_files") != 1)
+if ($this->HasAccess("read") && $this->GetConfigValue("hide_files") != 1 && ($this->GetConfigValue("hide_files") != 2 || $this->GetUser()))
 {
   // store files display in session
   $tag = $this->GetPageTag();
@@ -155,7 +159,7 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_files") != 1)
 ?>
 
 <?php
-if ($this->HasAccess("read") && $this->GetConfigValue("hide_comments") != 1)
+if ($this->HasAccess("read") && $this->GetConfigValue("hide_comments") != 1 && ($this->GetConfigValue("hide_comments") != 2 || $this->GetUser()))
 {
   // load comments for this page
   $comments = $this->LoadComments($this->tag);
