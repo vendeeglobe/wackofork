@@ -78,6 +78,9 @@ $wakkaResource = array(
   "ACLCancelButton" => "Cancel",
   "ACLAccessDenied" => "<em>You are not the owner of this page.</em>",
 
+  "MetaStoreButton" => "Save",
+  "MetaCancelButton" => "Cancel",
+
   "EditStoreButton" => "Save",
   "EditRe-EditButton" => "Re-Edit",
   "EditCancelButton"  => "Cancel",

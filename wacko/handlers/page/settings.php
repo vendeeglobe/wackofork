@@ -20,7 +20,7 @@ if ($this->UserIsOwner())
     ?>
     <h3><?php echo str_replace("%1",$this->Link("/".$this->GetPageTag()),$this->GetResourceValue("SettingsFor")); ?></h3>
     <br />
-    
+
     <?php echo $this->FormOpen("settings") ?>
     <table border="0" cellspacing="0" cellpadding="0">
       <tr>
@@ -38,7 +38,7 @@ if ($this->UserIsOwner())
       <tr>
         <td valign="center" nowrap="nowrap">
           <br />
-          <?php echo $this->GetResourceValue("SetLang"); ?>: 
+          <?php echo $this->GetResourceValue("SetLang"); ?>:
           <select name="lang">
             <?php
    if (!($clang = $this->page["lang"]))
@@ -63,13 +63,13 @@ if ($this->UserIsOwner())
       <tr>
         <td colspan="3">
           <br />
-          <input class="OkBtn" onmouseover='this.className="OkBtn_";' 
-                                 onmouseout ='this.className="OkBtn";' 
-                 type="submit" align="top" value="<?php echo $this->GetResourceValue("ACLStoreButton"); ?>" style="width: 120px" accesskey="s" />
+          <input class="OkBtn" onmouseover='this.className="OkBtn_";'
+                                 onmouseout ='this.className="OkBtn";'
+                 type="submit" align="top" value="<?php echo $this->GetResourceValue("MetaStoreButton"); ?>" style="width: 120px" accesskey="s" />
           <img src="<?php echo $this->GetConfigValue("root_url");?>images/z.gif" width="100" height="1" alt="" border="0" />
-          <input class="CancelBtn" onmouseover='this.className="CancelBtn_";' 
-                                     onmouseout ='this.className="CancelBtn";' 
-                 type="button" align="top" value="<?php echo $this->GetResourceValue("ACLCancelButton"); ?>" onclick="history.back();" style="width: 120px" />
+          <input class="CancelBtn" onmouseover='this.className="CancelBtn_";'
+                                     onmouseout ='this.className="CancelBtn";'
+                 type="button" align="top" value="<?php echo $this->GetResourceValue("MetaCancelButton"); ?>" onclick="history.back();" style="width: 120px" />
         </td>
       </tr>
     </table>
