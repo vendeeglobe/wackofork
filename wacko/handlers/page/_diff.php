@@ -1,4 +1,4 @@
-<?
+<?php
 /*
 diff.php
 
@@ -41,7 +41,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
          $this->argument=array();
          $this->length=strlen($this->content);
          $this->character=substr($this->content,0,1);
-         
+
       }
 
       function getposition() {
@@ -61,7 +61,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
       }
 
       function nextchar() {
-         $this->cursor++; 
+         $this->cursor++;
          $this->character=substr($this->content,$this->cursor,1);
       }
 
@@ -89,14 +89,14 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
      $out .="\n";
          }
       }
-      
+
       function init() {
          $this->position=0;
          $this->cursor=0;
          $this->directive='';
          $this->argument=array();
          $this->character=substr($this->content,0,1);
-      }     
+      }
 
       function isspace($char) {
         if (preg_match("/([[:space:]]|\*)/",$char)) return true;
@@ -154,16 +154,16 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
    function decode_directive_line() {
 
-    $value=0;                    
-    $state=0;                   
-    $error=0;                  
+    $value=0;
+    $state=0;
+    $error=0;
 
     while (!$error && $state < 4) {
         if ($this->isdigit($this->character)) {
       $value = 0;
       while($this->isdigit($this->character)) {
           $value = 10 * $value + $this->character - '0';
-          $this->nextchar(); 
+          $this->nextchar();
       }
         }
         else if ($state != 1 && $state != 3)
@@ -230,7 +230,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
       var $type;
       var $orig;
       var $final;
-      
+
 
       function norig() {
     return $this->orig ? sizeof($this->orig) : 0;
@@ -243,7 +243,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
   class _DiffOp_Copy extends _DiffOp {
       var $type = 'copy';
-      
+
       function _DiffOp_Copy ($orig, $final = false) {
     if (!is_array($final))
         $final = $orig;
@@ -255,7 +255,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
   class _DiffOp_Delete extends _DiffOp {
       var $type = 'delete';
-      
+
       function _DiffOp_Delete ($lines) {
     $this->orig = $lines;
     $this->final = false;
@@ -265,7 +265,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
   class _DiffOp_Add extends _DiffOp {
       var $type = 'add';
-      
+
       function _DiffOp_Add ($lines) {
     $this->final = $lines;
     $this->orig = false;
@@ -275,15 +275,15 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
   class _DiffOp_Change extends _DiffOp {
       var $type = 'change';
-      
+
       function _DiffOp_Change ($orig, $final) {
     $this->orig = $orig;
     $this->final = $final;
       }
 
   }
-    
-        
+
+
   /**
    * Class used internally by Diff to actually compute the diffs.
    *
@@ -316,7 +316,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
     unset($this->seq);
     unset($this->in_seq);
     unset($this->lcs);
-     
+
     // Skip leading common lines.
     for ($skip = 0; $skip < $n_from && $skip < $n_to; $skip++) {
         if ($from_lines[$skip] != $to_lines[$skip])
@@ -330,7 +330,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
       break;
         $this->xchanged[$xi] = $this->ychanged[$yi] = false;
     }
-    
+
     // Ignore lines which do not exist in both files.
     for ($xi = $skip; $xi < $n_from - $endskip; $xi++)
         $xhash[$from_lines[$xi]] = 1;
@@ -382,7 +382,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
         $add = array();
         while ($yi < $n_to && $this->ychanged[$yi])
       $add[] = $to_lines[$yi++];
-        
+
         if ($delete && $add)
       $edits[] = new _DiffOp_Change($delete, $add);
         elseif ($delete)
@@ -392,7 +392,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
     }
     return $edits;
       }
-      
+
 
       /* Divide the Largest Common Subsequence (LCS) of the sequences
        * [XOFF, XLIM) and [YOFF, YLIM) into NCHUNKS approximately equally
@@ -412,7 +412,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
        */
       function _diag ($xoff, $xlim, $yoff, $ylim, $nchunks) {
     $flip = false;
-    
+
     if ($xlim - $xoff > $ylim - $yoff) {
         // Things seems faster (I'm not sure I understand why)
         // when the shortest sequence in X.
@@ -432,7 +432,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
     $this->seq[0]= $yoff - 1;
     $this->in_seq = array();
     $ymids[0] = array();
-      
+
     $numer = $xlim - $xoff + $nchunks - 1;
     $x = $xoff;
     for ($chunk = 0; $chunk < $nchunks; $chunk++) {
@@ -599,14 +599,14 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
          */
         while ($j < $other_len && $other_changed[$j])
       $j++;
-        
+
         while ($i < $len && ! $changed[$i]) {
       USE_ASSERTS && assert('$j < $other_len && ! $other_changed[$j]');
       $i++; $j++;
       while ($j < $other_len && $other_changed[$j])
           $j++;
         }
-        
+
         if ($i == $len)
       break;
 
@@ -688,7 +688,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
   /**
    * Class representing a 'diff' between two sequences of strings.
    */
-  class Diff 
+  class Diff
   {
       var $edits;
 
@@ -707,7 +707,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
   }
 
-        
+
 
   /**
    * A class to format Diffs
@@ -792,7 +792,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
     return $xbeg . ($xlen ? ($ylen ? 'c' : 'd') : 'a') . $ybeg;
       }
-      
+
       function _start_block($header) {
     echo $header."\n";
       }

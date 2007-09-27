@@ -1664,6 +1664,9 @@ class Wacko
  function UserWantsComments() { if (!$user = $this->GetUser()) return false; return ($user["show_comments"] == "Y"); }
  function UserWantsFiles()    { if (!$user = $this->GetUser()) return false; return ($user["options"]["show_files"] == "Y"); }
 
+ // Returns boolean indicating if the current user is allowed to see comments at all
+ function UserAllowedComments() { return $this->GetConfigValue("hide_comments") != 1 && ($this->GetConfigValue("hide_comments") != 2 || $this->GetUser()); }
+
  function DecomposeOptions( $more )
  {
    $b = array();

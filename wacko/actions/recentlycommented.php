@@ -51,7 +51,7 @@ if ($pages = LoadRecentlyCommented($this, $root, (int)$max))
   {
     if ($this->config["hide_locked"]) $access = $this->HasAccess("read",$page["tag"]);
     else $access = true;
-    if ($access)
+    if ($access && $this->UserAllowedComments())
     {
       // day header
       list($day, $time) = explode(" ", $page["comment_time"]);
