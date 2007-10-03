@@ -506,15 +506,16 @@ switch($config2["database_driver"])
                   $dsn = $config2["database_driver"].":dbname=".$config2["database_database"].";host=".$config2["database_host"].($config2["database_port"] != "" ? ";port=".$config2["database_port"] : "");
             }
 
-         try
-            {
+         // PHP4 doesn't support try/catch blocks
+          /*try
+             {*/
                $dblink = @new PDO($dsn, $config2["database_user"], $config2["database_password"]);
                test($lang["TestSql"], true);
-            }
-         catch(PDOException $e)
-            {
+            /*}
+          catch(PDOException $e)
+             {
                test($lang["TestSql"], false, "PDO DSN Error: ".$dsn);
-            }
+             }*/
 
          print("<br />\n");
 
