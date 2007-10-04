@@ -637,8 +637,8 @@ switch($config2["database_driver"])
                //from R4.2 to R4.3
                case "R4.2":
                   print("<strong>Wacko R4.2 ".$lang["to"]." R4.3</strong><br />\n");
-                  test("", @dblink->query($insert_logo_image), $lang["Already exists?"], 0);
-                  test("", @dblink->query($insert_ufo), $lang["Already exists?"], 0);
+                  test("", @$dblink->query($insert_logo_image), $lang["Already exists?"], 0);
+                  test("", @$dblink->query($insert_ufo), $lang["Already exists?"], 0);
             }
          break;
    }
