@@ -59,10 +59,9 @@ class Wacko
  // DATABASE
  function Query($query, $debug=0)
  {
-   if ($debug || $this->GetConfigValue("debug")) echo "<p>QUERY: $query</p>";
-   if($this->GetConfigValue("debug")>=2) $start = $this->GetMicroTime();
+   if($this->GetConfigValue("debug")>=1) $start = $this->GetMicroTime();
    $result = query($this->dblink, $query);
-   if($this->GetConfigValue("debug")>=2)
+   if($this->GetConfigValue("debug")>=1)
    {
      $time = $this->GetMicroTime() - $start;
      $this->queryLog[] = array(
