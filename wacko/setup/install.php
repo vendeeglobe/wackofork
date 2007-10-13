@@ -221,7 +221,6 @@ $alter_revisions_r3_5 = "ALTER TABLE ".$config2["table_prefix"]."revisions ADD d
 $alter_revisions_r3_6 = "ALTER TABLE ".$config2["table_prefix"]."revisions ADD keywords varchar(250) binary NOT NULL default ''";
 
 $insert_logo_image = "INSERT INTO ".$config2["table_prefix"]."upload (id, page_id, filename, description, uploaded_dt, filesize, picture_w, picture_h, file_ext, user) VALUES ('1', '0','wacko4.gif', 'WackoWiki', now(), '1580', '108', '50', 'gif', '".$config2["admin_name"]."')";
-$insert_ufo = "INSERT INTO ".$config2["table_prefix"]."upload (id, page_id, filename, description, uploaded_dt, filesize, picture_w, picture_h, file_ext, user) VALUES ('2', '0','ufo.swf', 'UFO Express Install Helper', now(), '730', '0', '0', 'swf', '".$config2["admin_name"]."')";
 
 /*
    Setup the tables depending on which database we selected
@@ -360,7 +359,6 @@ switch($config2["database_driver"])
             }
 
          test($lang["adding logo image..."], @mysql_query($insert_logo_image, $dblink), $lang["Already exists?"], 0);
-         test($lang["adding ufo..."], @mysql_query($insert_ufo, $dblink), $lang["Already exists?"], 0);
          break;
       case "mysqli_legacy":
          test($lang["TestSql"], $dblink = @mysqli_connect($config2["database_host"].($port == "" ? '' : ':'.$port), $config2["database_user"], $config2["database_password"]));
@@ -488,7 +486,6 @@ switch($config2["database_driver"])
             }
 
          test($lang["adding logo image..."], @mysqli_query($dblink, $insert_logo_image), $lang["Already exists?"], 0);
-         test($lang["adding ufo..."], @mysqli_query($dblink, $insert_ufo), $lang["Already exists?"], 0);
          break;
       default:
          $dsn = "";
@@ -644,7 +641,6 @@ switch($config2["database_driver"])
             }
 
          test($lang["adding logo image..."], @$dblink->query($insert_logo_image), $lang["Already exists?"], 0);
-         test($lang["adding ufo..."], @$dblink->query($insert_ufo), $lang["Already exists?"], 0);
          break;
    }
 ?>
