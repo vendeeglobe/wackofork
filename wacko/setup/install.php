@@ -230,10 +230,12 @@ $insert_ufo = "INSERT INTO ".$config2["table_prefix"]."upload (id, page_id, file
    mysqli_legacy
    or pdo which is the default clause
 */
+$port = trim($wakkaConfig["database_port"]);
+
 switch($config2["database_driver"])
    {
       case "mysql_legacy":
-         test($lang["TestSql"], $dblink = @mysql_connect($config2["database_host"], $config2["database_user"], $config2["database_password"]));
+         test($lang["TestSql"], $dblink = @mysql_connect($config2["database_host"].($port == "" ? '' : ':'.$port), $config2["database_user"], $config2["database_password"]));
          test($lang["Looking for database..."], @mysql_select_db($config2["database_database"], $dblink), $lang["DBError"]);
          print("<br />\n");
 
@@ -355,12 +357,13 @@ switch($config2["database_driver"])
                //from R4.2 to R4.3
                case "R4.2":
                   print("<strong>Wacko R4.2 ".$lang["to"]." R4.3</strong><br />\n");
-                  test("", @mysql_query($insert_logo_image, $dblink), $lang["Already exists?"], 0);
-                  test("", @mysql_query($insert_ufo, $dblink), $lang["Already exists?"], 0);
             }
+
+         test($lang["adding logo image..."], @mysql_query($insert_logo_image, $dblink), $lang["Already exists?"], 0);
+         test($lang["adding ufo..."], @mysql_query($insert_ufo, $dblink), $lang["Already exists?"], 0);
          break;
       case "mysqli_legacy":
-         test($lang["TestSql"], $dblink = @mysqli_connect($config2["database_host"], $config2["database_user"], $config2["database_password"]));
+         test($lang["TestSql"], $dblink = @mysqli_connect($config2["database_host"].($port == "" ? '' : ':'.$port), $config2["database_user"], $config2["database_password"]));
          test($lang["Looking for database..."], @mysqli_select_db($dblink, $config2["database_database"]), $lang["DBError"]);
          print("<br />\n");
 
@@ -482,9 +485,10 @@ switch($config2["database_driver"])
                //from R4.2 to R4.3
                case "R4.2":
                   print("<strong>Wacko R4.2 ".$lang["to"]." R4.3</strong><br />\n");
-                  test("", @mysqli_query($dblink, $insert_logo_image), $lang["Already exists?"], 0);
-                  test("", @mysqli_query($dblink, $insert_ufo), $lang["Already exists?"], 0);
             }
+
+         test($lang["adding logo image..."], @mysqli_query($dblink, $insert_logo_image), $lang["Already exists?"], 0);
+         test($lang["adding ufo..."], @mysqli_query($dblink, $insert_ufo), $lang["Already exists?"], 0);
          break;
       default:
          $dsn = "";
@@ -637,9 +641,10 @@ switch($config2["database_driver"])
                //from R4.2 to R4.3
                case "R4.2":
                   print("<strong>Wacko R4.2 ".$lang["to"]." R4.3</strong><br />\n");
-                  test("", @$dblink->query($insert_logo_image), $lang["Already exists?"], 0);
-                  test("", @$dblink->query($insert_ufo), $lang["Already exists?"], 0);
             }
+
+         test($lang["adding logo image..."], @$dblink->query($insert_logo_image), $lang["Already exists?"], 0);
+         test($lang["adding ufo..."], @$dblink->query($insert_ufo), $lang["Already exists?"], 0);
          break;
    }
 ?>

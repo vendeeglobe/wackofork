@@ -26,9 +26,9 @@ function free_result($rs)
       return mysqli_free_result($rs);
    }
 
-function connect($host, $user, $passw, $db, $collation = false)
+function connect($host, $user, $passw, $db, $collation = false, $driver, $port = "")
    {
-      $dblink = mysqli_connect($host, $user, $passw, $db);
+      $dblink = mysqli_connect($host.($port == "" ? '' : ':'.$port), $user, $passw, $db);
       if ($collation)  mysqli_query($dblink, "SET NAMES '".$collation."'");
       return $dblink;
    }

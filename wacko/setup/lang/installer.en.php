@@ -94,5 +94,7 @@ $lang = array(
 "apply rights" => "Trying to set write access for folder ",
 "apply rights yourself" => "Please, set access rights to 0777 for folder ",
 "RewriteModeAlert" => "ATTENTION!\nYour base URL & rewrite-mode settings looks suspicious. Usually there is no ? mark in base URL if rewrite-mode is set - but in your case there is one.\n\nTo continue with these settings click OK.\nTo get back to form & change settings click CANCEL.\n\nIf you are about to proceed with these settings, please note that they COULD cause malfunction of product.",
+"adding logo image..." => "Adding logo image...",
+"adding ufo..." => "Adding UFO..."
 );
 ?>

@@ -29,10 +29,10 @@ function free_result($rs)
  return mysql_free_result($rs);
 }
 
-function connect($host, $user, $passw, $db, $collation = false)
+function connect($host, $user, $passw, $db, $collation = false, $driver, $port = "")
 {
  if(!extension_loaded("mysql")) dl("mysql.so");
- $dblink = mysql_connect($host, $user, $passw);
+ $dblink = mysql_connect($host.($port == "" ? '' : ':'.$port), $user, $passw);
  mysql_select_db($db, $dblink);
  if ($collation)  mysql_query("SET NAMES '".$collation."'", $dblink);
  return $dblink;
