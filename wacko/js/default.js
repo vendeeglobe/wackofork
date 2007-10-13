@@ -5,7 +5,7 @@ var isO=window.opera && isDOM;
 
 function undef(param) { return param; }
 
-// плавна€ моталка по странице. Ёто супер-фича.
+// Smooth scrolling on the page
 function travelA( Aname, quick, noplus )
 {
   if (isMZ && navigator.userAgent.substr(navigator.userAgent.indexOf("Gecko/")+6,4)=="2003" ) isMZ=false;
@@ -21,7 +21,7 @@ function travelA( Aname, quick, noplus )
    aLength = a.length;
    for (var i = 0; i < aLength; i++)
    {
-    an = a[i].getAttribute("name");  
+    an = a[i].getAttribute("name");
     if (an!=null && an==Aname)
      break;
    }
@@ -39,7 +39,7 @@ function travelA( Aname, quick, noplus )
   return true;
 }
 
-// часть прикольной, завораживающей моталки
+// Auto scroll
 function travelto(x, y, quick )
 {
   if (document.documentElement) var d = document.documentElement;
@@ -70,7 +70,7 @@ function travelto(x, y, quick )
   while (( (ox-cx) != 0 ) || ( (oy-cy) != 0 ));
 }
 
-var ok; 
+var ok;
 
 function sign(x)
 {
@@ -84,11 +84,11 @@ function sign(x)
  var dbclick;
  var edit;
 
- function all_init () //инициализаци€ вс€ких штук, которые требуют инициализации
+ function all_init () // initialization everything
  {
-  if (wikiedit) 
+  if (wikiedit)
    we_init(wikiedit);
-  if (dbclick) 
+  if (dbclick)
    dclick(dbclick);
   init_travel();
   crit_init();
@@ -113,7 +113,7 @@ function sign(x)
 
  }
 
- function mouseClick(event) 
+ function mouseClick(event)
  {
      op = event.target;
      while (op!=null && op.className!=dbclick && op.tagName!="BODY")
@@ -123,7 +123,7 @@ function sign(x)
      }
  }
 
- function init_travel() 
+ function init_travel()
  {
   a = document.all ? document.all : document.getElementsByTagName("*");
   aLength = a.length;
@@ -134,8 +134,8 @@ function sign(x)
    if (a[i].tagName == "A" || a[i].tagName == "a")
    {
     ahref = a[i].getAttribute("href");
-    
-    if (ahref!=null && ((ahref.substr(0, l.length)==l && ahref.charAt(l.length)=="#") || ahref.charAt(0)=="#"))// && ahref.charAt(l.length+1)=="#") 
+
+    if (ahref!=null && ((ahref.substr(0, l.length)==l && ahref.charAt(l.length)=="#") || ahref.charAt(0)=="#"))// && ahref.charAt(l.length+1)=="#")
     {
       if (ahref.charAt(0)=="#") ah = ahref.substr(1, ahref.length-1);
       else ah = ahref.substr(l.length+1, ahref.length-l.length-1);
@@ -168,13 +168,13 @@ var DOTS = "#define x_width 2\n#define x_height 1\nstatic char x_bits[]={0x01}";
 
 
 // -----------------------------------------------------------------------------------------------
-// ниже расположен код конфирмации изменений критичных полей. 
-// Courtesy of http://htmlcoder.visions.ru/JavaScript/?26 
+// Confirms leaving the page when there are unsaved changes
+// Courtesy of http://htmlcoder.visions.ru/JavaScript/?26
 // slightly modified by Kuso Mendokusee
 // slightly modified by Kukutz
 var root = window.addEventListener || window.attachEvent ? window : document.addEventListener ? document : null;
 var cf_modified = false;
-var WIN_CLOSE_MSG = "\n¬ы не сохранили изменени€. ƒействительно хотите уйти отсюда?\n";
+var WIN_CLOSE_MSG = "\nYou did not save changes. Are you sure you want to leave?\n";
 
 function set_modified(e, strict_e){
   if (window.event && !strict_e)
@@ -184,7 +184,7 @@ function set_modified(e, strict_e){
   if (el!=null)
   {
    el.style.borderColor = "#eecc99";
-   el.title = "(поле изменено, не забудьте сохранить изменени€)";
+   el.title = "(field is changed, do not forget to save the changes)";
   }
   cf_modified = true;
 }
