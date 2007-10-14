@@ -4,23 +4,34 @@ if (!$wakkaConfig["wakka_version"])
 {
 ?>
 <script language="JavaScript" type="text/javascript">
+   <!--
    function check()
       {
          var f = document.forms.form1;
-         var re;
-         re = new RegExp("^[A-Z][a-z]+[A-Z0-9][A-Za-z0-9]*$");
+         var re = new RegExp("^[A-Z][a-z]+[A-Z0-9][A-Za-z0-9]*$");
 
-         if(!f.elements["config[database_driver]"][0].checked &&
-            !f.elements["config[database_driver]"][1].checked &&
-            !f.elements["config[database_driver]"][2].checked &&
-            !f.elements["config[database_driver]"][3].checked &&
-            !f.elements["config[database_driver]"][4].checked &&
-            !f.elements["config[database_driver]"][5].checked &&
-            !f.elements["config[database_driver]"][6].checked &&
-            !f.elements["config[database_driver]"][7].checked &&
-            !f.elements["config[database_driver]"][8].checked &&
-            !f.elements["config[database_driver]"][9].checked &&
-            !f.elements["config[database_driver]"][10].checked)
+         // Ensure a database driver is selected
+         var db_driver_selected = false;
+
+         // If there is no value property then we have an array of possible database driver radio boxes
+         if(f.elements["config[database_driver]"].value == undefined)
+            {
+               for (var i = 0; i < f.elements["config[database_driver]"].length; i++)
+                  {
+                     if(f.elements["config[database_driver]"][i].checked)
+                        {
+                           db_driver_selected = true;
+                           break;
+                        }
+                  }
+            }
+         else
+            {
+               // Else there is only one database driver radio box available and it will already be selected
+               db_driver_selected = true;
+            }
+
+         if(!db_driver_selected)
             {
                alert('<?php echo $lang["no database driver selected"];?>');
                return false;
@@ -59,14 +70,17 @@ if (!$wakkaConfig["wakka_version"])
                return false;
 
          return true;
+         // -->
    }
 </script>
 <?php } else {?>
 <script language="JavaScript">
+   <!--
    function check()
       {
          return true;
       }
+   // -->
 </script>
 <?php } ?>
 <form action="<?php echo myLocation() ?>?installAction=install" name="form1" method="post">
@@ -105,7 +119,7 @@ if (!$wakkaConfig["wakka_version"])
             {
 ?>
  <tr><td></td><td><?php echo $lang["databaseDriverDesc"];?></td></tr>
- <tr><td align="right" nowrap style="vertical-align: top;"><?php echo $lang["databaseDriver"]; ?>:</td><td><?php if(extension_loaded("mysql")) { ?><input type="radio" name="config[database_driver]" value="mysql_legacy" />MySQL<br /><?php } if(extension_loaded("mysqli")) { ?><input type="radio" name="config[database_driver]" value="mysqli_legacy" />MySQLi<br /><?php } if(extension_loaded("pdo")) { ?><input type="radio" name="config[database_driver]" value="mysql" />PDO MySQL<br /><input type="radio" name="config[database_driver]" value="dblib" />PDO DB-Lib<br /><input type="radio" name="config[database_driver]" value="mssql" />PDO MS SQL<br /><input type="radio" name="config[database_driver]" value="sybase" />PDO Sybase<br /><input type="radio" name="config[database_driver]" value="firebird" />PDO Firebird/Interbase<br /><input type="radio" name="config[database_driver]" value="ibm" />PDO IBM DB2<br /><input type="radio" name="config[database_driver]" value="informix" />PDO Informix<br /><input type="radio" name="config[database_driver]" value="oci" />PDO Oracle<br /><input type="radio" name="config[database_driver]" value="pgsql" />PDO PostgreSQL<br /><input type="radio" name="config[database_driver]" value="sqlite" />PDO SQLite<br /><input type="radio" name="config[database_driver]" value="sqlite2" />PDO SQLite2<?php } ?></td></tr>
+ <tr><td align="right" nowrap style="vertical-align: top;"><?php echo $lang["databaseDriver"]; ?>:</td><td><?php if(extension_loaded("mysql")) { ?><input type="radio" name="config[database_driver]" value="mysql_legacy" checked="checked" />MySQL<br /><?php } if(extension_loaded("mysqli")) { ?><input type="radio" name="config[database_driver]" value="mysqli_legacy" <?php if(!extension_loaded("mysql")) echo 'checked="checked" '; ?>/>MySQLi<br /><?php } if(extension_loaded("pdo")) { ?><input type="radio" name="config[database_driver]" value="mysql" <?php if(!extension_loaded("mysql") && !extension_loaded("mysqli")) echo 'checked="checked" '; ?>/>PDO MySQL<br /><input type="radio" name="config[database_driver]" value="dblib" />PDO DB-Lib<br /><input type="radio" name="config[database_driver]" value="mssql" />PDO MS SQL<br /><input type="radio" name="config[database_driver]" value="sybase" />PDO Sybase<br /><input type="radio" name="config[database_driver]" value="firebird" />PDO Firebird/Interbase<br /><input type="radio" name="config[database_driver]" value="ibm" />PDO IBM DB2<br /><input type="radio" name="config[database_driver]" value="informix" />PDO Informix<br /><input type="radio" name="config[database_driver]" value="oci" />PDO Oracle<br /><input type="radio" name="config[database_driver]" value="pgsql" />PDO PostgreSQL<br /><input type="radio" name="config[database_driver]" value="sqlite" />PDO SQLite<br /><input type="radio" name="config[database_driver]" value="sqlite2" />PDO SQLite2<?php } ?></td></tr>
  <tr><td></td><td><?php echo $lang["databaseHostDesc"];?></td></tr>
  <tr><td align="right" nowrap><?php echo $lang["databaseHost"];?>:</td><td><input type="text" size="50" name="config[database_host]" value="<?php echo $wakkaConfig["database_host"] ?>" /></td></tr>
  <tr><td></td><td><?php echo $lang["databasePortDesc"];?></td></tr>
