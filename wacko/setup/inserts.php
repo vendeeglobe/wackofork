@@ -18,7 +18,7 @@
                         mysql_query("insert into ".$config["table_prefix"]."acls set page_tag = '".$tag."', ".
                            "supertag='".NpjTranslit($tag, $lng)."', privilege = 'write', list='".$rights."'", $dblink);
                         mysql_query("insert into ".$config["table_prefix"]."acls set page_tag = '".$tag."', ".
-                           "supertag='".NpjTranslit($tag, $lng)."', privilege = 'comment', list='*'", $dblink);
+                           "supertag='".NpjTranslit($tag, $lng)."', privilege = 'comment', list='$'", $dblink);
                      }
                   break;
                case "mysqli_legacy":
@@ -33,7 +33,7 @@
                         mysqli_query($dblink, "insert into ".$config["table_prefix"]."acls set page_tag = '".$tag."', ".
                            "supertag='".NpjTranslit($tag, $lng)."', privilege = 'write', list='".$rights."'");
                         mysqli_query($dblink, "insert into ".$config["table_prefix"]."acls set page_tag = '".$tag."', ".
-                           "supertag='".NpjTranslit($tag, $lng)."', privilege = 'comment', list='*'");
+                           "supertag='".NpjTranslit($tag, $lng)."', privilege = 'comment', list='$'");
                      }
                   break;
                default:
@@ -49,7 +49,7 @@
                         @$dblink->query("insert into ".$config["table_prefix"]."acls set page_tag = '".$tag."', ".
                            "supertag='".NpjTranslit($tag, $lng)."', privilege = 'write', list='".$rights."'");
                         @$dblink->query("insert into ".$config["table_prefix"]."acls set page_tag = '".$tag."', ".
-                           "supertag='".NpjTranslit($tag, $lng)."', privilege = 'comment', list='*'");
+                           "supertag='".NpjTranslit($tag, $lng)."', privilege = 'comment', list='$'");
                      }
                   break;
             }
