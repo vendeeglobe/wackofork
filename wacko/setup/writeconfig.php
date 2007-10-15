@@ -29,10 +29,8 @@ if (!$wakkaConfig["wacko_version"]) $config["cookie_prefix"] = $config["table_pr
 //$config["site_bookmarks"] = $lang["site_bookmarks"];
 if (!$wakkaConfig["wacko_version"]) $config["aliases"] = array("Admins" => $config["admin_name"]);
 
-
 // merge existing configuration with new one
 $config = array_merge((array)$wakkaConfig, (array)$config);
-
 
 // set version to current version, yay!
 $config["wakka_version"] = WAKKA_VERSION;
