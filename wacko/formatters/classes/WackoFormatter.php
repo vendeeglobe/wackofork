@@ -19,21 +19,157 @@ class WackoFormatter
   var $cols = 0;
   var $z_gif = "&nbsp;";
   var $colors = array(
-   "red" =>   "red"  ,
-   "green" => "green",
-   "blue" =>  "blue" ,
-   "крас" =>  "red"  ,
-   "зел" =>   "green",
-   "син" =>   "blue" ,
-   "красный" => "red"  ,
-   "зеленый" => "green",
-   "синий" =>   "blue" ,
+   "indianred" => "indianred" ,
+   "lightcoral" => "lightcoral" ,
+   "orangered" => "orangered" ,
+   "crimson" => "crimson" ,
+   "darkred" => "darkred" ,
+   "pink" => "pink" ,
+   "hotpink" => "hotpink" ,
+   "palevioletred" => "palevioletred" ,
+   "khaki" => "khaki" ,
+   "lightgoldenrodyellow" => "lightgoldenrodyellow" ,
+   "lemonchiffon" => "lemonchiffon" ,
+   "gold" => "gold" ,
+   "moccasin" => "moccasin" ,
+   "cyan" => "cyan" ,
+   "aquamarine" => "aquamarine" ,
+   "mediumturquoise" => "mediumturquoise" ,
+   "cadetblue" => "cadetblue" ,
+   "lightcyan" => "lightcyan" ,
+   "powderblue" => "powderblue" ,
+   "steelblue" => "steelblue" ,
+   "skyblue" => "skyblue" ,
+   "deepskyblue" => "deepskyblue" ,
+   "royalblue" => "royalblue" ,
+   "dodgerblue" => "dodgerblue" ,
+   "mediumblue" => "mediumblue" ,
+   "navy" => "navy" ,
+   "lightsalmon" => "lightsalmon" ,
+   "darkorange" => "darkorange" ,
+   "tomato" => "tomato" ,
+   "aquamarine" => "aquamarine" ,
+   "springgreen" => "springgreen" ,
+   "greenyellow" => "greenyellow" ,
+   "lawngreen" => "lawngreen" ,
+   "lightgreen" => "lightgreen" ,
+   "limegreen" => "limegreen" ,
+   "darkseagreen" => "darkseagreen" ,
+   "seagreen" => "seagreen" ,
+   "olivedrab" => "olivedrab" ,
+   "darkolivegreen" => "darkolivegreen" ,
+   "mediumaquamarine" => "mediumaquamarine" ,
+   "lightseagreen" => "lightseagreen" ,
+   "teal" => "teal" ,
+   "thistle" => "thistle" ,
+   "violet" => "violet" ,
+   "magenta" => "magenta" ,
+   "mediumorchid" => "mediumorchid" ,
+   "blueviolet" => "blueviolet" ,
+   "mediumpurple" => "mediumpurple" ,
+   "purple" => "purple" ,
+   "darkslateblue" => "darkslateblue" ,
+   "honeydew" => "honeydew" ,
+   "azure" => "azure" ,
+   "ghostwhite" => "ghostwhite" ,
+   "lavenderblush" => "lavenderblush" ,
+   "antiquewhite" => "antiquewhite" ,
+   "snow" => "snow" ,
+   "beige" => "beige" ,
+   "oldlace" => "oldlace" ,
+   "ivory" => "ivory" ,
+   "lightgrey" => "lightgrey" ,
+   "darkgray" => "darkgray" ,
+   "dimgray" => "dimgray" ,
+   "lightslategray" => "lightslategray" ,
+   "cornsilk" => "cornsilk" ,
+   "bisque" => "bisque" ,
+   "wheat" => "wheat" ,
+   "goldenrod" => "goldenrod" ,
+   "peru" => "peru" ,
+   "maroon" => "maroon" ,
+   "brown" => "brown" ,
+   "darkred" => "darkred" ,
+   "tan" => "tan" ,
+   "black" => "black" ,
+   "darksalmon" => "darksalmon" ,
+   "salmon" => "salmon" ,
+   "red" => "red" ,
+   "firebrick" => "firebrick" ,
+   "mediumvioletred" => "mediumvioletred" ,
+   "lightpink" => "lightpink" ,
+   "deeppink" => "deeppink" ,
+   "darkkhaki" => "darkkhaki" ,
+   "palegoldenrod" => "palegoldenrod" ,
+   "lightyellow" => "lightyellow" ,
+   "yellow" => "yellow" ,
+   "papayawhip" => "papayawhip" ,
+   "peachpuff" => "peachpuff" ,
+   "aqua" => "aqua" ,
+   "turquoise" => "turquoise" ,
+   "darkturquoise" => "darkturquoise" ,
+   "slategray" => "slategray" ,
+   "paleturquoise" => "paleturquoise" ,
+   "lightsteelblue" => "lightsteelblue" ,
+   "lightblue" => "lightblue" ,
+   "lightskyblue" => "lightskyblue" ,
+   "cornflowerblue" => "cornflowerblue" ,
+   "mediumslateblue" => "mediumslateblue" ,
+   "blue" => "blue" ,
+   "darkblue" => "darkblue" ,
+   "midnightblue" => "midnightblue" ,
+   "orange" => "orange" ,
+   "coral" => "coral" ,
+   "orangered" => "orangered" ,
+   "mediumspringgreen" => "mediumspringgreen" ,
+   "palegreen" => "palegreen" ,
+   "chartreuse" => "chartreuse" ,
+   "lime" => "lime" ,
+   "yellowgreen" => "yellowgreen" ,
+   "mediumseagreen" => "mediumseagreen" ,
+   "forestgreen" => "forestgreen" ,
+   "green" => "green" ,
+   "olive" => "olive" ,
+   "darkgreen" => "darkgreen" ,
+   "turquoise" => "turquoise" ,
+   "darkcyan" => "darkcyan" ,
+   "lavender" => "lavender" ,
+   "plum" => "plum" ,
+   "fuchsia" => "fuchsia" ,
+   "orchid" => "orchid" ,
+   "darkorchid" => "darkorchid" ,
+   "darkviolet" => "darkviolet" ,
+   "slateblue" => "slateblue" ,
+   "darkmagenta" => "darkmagenta" ,
+   "indigo" => "indigo" ,
+   "mintcream" => "mintcream" ,
+   "aliceblue" => "aliceblue" ,
+   "whitesmoke" => "whitesmoke" ,
+   "mistyrose" => "mistyrose" ,
+   "seashell" => "seashell" ,
+   "white" => "white" ,
+   "linen" => "linen" ,
+   "floralwhite" => "floralwhite" ,
+   "gainsboro" => "gainsboro" ,
+   "silver" => "silver" ,
+   "gray" => "gray" ,
+   "darkslategray" => "darkslategray" ,
+   "slategray" => "slategray" ,
+   "blanchedalmond" => "blanchedalmond" ,
+   "navajowhite" => "navajowhite" ,
+   "sandybrown" => "sandybrown" ,
+   "darkgoldenrod" => "darkgoldenrod" ,
+   "chocolate" => "chocolate" ,
+   "saddlebrown" => "saddlebrown" ,
+   "sienna" => "sienna" ,
+   "burlywood" => "burlywood" ,
+   "rosybrown" => "rosybrown" ,
   );
 
   function WackoFormatter( &$object )
-  { 
-    $this->object = &$object; 
-    $this->LONGREGEXP = 
+  {
+    $this->object = &$object;
+    $this->LONGREGEXP =
 "/(".
 "\xa5\xa5.*?\xa5\xa5|".($this->object->GetConfigValue("allow_rawhtml")==1?"\<\#.*?\#\>|":"").
 "\(\?(\S+?)([ \t]+([^\n]+?))?\?\)|".
@@ -74,7 +210,7 @@ class WackoFormatter
 ")/sm";
   }
 
-  function IndentClose() 
+  function IndentClose()
   {
    $result = '';
    if ($this->intable) $Closers = &$this->tdindentClosers;
@@ -93,17 +229,17 @@ class WackoFormatter
     $wacko = &$this->object;
     $callback = array( &$this, "wackoPreprocess");
 
-    if ($thing{0} == "~") 
+    if ($thing{0} == "~")
      if ($thing{1} == "~") return "~~".$this->WackoPreprocess( array(0,substr($thing,2)) );
 
     // escaped text
     if (preg_match("/^\xa5\xa5(.*)\xa5\xa5$/s", $thing, $matches))
-    {                                    
+    {
       return $matches[1];
     }
     // escaped text
     else if (preg_match("/^\"\"(.*)\"\"$/s", $thing, $matches))
-    {                                    
+    {
       return "\xa5\xa5<!--notypo-->".str_replace("\n","<br />",htmlspecialchars($matches[1]))."<!--/notypo-->\xa5\xa5";
     }
     // code text
@@ -127,7 +263,7 @@ class WackoFormatter
           {
             $formatter = substr( $matches[1], 0, $sep );
             $p = " ".substr( $matches[1], $sep )." ";
-            $paramcount = preg_match_all( "/(([^\s=]+)(\=((\"(.*?)\")|([^\"\s]+)))?)\s/", $p, 
+            $paramcount = preg_match_all( "/(([^\s=]+)(\=((\"(.*?)\")|([^\"\s]+)))?)\s/", $p,
                                           $matches, PREG_SET_ORDER );
             $params = array();  $c=0;
             foreach( $matches as $m )
@@ -174,12 +310,12 @@ class WackoFormatter
     $wacko = &$this->object;
     $callback = array( &$this, "WackoCallback");
 
-    if ($thing{0} == "~") 
+    if ($thing{0} == "~")
      if ($thing{1} == "~") return "~~".$this->WackoMiddleprocess( array(0,substr($thing,2)) );
 
     // escaped text
     if (preg_match("/^\xa5\xa5(.*)\xa5\xa5$/s", $thing, $matches))
-    {                                    
+    {
       return $matches[1];
     }
     // centered text
@@ -197,10 +333,10 @@ class WackoFormatter
 
     $wacko = &$this->object;
     $callback = array( &$this, "WackoCallback");
-    
+
     $this->page_id = $wacko->page["id"];
     if (!$this->page_id) $this->page_id = trim(substr(crc32(time()),0,5),"-");
-    
+
     // convert HTML thingies
     if ($thing == "<")
       return "&lt;";
@@ -208,12 +344,12 @@ class WackoFormatter
       return "&gt;";
     // escaped text
     else if (preg_match("/^\xa5\xa5(.*)\xa5\xa5$/s", $thing, $matches))
-    {                                    
+    {
       return $matches[1];
     }
     // escaped html
     else if (preg_match("/^\<\#(.*)\#\>$/s", $thing, $matches))
-    {                                    
+    {
       if ($this->object->GetConfigValue("disable_safehtml"))
         return "<!--notypo-->".$matches[1]."<!--/notypo-->";
       else
@@ -250,19 +386,19 @@ class WackoFormatter
       $this->br = 1;
       $this->intable = true;
       $this->intablebr = false;
-      
+
       $output = "<tr class=\"userrow\">";
       $cells = split("\|", $matches[1]);
       $count = count($cells);
       $count--;
-      
+
       for ($i=0; $i<$count;$i++)
       {
         $this->tdoldIndentLevel = 0;
         $this->tdindentClosers = array();
         if ($cells[$i]{0}=="\n") $cells[$i] = substr($cells[$i], 1);
         $output .= str_replace("\177","",str_replace("\177"."<br />\n","","<td class=\"usercell\">".preg_replace_callback($this->LONGREGEXP, $callback, "\177\n".$cells[$i])));
-        $output .= $this->IndentClose();                                                   
+        $output .= $this->IndentClose();
         $output .= "</td>";
       }
       if (($this->cols <> 0) and ($count<$this->cols))
@@ -275,7 +411,7 @@ class WackoFormatter
         $output .= "</td>";
       }
       else
-      { 
+      {
         $this->tdoldIndentLevel = 0;
         $this->tdindentClosers = array();
         if ($cells[$i]{0}=="\n") $cells[$count] = substr($cells[$count], 1);
@@ -284,7 +420,7 @@ class WackoFormatter
         $output .= "</td>";
       }
       $output .= "</tr>";
-      
+
       if ($this->cols == 0)
       {
         $this->cols = $count;
@@ -293,7 +429,7 @@ class WackoFormatter
       $this->intable = false;
       return $output;
     }
-    // Deleted 
+    // Deleted
     else if (preg_match("/^\xA4\xA4((\S.*?\S)|(\S))\xA4\xA4$/s", $thing, $matches))
     {
       $this->br = 0;
@@ -321,7 +457,7 @@ class WackoFormatter
       return "<u>".preg_replace_callback($this->LONGREGEXP, $callback, $matches[1])."</u>";
     }
     // monospace
-    else if (preg_match("/^\#\#(.*?)\#\#$/", $thing, $matches) || 
+    else if (preg_match("/^\#\#(.*?)\#\#$/", $thing, $matches) ||
              preg_match("/^\№\№(.*?)\№\№$/", $thing, $matches))
     {
       return "<tt>".preg_replace_callback($this->LONGREGEXP, $callback, $matches[1])."</tt>";
@@ -336,15 +472,19 @@ class WackoFormatter
              preg_match("/^\!\!((\((\S*?)\)(.*?\S))|(\S.*?\S)|(\S))\!\!$/s", $thing, $matches))
     {
       $this->br = 1;
-      if ($matches[3] && $color = $this->colors[$matches[3]]) 
+      if ($matches[3] && $color = $this->colors[$matches[3]])
       {
         return "<span class=\"cl-".$color."\">".preg_replace_callback($this->LONGREGEXP, $callback, $matches[4])."</span>";
       }
       return "<span class=\"cite\">".preg_replace_callback($this->LONGREGEXP, $callback, $matches[1])."</span>";
     }
-    else if (preg_match("/^\?\?((\S.*?\S)|(\S))\?\?$/s", $thing, $matches))
+    else if (preg_match("/^\?\?((\((\S*?)\)(.*?\S))|(\S.*?\S)|(\S))\?\?$/s", $thing, $matches))
     {
       $this->br = 1;
+      if ($matches[3] && $color = $this->colors[$matches[3]])
+      {
+        return "<span class=\"mark-".$color."\">".preg_replace_callback($this->LONGREGEXP, $callback, $matches[4])."</span>";
+      }
       return "<span class=\"mark\">".preg_replace_callback($this->LONGREGEXP, $callback, $matches[1])."</span>";
     }
     // urls
@@ -451,7 +591,7 @@ class WackoFormatter
       return "";
     }
     // forced links & footnotes
-    else if ((preg_match("/^\[\[(.+)(==|\|)(.*)\]\]$/", $thing, $matches)) || 
+    else if ((preg_match("/^\[\[(.+)(==|\|)(.*)\]\]$/", $thing, $matches)) ||
              (preg_match("/^\(\((.+)(==|\|)(.*)\)\)$/", $thing, $matches)) ||
              (preg_match("/^\[\[(\S+)(\s+(.+))?\]\]$/", $thing, $matches)) ||
              (preg_match("/^\(\((\S+)(\s+(.+))?\)\)$/", $thing, $matches)))
@@ -505,7 +645,7 @@ class WackoFormatter
       // new line
       $result .= ($this->br ? "<br />\n" : "\n");
       //intable or not?
-      if ($this->intable) 
+      if ($this->intable)
       {
        $Closers = &$this->tdindentClosers;
        $oldlevel = &$this->tdoldIndentLevel;
@@ -534,9 +674,9 @@ class WackoFormatter
       else { $opener = "<ol type=\"".$newIndentType."\"><li".($start?" value=\"".$start."\"":"").">"; $closer = "</li></ol>"; $li = 1; $newtype="1";}
 
       // get new indent level
-      if ($matches[2][0]==" ") 
+      if ($matches[2][0]==" ")
        $newIndentLevel = (int) (strlen($matches[2])/2);
-      else 
+      else
        $newIndentLevel = strlen($matches[2]);
 
       if ($newIndentLevel > $oldlevel)
@@ -599,7 +739,7 @@ class WackoFormatter
     {
       if ($matches[1]=="~")
        return $matches[2];
-      return $wacko->PreLink($thing); 
+      return $wacko->PreLink($thing);
     }
     // wacko links!
     else if ((!$wacko->_formatter_noautolinks) &&
@@ -607,7 +747,7 @@ class WackoFormatter
     {
       if ($matches[1]=="~")
        return $matches[4];
-      return $wacko->PreLink($thing); 
+      return $wacko->PreLink($thing);
     }
     if (($thing[0] == "~") && ($thing[1] != "~")) $thing=ltrim($thing, "~");
     if (($thing[0] == "~") && ($thing[1] == "~")) return "~".preg_replace_callback($this->LONGREGEXP, $callback, substr($thing,2));
