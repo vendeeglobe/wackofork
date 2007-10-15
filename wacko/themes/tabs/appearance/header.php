@@ -46,7 +46,7 @@ if ($user["doubleclickedit"] == "Y") {?>
 
 <div class="Top<?php if (!$this->GetUser()) echo "LoggedOut";?>">
   <div class="TopRight">
-    <?php echo $this->FormOpen("", "TextSearch", "get"); ?>
+    <?php echo $this->FormOpen("", $this->GetResourceValue("TextSearchPage"), "get"); ?>
 
     <span class="nobr">
     <?php echo $this->ComposeLinkToPage($this->GetConfigValue("root_page")) ?>&nbsp;|&nbsp;
