@@ -23,7 +23,6 @@
  * @ignore
  */
 
-
 // BC trick : only define constants if Text/Highlighter.php
 // is not yet included
 if (!defined('HL_NUMBERS_LI')) {
@@ -96,7 +95,6 @@ class Text_Highlighter_Renderer_Html extends Text_Highlighter_Renderer
 
     /**#@-*/
 
-
     function preprocess($str)
     {
         // normalize whitespace and tabs
@@ -106,7 +104,6 @@ class Text_Highlighter_Renderer_Html extends Text_Highlighter_Renderer
         $str = str_replace("\t",str_repeat(' ', $this->_tabsize), $str);
         return rtrim($str);
     }
-
 
     /**
      * Resets renderer state
@@ -128,8 +125,6 @@ class Text_Highlighter_Renderer_Html extends Text_Highlighter_Renderer
         }
         if (isset($this->_options['tabsize'])) $this->_tabsize = $this->_options['tabsize'];
     }
-
-
 
     /**
      * Accepts next token

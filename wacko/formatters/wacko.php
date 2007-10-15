@@ -35,5 +35,4 @@ if (1*$closes < 1*$opens)
 
 print($text);
 
-
 ?>

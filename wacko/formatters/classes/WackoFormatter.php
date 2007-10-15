@@ -251,7 +251,6 @@ class WackoFormatter
       $this->intable = true;
       $this->intablebr = false;
       
-
       $output = "<tr class=\"userrow\">";
       $cells = split("\|", $matches[1]);
       $count = count($cells);

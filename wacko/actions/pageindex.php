@@ -45,7 +45,6 @@ while ($cnt < $limit)
   if ($offset >= $total) break;
 }
 
-
 //  display collected data
 
 foreach ($pages_to_display as $page)
@@ -65,7 +64,6 @@ foreach ($pages_to_display as $page)
 
 //$last_page = array_pop($pages_to_display);
 
-  
 //  display navigation
 
 if ( $offset < $total )
@@ -77,7 +75,6 @@ if ($offset > $limit )
   $prev_page_link = '<a href="?offset='.(($offset-2*$limit) > 0 ? $offset-2*$limit : 0).'">&lt; '.$this->GetResourceValue("Prev").'</a>';
 else
   $prev_page_link = "&lt; ".$this->GetResourceValue("Prev");
-  
 
 if ($pages_to_display)
 {

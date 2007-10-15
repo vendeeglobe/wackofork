@@ -141,7 +141,6 @@ $wakkaDefaultConfig = array(
   );
 $wakkaDefaultConfig['aliases'] = array('Admins' => "",);
 
-
 // load config
 if (!$configfile = GetEnv("WAKKA_CONFIG")) $configfile = "wakka.config.php";
 if (@file_exists($configfile)) include($configfile);

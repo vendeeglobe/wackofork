@@ -11,5 +11,4 @@ $typo->settings["dashglue"] = false;
 
 print $typo->correct($text, false);
 
-
 ?>

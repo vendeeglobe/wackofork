@@ -16,7 +16,6 @@
 *          http://www.darkskull.net
 **/
 
-
 class DelphiHightlighter{
 
  var $code = ''; //le code a analyser
@@ -112,7 +111,6 @@ class DelphiHightlighter{
    return sprintf("%s<font color=\"%s\">$tok</font>%s", $style[0], $color, $style[1]);
  }
 
-
  /*******************************************************************/
  /* Recherche un element dans un tableau sans se soucier de la case */
  /*******************************************************************/
@@ -124,7 +122,6 @@ class DelphiHightlighter{
      if (strcasecmp($needle, $string) == 0) return intval($index);
    return FALSE;
  }
-
 
  /*****************************************************/
  /* Analyse un mot et le renvoie de maniere formattee */
@@ -143,7 +140,6 @@ class DelphiHightlighter{
    // Sinon, on renvoie le mot sans formattage
    return $this->formatspecialtok($tok, $this->colortext, $this->styletext);
  }
-
 
  /***************************************************/
  /* On regarde si on ne tombe pas sur un delimiteur */
@@ -194,7 +190,6 @@ class DelphiHightlighter{
    return FALSE;
  }
 
-
  /******************************/
  /* On traite les cas speciaux */
  /******************************/
@@ -215,7 +210,6 @@ class DelphiHightlighter{
      } // if
    } // while
  } // parsearrays
-
 
  function dump($var,$name){
 //  echo "<pre>$name = \n";

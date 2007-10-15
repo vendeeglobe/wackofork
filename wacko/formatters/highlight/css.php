@@ -190,7 +190,6 @@
    $source .= '</ol>';
  }
 
-
 if ($options["notypo"]) echo "<!--no"."typo-->";
 if (!$options["nopre"]) echo "<div class=\"code\"><pre>";
 echo preg_replace("/\&nbsp\;/", "", str_replace("\t","  ",$css), 1);

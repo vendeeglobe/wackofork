@@ -1022,7 +1022,6 @@ CODE;
             $this->_code .= "\n";
         }
 
-        
         $this->_code .= <<<CODE
  * @category   Text
  * @package    Text_Highlighter
@@ -1047,7 +1046,6 @@ CODE;
     {
         \$this->__construct(\$options);
     }
-
 
     /**
      *  Constructor

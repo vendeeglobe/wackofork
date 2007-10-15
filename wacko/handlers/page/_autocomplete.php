@@ -1,6 +1,5 @@
 <?php
 
-
   // Parse & decode QUERY_STRING.
   function _parseQueryString()
   {
@@ -23,7 +22,6 @@
     );
     return $s;
   }
-
 
   // Inplace entity replacement.
   function _unescapeCallback($p)
@@ -113,7 +111,6 @@
                                         sizeof($local_supertag_sliced)-1 );
   $local_context  = implode("/", $local_context_sliced )."/";
 
-
   // подготавливаем к выводу
   $out = array();
   foreach( $pages as $page )
@@ -154,5 +151,3 @@
   die();
 
 ?>
-
-

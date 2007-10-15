@@ -23,4 +23,3 @@
   (<?php echo $this->GetResourceValue("MsWordVersion");?>)
   </h1>
 </div>
-

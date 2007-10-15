@@ -48,7 +48,6 @@ class  Text_Highlighter_SQL extends Text_Highlighter
         $this->__construct($options);
     }
 
-
     /**
      *  Constructor
      *

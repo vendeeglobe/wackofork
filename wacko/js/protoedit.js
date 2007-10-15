@@ -170,4 +170,3 @@ ProtoEdit.prototype.trim = function(s2) {
    }
    return s; // Return the trimmed string back to the user
 }
-

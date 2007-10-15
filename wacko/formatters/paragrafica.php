@@ -13,5 +13,4 @@
 
  echo $result;
 
-
 ?>

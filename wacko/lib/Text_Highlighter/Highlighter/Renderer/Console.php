@@ -23,7 +23,6 @@
  * @ignore
  */
 
-
 define ('HL_CONSOLE_DEFCOLOR', "\033[0m");
 
 /**
@@ -108,7 +107,6 @@ class Text_Highlighter_Renderer_Console extends Text_Highlighter_Renderer
         return rtrim($str);
     }
 
-
     /**
      * Resets renderer state
      *
@@ -138,8 +136,6 @@ class Text_Highlighter_Renderer_Console extends Text_Highlighter_Renderer
         }
         $this->_output = '';
     }
-
-
 
     /**
      * Accepts next token

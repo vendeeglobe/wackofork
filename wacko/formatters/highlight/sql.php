@@ -12,7 +12,6 @@ $skipwords = '[0-9]*';
 // Functions list
 $functions = '\$[[:alnum:]]+';
 
-
 // TAB -> 4 spaces
 $text = preg_replace("#\t#s","    ", $text );
 

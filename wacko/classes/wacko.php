@@ -15,7 +15,6 @@ define("BM_USER", "1");
 define("BM_DEFAULT", "2");
 define("ACTIONS4DIFF", "a, anchor, toc"); //allowed actions in DIFF
 
-
 class Wacko
 {
  var $dblink;
@@ -83,7 +82,6 @@ class Wacko
    }
    return $data;
  }
-
 
  // MISC
  function GetMicroTime() { list($usec, $sec) = explode(" ",microtime()); return ((float)$usec + (float)$sec); }
@@ -657,7 +655,6 @@ class Wacko
    return $this->LoadAll($sql);
  }
 
-
  function LoadPageTitles() { return $this->LoadAll("select distinct tag from ".$this->config["table_prefix"]."pages order by tag"); }
  function LoadAllPages() { return $this->LoadAll("select ".$this->pages_meta." from ".$this->config["table_prefix"]."pages where latest = 'Y' and LEFT(supertag,7)!='comment' order by BINARY tag limit 1000"); }
 
@@ -780,7 +777,6 @@ class Wacko
          "body_toc = '".quote($this->dblink, $body_toc)."', ".
          "lang = '".quote($this->dblink, $lang)."', ".
          "tag = '".quote($this->dblink, $tag)."'");
-
 
        $this->SaveAcl($tag, "write", ($comment_on ? "" : $write_acl));
        $this->SaveAcl($tag, "read", $read_acl);
@@ -1685,7 +1681,6 @@ class Wacko
      $opts[] = $k.$this->valueSplitter.$v;
    return implode( $this->optionSplitter, $opts );
  }
-
 
  // COMMENTS
  function LoadComments($tag) { return $this->LoadAll("select * from ".$this->config["table_prefix"]."pages where comment_on = '".quote($this->dblink, $tag)."' and latest = 'Y' order by time"); }

@@ -128,6 +128,4 @@ else
  echo $this->GetResourceValue("NotLoggedInThusOwned");
 }
 
-
-
 ?>

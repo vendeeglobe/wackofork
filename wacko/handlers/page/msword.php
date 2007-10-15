@@ -23,7 +23,6 @@ if ($this->HasAccess("read"))
               $this->GetResourceValue("Revision")))).".</div>");
     }
 
-
     // display page
     $this->context[++$this->current_context] = $this->tag;
     $data = $this->Format($this->page["body"], "msword");

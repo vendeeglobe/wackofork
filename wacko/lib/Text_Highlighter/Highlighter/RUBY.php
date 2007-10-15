@@ -58,7 +58,6 @@ class  Text_Highlighter_RUBY extends Text_Highlighter
         $this->__construct($options);
     }
 
-
     /**
      *  Constructor
      *

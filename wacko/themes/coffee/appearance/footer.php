@@ -49,11 +49,9 @@ echo $this->GetPageTime() ? "<a href=\"".$this->href("revisions")."\" title=\"".
 
 <?php echo $this->FormClose(); ?>
 
-
 <div class="copyright">
   Powered by <?php echo $this->Link("WackoWiki:WackoWiki", "", "WackoWiki ".$this->GetWackoVersion()) ?>
 </div>
-
 
 <?php
   if ($this->GetConfigValue("debug")>=2)

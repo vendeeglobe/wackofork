@@ -23,4 +23,3 @@
   (<?php echo $this->GetResourceValue("PrintVersion");?>)
   </h1>
 </div>
-

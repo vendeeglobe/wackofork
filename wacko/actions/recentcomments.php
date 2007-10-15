@@ -10,7 +10,6 @@ if (!function_exists('LoadRecentComments')){
   }
 }
 
-
 if (!isset($root)) $root = $this->UnwrapLink($vars[0]);
 if (!isset($root)) $root = $this->page["tag"];
 if (!$max) $max = 50;

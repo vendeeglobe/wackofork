@@ -60,6 +60,5 @@ else
   print("<br />[".str_replace("%1",$this->href("referrers_sites", "", "global=1"),$this->GetResourceValue("ViewReferringSites(Global)")) ." | ".str_replace("%1",$this->href("referrers", "", "global=1"),$this->GetResourceValue("ViewReferrersFor(Global)"))."]");
 }
 
-
 ?>
 </div>

@@ -32,7 +32,6 @@ if ($registered
      echo $this->GetResourceValue("MassNewName");
      echo $this->FormOpen("massrename");
 
-
 ?>
 <input type="hidden" name="rename" value="1" />
 <input type="text" name="newname" value="<?php echo $this->tag;?>" size="40" /><br/>
@@ -59,14 +58,13 @@ else
 ?>
 </div>
 
-
 <?php
 
 function RecursiveMove(&$parent, $root)
 {
   $new_root = trim($_POST["newname"], "/");
 
-  if($root == "/" )  exit; // кто и куда собрался перемещать корень???
+  if($root == "/" )  exit; // who and where did intend to move root???
 
   $query = "'".quote($parent->dblink, $parent->NpjTranslit($root))."%'";
   $pages = $parent->LoadAll("select ".$parent->pages_meta." from ".

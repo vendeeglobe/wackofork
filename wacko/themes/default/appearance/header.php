@@ -135,4 +135,3 @@ src="<?php echo $this->GetConfigValue("theme_url") ?>icons/login.gif" alt=">>>" 
 // Closing Login form
 echo $this->FormClose();
 ?>
-

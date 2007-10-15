@@ -166,7 +166,6 @@ function sign(x)
 
 var DOTS = "#define x_width 2\n#define x_height 1\nstatic char x_bits[]={0x01}";
 
-
 // -----------------------------------------------------------------------------------------------
 // Confirms leaving the page when there are unsaved changes
 // Courtesy of http://htmlcoder.visions.ru/JavaScript/?26
@@ -196,7 +195,6 @@ function ignore_modified(){
 function check_cf(){
   if (cf_modified) return WIN_CLOSE_MSG;
 }
-
 
 function crit_init(){
   if (undef() == root.onbeforeunload) root.onbeforeunload = check_cf;

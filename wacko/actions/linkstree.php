@@ -33,7 +33,6 @@
     }
   }
 
-
   $root = $vars[0];
   if ($root == "/") $root = "";
   if (!($root)) $root = $this->page["tag"];
@@ -42,7 +41,6 @@
   if (!$nomark){
     print("<fieldset><legend>".$this->GetResourceValue("LinksTree:Title")."</legend>\n");
   }
-
 
   if (!$levels) $levels=3;
   else $levels=(int)$levels;

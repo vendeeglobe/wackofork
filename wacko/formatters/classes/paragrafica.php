@@ -204,7 +204,6 @@
                                                                       // {{include xxxx="TAG" notoc="1"}}
                                     "!si", array( &$this, "add_toc_entry" ), $what );
 
-
      return $what;
    }
 
@@ -225,7 +224,5 @@
     return $matches[0];
   }
  }
-
-
 
 ?>

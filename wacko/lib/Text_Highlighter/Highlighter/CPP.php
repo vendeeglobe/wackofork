@@ -29,7 +29,6 @@
  * @ignore
  */
 
-
 /**
  * Auto-generated class. CPP syntax highlighting
  *
@@ -53,7 +52,6 @@ class  Text_Highlighter_CPP extends Text_Highlighter
     {
         $this->__construct($options);
     }
-
 
     /**
      *  Constructor

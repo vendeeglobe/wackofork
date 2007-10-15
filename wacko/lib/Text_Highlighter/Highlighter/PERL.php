@@ -56,7 +56,6 @@ class  Text_Highlighter_PERL extends Text_Highlighter
         $this->__construct($options);
     }
 
-
     /**
      *  Constructor
      *

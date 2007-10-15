@@ -120,7 +120,6 @@ if ($user["doubleclickedit"] == "Y") {?>
 <?php } }
 ?>
 
-
 <?php echo"<a href=\"".$this->href("print")."\" target=\"_blank\">" ?><img
                             src="<?php echo $this->GetConfigValue("theme_url") ?>icons/print.gif"
                             hspace="0" vspace="0" align="absmiddle" width="21" height="20"
@@ -142,4 +141,3 @@ if ($user["doubleclickedit"] == "Y") {?>
     <div style="background-image:url(<?php echo $this->GetConfigValue("theme_url") ?>icons/shade2.gif);" class="Shade"><img src="<?php echo $this->GetConfigValue("theme_url") ?>icons/shade1.gif" width="106" height="6" alt="" border="0" /></div>
 <?php } ?>
   </div>
-

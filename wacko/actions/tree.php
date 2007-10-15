@@ -22,12 +22,10 @@
            continue;
         }
 
-
         if ( $supertag<>"/" && !( strpos($page_supertag,$supertag."/")===0) ){
           //Кончились "Наши" листики.
           break;
         }
-
 
         //Считаем supertag подстраницы
 
@@ -96,7 +94,6 @@
     }
   }
 
-
   if (!function_exists('print_cluster_tree'))
   {
 
@@ -139,7 +136,6 @@
             }
           };
 
-
           if ($sub_exists || ($style!="br" && ( $filter=="all" || test_page_existance($sub_tag_array) ) ) )
           {
             if ($need_letter == 1)
@@ -162,7 +158,6 @@
             if ($style=="indent" || $style=="br") print "<br />";
           }
 
-
           print_cluster_tree($wacko, $sub_tag_array["subtree"],$style,$current_depth+1, $abc, $filter);
 
         }
@@ -172,7 +167,6 @@
       }
     }
   }
-
 
   $root = $vars[0];
   if (!isset($root)) $root = "/".$this->page["tag"];
@@ -184,7 +178,6 @@
   if ($depth==0) $depth=2147483647;//Что значит неограниченно
   if (!$style) $style="indent";
   if (!in_array($style,array("br","ul","ol","indent"))) $style="indent";
-
 
   if ($root){
     if (!$nomark){
@@ -240,13 +233,11 @@
 
     print_cluster_tree($this, $tree, $style, 1, $abc, $filter);
 
-
   }else{
     $empty_string = $this->GetResourceValue("Tree:Empty");
     $empty_string = str_replace("%1",  $this->Link("/".$root,"",$root),  $empty_string);
     print($empty_string."<br />");
   }
-
 
   if (!$nomark) echo "</fieldset>\n";
 

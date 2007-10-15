@@ -1,6 +1,5 @@
 <?php
 
-    
 if (!class_exists("preformatter"))
 {
 class preformatter {
@@ -14,7 +13,6 @@ class preformatter {
        "").
       ")/sm";
   }
-
 
   function precallback($things)
   {
@@ -66,7 +64,5 @@ $parser = &new preformatter($this);
 $text = preg_replace_callback($parser->PREREGEXP, array( &$parser, "precallback"), $text);
 
 print($text);
-
-
 
 ?>

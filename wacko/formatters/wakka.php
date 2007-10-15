@@ -5,5 +5,4 @@ $text = $this->Format($text, "wacko");
 //print($text);
 include("formatters/post_wacko.php");
 
-
 ?>

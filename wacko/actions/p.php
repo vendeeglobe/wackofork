@@ -20,17 +20,17 @@
    $toc = $this->BuildToc( $context, $start_depth, $end_depth, $numerate, $link );
 
   { // ---------------------- p numeration ------------------------
-    // вы€сн€ем, какие номера где сто€т
+    // вы€сн€ем, какие номера где сто€т - we explain, what numbers where stand
     $toc_len = sizeof($toc);
     $numbers = array(); $depth = 0; $pnum=0;
     for($i=0;$i<$toc_len;$i++)
      if ($toc[$i][2] > 66666)
-     { // нормировали глубину погружени€
+     { // нормировали глубину погружени€ - they normalized submersion depth
        $pnum++;
        if ($name == "document-relative") $num = $pnum;
        else                              $num = str_replace("-", "&#0150;&sect;",
                                                 str_replace("p", "є", $toc[$i][0] ));
-       // правим содержимое TOC @66
+       // правим содержимое TOC @66 - we guide contained
        $toc[$i][66] = $num;
      }
      // неплохо б в кэш записать подобновлЄнную версию

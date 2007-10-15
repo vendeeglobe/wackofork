@@ -77,6 +77,4 @@ else
 }
 print "</fieldset>";
 
-
-
 ?>

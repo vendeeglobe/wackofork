@@ -1,4 +1,4 @@
-  <div class="Footer"><img src="<?php echo $this->GetConfigValue("root_url");?>images/z.gif" width="5" height="1" alt="" align="left" border="0" /><img src="<?php echo $this->GetConfigValue("root_url");?>images/z.gif" width="5" height="1" alt="" align="right" border="0" />
+<div class="Footer"><img src="<?php echo $this->GetConfigValue("root_url");?>images/z.gif" width="5" height="1" alt="" align="left" border="0" /><img src="<?php echo $this->GetConfigValue("root_url");?>images/z.gif" width="5" height="1" alt="" align="right" border="0" />
    <?php $this->EchoTab( $this->href("show"),  $this->GetResourceValue("ShowTip"),
         $this->HasAccess("read") ? $this->GetResourceValue("ShowText") : "",
         $this->method != "show"
@@ -11,7 +11,6 @@
         $this->GetPageTime() ? $this->GetPageTime() : "",
         $this->method != "revisions"
                        ) ?>
-
 
 <?php
     // if this page exists
@@ -50,8 +49,6 @@
          "2"
                        ) ?>
 
-
-
    <div class="TabSpace"><div class="TabText" style="padding-left:10px"><?php
     // if this page exists
     if ($this->page)
@@ -69,7 +66,6 @@
 
   </div>
 </div>
-
 
 <!-- !! -->
 <?php

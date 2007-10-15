@@ -38,6 +38,4 @@ function connect($host, $user, $passw, $db, $collation = false, $driver, $port =
  return $dblink;
 }
 
-
-
 ?>

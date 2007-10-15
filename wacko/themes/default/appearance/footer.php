@@ -82,7 +82,6 @@ echo"<a href=\"".$this->href("print")."\" target=\"_new\"><img src=\"".$this->Ge
 echo $this->FormClose();
 ?>
 
-
 <div class="copyright">
 Powered by <?php echo $this->Link("WackoWiki:WackoWiki", "", "WackoWiki ".$this->GetWackoVersion()) ?>
 </div>

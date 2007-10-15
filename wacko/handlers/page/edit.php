@@ -29,7 +29,6 @@ if ($this->GetConfigValue("edit_table_based")) {
         if ($this->page["time"] != $_POST["previous"])
           $error = $this->GetResourceValue("OverwriteAlert");
 
-
       // store
       if (!$error)
       {

@@ -210,8 +210,6 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
     return !$error;
   }
 
-
-
   }
 
   // difflib
@@ -222,7 +220,6 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
   // You may copy this code freely under the conditions of the GPL.
   //
 
-
   // PHP3 does not have assert()
   define('USE_ASSERTS', function_exists('assert'));
 
@@ -230,7 +227,6 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
       var $type;
       var $orig;
       var $final;
-
 
       function norig() {
     return $this->orig ? sizeof($this->orig) : 0;
@@ -282,7 +278,6 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
       }
 
   }
-
 
   /**
    * Class used internally by Diff to actually compute the diffs.
@@ -392,7 +387,6 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
     }
     return $edits;
       }
-
 
       /* Divide the Largest Common Subsequence (LCS) of the sequences
        * [XOFF, XLIM) and [YOFF, YLIM) into NCHUNKS approximately equally
@@ -706,8 +700,6 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
       }
 
   }
-
-
 
   /**
    * A class to format Diffs

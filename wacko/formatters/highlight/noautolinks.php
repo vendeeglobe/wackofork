@@ -5,5 +5,4 @@ $this->_formatter_noautolinks = true;
 include("formatters/wakka.php");
 $this->_formatter_noautolinks = false;
 
-
 ?>

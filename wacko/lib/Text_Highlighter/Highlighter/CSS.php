@@ -46,7 +46,6 @@ class  Text_Highlighter_CSS extends Text_Highlighter
         $this->__construct($options);
     }
 
-
     /**
      *  Constructor
      *

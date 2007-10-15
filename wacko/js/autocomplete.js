@@ -5,7 +5,6 @@
 //  (c) 2005 Kuso Mendokusee.
 //  mailto:mendokusee@pixel-apes.com
 
-
 function AutoComplete( wikiedit, handler )
 {
   this.wikiedit = wikiedit;
@@ -216,7 +215,6 @@ AutoComplete.prototype.insertFound = function( foundPattern )
   this.reset();
 }
 
-
 // keydown handler. Invoked from wikiedit`s keyDown
 // its job is:
 //  1. if user is likely typing some WikiName, then invoke recongnizer
@@ -284,7 +282,6 @@ AutoComplete.prototype.keyDown = function( key, shiftKey )
 
   return false;
 
-  
 }
 
 // trying to recognize partial pattern (known as "request_pattern")
@@ -397,7 +394,6 @@ AutoComplete.prototype.getPattern = function ()
   else      return this.wikiedit.area.value.substr(start, end-start);
 }
 
-
 // visual state routine. Sets some different visual widgets according to given state
 AutoComplete.prototype.visualState =  function( to )
 {
@@ -441,7 +437,6 @@ AutoComplete.prototype.visualState =  function( to )
 
   this.visual_state = to;
 }
-
 
 // ajax "XmlHttpRequest" routine.
 // builds request to server-side, 

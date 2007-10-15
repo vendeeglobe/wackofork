@@ -7,5 +7,4 @@ include("formatters/wakka.php");
 $this->config["default_typografica"] = $typo;
 print("<!--/notypo-->");
 
-
 ?>

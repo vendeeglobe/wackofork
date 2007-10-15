@@ -36,7 +36,6 @@ if ($this->HasAccess("read"))
      }
     }
 
-
     $xml .= "<item>\n";
     $xml .= "<guid>".rtrim($tag, "/")."</guid>\n";
     $xml .= "<title></title>\n";
