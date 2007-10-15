@@ -152,3 +152,4 @@ function Move(&$parent, $OldPage, $NewName )
      }
   }
 }
+?>
