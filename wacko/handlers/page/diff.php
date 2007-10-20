@@ -44,7 +44,7 @@ if ($_GET["fastdiff"]) {
 
     if (!$added && !$deleted)
     {
-    $output .= "<br />\nNo differences.";
+    $output .= "<br />\n".$this->GetResourceValue("NoDifferences");
     }
     print($output);
 

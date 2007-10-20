@@ -10,14 +10,14 @@ $wakkaResource = array(
   "LogoutAreYouSure"  => "Do you really want to log out?",
   // registration panel
   "RegistrationWelcome" => "New user registration:",
-  "RegistrationName" => "Give yourself a ((WackoWiki:WackoDocumentation/WhatIsNameSurname NameSurname))",
+  "RegistrationName" => "Give yourself a ((WackoWiki:WackoDocEnglish/WhatIsNameSurname NameSurname))",
   "RegistrationPassword" => "Password (5+ chars)",
   "RegistrationButton" => "Register me!",
   "RegistrationNameOwned" => "This username is already registered. Please choose another.",
   // login panel
   "LoginWelcome" => "Login",
   "LoginWelcome2" => " . . . . . . . . ((/Registration Register))",
-  "LoginName" => "((WackoWiki:WackoDocumentation/WhatIsNameSurname NameSurname))",
+  "LoginName" => "((WackoWiki:WackoDocEnglish/WhatIsNameSurname NameSurname))",
   "LoginPassword" => "Password",
   "LoginButton" => "Login!",
   // other
@@ -97,6 +97,7 @@ $wakkaResource = array(
   "Comparison"    => "<b>Comparison for %3 of %1 and %2</b>",
   "SimpleDiffAdditions" => "<b>Additions:</b>",
   "SimpleDiffDeletions" => "<b>Deletions:</b>",
+  "NoDifferences" => "No differences.",
   "History"   => "history",
   "ReEditOldRevision" => "Re-edit this old revision",
   "ExternalPages"   => "External pages linking to %1 (%2) (<a href=\"%3\" >see list of domains</a>):",
@@ -133,7 +134,6 @@ $wakkaResource = array(
   "ListOwnedPages2" => "This is the list of pages you own (ordered by date)",
   "ListOwnedPages3" => "This is the list of pages you own (ordered by change)",
   "YouDontOwn" => "<em>You don't own any pages.</em>",
-  "NoPagesFound" => "<em>No pages found.</em>",
   "NotLoggedInThusOwned" => "<em>You're not logged in, hence we couldn't retrieve your pages!.</em>",
   "NoOrphaned" => "<em>No orphaned pages. Good!</em>",
   "NoRecentComments" => "<em>No recent comments.</em>",
@@ -169,7 +169,7 @@ $wakkaResource = array(
   "StuffYouNeed" => "Stuff you only need to fill in when you're logging in for the first time (and thus signing up as a new user on this site).",
   "ConfirmPassword" => "Confirm password",
   "Email" => "Email address",
-  "MustBeWikiName" => "User name must be ((http://wackowiki.com/wackodocumentation/WikiName WikiName)) formatted!",
+  "MustBeWikiName" => "User name must be ((WackoWiki:WackoDocEnglish/WikiName WikiName)) formatted!",
   "SpecifyEmail" => "You must specify an email address.",
   "NotAEmail" => "That doesn't look like a valid email address.",
   "PasswordsDidntMatch" => "Passwords didn't match.",
@@ -228,7 +228,7 @@ $wakkaResource = array(
 
   "ForgotComment" => "Enter your login or e-mail address,\nthen e-mail with instructions will be send to you.",
   "ForgotMain" => "Forgot password?",
-  "ForgotField" => "((WackoWiki:WackoDocumentation/WhatIsNameSurname NameSurname)) or e-mail",
+  "ForgotField" => "((WackoWiki:WackoDocEnglish/WhatIsNameSurname NameSurname)) or e-mail",
   "SendButton" => "Send!",
   "UserNotFound" => "<em>User with this name or e-mail address was not found.</em>",
   "NotConfirmedMail" => "<em>Your e-mail address is not confirmed.<br />Mail can't be send to non-confirmed address.</em>",
@@ -336,6 +336,5 @@ $wakkaResource = array(
   "keyicon"   => '<img src="{theme}icons/key.gif" align="middle" hspace="2" alt="Page with custom access" border="0" />',
   "wantedicon" => '?',
 );
-
 
 ?>

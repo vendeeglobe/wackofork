@@ -78,8 +78,8 @@ $wakkaResource = array(
   "ACLCancelButton" => "Abbrechen",
   "ACLAccessDenied" => "<em>Du bist nicht der Besitzer dieser Seite.</em>",
 
-  "MetaStoreButton" => "Save",
-  "MetaCancelButton" => "Cancel",
+  "MetaStoreButton" => "Speichern",
+  "MetaCancelButton" => "Abbrechen",
 
   "EditStoreButton" => "Speichern",
   "EditRe-EditButton" => "Editieren",
@@ -97,6 +97,7 @@ $wakkaResource = array(
   "Comparison"    => "<b>Vergleich von %3 vom  %1 und %2</b>",
   "SimpleDiffAdditions" => "<b>hinzugefügt:</b>",
   "SimpleDiffDeletions" => "<b>entfernt:</b>",
+  "NoDifferences" => "Keine Unterschiede.",
   "History"   => "Historie",
   "ReEditOldRevision" => "Editiere diese alte Version erneut",
   "ExternalPages"   => "externe Seiten verlinkt zu %1 (%2) (<a href=\"%3\" >zeige Domänen</a>):",
