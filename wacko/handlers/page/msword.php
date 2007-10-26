@@ -11,7 +11,7 @@ if ($this->HasAccess("read"))
     // comment header?
     if ($this->page["comment_on"])
     {
-      print("<div class=\"commentinfo\">This is a comment on ".$this->ComposeLinkToPage($this->page["comment_on"], "", "", 0).", posted by ".$this->Format($this->page["user"])." at ".$this->page["time"]."</div>");
+      print("<div class=\"commentinfo\">".$this->GetResourceValue("ThisIsCommentOn")." ".$this->ComposeLinkToPage($this->page["comment_on"], "", "", 0).", ".$this->GetResourceValue("PostedBy")." ".$this->Format($this->page["user"])." ".$this->GetResourceValue("At")." ".$this->page["time"]."</div>");
     }
 
     if ($this->page["latest"] == "N")
