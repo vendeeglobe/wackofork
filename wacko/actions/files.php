@@ -22,7 +22,13 @@
   if (!$global)
   {
     if ($vars[0] == "") $vars[0] = $this->tag;
-    else                $vars[0] = $this->UnwrapLink($vars[0]);
+    else
+	{
+	$showpagename = $vars[0];
+	$vars[0] = $this->UnwrapLink($vars[0]);
+	$page_href = $this->Href("", $vars[0]);
+	$showpageandpath = '<a href="'.$page_href.'">'.$showpagename.'</a>';
+    }	 
     $can_view   = $this->HasAccess("read",$vars[0]) || $this->IsAdmin() || $this->UserIsOwner($vars[0]);
     $can_delete = $this->IsAdmin() || $this->UserIsOwner($vars[0]);
   } else
@@ -47,7 +53,7 @@
 
     if (!$nomark){
       $title = $this->GetResourceValue("UploadTitle".($global?"Global":""));
-      print("<fieldset><legend>".$title.":</legend>\n");
+      print("<fieldset><legend>".$title.": ".$showpageandpath."</legend>\n");
     }
     // display
     $kb  = $this->GetResourceValue("UploadKB");
