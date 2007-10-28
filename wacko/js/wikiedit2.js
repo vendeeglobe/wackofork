@@ -87,6 +87,7 @@ WikiEdit.prototype.init = function(id, name, nameClass, imgPath) {
  this.addButton(" ");
 // this.addButton("quote","quote","'\\n<[',']>\\n',2");
  this.addButton("hr","Line","'','\\n----\\n',2");
+// this.addButton("signature","Signature","'','\\n::@::\\n',2");
  this.addButton("textred","Marked text","'!!','!!',2");
  this.addButton("createlink","Hyperlink","","document.getElementById('" + this.id + "')._owner.createLink");
  
@@ -97,7 +98,7 @@ WikiEdit.prototype.init = function(id, name, nameClass, imgPath) {
  this.addButton("help","Help & About","","document.getElementById('" + this.id + "')._owner.help");
  this.addButton("customhtml",'<td><div style="font:12px Arial;text-decoration:underline; padding:4px;" id="hilfe_' + this.id + '" onmouseover=\'this.className="btn-hover";\' '
             + 'onmouseout=\'this.className="btn-";\' class="btn-" '
-            + 'onclick="this.className=\'btn-pressed\';window.open(\'http://wackowiki.com/WackoDocumentation/WackoFormatting\');" '
+            + 'onclick="this.className=\'btn-pressed\';window.open(\'http://wackowiki.de/WackoDocEnglish/WackoFormatting\');" '
             + ' title="Help on Wiki-formatting">Help'
             + '</div></td>');
 
@@ -662,7 +663,7 @@ WikiEdit.prototype.help = function ()
  s += "  (c) Roman Ivanov, 2003-2005   \n";
  s += "  http://wackowiki.com/WikiEdit \n";
  s += "\n";
- s += "         Shortcuts:\n";
+ s += " Shortcuts:\n";
  s += " Ctrl+B - Bold\n";
  s += " Ctrl+I - Italic\n";
  s += " Ctrl+U - Underline\n";
