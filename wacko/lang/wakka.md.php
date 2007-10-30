@@ -191,6 +191,7 @@ $wakkaResource = array(
  "Comment for watched page" => "Comentariu la pagina ",
  "Someone commented" => " am comentat pagina cercetata de Dvs.: ",
  "AlertReferringPages" => "Referintele la pagina data sunt pe paginile",
+ "UnknownAction" => "Unknown action",
 
  "EditIcon" => "(editare)",
  "LinksTree:Level>4 warning" => "Дерево ссылок не может иметь больше 4 уровней",

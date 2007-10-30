@@ -1582,7 +1582,7 @@ class Wacko
    $action = trim($action);
 
    if (!$forceLinkTracking) $this->StopLinkTracking();
-   $result = $this->IncludeBuffered(strtolower($action).".php", "<i>Unknown action \"$action\"</i>", $params, $this->config["action_path"]);
+   $result = $this->IncludeBuffered(strtolower($action).".php", "<i>".$this->GetResourceValue("UnknownAction")." \"$action\"</i>", $params, $this->config["action_path"]);
    $this->StartLinkTracking();
    $this->NoCache();
    return $result;

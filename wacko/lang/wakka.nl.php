@@ -190,6 +190,7 @@ $wakkaResource = array(
   "Comment for watched page" => "Nieuwe reactie voor deze pagina ",
   "Someone commented" => " heeft een reactie toegevoegd aan deze pagina waarop u een abonnement heeft: ",
   "AlertReferringPages" => "Voor deze pagina zijn er verwijzingen vanaf de volgende pagina",
+  "UnknownAction" => "Unknown action",
   
   "EditIcon" => "(Bewerk)",
   "LinksTree:Level>4 warning" => "Verwijzingenboom ondersteunt niet meer dan 4 niveaus",

@@ -190,6 +190,7 @@ $wakkaResource = array(
   "Comment for watched page" => "Nouveau commentaire sur la page ",
   "Someone commented" => " a comment&eacute; cette page que vous surveillez&nbsp;: ",
   "AlertReferringPages" => "Cette page est r&eacute;f&eacute;renc&eacute;e depuis les pages suivantes ",
+  "UnknownAction" => "Unknown action",
 
   "EditIcon" => "(Edition)",
   "LinksTree:Level>4 warning" => "L&rsquo;arbre des liens ne supporte que 4 niveaux",

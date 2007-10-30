@@ -190,6 +190,7 @@ $wakkaResource = array(
   "Comment for watched page" => "Nye kommentarer til siden ",
   "Someone commented" => " kommenterer en side du overvåger: ",
   "AlertReferringPages" => "Følgende sider henviser til denne",
+  "UnknownAction" => "Unknown action",
 
   "EditIcon" => "(ret)",
   "LinksTree:Level>4 warning" => "Vi kan kun klare fire niveauer",

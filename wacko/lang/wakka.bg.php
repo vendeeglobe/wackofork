@@ -190,6 +190,7 @@ $wakkaResource = array(
   "Comment for watched page" => " оментар за страницата ",
   "Someone commented" => " коментирал гледаната от вас страница: ",
   "AlertReferringPages" => "ѕрепратка на дадената страница е на страница",
+  "UnknownAction" => "Unknown action",
 
   "EditIcon" => "(редактиране)",
   "LinksTree:Level>4 warning" => "Ћинковете са макс. 4 нива",

@@ -192,6 +192,7 @@ $wakkaResource = array(
   "Comment for watched page" => "Комментарий к странице ",
   "Someone commented" => " прокомментировал наблюдаемую вами страницу: ",
   "AlertReferringPages" => "Ссылки на данную страницу есть на страницах",
+  "UnknownAction" => "Unknown action",
 
   "EditIcon" => "(правка)",
   "LinksTree:Level>4 warning" => "Дерево ссылок не может иметь больше 4 уровней",

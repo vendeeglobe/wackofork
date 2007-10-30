@@ -190,6 +190,7 @@ $wakkaResource = array(
  "Comment for watched page" => "Uus kommentaar jälgitud lehel",
  "Someone commented" => " kommenteeris seda lehte, mida sa praegu vaatad: ",
   "AlertReferringPages" => "Sellele lehele viidavad järgmised lehed", 
+  "UnknownAction" => "Unknown action",
 
  "EditIcon" => "(redigeeri)",
  "LinksTree:Level>4 warning" => "Ühenduste puus on võimalik maksimaalselt 4 taset",

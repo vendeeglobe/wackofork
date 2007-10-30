@@ -190,10 +190,8 @@ $wakkaResource = array(
   "Comment for watched page" => "Nuevo comentario para esta página  ",
   "Someone commented" => " ha comentado esta página que estas vigilando: ",
   "AlertReferringPages" => "Esta página esta vinculada de estas páginas",
+  "UnknownAction" => "Unknown action",
 
-  "RootLinkIcon" => "/",
-  "SubLinkIcon" => "!/",
-  "UpLinkIcon" => "../",
   "EditIcon" => "(editar)",
   "LinksTree:Level>4 warning" => "El arbol de vínculos no soporta mas de 4 niveles",
   "LinksTree:Title" => "Arbol de vínculos",
