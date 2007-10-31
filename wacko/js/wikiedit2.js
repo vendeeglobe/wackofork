@@ -87,7 +87,7 @@ WikiEdit.prototype.init = function(id, name, nameClass, imgPath) {
  this.addButton(" ");
 // this.addButton("quote","quote","'\\n<[',']>\\n',2");
  this.addButton("hr","Line","'','\\n----\\n',2");
-// this.addButton("signature","Signature","'','\\n::@::\\n',2");
+// this.addButton("signature","Signature","'::@::',' ',1");
  this.addButton("textred","Marked text","'!!','!!',2");
  this.addButton("createlink","Hyperlink","","document.getElementById('" + this.id + "')._owner.createLink");
  
