@@ -106,30 +106,30 @@ if (!$wakkaConfig["wakka_version"])
    if (!$wakkaConfig["wakka_version"])
       {
 ?>
- <tr><td></td><td><br /><strong><?php echo $lang["databaseConf"];?></strong></td></tr>
+ <tr><td></td><td><br /><strong><?php echo $lang["dbConf"];?></strong></td></tr>
 
 <?php
          // If none of the PHP SQL extensions are loaded then let the user know there is a problem
          if(!extension_loaded("mysql") && !extension_loaded("mysqli") && !extension_loaded("pdo"))
             {
                // We don't dl("mysql.so"); anymore since PHP5 and PHP6 have deprecated this
-               print("<tr><td></td><td class='warning'>".$lang["NoDatabaseDriverDetected"]."</td></tr>\n");
+               print("<tr><td></td><td class='warning'>".$lang["noDbDriverDetected"]."</td></tr>\n");
             }
          else
             {
 ?>
- <tr><td></td><td><?php echo $lang["databaseDriverDesc"];?></td></tr>
- <tr><td align="right" nowrap style="vertical-align: top;"><?php echo $lang["databaseDriver"]; ?>:</td><td><?php if(extension_loaded("mysql")) { ?><input type="radio" name="config[database_driver]" value="mysql_legacy" checked="checked" />MySQL<br /><?php } if(extension_loaded("mysqli")) { ?><input type="radio" name="config[database_driver]" value="mysqli_legacy" <?php if(!extension_loaded("mysql")) echo 'checked="checked" '; ?>/>MySQLi<br /><?php } if(extension_loaded("pdo")) { ?><input type="radio" name="config[database_driver]" value="mysql" <?php if(!extension_loaded("mysql") && !extension_loaded("mysqli")) echo 'checked="checked" '; ?>/>PDO MySQL<br /><input type="radio" name="config[database_driver]" value="dblib" />PDO DB-Lib<br /><input type="radio" name="config[database_driver]" value="mssql" />PDO MS SQL<br /><input type="radio" name="config[database_driver]" value="sybase" />PDO Sybase<br /><input type="radio" name="config[database_driver]" value="firebird" />PDO Firebird/Interbase<br /><input type="radio" name="config[database_driver]" value="ibm" />PDO IBM DB2<br /><input type="radio" name="config[database_driver]" value="informix" />PDO Informix<br /><input type="radio" name="config[database_driver]" value="oci" />PDO Oracle<br /><input type="radio" name="config[database_driver]" value="pgsql" />PDO PostgreSQL<br /><input type="radio" name="config[database_driver]" value="sqlite" />PDO SQLite<br /><input type="radio" name="config[database_driver]" value="sqlite2" />PDO SQLite2<?php } ?></td></tr>
- <tr><td></td><td><?php echo $lang["databaseHostDesc"];?></td></tr>
- <tr><td align="right" nowrap><?php echo $lang["databaseHost"];?>:</td><td><input type="text" size="50" name="config[database_host]" value="<?php echo $wakkaConfig["database_host"] ?>" /></td></tr>
- <tr><td></td><td><?php echo $lang["databasePortDesc"];?></td></tr>
- <tr><td align="right" nowrap><?php echo $lang["databasePort"];?>:</td><td><input type="text" size="50" name="config[database_port]" value="<?php echo $wakkaConfig["database_port"] ?>" /></td></tr>
+ <tr><td></td><td><?php echo $lang["dbDriverDesc"];?></td></tr>
+ <tr><td align="right" nowrap style="vertical-align: top;"><?php echo $lang["dbDriver"]; ?>:</td><td><?php if(extension_loaded("mysql")) { ?><input type="radio" name="config[database_driver]" value="mysql_legacy" checked="checked" />MySQL<br /><?php } if(extension_loaded("mysqli")) { ?><input type="radio" name="config[database_driver]" value="mysqli_legacy" <?php if(!extension_loaded("mysql")) echo 'checked="checked" '; ?>/>MySQLi<br /><?php } if(extension_loaded("pdo")) { ?><input type="radio" name="config[database_driver]" value="mysql" <?php if(!extension_loaded("mysql") && !extension_loaded("mysqli")) echo 'checked="checked" '; ?>/>PDO MySQL<br /><input type="radio" name="config[database_driver]" value="dblib" />PDO DB-Lib<br /><input type="radio" name="config[database_driver]" value="mssql" />PDO MS SQL<br /><input type="radio" name="config[database_driver]" value="sybase" />PDO Sybase<br /><input type="radio" name="config[database_driver]" value="firebird" />PDO Firebird/Interbase<br /><input type="radio" name="config[database_driver]" value="ibm" />PDO IBM DB2<br /><input type="radio" name="config[database_driver]" value="informix" />PDO Informix<br /><input type="radio" name="config[database_driver]" value="oci" />PDO Oracle<br /><input type="radio" name="config[database_driver]" value="pgsql" />PDO PostgreSQL<br /><input type="radio" name="config[database_driver]" value="sqlite" />PDO SQLite<br /><input type="radio" name="config[database_driver]" value="sqlite2" />PDO SQLite2<?php } ?></td></tr>
+ <tr><td></td><td><?php echo $lang["dbHostDesc"];?></td></tr>
+ <tr><td align="right" nowrap><?php echo $lang["dbHost"];?>:</td><td><input type="text" size="50" name="config[database_host]" value="<?php echo $wakkaConfig["database_host"] ?>" /></td></tr>
+ <tr><td></td><td><?php echo $lang["dbPortDesc"];?></td></tr>
+ <tr><td align="right" nowrap><?php echo $lang["dbPort"];?>:</td><td><input type="text" size="50" name="config[database_port]" value="<?php echo $wakkaConfig["database_port"] ?>" /></td></tr>
 
  <tr><td></td><td><?php echo $lang["dbDesc"];?></td></tr>
  <tr><td align="right" nowrap><?php echo $lang["db"];?>:</td><td><input type="text" size="50" name="config[database_database]" value="<?php echo $wakkaConfig["database_database"] ?>" /></td></tr>
- <tr><td></td><td><?php echo $lang["databasePasswDesc"];?></td></tr>
- <tr><td align="right" nowrap><?php echo $lang["databaseUser"];?>:</td><td><input type="text" size="50" name="config[database_user]" value="<?php echo $wakkaConfig["database_user"] ?>" /></td></tr>
- <tr><td align="right" nowrap><?php echo $lang["databasePassw"];?>:</td><td><input type="password" size="50" name="config[database_password]" value="<?php echo $wakkaConfig["database_password"] ?>" /></td></tr>
+ <tr><td></td><td><?php echo $lang["dbPasswDesc"];?></td></tr>
+ <tr><td align="right" nowrap><?php echo $lang["dbUser"];?>:</td><td><input type="text" size="50" name="config[database_user]" value="<?php echo $wakkaConfig["database_user"] ?>" /></td></tr>
+ <tr><td align="right" nowrap><?php echo $lang["dbPassw"];?>:</td><td><input type="password" size="50" name="config[database_password]" value="<?php echo $wakkaConfig["database_password"] ?>" /></td></tr>
  <tr><td></td><td><?php echo $lang["prefixDesc"];?></td></tr>
  <tr><td align="right" nowrap><?php echo $lang["prefix"];?>:</td><td><input type="text" size="50" name="config[table_prefix]" value="<?php echo $wakkaConfig["table_prefix"] ?>" /></td></tr>
 <?php
