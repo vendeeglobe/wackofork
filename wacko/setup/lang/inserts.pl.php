@@ -3,7 +3,7 @@ $lng = "pl";
 
 if ($config["language"]==$lng)
 {
- InsertPage($config["root_page"], "((file:wacko4.gif WackoWiki))\n**Witaj na swojej stronie ((WackoWiki:WackoWiki WackoWiki))!**\n\nKlinkij na link \"Edytuj stronê\" na dole by rozpocz±æ.\n\nDokumentacja dostêpna jest w WackoWiki:WackoDocumentation.\n\nPrzydatne strony: OsieroconeStrony, PotrzebneStrony, TextSearch, MojeStrony, MojeZmiany.\n\n", $lng);
+ InsertPage($config["root_page"], "((file:wacko4.gif WackoWiki))\n**Witaj na swojej stronie ((WackoWiki:WackoWiki WackoWiki))!**\n\nKlinkij na link \"Edytuj stronê\" na dole by rozpocz±æ.\n\nDokumentacja dostêpna jest w WackoWiki:WackoDocEnglish.\n\nPrzydatne strony: OsieroconeStrony, PotrzebneStrony, TextSearch, MojeStrony, MojeZmiany.\n\n", $lng);
  InsertPage('PotrzebneStrony', '{{WantedPages}}', $lng);
  InsertPage('OsieroconeStrony', '{{OrphanedPages}}', $lng);
  InsertPage('MojeStrony', '{{MyPages}}', $lng);

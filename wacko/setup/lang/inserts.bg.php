@@ -3,7 +3,7 @@ $lng = "bg";
 
 if ($config["language"]==$lng)
 {
- InsertPage($config["root_page"], "((file:wacko4.gif WackoWiki))\n**Добре дошли във вълшебния свят на ((WackoWiki:WackoWiki WackoWiki)).**\n\nКликнете на линка долу, за да редактирате тази страница (става също и само с двойно кликане на мишката някъде на страницата).\n\nДокументация (на английски) има на WackoWiki:WackoDocumentation.\n\nПолезни неща: OrphanedPages, WantedPages, TextSearch, MyPages, MyChanges.\n\n", $lng);
+ InsertPage($config["root_page"], "((file:wacko4.gif WackoWiki))\n**Добре дошли във вълшебния свят на ((WackoWiki:WackoWiki WackoWiki)).**\n\nКликнете на линка долу, за да редактирате тази страница (става също и само с двойно кликане на мишката някъде на страницата).\n\nДокументация (на английски) има на WackoWiki:WackoDocEnglish.\n\nПолезни неща: OrphanedPages, WantedPages, TextSearch, MyPages, MyChanges.\n\n", $lng);
  InsertPage('ПропуснатиСтраници', '{{WantedPages}}', $lng);
  InsertPage('ЗабравениСтраници', '{{OrphanedPages}}', $lng);
  InsertPage('МоиСтраници', '{{MyPages}}', $lng);
