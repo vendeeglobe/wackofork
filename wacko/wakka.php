@@ -98,9 +98,9 @@ $wakkaDefaultConfig = array(
   "allrecentchanges_page" => "",
   "allpageindex_page" => "",
 
-  "default_write_acl"   => "*",
+  "default_write_acl"   => "$",
   "default_read_acl"    => "*",
-  "default_comment_acl" => "*",
+  "default_comment_acl" => "$",
   "default_rename_redirect" => 1,
   "owners_can_remove_comments" => 1,
   "allow_registration" => 1,
