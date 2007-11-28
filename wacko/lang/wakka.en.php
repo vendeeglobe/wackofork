@@ -146,7 +146,7 @@ $wakkaResource = array(
   "SearchFor" => "Search for ",
   "TopicSearchResults" => "Topics search results for ",
   "NotFoundInTopics" => "not found in topics",
-  
+
   "PostedBy"  => "posted by",
   "ThisIsCommentOn" => "This is a comment on",
   "At" => "at",
@@ -342,6 +342,11 @@ $wakkaResource = array(
   "lockicon" => '<img src="{theme}icons/lock.gif" align="middle" hspace="2" alt="Access denied" border="0" />',
   "keyicon" => '<img src="{theme}icons/key.gif" align="middle" hspace="2" alt="Page with custom access" border="0" />',
   "wantedicon" => '?',
+
+  // My Groups
+  "MyGroups" => 'Group Associations',
+  "Group" => 'group',
+  "Groups" => 'groups',
 );
 
 ?>
