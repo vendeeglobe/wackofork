@@ -327,7 +327,6 @@ $wakkaResource = array(
   "SettingsMassRename" => "Ganzen Cluster umbenennen",
 
   "By" => "durch",
-  "UserGroups" => "Nutzergruppen", 
 
   "Next" => "weiter",
   "Prev" => "zurück", 
@@ -342,6 +341,12 @@ $wakkaResource = array(
   "lockicon" => '<img src="{theme}icons/lock.gif" align="middle" hspace="2" alt="Zugriff verweigert" border="0" />',
   "keyicon" => '<img src="{theme}icons/key.gif" align="middle" hspace="2" alt="Seite mit benutzerdefiniertem Zugriff" border="0" />',
   "wantedicon" => '?',
+  
+  // My Groups
+  "UserGroups" => "Nutzergruppen", 
+  "MyGroups" => 'Group Associations',
+  "Group" => 'group',
+  "Groups" => 'groups',
 );
 
 ?>

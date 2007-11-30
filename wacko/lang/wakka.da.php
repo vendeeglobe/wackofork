@@ -326,7 +326,6 @@ $wakkaResource = array(
   "SettingsMassRename" => "for hele området",
   
   "By" => "af",
-  "UserGroups" => "Brugergrupper",
 
   "Next" => "Næste",
   "Prev" => "Forrige",
@@ -341,6 +340,12 @@ $wakkaResource = array(
   "lockicon" => '<img src="{theme}icons/lock.gif" align="middle" hspace="2" alt="Access denied" border="0" />',
   "keyicon" => '<img src="{theme}icons/key.gif" align="middle" hspace="2" alt="Page with custom access" border="0" />',
   "wantedicon" => '?',
+  
+  // My Groups
+  "UserGroups" => "Brugergrupper",
+  "MyGroups" => 'Group Associations',
+  "Group" => 'group',
+  "Groups" => 'groups',
 );
 
 ?>

@@ -327,7 +327,6 @@ $wakkaResource = array(
   "SettingsMassRename" => "for entire cluster",
 
   "By" => "by",
-  "UserGroups" => "Groups of users",
 
   "Next" => "Next",
   "Prev" => "Prev",
@@ -344,6 +343,7 @@ $wakkaResource = array(
   "wantedicon" => '?',
 
   // My Groups
+  "UserGroups" => "Groups of users",
   "MyGroups" => 'Group Associations',
   "Group" => 'group',
   "Groups" => 'groups',

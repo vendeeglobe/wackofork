@@ -326,7 +326,6 @@ $wakkaResource = array(
   "SettingsMassRename" => "для всех страниц кластера",
 
   "By" => "by",
-  "UserGroups" => "Группы пользователей",
 
   "Next" => "Вперед",
   "Prev" => "Назад",
@@ -340,6 +339,12 @@ $wakkaResource = array(
   "lockicon" => '<img src="{theme}icons/lock.gif" align="middle" hspace="2" alt="Вам запрещён доступ" border="0" />',
   "keyicon" => '<img src="{theme}icons/key.gif" align="middle" hspace="2" alt="Страница с ограниченным доступом" border="0" />',
   "wantedicon" => '?',
+  
+  // My Groups
+  "UserGroups" => "Группы пользователей",
+  "MyGroups" => 'Group Associations',
+  "Group" => 'group',
+  "Groups" => 'groups',
 );
 
 ?>
