@@ -61,7 +61,7 @@ $wakkaDefaultConfig = array(
   "base_url"        => "http://".$_SERVER["SERVER_NAME"].
                        ($_SERVER["SERVER_PORT"] != 80 ? ":".$_SERVER["SERVER_PORT"] : "").
                        preg_replace("/(\?|&)installAction=default/","",$_SERVER["REQUEST_URI"]).
-                       (preg_match("/wakka\.php/", $_SERVER["REQUEST_URI"]) ? "?wakka=" : ""),
+                       (preg_match("/wakka\.php/", $_SERVER["REQUEST_URI"]) ? "?page=" : ""),
   "rewrite_mode"      => (preg_match("/wakka\.php/", $_SERVER["REQUEST_URI"]) ? "0" : "1"),
 
   "action_path"     => "actions",
@@ -198,7 +198,7 @@ if (!isset($wakkaConfig["user_table"]) && !$wakkaConfig["user_table"]) $wakkaCon
 
 // fetch wakka location
 if (isset($_SERVER["PATH_INFO"]) && function_exists("virtual")) $request = $_SERVER["PATH_INFO"];
-else $request = @$_REQUEST["wakka"];
+else $request = @$_REQUEST["page"];
 
 // fix win32 apache 1 bug
 if (stristr($_SERVER["SERVER_SOFTWARE"], "Apache/1") && stristr($_SERVER["SERVER_SOFTWARE"], "Win32") && $wakkaConfig["rewrite_mode"])

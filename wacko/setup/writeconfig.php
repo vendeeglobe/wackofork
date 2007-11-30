@@ -47,20 +47,7 @@ test($lang["writing2"]." <tt>".$wakkaConfigLocation."</tt>...", $fp = @fopen($wa
 if ($fp)
 {
   fwrite($fp, $configCode);
-  // write
   fclose($fp);
-
-/*
-  if (stristr($_SERVER["SERVER_SOFTWARE"], "Apache/1") && stristr($_SERVER["SERVER_SOFTWARE"], "Win32") && $config["rewrite_mode"])
-  {
-    $fp = @fopen(".htaccess", "w");
-    if ($fp)
-    {
-*///      fwrite($fp, "RewriteEngine on\nRewriteCond    %{REQUEST_FILENAME}  -d\nRewriteRule ^(.*/[^\./]*[^/])$ $1/\nRewriteRule ^(.*)$ wakka.php?wakka=%{REQUEST_URI} [QSA,L]\n");
-/*      fclose($fp);
-    }
-  }
-*/
   echo $lang["ready"]." <a href=\"".$config["base_url"]."\">".$lang["return"]."</a>. ".$lang["SecurityRisk"]."</p>";
 }
 else

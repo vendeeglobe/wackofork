@@ -112,7 +112,7 @@ class Cache
 
    foreach ($_GET as $k => $v)
    {
-    if ($k!="v" && $k!="wakka") $_query[$k]=$v;
+    if ($k!="v" && $k!="page") $_query[$k]=$v;
    }
    if ($_query)
    {

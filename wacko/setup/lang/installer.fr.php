@@ -65,7 +65,7 @@ $lang = array(
 "meta1" => "Meta Mots clefs",
 "meta2" => "Meta Description",
 "UrlConf" => "Configuration de l'URL WackoWiki",
-"baseDesc" => "Votre URL de base pour WackoWiki. Les nom de page sont ajouter &agrave; ceci, ainsi il doit inclurele param&ecirc;tre \"?wakka=\" si le mode rewrite ne fonctionne pas sur votre serveur.",
+"baseDesc" => "Votre URL de base pour WackoWiki. Les nom de page sont ajouter &agrave; ceci, ainsi il doit inclurele param&ecirc;tre \"?page=\" si le mode rewrite ne fonctionne pas sur votre serveur.",
 "base" => "URL de base",
 "rewriteDesc" => "Rewrite mode doit &ecirc;tre activ&eacute; si vous utilis&eacute; WackoWiki avec la r&eacute;&eacute;criture d'URL.",
 "rewrite" => "Rewrite Mode",

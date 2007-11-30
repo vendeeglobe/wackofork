@@ -1502,7 +1502,7 @@ class Wacko
  {
    $add = isset( $_REQUEST["add"] ) ? $_REQUEST["add"] : '';
    $result = "<form action=\"".$this->href($method, $tag, "", $add)."\" ".$formMore." method=\"".$formMethod."\" ".($formname?"name=\"".$formname."\" ":"").">\n";
-   if (!$this->config["rewrite_mode"]) $result .= "<input type=\"hidden\" name=\"wakka\" value=\"".$this->MiniHref($method, $tag, $add)."\" />\n";
+   if (!$this->config["rewrite_mode"]) $result .= "<input type=\"hidden\" name=\"page\" value=\"".$this->MiniHref($method, $tag, $add)."\" />\n";
    return $result;
  }
 

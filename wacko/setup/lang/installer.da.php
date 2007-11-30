@@ -65,7 +65,7 @@ $lang = array(
 "meta1" => "Meta Keywords",
 "meta2" => "Meta Description",
 "UrlConf" => "WackoWiki URL Configuration",
-"baseDesc" => "Your WackoWiki site's base URL. Page names get appended to it, so it should include the \"?wakka=\" parameter stuff if the funky URL rewriting stuff doesn't work on your server.",
+"baseDesc" => "Your WackoWiki site's base URL. Page names get appended to it, so it should include the \"?page=\" parameter stuff if the funky URL rewriting stuff doesn't work on your server.",
 "base" => "Base URL",
 "rewriteDesc" => "Rewrite mode should be enabled if you are using WackoWiki with URL rewriting.",
 "rewrite" => "Rewrite Mode",

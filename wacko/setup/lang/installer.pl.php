@@ -75,7 +75,7 @@ $lang = array(
 "homeDesc" => "Nazwa Twojej strony g&#322;&#243;wnej WackoWiki. Powinna by&#263; Nazw&#261;Wiki.",
 "home" => "Strona g&#322;&#243;wna",
 "UrlConf" => "Konfiguracja WackoWiki URL",
-"baseDesc" => "Podstawowy URL do Twojej strony WackoWiki. Nazwy stron dopisz&#261; si&#281; do niego, wi&#281;c powinien zawiera&#263; parametr \"?wakka=\" je&#380;eli URL rewriting nie dzia&#322;a na Twoim serwerze.",
+"baseDesc" => "Podstawowy URL do Twojej strony WackoWiki. Nazwy stron dopisz&#261; si&#281; do niego, wi&#281;c powinien zawiera&#263; parametr \"?page=\" je&#380;eli URL rewriting nie dzia&#322;a na Twoim serwerze.",
 "base" => "Podstawowy URL",
 "rewriteDesc" => "Tryb Rewrite powinien by&#263; w&#322;&#261;czony je&#380;eli u&#380;ywasz WackoWiki z nadpisywaniem URLi.",
 "rewrite" => "Tryb Rewrite",

@@ -65,7 +65,7 @@ $lang = array(
 "meta1" => "META võtmesonad",
 "meta2" => "META kirjeldus",
 "UrlConf" => "WackoWiki URL'i konfiguratsioon",
-"baseDesc" => "Sinu WackoWiki saidi baas-URL. Lehtede nimed liidetakse sellele, see peaks sisaldama \"?wakka=\" parameetrit, kui sul ei tööta Apache serveris mod_rewrite moodulit.",
+"baseDesc" => "Sinu WackoWiki saidi baas-URL. Lehtede nimed liidetakse sellele, see peaks sisaldama \"?page=\" parameetrit, kui sul ei tööta Apache serveris mod_rewrite moodulit.",
 "base" => "Baas-URL",
 "rewriteDesc" => "Ümberkirjutamise olek peab olema lubatud, kui sa kasutad WackoWiki't URL'i ülekirjutamisega.",
 "rewrite" => "Ülekirjutamise olek",

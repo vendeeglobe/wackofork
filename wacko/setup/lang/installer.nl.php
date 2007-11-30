@@ -65,7 +65,7 @@ $lang = array(
 "meta1" => "Meta woorden",
 "meta2" => "Meta omschrijving",
 "UrlConf" => "WackoWiki URL Configuratie",
-"baseDesc" => "Uw WackoWiki site's basis URL. Pagina namen worden erachter gezet, dus dit moet inclusief de \"?wakka=\" parameter zijn.",
+"baseDesc" => "Uw WackoWiki site's basis URL. Pagina namen worden erachter gezet, dus dit moet inclusief de \"?page=\" parameter zijn.",
 "base" => "Basis URL",
 "rewriteDesc" => "Herschrijven modus moet aan staan als u een WackoWiki met URL rewriting gebruikt.",
 "rewrite" => "Herschrijf modus",

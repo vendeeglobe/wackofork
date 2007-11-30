@@ -57,7 +57,7 @@ $lang = array(
 "meta1" => "Meta Schlüsselworte",
 "meta2" => "Meta Beschreibung",
 "UrlConf" => "WackoWiki URL Konfiguration",
-"baseDesc" => "Die Basis-URL Deines WackoWikis (Standardeinstellung ist richtig, ggf. https:/... verwenden).  Die Seitennamen werden an diese angehängt. Sollte URL-Umschreiben auf Deinem Server nicht funktionieren, musst Du  \"wakka.php?wakka=\" mit einfügen.",
+"baseDesc" => "Die Basis-URL Deines WackoWikis (Standardeinstellung ist richtig, ggf. https:/... verwenden).  Die Seitennamen werden an diese angehängt. Sollte URL-Umschreiben auf Deinem Server nicht funktionieren, musst Du  \"index.php?page=\" mit einfügen.",
 "base" => "Basis-URL",
 "rewriteDesc" => "<a href=\"http://wackowiki.de/WackoDocDeutsch/RewriteModus\" target=\"_blank\">Umschreiben</a> muss aktiviert werden, falls du das WackoWiki mit URL-Umschreiben verwenden willst.",
 "rewrite" => "Umschreiben",
@@ -93,7 +93,7 @@ $lang = array(
 "PleaseBackup" => "Bitte, mache eine Sicherungskopie von deiner Datenbank, der wakka.config.php-Datei und aller geänderter Dateien (ggf. auch Layouts) bevor Du den Aktualisierungs-Vorgang startest. Das kann Dir im Problemfall viel Ärger ersparen.",
 "apply rights" => "Versuche Schreibrechte zu setzen für das Verzeichnis",
 "apply rights yourself" => "Bitte setze die Zugriffsrechte auf 777 für das Verzeichnis",
-"RewriteModeAlert" => "ACHTUNG!\nDeine Basis-URL & die Umschreib-Rechte (rewrite-mode settings) schauen ungewöhnlich aus. Normalerweise ist da kein ? in der URL wenn Umschreibe-Rechte aktiviert sind - in deinem Fall ist da aber ein Fragezeichen.\n\nUm dennoch mit diesen Einstellungen fortzufahren drücke OK.\nZurück zu den Einstellungen (form & change settings) drücke ABBRECHEN.\n\nFalls du mit den Einstellungen fortfährst, kann diese Software-Installation zu unerwarteten Fehlern führen.", 
+"RewriteModeAlert" => "ACHTUNG!\nDeine Basis-URL & die Umschreib-Rechte (rewrite-mode settings) schauen ungewöhnlich aus. Normalerweise ist da kein ? in der URL wenn Umschreibe-Rechte aktiviert sind - in deinem Fall ist da aber ein Fragezeichen.\n\nUm dennoch mit diesen Einstellungen fortzufahren drücke OK.\nZurück zu den Einstellungen (form & change settings) drücke ABBRECHEN.\n\nFalls du mit den Einstellungen fortfährst, kann diese Software-Installation zu unerwarteten Fehlern führen.",
 "adding logo image..." => "Füge WackoWiki Logo hinzu...",
 );
 ?>
