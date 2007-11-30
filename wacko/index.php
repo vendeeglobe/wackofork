@@ -1,7 +1,4 @@
 <?php
-// $Id: wakka.php 551 2005-06-04 14:29:41Z kukutz $
-// $Date: 2005-06-04 20:29:41 +0600 (Sat, 04 Jun 2005) $                        $Revision: 1.139 $
-
 // app start
 error_reporting (E_ALL ^ E_NOTICE);
 
