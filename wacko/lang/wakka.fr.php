@@ -96,7 +96,7 @@ $wakkaResource = array(
   "Comparison" => "<b>Comparaison de %3 de %1 et %2</b>",
   "SimpleDiffAdditions" => "<b>Ajouts&nbsp;:</b>",
   "SimpleDiffDeletions" => "<b>Suppressions&nbsp;:</b>",
-  "NoDifferences" => "No differences.",
+  "NoDifferences" => "No differences.",		//to translate
   "History" => "historique",
   "ReEditOldRevision" => "Re&eacute;diter cette ancienne version",
   "ExternalPages" => "Liens externes vers %1 (%2) (<a href=\"%3\" >Voir la liste des domaines</a>):",
@@ -336,6 +336,7 @@ $wakkaResource = array(
   //icons
   "outericon" => '<img src="{theme}icons/web.gif" alt="" border="0" />',
   "fileicon" => '<img src="{theme}icons/file.gif" alt="" border="0" />',
+  "pdficon"  => '<img src="{theme}icons/pdf.gif" alt="PDF Document" border="0" />',
   "mailicon" => '<img src="{theme}icons/mail.gif" alt="" border="0" />',
   "lockicon" => '<img src="{theme}icons/lock.gif" align="middle" hspace="2" alt="Access refus&eacute;" border="0" />',
   "keyicon" => '<img src="{theme}icons/key.gif" align="middle" hspace="2" alt="Page &agrave; acc&egrave;s personnalis&eacute;" border="0" />',

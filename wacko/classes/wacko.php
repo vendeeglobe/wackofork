@@ -1030,13 +1030,20 @@ class Wacko
      $text = preg_replace("/(<|\&lt\;)\/?span( class\=\"nobr\")?(>|\&gt\;)/", "" ,$text);
      return "<img src=\"".str_replace("&", "&amp;", str_replace("&amp;", "&", $tag))."\" ".($text?"alt=\"".$text."\" title=\"".$text."\"":"")." />";
    }
-   else if (preg_match("/^(http|https|ftp|file):\/\/([^\\s\"<>]+)\.(rpm|gz|tgz|zip|rar|exe|doc|xls|ppt|tgz|pdf)$/", $tag))
+   else if (preg_match("/^(http|https|ftp|file):\/\/([^\\s\"<>]+)\.(rpm|gz|tgz|zip|rar|exe|doc|xls|ppt|tgz)$/", $tag))
    {// this is a file link
      $url = str_replace("&", "&amp;", str_replace("&amp;", "&", $tag));
      $title= $this->GetResourceValue("FileLink");
      $icon = $this->GetResourceValue("fileicon");
      $tpl = "file";
    }
+   else if (preg_match("/^(http|https|ftp|file):\/\/([^\\s\"<>]+)\.(pdf)$/", $tag)) {
+ 	 // this is a PDF link
+ 	 $url = str_replace("&", "&amp;", str_replace("&amp;", "&", $tag));
+	 $title= $this->GetResourceValue("PDFLink");
+	 $icon = $this->GetResourceValue("pdficon");
+ 	 $tpl = "pdf";
+	}
    else if (preg_match("/^(http|https|ftp|file|nntp|telnet):\/\/([^\\s\"<>]+)$/", $tag))
    {// this is a valid external URL
      $url = str_replace("&", "&amp;", str_replace("&amp;", "&", $tag));

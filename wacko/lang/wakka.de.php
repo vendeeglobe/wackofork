@@ -337,6 +337,7 @@ $wakkaResource = array(
   //icons
   "outericon" => '<img src="{theme}icons/web.gif" alt="externer Link" border="0" />',
   "fileicon" => '<img src="{theme}icons/file.gif" alt="Datei" border="0" />',
+  "pdficon"  => '<img src="{theme}icons/pdf.gif" alt="PDF Dokument" border="0" />',
   "mailicon" => '<img src="{theme}icons/mail.gif" alt="E-Mail" border="0" />',
   "lockicon" => '<img src="{theme}icons/lock.gif" align="middle" hspace="2" alt="Zugriff verweigert" border="0" />',
   "keyicon" => '<img src="{theme}icons/key.gif" align="middle" hspace="2" alt="Seite mit benutzerdefiniertem Zugriff" border="0" />',
