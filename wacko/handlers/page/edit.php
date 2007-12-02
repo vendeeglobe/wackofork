@@ -120,10 +120,7 @@ if ($this->GetConfigValue("edit_table_based")) {
             /><br />
 <?php
    $output .= "<input type=\"hidden\" name=\"previous\" value=\"".htmlspecialchars($previous)."\" /><br />";
-   if ($this->GetConfigValue("theme")=="tabs") 
     $output .= "<textarea id=\"postText\" name=\"body\" rows=\"40\" cols=\"60\" class=\"TextArea\">";
-   else 
-    $output .= "<textarea id=\"postText\" name=\"body\" rows=\"40\" cols=\"60\" style=\"width: 100%; height: 400px\" class=\"TextArea\">";
    $output .= htmlspecialchars($body)."</textarea><br />\n";
    print($output);
   if ($this->GetConfigValue("edit_table_based")) {

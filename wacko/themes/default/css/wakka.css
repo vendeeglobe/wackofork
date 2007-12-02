@@ -230,8 +230,6 @@ table.upload td.remove- A.remove2-:ACTIVE { color:#ff0000 }
  .autocomplete-inplace div          { padding: 2px 5px; cursor: pointer; cursor: hand; }
  .autocomplete-inplace div.ac-over- { color:#ffffff; background: #1E9905; }
 
-
-
 /* Wiki Formatting ---------------------------------------- */
 dfn { font-variant: small-caps; letter-spacing: 0.1em; font-style: normal; cursor: help; border-bottom: 1px dotted #000; }
 * html dfn { \background: url(javascript:DOTS) repeat-x bottom left; }
@@ -357,7 +355,7 @@ tt { color:#666600; background:#ffffcc; padding: 0 2px }
 /* .mark  { color: #008800;font-style:normal; } */
 .mark { color: #00000; background:#ffaaaa; }
 
-
+/* X11Colors @import "path/X11ColorNames.css"; */
 .cl-indianred    {color: #cd5c5c;}
 .cl-lightcoral    {color: #f08080;}
 .cl-orangered    {color: #ff4500;}

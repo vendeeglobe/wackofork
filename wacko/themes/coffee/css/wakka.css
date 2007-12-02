@@ -5,7 +5,7 @@ label {cursor:pointer; cursor:hand;}
 dfn { font-variant: small-caps; letter-spacing: 0.1em; font-style: normal; cursor: help; border-bottom: 1px dotted #000; }
 * html dfn { \background: url(javascript:DOTS) repeat-x bottom left; }
 
-/* Ссылки */
+/* Links */
 
 a:link { color: #0000CD}
 a:visited { color: #0068CC }
@@ -18,7 +18,7 @@ body, h1, h2, h3, h4, h5, h6 {padding: 0; margin: 0}
 p, td, li, select, textarea, legend { font: 10pt Trebuchet MS }
 td {vertical-align: top }
 
-/* Заголовок страницы */
+/*  Page title*/
 div.header {background-color: #FFEFD5; padding: 10px; font-size: 90%}
 div.header div.title {font-size: 140%; padding-top: 10px}
 div.header div.user {float: right; text-align: right}
@@ -34,14 +34,14 @@ div.copyright {clear: right; padding: 10px; color: #AAAAAA; font-size: 11px; tex
 .commentform form textarea { width: 100%; padding: 0}
 .commentinfo, .copyright a { color: #AAAAAA }
 
-/* Заголовки в тексте */
+/* paddings headers */
 
 h1 { padding-top: 2px; padding-bottom: 7px; font: 18pt Trebuchet MS }
 h2 { padding-top: 20px; padding-bottom: 5px; font: italic normal 16pt Trebuchet MS }
 h3 { padding-top: 15px; padding-bottom: 5px; font: 14pt Trebuchet MS }
 h4 { padding-top: 15px; padding-bottom: 5px; font: italic bold 10pt Trebuchet MS }
 
-/* Формы */
+/* form */
 form { margin: 0px; padding: 0px }
 fieldset { padding: 10px; border: 1px solid black }
 legend {font-weight: normal; padding: 0 5px;}
@@ -51,7 +51,7 @@ legend {font-weight: normal; padding: 0 5px;}
 div.pagebefore { display: none}
 div.page {padding: 10px 10px;}
 
-/* Списки */
+/* Lists */
 ul, ol { margin-top: 0px; margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px }
 
 /* Форматтеры */
@@ -83,9 +83,6 @@ blockquote p { padding: 0px; margin: 5px 0px }
 cite { color: #888800; font-style: normal }
 
 
-
-
-
 p.auto { margin: 0px; padding: 0px; font-size: 100% }
 strike a:visited, s a:visited, strike, s, strike a:visited, s a:link { color: #999999 }
 strike img, s img { filter: Gray }
@@ -104,7 +101,6 @@ table.upload td.remove- a.remove2-:active { color: #ff0000 }
 table.upload td.size- { padding-right: 0; text-align: right }
 table.usertable { border: 1px none; border-collapse: collapse }
 table.usertable tr td { border-width: 1px; border-color: black; border-style: solid; padding: 4px; vertical-align: top }
-
 
 
 .add { color: #c00; font-weight: bold; text-decoration: underline }
@@ -128,7 +124,6 @@ table.usertable tr td { border-width: 1px; border-color: black; border-style: so
 .name { font-size: 11px; text-align: right }
 .notes { color: #888800 }
 .outerlink { color: #990000 }
-
 
 
 .pageedit { border: 1px inset; border-bottom: none; background: #FFFFFF }
@@ -230,6 +225,7 @@ tt { color:#666600; background:#ffffcc; padding: 0 2px }
 /* .mark  { color: #008800;font-style:normal; } */
 .mark { color: #00000; background:#ffaaaa; }
 
+/* X11Colors @import "path/X11ColorNames.css"; */
 .cl-indianred    {color: #cd5c5c;}
 .cl-lightcoral    {color: #f08080;}
 .cl-orangered    {color: #ff4500;}
