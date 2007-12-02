@@ -1817,6 +1817,8 @@ class Wacko
  }
 
  function SetWatch($user, $tag) {
+   // Remove old watch first to avoid double watches
+   $this->ClearWatch($user, $tag);
    return $this->Query( "insert into ".$this->config["table_prefix"]."pagewatches (user,tag) values ( '".quote($this->dblink, $user)."', '".quote($this->dblink, $tag)."')" );
    // TIMESTAMP type is filled automatically by MySQL
  }
