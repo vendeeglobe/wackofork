@@ -11,7 +11,7 @@
 	}
 
   $what = $this->LoadAll("select user, id, filename, filesize, description from ".$this->config["table_prefix"]."upload where ".
-                         "page_id = '".quote($page_id)."' and filename='".quote($_GET["get"])."'");
+                         "page_id = '".quote($this->dblink, $page_id)."' and filename='".quote($this->dblink, $_GET["get"])."'");
 	if (sizeof($what) > 0) {
     // 2. check rights
       if ($this->IsAdmin() || ($desc["id"] && ($this->GetPageOwner($this->tag) == $this->GetUserName())) ||
