@@ -58,8 +58,8 @@ $wakkaDefaultConfig = array(
   "base_url"        => "http://".$_SERVER["SERVER_NAME"].
                        ($_SERVER["SERVER_PORT"] != 80 ? ":".$_SERVER["SERVER_PORT"] : "").
                        preg_replace("/(\?|&)installAction=default/","",$_SERVER["REQUEST_URI"]).
-                       (preg_match("/wakka\.php/", $_SERVER["REQUEST_URI"]) ? "?page=" : ""),
-  "rewrite_mode"      => (preg_match("/wakka\.php/", $_SERVER["REQUEST_URI"]) ? "0" : "1"),
+                       (preg_match("/index\.php/", $_SERVER["REQUEST_URI"]) ? "?page=" : ""),
+  "rewrite_mode"      => (preg_match("/index\.php/", $_SERVER["REQUEST_URI"]) ? "0" : "1"),
 
   "action_path"     => "actions",
   "handler_path"      => "handlers",
