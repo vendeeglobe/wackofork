@@ -44,34 +44,34 @@ if (strstr($_SERVER["SERVER_SOFTWARE"], "IIS")) $_SERVER["REQUEST_URI"] = $_SERV
 // default configuration values
 $wakkaDefaultConfig = array(
   "database_driver" => "",
-  "database_host"      => "localhost",
+  "database_host" => "localhost",
   "database_port" => "",
-  "database_database"    => "wacko",
-  "database_user"      => "wacko",
+  "database_database" => "wacko",
+  "database_user" => "wacko",
   "database_password" => "",
 
-  "table_prefix"      => "wacko_",
-  "cookie_prefix"      => "wacko_",
+  "table_prefix" => "wacko_",
+  "cookie_prefix" => "wacko_",
 
-  "root_page"       => "HomePage",
-  "wakka_name"      => "MyWackoSite",
-  "base_url"        => "http://".$_SERVER["SERVER_NAME"].
+  "root_page" => "HomePage",
+  "wakka_name" => "MyWackoSite",
+  "base_url" => "http://".$_SERVER["SERVER_NAME"].
                        ($_SERVER["SERVER_PORT"] != 80 ? ":".$_SERVER["SERVER_PORT"] : "").
                        preg_replace("/(\?|&)installAction=default/","",$_SERVER["REQUEST_URI"]).
                        (preg_match("/index\.php/", $_SERVER["REQUEST_URI"]) ? "?page=" : ""),
-  "rewrite_mode"      => (preg_match("/index\.php/", $_SERVER["REQUEST_URI"]) ? "0" : "1"),
+  "rewrite_mode" => (preg_match("/index\.php/", $_SERVER["REQUEST_URI"]) ? "0" : "1"),
 
-  "action_path"     => "actions",
-  "handler_path"      => "handlers",
+  "action_path" => "actions",
+  "handler_path" => "handlers",
 
-  "language"     => "en",
-  "theme"      => "default",
+  "language" => "en",
+  "theme" => "default",
 
-  "header_action"     => "header",
-  "footer_action"     => "footer",
+  "header_action" => "header",
+  "footer_action" => "footer",
 
-  "show_datetime"     => "Y",
-  "show_spaces"     => "Y",
+  "show_datetime" => "Y",
+  "show_spaces" => "Y",
 
 //  "site_bookmarks" => "PageIndex / RecentChanges / RecentlyCommented",
 //  "default_bookmarks" => "PageIndex\nRecentChanges\nRecentlyCommented\n((Registration))",
@@ -79,15 +79,15 @@ $wakkaDefaultConfig = array(
   "default_showdatetime" => 1,
   "paragrafica" => 1,
 
-  "referrers_purge_time"  => 1,
-  "pages_purge_time"    => 0,
+  "referrers_purge_time" => 1,
+  "pages_purge_time" => 0,
 
-  "hide_files"     => 0,
-  "hide_comments"     => 0,
+  "hide_files" => 0,
+  "hide_comments" => 0,
 
-  "debug"     => 0,
-  "youarehere_text"     => "",
-  "hide_locked"     => 1,
+  "debug" => 0,
+  "youarehere_text" => "",
+  "hide_locked" => 1,
   "allow_rawhtml" => 1,
   "disable_safehtml" => 0,
   "urls_underscores" => 0,
@@ -95,8 +95,8 @@ $wakkaDefaultConfig = array(
   "allrecentchanges_page" => "",
   "allpageindex_page" => "",
 
-  "default_write_acl"   => "$",
-  "default_read_acl"    => "*",
+  "default_write_acl" => "$",
+  "default_read_acl" => "*",
   "default_comment_acl" => "$",
   "default_rename_redirect" => 1,
   "owners_can_remove_comments" => 1,
@@ -112,12 +112,12 @@ $wakkaDefaultConfig = array(
   "disable_tikilinks" => 0,
   "remove_onlyadmins" => 0,
 
-  "upload"             => "admins",
+  "upload" => "admins",
   "upload_images_only" => 0,
-  "upload_max_size"    => 190,
+  "upload_max_size" => 190,
   "upload_max_per_user" => 100,
-  "upload_path"           => "files",
-  "upload_path_per_page"  => "files/perpage",
+  "upload_path" => "files",
+  "upload_path_per_page" => "files/perpage",
   "upload_banned_exts" => "php|cgi|js|php|php3|php4|php5|pl|ssi|jsp|phtm|phtml|shtm|shtml|xhtm|xht|asp|aspx|htw|ida|idq|cer|cdx|asa|htr|idc|stm|printer|asax|ascx|ashx|asmx|axd|vdisco|rem|soap|config|cs|csproj|vb|vbproj|webinfo|licx|resx|resources",
 
   "outlook_workaround" => 1,

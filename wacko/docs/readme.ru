@@ -6,7 +6,7 @@
 
 Данный дистрибутив происходит от WakkaWiki.
 
-Подпишитесь на RSS-фид http://wackowiki.com/wackowiki/updates/revisions.xml, чтобы узнать, когда выйдет новая версия Ваки.
+Подпишитесь на RSS-фид http://wackowiki.de/wackowiki/updates/revisions.xml, чтобы узнать, когда выйдет новая версия Ваки.
 
 ===Авторы===
 
@@ -16,7 +16,7 @@
   * YuliaShabunio - co-developer
   * AlekseyKulakov - designer
 
-Подробнее см. http://wackowiki.com/Team
+Подробнее см. http://wackowiki.de/Team
 
 ===Что нового в R4.2 по сравнению с R4?===
   * WackoWiki теперь работает под PHP5
@@ -122,9 +122,8 @@ php4.1+, mysql, желателен apache+mod_rewrite.
 
 ===Где скачать?===
 
-Вот тут: http://wackowiki.com/wackowiki
+Вот тут: http://wackowiki.de/
 
 ===Координаты===
 
-mailto:thingol@mail.ru
-ICQ:551593
+http://bugs.wackowiki.de
