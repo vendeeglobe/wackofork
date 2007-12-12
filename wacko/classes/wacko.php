@@ -115,6 +115,7 @@ class Wacko
  function GetPageTag() { return $this->tag; }
  function GetPageSuperTag() { return $this->supertag; }
  function GetPageTime() { return $this->page["time"]; }
+ function GetPageLastWriter() { return $this->page["user"]; }
  function GetMethod() { return $this->method; }
  function GetConfigValue($name) { return isset( $this->config[$name] ) ? $this->config[$name] : ''; }
  function SetResource($lang) {$this->resource=&$this->resources[$lang];}
