@@ -345,9 +345,14 @@ $wakkaResource = array(
 
   // My Groups
   "UserGroups" => "Groups of users",
-  "MyGroups" => 'Group Associations',
-  "Group" => 'group',
-  "Groups" => 'groups',
+  "MyGroups" => "Group Associations",
+  "Group" => "group",
+  "Groups" => "groups",
+  
+  // Cache
+  "ClearCache" => "Clear cache",
+  "CacheCleared" => "Cache cleared.",
+  
 );
 
 ?>

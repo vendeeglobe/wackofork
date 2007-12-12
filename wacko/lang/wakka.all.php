@@ -23,7 +23,7 @@ $wackoAllResource = array(
   "tpl.interwiki" => '<a href="{url}" target="_blank" title="{title}" class="{class}">{icon}{text}</a>',
   "tpl.email" => '<a href="{url}" target="_blank" title="{title}" class="{class}">{icon}{text}</a>',
   "tpl.file" => '<a href="{url}" target="_blank" title="{title}" class="{class}">{icon}{text}</a>',
-  "tpl.pdf" => '<a href="{url}" title="{title}" class="{class}">{icon}{text}</a>',
+  "tpl.pdf" => '<a href="{url}" target="_blank" title="{title}" class="{class}">{icon}{text}</a>',
   "tpl.localfile" => '<a href="{url}" title="{title}" class="{class}">{icon}{text}</a>',
   "tpl.wlocalfile" => '<span class="missingpage" title="{title}">{text}</span>',
   "tpl.lan" => '<a href="{url}" target="_blank" title="{title}" class="{class}">{icon}{text}</a>',
