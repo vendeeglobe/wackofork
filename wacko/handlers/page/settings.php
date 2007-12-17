@@ -1,7 +1,7 @@
 <div class="pageBefore"><img src="<?php echo $this->GetConfigValue("root_url"); ?>images/z.gif" width="1" height="1" border="0" alt="" style="display:block" align="top" /></div><div class="page">
 <?php
 
-if ($this->UserIsOwner())
+if ($this->UserIsOwner() || $this->HasAccess("write",$page["tag"]))
 {
   if ($_POST)
   {
@@ -76,12 +76,6 @@ if ($this->UserIsOwner())
     <?php
     print($this->FormClose());
   }
-}
-else
-{
-//  print($this->GetResourceValue("ACLAccessDenied"));
-}
-
 ?>
     <table border="0" cellspacing="0" cellpadding="0">
       <tr>
@@ -105,5 +99,11 @@ else
         </td>
       </tr>
     </table>
-
+<?php
+}
+else
+{
+   print($this->GetResourceValue("ReadAccessDenied"));
+}
+?>
 </div>
