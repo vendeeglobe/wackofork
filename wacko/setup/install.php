@@ -10,7 +10,7 @@ print("<strong>".$lang["Testing Configuration"]."</strong><br />\n");
 */
 $table_pages = "CREATE TABLE ".$config2["table_prefix"]."pages (".
                  "id int(10) unsigned NOT NULL auto_increment,".
-                 "tag varchar(250) binary NOT NULL default '',".
+                 "tag varchar(250) character set latin1 collate latin1_swedish_ci NOT NULL default '',".
                  "supertag varchar(250) NOT NULL default '',".
                  "time datetime NOT NULL default '0000-00-00 00:00:00',".
                  "body text NOT NULL,".
@@ -189,6 +189,7 @@ $alter_pages_r3_9 = "ALTER TABLE ".$config2["table_prefix"]."pages ADD lang VARC
 $alter_pages_r3_10 = "ALTER TABLE ".$config2["table_prefix"]."pages ADD description varchar(250) NOT NULL default ''";
 $alter_pages_r3_11 = "ALTER TABLE ".$config2["table_prefix"]."pages ADD keywords varchar(250) binary NOT NULL default ''";
 $alter_pages_r3_12 = "ALTER TABLE ".$config2["table_prefix"]."pages add body_toc text not null default '' after body_r";
+$alter_pages_r4_3 = "ALTER TABLE ".$config2["table_prefix"]."pages MODIFY COLUMN tag VARCHAR(250) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL";
 
 $update_pages_r3_1 = "UPDATE ".$config2["table_prefix"]."pages SET body_r=''";
 $update_pages_r3_2 = "UPDATE ".$config2["table_prefix"]."pages SET body_toc=''";
@@ -356,6 +357,7 @@ switch($config2["database_driver"])
                //from R4.2 to R4.3
                case "R4.2":
                   print("<strong>Wacko R4.2 ".$lang["to"]." R4.3</strong><br />\n");
+                  test(str_replace("%1","pages",$lang["And table..."]), @mysql_query($alter_pages_r4_3, $dblink), $lang["Hmm!"], 0);
             }
 
          test($lang["adding logo image..."], @mysql_query($insert_logo_image, $dblink), $lang["Already exists?"], 0);
@@ -483,6 +485,7 @@ switch($config2["database_driver"])
                //from R4.2 to R4.3
                case "R4.2":
                   print("<strong>Wacko R4.2 ".$lang["to"]." R4.3</strong><br />\n");
+                  test(str_replace("%1","pages",$lang["And table..."]), @mysqli_query($dblink, $alter_pages_r4_3), $lang["Hmm!"], 0);
             }
 
          test($lang["adding logo image..."], @mysqli_query($dblink, $insert_logo_image), $lang["Already exists?"], 0);
@@ -638,6 +641,7 @@ switch($config2["database_driver"])
                //from R4.2 to R4.3
                case "R4.2":
                   print("<strong>Wacko R4.2 ".$lang["to"]." R4.3</strong><br />\n");
+                  test(str_replace("%1","pages",$lang["And table..."]), @$dblink->query($alter_pages_r4_3), $lang["Hmm!"], 0);
             }
 
          test($lang["adding logo image..."], @$dblink->query($insert_logo_image), $lang["Already exists?"], 0);

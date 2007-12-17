@@ -21,7 +21,7 @@ $last_page = "";
 while ($cnt < $limit)
 {
   $sql = "select ".$this->pages_meta." from ".$this->config["table_prefix"]."pages where ".
-        "latest = 'Y' and LEFT(supertag,7)!='comment' order by BINARY tag limit ".$offset.",".(2 * $limit);
+         "latest = 'Y' and LEFT(supertag,7)!='comment' order by tag limit ".$offset.",".(2 * $limit);
 
   if ($pages = $this->LoadAll($sql))
   {
@@ -49,7 +49,7 @@ while ($cnt < $limit)
 
 foreach ($pages_to_display as $page)
 {
-  
+
   $firstChar = strtoupper($page["tag"][0]);
   if (!preg_match("/".$this->language["ALPHA"]."/", $firstChar)) { $firstChar = "#"; }
 
@@ -82,7 +82,7 @@ if ($pages_to_display)
   {
     print "<p class='logBtn'>$prev_page_link $next_page_link</p>\n";
   }
-}  
+}
 else
   echo $this->GetResourceValue("NoPagesFound");
 
