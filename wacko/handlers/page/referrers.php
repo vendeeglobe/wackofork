@@ -1,5 +1,7 @@
 <div class="pageBefore"><img src="<?php echo $this->GetConfigValue("root_url"); ?>images/z.gif" width="1" height="1" border="0" alt="" style="display:block" align="top" /></div><div class="page">
 <?php
+if ($user = $this->GetUser())
+{
 if ($global = $_GET["global"])
 {
   $title = str_replace("%1", $this->href("referrers_sites", "", "global=1"), $this->GetResourceValue("ExternalPages(Global)"));
@@ -21,9 +23,9 @@ else
 
   $title = str_replace("%1", $this->ComposeLinkToPage($this->GetPageTag()),
       str_replace("%2",
-        ($this->GetConfigValue("referrers_purge_time") ? 
-          ($this->GetConfigValue("referrers_purge_time") == 1 ? 
-            $this->getResourceValue("Last24Hours") : 
+        ($this->GetConfigValue("referrers_purge_time") ?
+          ($this->GetConfigValue("referrers_purge_time") == 1 ?
+            $this->getResourceValue("Last24Hours") :
             str_replace("%1",$this->GetConfigValue("referrers_purge_time"),
               $this->GetResourceValue("LastDays"))): ""),
         str_replace("%3",$this->href("referrers_sites"),$this->GetResourceValue("ExternalPages"))));
@@ -59,6 +61,10 @@ else
 {
   print("<br />[".str_replace("%1",$this->href("referrers_sites", "", "global=1"),$this->GetResourceValue("ViewReferringSites(Global)")) ." | ".str_replace("%1",$this->href("referrers", "", "global=1"),$this->GetResourceValue("ViewReferrersFor(Global)"))."]");
 }
-
+}
+else
+{
+  print($this->GetResourceValue("ReadAccessDenied"));
+}
 ?>
 </div>
