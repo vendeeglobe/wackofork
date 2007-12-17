@@ -1,9 +1,38 @@
 <?php
 
+/*
+   Most Popular Pages Action
+
+   All arguments are optional, the "dontrecurse" argument is only used when the "for" argument is used and even then it's still optional
+
+   {{mostpopular
+      [max="50"] // maximum number of pages to retrieve
+      [for="HomePage"] // page name to start from in the page hierarchy
+      [dontrecurse="true|false"] // if set to true the list will only include pages that are direct children of the "for" page
+   }}
+*/
+
 if (!$max)  $max = 25;
 if ($max>500) $max = 500;
 
-$pages = $this->LoadAll("select ".$this->pages_meta.",hits from ".$this->config["table_prefix"]."pages order by hits desc limit ".(2*(int)$max));
+if(!$for)
+   {
+      $pages = $this->LoadAll("select tag ,hits from ".$this->config["table_prefix"]."pages order by hits desc limit ".(2*(int)$max));
+   }
+else
+   {
+      if(!$dontrecurse || strtolower($dontrecurse) == 'true')
+         {
+            // We want to recurse and include all the sub pages of sub pages (and so on) in the listing
+            $pages = $this->LoadAll("select tag, hits from ".$this->config["table_prefix"]."pages, ".$this->config["table_prefix"]."links WHERE INSTR(from_tag, '".$for."') = 1 AND tag = to_tag order by hits desc limit ".(2*(int)$max));
+         }
+      else
+         {
+            // The only pages we want to display are those directly under the selected page, not their kids and grandkids
+            $pages = $this->LoadAll("select tag, hits from ".$this->config["table_prefix"]."pages, ".$this->config["table_prefix"]."links WHERE from_tag = '".$for."' AND tag = to_tag order by hits desc limit ".(2*(int)$max));
+         }
+   }
+
 $num = 0;
 
 print("<table>");
