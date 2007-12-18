@@ -35,7 +35,7 @@ $wakkaResource = array(
   "ShowTip" => "Click to return in view mode",
   "ShowText" => "View",
   "ShowDateTimeInLinks" => "Add datetime to links",
-  "WikieditAutocomplete" => "Ολοκλήρωση των wikilinks με Ctrl+Space",
+  "WikieditAutocomplete" => "Complete wikilinks by Ctrl+Space",
   "Typografica" => "Autocorrect typografica when viewing",
   "Comments_0" => "There is no comment on this page.",
   "Comments_1" => "There is one comment on this page.",
@@ -354,4 +354,5 @@ $wakkaResource = array(
   "CacheCleared" => "Cache cleared.",
   
 );
+
 ?>
