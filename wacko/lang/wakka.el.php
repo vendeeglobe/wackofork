@@ -48,7 +48,7 @@ $wakkaResource = array(
 
   "DoesNotExists"   => "Αυτή η σελίδα δεν υπάρχει ακόμα. Ίσως θέλετε να την <a href=\"%1\">δημιουργήσετε</a> ?",
   "Revision"    => "This is an old revision of <a href=\"%1\">%2</a> from %3.",
-  "ReadAccessDenied"  => "<em>You aren't allowed to read this page.</em>",
+  "ReadAccessDenied"  => "<em>Δεν επιτρέπετε να αναγνώσετε αυτή την σελίδα.</em>",
   "YouAreOwner"   => "Δεν είσαι ο ιδιοκτήτης αυτής της σελίδας.",
   "Owner"     => "Ιδιοκτήτης: ",
   "Nobody"    => "Κανένας",
@@ -78,13 +78,16 @@ $wakkaResource = array(
   "ACLCancelButton" => "Cancel",
   "ACLAccessDenied" => "<em>You are not the owner of this page.</em>",
 
+  "MetaStoreButton" => "Save",
+  "MetaCancelButton" => "Cancel",
+
   "EditStoreButton" => "Αποθήκευση",
   "EditRe-EditButton" => "Επεξεργασία",
   "EditCancelButton"  => "Ακύρωση",
   "EditPreviewButton" => "Προβολή",
   "EditPreview"   => "Προβολή",
   "OverwriteAlert"  => "OVERWRITE ALERT: This page was modified by someone else while you were editing it.<br />Please copy your changes and re-edit this page.",
-  "WriteAccessDenied"   => "<em>You don't have write access to this page.</em>",
+  "WriteAccessDenied"   => "<em>Δεν έχετε δικαιώματα εγγραφής σε αυτή την σελίδα.</em>",
   "EmptyComment"    => "Comment body was empty -- not saved!",
   "CommentAccessDenied"   => "<em>Sorry, you're not allowed to post comments to this page.</em>",
   "YouAreNowTheOwner" => "You are now the owner of this page.",
@@ -94,6 +97,7 @@ $wakkaResource = array(
   "Comparison"    => "<b>Comparison for %3 of %1 and %2</b>",
   "SimpleDiffAdditions" => "<b>Additions:</b>",
   "SimpleDiffDeletions" => "<b>Deletions:</b>",
+  "NoDifferences" => "No differences.",  
   "History"   => "Ιστορικό",
   "ReEditOldRevision" => "Re-edit this old revision",
   "ExternalPages"   => "External pages linking to %1 (%2) (<a href=\"%3\" >see list of domains</a>):",
@@ -130,7 +134,6 @@ $wakkaResource = array(
   "ListOwnedPages2" => "Αυτή είναι η λίστα των σελίδων που σου ανήκουν (ταξινομημένες με βάση την ημερομηνία)",
   "ListOwnedPages3" => "Αυτή είναι η λίστα των σελίδων που σου ανήκουν (ταξινομημένες με βάση την επεξεργασία)",
   "YouDontOwn" => "<em>Δεν σου ανήκει καμία σελίδα.</em>",
-  "NoPagesFound" => "<em>Δεν βρέθηκαν σελίδες.</em>",
   "NotLoggedInThusOwned" => "<em>Δεν έχετε συνδεθεί, ως εκ τούτου δεν μπορούμε να επαναφέρουμε τις σελίδες σας!.</em>",
   "NoOrphaned" => "<em>No orphaned pages. Good!</em>",
   "NoRecentComments" => "<em>No recent comments.</em>",
@@ -143,6 +146,11 @@ $wakkaResource = array(
   "SearchFor" => "Αναζήτηση για ",
   "TopicSearchResults" => "Topics search results for ",
   "NotFoundInTopics" => "not found in topics",
+
+  "PostedBy"  => "posted by",
+  "ThisIsCommentOn" => "This is a comment on",
+  "At" => "at",
+
   "PagesLinkingTo" => "Pages linking to",
   "NoPageLinkingTo" => "No page is linking to",
   "NoWantedPages" => "<em>Δεν υπάρχουν σελίδες με ενδιαφέρον. Καλώς!</em>",
@@ -178,12 +186,12 @@ $wakkaResource = array(
   "YourLanguage" => "Επέλεξε γλώσσα",
   "ShowSpaces" => "Εμφάνιση κενών στα WikiNames",
   "WrongPage4Redirect" => "Cannot redirect because of wrong redirect parameter",
-  "ReallyDelete" => "Επιθυμείτε την ΔΙΑΓΡΑΦΗ της σελίδας;<br />Δεν υπάρχει αναίρεση για αυτή την ενέργεια!<br /><br />
-ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Διαγράφωντας αυτήν σελίδα θα διαγράψετε και όλες τις εκδόσεις, σχόλια, ACL και παραπομπές.",
+  "ReallyDelete" => "Επιθυμείτε την ΔΙΑΓΡΑΦΗ της σελίδας;<br />Δεν υπάρχει αναίρεση για αυτή την ενέργεια!<br /><br />ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Διαγράφωντας αυτήν σελίδα θα διαγράψετε και όλες τις εκδόσεις, σχόλια, ACL και παραπομπές.",
   "RemoveButton" => "Ναι, διέγραψε!",
   "Comment for watched page" => "New comment for page ",
   "Someone commented" => " commented this page that you are watching: ",
   "AlertReferringPages" => "This page is referred to by these pages",
+  "UnknownAction" => "Unknown action",
 
   "EditIcon" => "(edit)",
   "LinksTree:Level>4 warning" => "Links tree does not support more than 4 levels",
@@ -200,6 +208,7 @@ $wakkaResource = array(
   "AlredyNamed"=>"<em>This page already named <strong>%1</strong>.</em>",
   "AclsRenamed"   =>"<em>Page acls %1 renamed.</em>",
   "PageRenamed"   =>"<em>Page %1 renamed.</em>",
+  "FilesRenamed" => "<em>Page files for %1 renamed.</em>",
   "NewNameOfPage" =>"New name of this page: ",
   "NotOwnerAndCantRename"  =>"<em>You aren't owner of this page and hence can't rename it</em>",
   "NeedRedirect"=>"Create redirect to the new page on the old page",
@@ -216,12 +225,12 @@ $wakkaResource = array(
   "NewPassword" => "Νέο συνθηματικό (5+ χαρακτήρες)",
   "YouWantChangePassword" => "Αλλαγή συνθηματικού",
   "PasswordChanged" => "Το συνθηματικά άλλαξε",
-  "Mail.Welcome" => "You've registered at ",
-  "Mail.Registered" => "You've succesfully registered at %1.<br />Your username: %2<br />If you want receive notifications, you need to approve your email. Please follow <a href=%3>the link</a> to do this.",
+  "Mail.Welcome" => "Εγγραφήκατε στο ",
+  "Mail.Registered" => "Εγγραφήκατε επιτυχώς στο %1.<br />Το όνομα σύνδεσή σας είναι: %2<br />Εάν θέλετε να λαμβάνετε ειδοποιήσεις, χρειάζεται να πιστοποιήσετε το ηλεκτρονικό σας  ταχυδρομείο. Παρακαλώ μεταβείτε <a href=%3>σε αυτό το σύνδεσμο</a> για να το κάνετε.",
   "Mail.Verify" => "Someone (maybe you) submitted your email as notification address at %1.<br />Your username: %2<br />If you want receive notifications, you need to approve your email. Please follow <a href=%3>the link</a> to do this.",
-  "Mail.Confirm" => "Please verify your email",
-  "EmailConfirmed" => "Email succesfully confirmed. Thank you!",
-  "EmailNotConfirmed" => "Email cannot be confirmed. Maybe wrong code?",
+  "Mail.Confirm" => "Παρακαλώ επιβεβαιώστε το ηλεκτρονικό σας ταχυδρομείο",
+  "EmailConfirmed" => "Το ηλεκτρονικό σας ταχυδρομείο επιβεβαιώθηκε. Ευχαριστούμε!",
+  "EmailNotConfirmed" => "Το ηλεκτρονικό σας ταχυδρομείο ΔΕΝ επιβεβαιώθηκε. Πιθανός λάθος κώδικας;",
 
   "ForgotComment" => "Πληκτρολόγησε το όνομα χρήσης σου ή την ηλεκτρονική σου διεύθυνση,\nκαι μετά ακολούθησε τις οδηγίες που θα σου σταλούν μέσω ηλεκτρονικού ταχυδρομείου ",
   "ForgotMain" => "Ξέχασες το συνθηματικό σου?",
@@ -237,38 +246,37 @@ $wakkaResource = array(
 
   "Watchers" => "List of watchers for %1",
   "NoWatchers" => "<em>There are no watchers for %1</em>",
-  "NotOwnerAndViewWatchers"  =>"<em>You are not the owner of this page and you can't see list of watchers for it.</em>",
-  "MeasuredTime" => "Time",
+  "NotOwnerAndViewWatchers" => "<em>You are not the owner of this page and you can't see list of watchers for it.</em>",
 
   //Settings
-  "SettingsFor"    => "Settings for %1",
+  "SettingsFor" => "Settings for %1",
   "metaDesc" => "META Keywords/Description that get inserted into the HTML headers.",
   "meta1" => "Meta Keywords",
   "meta2" => "Meta Description",
   "SettingsText" => "Επιλογές",
-  "SettingsTip"  => "Others settings and properties of this page",
+  "SettingsTip" => "Others settings and properties of this page",
   "SettingsPortal" => "Others settings and properties for this page:",
-  "SettingsEdit"      => "Edit",
+  "SettingsEdit" => "Edit",
   "SettingsRevisions" => "Revisions",
-  "SettingsRename"    => "Rename",
-  "SettingsRemove"    => "Remove",
-  "SettingsAcls"      => "ACLs",
-  "SettingsUpload"    => "Upload",
+  "SettingsRename" => "Rename",
+  "SettingsRemove" => "Remove",
+  "SettingsAcls" => "ACLs",
+  "SettingsUpload" => "Upload",
   "SettingsReferrers" => "Referrers",
-  "SettingsWatch"     => "Watch",
-  "SettingsPrint"     => "Print version",
-  "SettingsMsword"    => "MS Word version",
-  "BewareChangeLang"  => "Don't change language, if you don't know exactly, what are you doing. Change of language setting will lead to renaming of the page according to transliteration rules of selected language. All non-english content will become unreadable also. You could turn those effects backward by returning language setting to its initial value.",
+  "SettingsWatch" => "Watch",
+  "SettingsPrint" => "Print version",
+  "SettingsMsword" => "MS Word version",
+  "BewareChangeLang" => "Don't change language, if you don't know exactly, what are you doing. Change of language setting will lead to renaming of the page according to transliteration rules of selected language. All non-english content will become unreadable also. You could turn those effects backward by returning language setting to its initial value.",
   "SetLang" => "Η γλώσσα αυτής της σελίδας",
 
   // upload
-  "UploadFor"  => "File upload",
+  "UploadFor" => "File upload",
   "UploadButtonText" => "Proceed",
   "UploadGlobalText" => "for public access",
-  "UploadHereText"   => "only for users allowed to view current page",
+  "UploadHereText" => "only for users allowed to view current page",
   "UploadDesc" => "description",
-  "UploadForbidden"  => "You are not allowed to upload files here.",
-  "UploadNoFile"     => "There was not file in form, for some reason.",
+  "UploadForbidden" => "You are not allowed to upload files here.",
+  "UploadNoFile" => "There was not file in form, for some reason.",
   "UploadMaxSizeReached" => "File size is over allowed limit!",
   "UploadNotAPicture"    => "There is allowed to upload pictures only, and what do you trying to upload?",
   "UploadMaxFileCount"   => "You have reached your upload limit, this file can not be uploaded",
@@ -304,7 +312,9 @@ $wakkaResource = array(
   "ACLForCluster"    => "Access Control Lists for ENTIRE cluster %1",
   "ACLAreYouSure" => "You are going to change ACLs of this page and all of its subpages. Continue?",
 
+  "MeasuredTime" => "Χρόνος",
   "MeasuredMemory" => "Μνήμη",
+  "PoweredBy" => "Δημιουργήθηκε από",
 
   "ImportTo" => "Import in cluster",
   "ImportWhat" => "XML-file for import",
@@ -312,7 +322,7 @@ $wakkaResource = array(
   "ImportSuccess" => "Imported succesfully.",
   "MassRenaming" => "Rename all cluster",
   "MassNewName" => "Enter new name for this cluster",
-  "MassNeedRedirect"=>"Create redirect to the new pages on the old pages",
+  "MassNeedRedirect" => "Create redirect to the new pages on the old pages",
   "SettingsMassAcls"  => "for entire cluster",
   "SettingsMassRename"  => "for entire cluster",
   
@@ -321,7 +331,7 @@ $wakkaResource = array(
   "Next" => "Επόμενο",
   "Prev" => "Προηγούμενο",
 
-  "default_bookmarks" => "PageIndex\nRecentChanges\nRecentlyCommented",
+  "default_bookmarks" => "PageIndex\nRecentChanges\nRecentlyCommented\n((Users))\n((Registration))",
   "site_bookmarks" => "PageIndex / RecentChanges / RecentlyCommented",
 
   //icons
@@ -332,7 +342,7 @@ $wakkaResource = array(
   "lockicon"  => '<img src="{theme}icons/lock.gif" align="middle" hspace="2" alt="Access denied" border="0" />',
   "keyicon"   => '<img src="{theme}icons/key.gif" align="middle" hspace="2" alt="Page with custom access" border="0" />',
   "wantedicon" => '?',
-  
+
   // My Groups
   "UserGroups" => "Groups of users",
   "MyGroups" => "Group Associations",
@@ -342,6 +352,7 @@ $wakkaResource = array(
   // Cache
   "ClearCache" => "Clear cache",
   "CacheCleared" => "Cache cleared.",
+
 );
 
 ?>
