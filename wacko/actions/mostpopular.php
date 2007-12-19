@@ -21,6 +21,12 @@ if(!$for)
    }
 else
    {
+      // There's a leading forward slash which needs to be removed since pages are not stored in SQL with a leading slash
+      if(strpos($for, "/") === 0)
+         {
+            $for = substr($for, 1);
+         }
+
       if(!$dontrecurse || strtolower($dontrecurse) == 'true')
          {
             // We want to recurse and include all the sub pages of sub pages (and so on) in the listing
