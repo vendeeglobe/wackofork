@@ -17,7 +17,7 @@ if ($max>500) $max = 500;
 
 if(!$for)
    {
-      $pages = $this->LoadAll("select tag ,hits from ".$this->config["table_prefix"]."pages order by hits desc limit ".(2*(int)$max));
+      $pages = $this->LoadAll("select tag ,hits from ".$this->config["table_prefix"]."pages order by hits desc limit ".$max);
    }
 else
    {
@@ -30,12 +30,12 @@ else
       if(!$dontrecurse || strtolower($dontrecurse) == 'false')
          {
             // We want to recurse and include all the sub pages of sub pages (and so on) in the listing
-            $pages = $this->LoadAll("select tag, hits from ".$this->config["table_prefix"]."pages, ".$this->config["table_prefix"]."links WHERE tag = to_tag AND INSTR(from_tag, '".$for."') = 1 AND INSTR(to_tag, '".$for."') = 1 order by hits desc limit ".(2*(int)$max));
+            $pages = $this->LoadAll("SELECT DISTINCT tag, hits FROM ".$this->config["table_prefix"]."pages, ".$this->config["table_prefix"]."links WHERE tag <> '".$for."' AND tag = to_tag AND INSTR(from_tag, '".$for."') = 1 AND INSTR(to_tag, '".$for."') = 1 ORDER BY hits DESC LIMIT ".$max);
          }
       else
          {
             // The only pages we want to display are those directly under the selected page, not their kids and grandkids
-            $pages = $this->LoadAll("select tag, hits from ".$this->config["table_prefix"]."pages, ".$this->config["table_prefix"]."links WHERE tag = to_tag AND from_tag = '".$for."' AND INSTR(to_tag, '".$for."') = 1 order by hits desc limit ".(2*(int)$max));
+            $pages = $this->LoadAll("SELECT DISTINCT tag, hits FROM ".$this->config["table_prefix"]."pages, ".$this->config["table_prefix"]."links WHERE tag <> '".$for."' AND tag = to_tag AND from_tag = '".$for."' AND INSTR(to_tag, '".$for."') = 1 ORDER BY hits DESC LIMIT ".$max);
          }
    }
 
