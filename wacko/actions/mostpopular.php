@@ -21,11 +21,7 @@ if(!$for)
    }
 else
    {
-      // There's a leading forward slash which needs to be removed since pages are not stored in SQL with a leading slash
-      if(strpos($for, "/") === 0)
-         {
-            $for = substr($for, 1);
-         }
+      $for = $this->UnwrapLink($for);
 
       if(!$dontrecurse || strtolower($dontrecurse) == 'false')
          {
