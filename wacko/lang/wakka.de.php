@@ -270,7 +270,7 @@ $wakkaResource = array(
   "SetLang" => "Sprache dieser Seite",
 
   // upload
-  "UploadFor" => "Datei Hochladen",
+  "UploadFor" => "Datei hochladen",
   "UploadButtonText" => "jetzt hochladen",
   "UploadGlobalText" => "für alle Benutzer",
   "UploadHereText" => "nur für Benutzer, die diese Seite sehen dürfen",
@@ -298,8 +298,8 @@ $wakkaResource = array(
   "Files_1" => "Zu dieser Seite gibt es eine Datei.",
   "Files_n" => "Zu dieser Seite gibt es %1 Dateien.",
   "Files_all" => "Dateien",
-  "ShowFiles" => "Zeige Dateien/Upload",
-  "HideFiles" => "Verberge Dateien/Upload",
+  "ShowFiles" => "Zeige Dateien/Hochladen",
+  "HideFiles" => "Verberge Dateien/Hochladen",
   "ShowFiles?" => "Zeige Dateiliste",
 
   "RegistrationLang" => "Sprachauswahl",
