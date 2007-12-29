@@ -92,7 +92,7 @@ else
     </tr>
     <tr>
       <td></td>
-      <td><a href="<?php echo $this->Href("", "password"); ?>"><?php echo $this->GetResourceValue("ForgotLink"); ?></a></td>
+      <td><a href="<?php echo $this->Href("", "Password"); ?>"><?php echo $this->GetResourceValue("ForgotLink"); ?></a></td>
     </tr>
   </table>
   <script language="Javascript" type="text/javascript">
