@@ -119,6 +119,7 @@ $wakkaResource = array(
   "PrintVersion" => "Wersja do druku",
   "ReferringPages" => "Dokumenty Wiki, zawieraj±ce odno¶nik tej strony",
   "NoReferringPages" => "<em>W tej chwili ¿aden dokument nie zawiera odno¶nika do tej strony</em>",
+  "MostPopularPages" => "Most popular pages",
   "NoAccessToSourcePage" => "<em>Przepraszamy. Nie posiadasz uprawnieñ do odczytu ¼ród³a akcji tej strony.</em>",
   "SourcePageDoesntExist" => "Strona ¼ród³a akcji nie zosta³a jeszcze utworzona",
   "NotLoggedInThusEdited" => "<em>Przed wy¶wietleniem edytowanych stron nale¿y siê zalogowaæ.</em>",

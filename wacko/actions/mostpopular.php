@@ -7,13 +7,38 @@
 
    {{mostpopular
       [max="50"] // maximum number of pages to retrieve
-      [for="HomePage"] // page name to start from in the page hierarchy
+      [for|page="PageName"] // page name to start from in the page hierarchy
+	  [nomark="1"] // makes it possible to hide frame around
       [dontrecurse="true|false"] // if set to true the list will only include pages that are direct children of the "for" page
    }}
 */
 
 if (!$max)  $max = 25;
 if ($max>500) $max = 500;
+
+// check for first param (for what mostpopular is built)
+if ($for) $page=$for;
+if ($page) 
+{
+  $page = $this->UnwrapLink($page);
+  $ppage = "/".$page;
+  $context = $page;
+  $_page = $this->LoadPage($page);
+  if (!$title) $title = $page;
+  $link = $this->Href("",$_page["tag"]);
+}
+else 
+{
+  $page = ""; $ppage="";
+  $context = $this->tag;
+  $_page = $this->page;
+  $link = "";
+}
+
+if(!$nomark)
+      {
+	   print("<fieldset><legend>".$this->GetResourceValue("MostPopularPages").": ".$this->Link($ppage, "", $title)."</legend>\n");
+      }
 
 if(!$for)
    {
@@ -55,5 +80,10 @@ foreach ($pages as $page)
   }
 }
 print("</table>");
+
+if(!$nomark)
+      {
+         echo "</fieldset>\n";
+      }
 
 ?>

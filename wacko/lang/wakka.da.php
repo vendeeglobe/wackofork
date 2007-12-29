@@ -119,6 +119,7 @@ $wakkaResource = array(
   "PrintVersion" => "Udskrivningsversion",
   "ReferringPages" => "Henvisningssider",
   "NoReferringPages" => "<em>Der er ingen henvisninger.</em>",
+  "MostPopularPages" => "Most popular pages",
   "NoAccessToSourcePage" => "<em>Du har ikke tilladelse til at se denne side.</em>",
   "SourcePageDoesntExist" => "Sidekilde findes ikke.",
   "NotLoggedInThusEdited" => "<em>Du er ikke logget ind, så vi kan ikke vise dine sider/ændringer.</em>",

@@ -119,6 +119,7 @@ $wakkaResource = array(
   "PrintVersion" => "Prinditav versioon",
   "ReferringPages" => "Viidatud lehed",
   "NoReferringPages" => "<em>Viidatud lehti pole</em>",
+  "MostPopularPages" => "Most popular pages",
   "NoAccessToSourcePage" => "<em>Sulle pole võimaldatud lähtelehe lugemist.</em>",
   "SourcePageDoesntExist" => "Lähtelehte ei eksisteeri veel",
   "NotLoggedInThusEdited" => "<em>Sa ei ole sisse loginud, seega ei suuda tuvastada sinu muudetud lehti.</em>",

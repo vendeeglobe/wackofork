@@ -119,6 +119,7 @@ $wakkaResource = array(
   "PrintVersion" => "Версия за печат",
   "ReferringPages" => "Страници, препращащи на дадената",
   "NoReferringPages" => "<em>Няма препратки на тази страница</em>",
+  "MostPopularPages" => "Most popular pages",
   "NoAccessToSourcePage" => "<em>Достъп до препращащата страница е забранен от Действията.</em>",
   "SourcePageDoesntExist" => "Страница, извикана от Действията, засега не съществува.",
   "NotLoggedInThusEdited" => "<em>Вие не сте регистрирани в системата, затова промените от Вас страници не могат да бъдат намерени.</em>",

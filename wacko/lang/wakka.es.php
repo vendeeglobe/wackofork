@@ -119,6 +119,7 @@ $wakkaResource = array(
   "PrintVersion" => "Versión para impresora",
   "ReferringPages" => "Páginas referenciadas",
   "NoReferringPages" => "<em>No hay páginas referenciadas</em>",
+  "MostPopularPages" => "Most popular pages",
   "NoAccessToSourcePage" => "<em>No tienes acceso a la página fuente.</em>",
   "SourcePageDoesntExist" => "La página fuente no existe",
   "NotLoggedInThusEdited" => "<em>No estás conectado, por lo tanto no se puede encontrar la lista de páginas modificadas.</em>",

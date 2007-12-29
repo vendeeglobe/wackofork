@@ -120,6 +120,7 @@ $wakkaResource = array(
   "PrintVersion" => "Έκδοση προς εκτύπωση",
   "ReferringPages" => "Referring pages",
   "NoReferringPages" => "<em>There are no referring pages</em>",
+  "MostPopularPages" => "Most popular pages",
   "NoAccessToSourcePage" => "<em>You aren't allowed to read action source page.</em>",
   "SourcePageDoesntExist" => "Action source page doesn't exist yet",
   "NotLoggedInThusEdited" => "<em>Δεν έχετε συνδεθεί, ως εκ τούτου δεν μπορούμε να πιστοποιήσουμε ότι έχετε τροποποιήσει σελίδες.</em>",

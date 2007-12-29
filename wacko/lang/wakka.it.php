@@ -119,6 +119,7 @@ $wakkaResource = array(
   "PrintVersion" => "Versione di stampa",
   "ReferringPages" => "Pagine di riferimento",
   "NoReferringPages" => "<em>Non vi sono pagine di riferimento</em>",
+  "MostPopularPages" => "Most popular pages",
   "NoAccessToSourcePage" => "<em>Non ti è permesso leggere la pagina-sorgente dell'azione.</em>",
   "SourcePageDoesntExist" => "La pagina-sorgente dell'azione non esiste ancora",
   "NotLoggedInThusEdited" => "<em> Non sei connesso, dunque la lista delle pagine da te editate non può essere richiamata.</em>",

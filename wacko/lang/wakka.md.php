@@ -118,6 +118,7 @@ $wakkaResource = array(
  "PrintVersion" => "Versiune pentru imprimare",
  "ReferringPages" => "Paginile, ce se adreseaza la pagina data",
  "NoReferringPages" => "<em>Referinte la pagina data nu sunt</em>",
+ "MostPopularPages" => "Most popular pages",
  "NoAccessToSourcePage" => "<em>Acces la pagina, adresata din Actiuni este interzisa.</em>",
  "SourcePageDoesntExist" => "Pagina, adresata din Actiuni, inca nu exista.",
  "NotLoggedInThusEdited" => "<em>Nu sunteti inregistrat(a) in sistem, paginile modificate de Dvs. nu pot fi gasite.</em>",

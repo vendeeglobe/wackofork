@@ -119,6 +119,7 @@ $wakkaResource = array(
   "PrintVersion" => "Print versie",
   "ReferringPages" => "Verwijzende pagina's",
   "NoReferringPages" => "<em>Er zijn geen verwijzende pagina's.</em>",
+  "MostPopularPages" => "Most popular pages",
   "NoAccessToSourcePage" => "<em>U heeft geen rechten om de bronpagina te bekijken.</em>",
   "SourcePageDoesntExist" => "Bronpagina bestaat niet.",
   "NotLoggedInThusEdited" => "<em>U ben niet ingelogd, dus de lijst met door u gewijzigde pagina kon niet worden gemaakt.</em>",

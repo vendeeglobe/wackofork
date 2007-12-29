@@ -119,6 +119,7 @@ $wakkaResource = array(
   "PrintVersion" => "Version pour impression",
   "ReferringPages" => "Pages qui renvoient &agrave; celle-ci",
   "NoReferringPages" => "<em>Aucune page ne renvoie &agrave; celle-ci</em>",
+  "MostPopularPages" => "Most popular pages",
   "NoAccessToSourcePage" => "<em>Vous n&rsquo;&ecirc;tes pas autoris&eacute;(e) &agrave; voir la source des actions.</em>",
   "SourcePageDoesntExist" => "La page &agrave laquelle se r&eacute;f&egrave;re cette fonction n&rsquo;existe pas encore",
   "NotLoggedInThusEdited" => "<em>Vous n&rsquo;&ecirc;tes pas connect&eacute;(e), nous ne connaissons donc pas les pages que vous avez &eacute;dit&eacute;es.</em>",

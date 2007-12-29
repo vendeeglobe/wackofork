@@ -120,6 +120,7 @@ $wakkaResource = array(
   "PrintVersion" => "Druckversion",
   "ReferringPages" => "referenzierende Seiten",
   "NoReferringPages" => "<em>keine verweisenden Seiten</em>",
+  "MostPopularPages" => "Meistbesuchte Seiten",
   "NoAccessToSourcePage" => "<em>Du hast keine Leseberechtigung für den Quelltext.</em>",
   "SourcePageDoesntExist" => "Quelltext existiert noch nicht",
   "NotLoggedInThusEdited" => "<em>Um die Liste der von dir geänderten Seiten zu sehen, musst du dich anmelden.</em>",
