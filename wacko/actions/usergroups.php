@@ -1,10 +1,4 @@
 <?php
-// author: IvanRudev 22 dec 2004
-// action usergroups
-
-// modified: David Millington 28 nov 2007
-// added 3 user level outputting
-
 // You have to be logged in to use this action
 if($user = $this->GetUser())
    {
@@ -30,6 +24,8 @@ if($user = $this->GetUser())
 
                   $arr = explode("\n", $gusers);
                   $allowed_groups = array();
+                  
+                  sort($arr);
 
                   /*
                      If they are an Admin show them all users in all groups
@@ -41,6 +37,8 @@ if($user = $this->GetUser())
 
                         foreach ($arr as $k => $v)
                            $allowed_groups[] = $this->Link("/".$v,"",$v);
+                           
+                       	sort($allowed_groups);
 
                         $gusers = implode("<br />", $allowed_groups);
 
