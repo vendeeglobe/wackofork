@@ -10,14 +10,14 @@ $wakkaResource = array(
   "LogoutAreYouSure" => "Quer mesmo desligar?",
   // registration panel
   "RegistrationWelcome" => "Registo de Novo Utilizador:",
-  "RegistrationName" => "Dê a si mesmo um ((WackoWiki:WackoDocEnglish/WhatIsNameSurname NameSurname))",
+  "RegistrationName" => "Dê a si mesmo um ((WackoWiki:DocEnglish/WhatIsNameSurname NameSurname))",
   "RegistrationPassword" => "Password (5+ caracteres)",
   "RegistrationButton" => "Registe-me!",
   "RegistrationNameOwned" => "Este Nome de Utilizador já está registado. Por favor escolha outro.",
   // login panel
   "LoginWelcome" => "Login",
   "LoginWelcome2" => " . . . . . . . . [[/Registration Register]]",
-  "LoginName" => "((WackoWiki:WackoDocEnglish/WhatIsNameSurname NameSurname))",
+  "LoginName" => "((WackoWiki:DocEnglish/WhatIsNameSurname NameSurname))",
   "LoginPassword" => "Password",
   "LoginButton" => "Login!",
   // other
@@ -174,7 +174,7 @@ $wakkaResource = array(
   "StuffYouNeed" => "Coisas que só precisa de inserir na primeira vez que faz login (e assim registando-se como novo utilizador neste site).",
   "ConfirmPassword" => "Confirme password",
   "Email" => "Email",
-  "MustBeWikiName" => "O Username deve ser do formato((WackoWiki:WackoDocEnglish/WikiName WikiName)) !",
+  "MustBeWikiName" => "O Username deve ser do formato((WackoWiki:DocEnglish/WikiName WikiName)) !",
   "SpecifyEmail" => "Deve inserir endereço email.",
   "NotAEmail" => "Esse não nos parece um endereço válido.",
   "PasswordsDidntMatch" => "As Passwords não coincidiram.",
@@ -234,7 +234,7 @@ $wakkaResource = array(
 
   "ForgotComment" => "Insira o seu login ou endereço e-mail,\nDepois ser-lhe-á enviado e-mail com instruções.",
   "ForgotMain" => "Password esquecida?",
-  "ForgotField" => "((WackoWiki:WackoDocEnglish/WhatIsNameSurname NameSurname)) ou e-mail",
+  "ForgotField" => "((WackoWiki:DocEnglish/WhatIsNameSurname NameSurname)) ou e-mail",
   "SendButton" => "Enviar!",
   "UserNotFound" => "<em>Não foi encontrado utilizador com este nome ou e-mail.</em>",
   "NotConfirmedMail" => "<em>O seu e-mail não foi confirmado.<br />Mail não pode ser enviado para endereços não confirmados.</em>",

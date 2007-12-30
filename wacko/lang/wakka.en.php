@@ -10,14 +10,14 @@ $wakkaResource = array(
   "LogoutAreYouSure" => "Do you really want to log out?",
   // registration panel
   "RegistrationWelcome" => "New user registration:",
-  "RegistrationName" => "Give yourself a ((WackoWiki:WackoDocEnglish/WhatIsNameSurname NameSurname))",
+  "RegistrationName" => "Give yourself a ((WackoWiki:DocEnglish/WhatIsNameSurname NameSurname))",
   "RegistrationPassword" => "Password (5+ chars)",
   "RegistrationButton" => "Register me!",
   "RegistrationNameOwned" => "This username is already registered. Please choose another.",
   // login panel
   "LoginWelcome" => "Login",
   "LoginWelcome2" => " . . . . . . . . ((/Registration Register))",
-  "LoginName" => "((WackoWiki:WackoDocEnglish/WhatIsNameSurname NameSurname))",
+  "LoginName" => "((WackoWiki:DocEnglish/WhatIsNameSurname NameSurname))",
   "LoginPassword" => "Password",
   "LoginButton" => "Login!",
   // other
@@ -175,7 +175,7 @@ $wakkaResource = array(
   "StuffYouNeed" => "Stuff you only need to fill in when you're logging in for the first time (and thus signing up as a new user on this site).",
   "ConfirmPassword" => "Confirm password",
   "Email" => "Email address",
-  "MustBeWikiName" => "User name must be ((WackoWiki:WackoDocEnglish/WikiName WikiName)) formatted!",
+  "MustBeWikiName" => "User name must be ((WackoWiki:DocEnglish/WikiName WikiName)) formatted!",
   "SpecifyEmail" => "You must specify an email address.",
   "NotAEmail" => "That doesn't look like a valid email address.",
   "PasswordsDidntMatch" => "Passwords didn't match.",
@@ -235,7 +235,7 @@ $wakkaResource = array(
 
   "ForgotComment" => "Enter your login or email address,\nthen email with instructions will be send to you.",
   "ForgotMain" => "Forgot password?",
-  "ForgotField" => "((WackoWiki:WackoDocEnglish/WhatIsNameSurname NameSurname)) or email",
+  "ForgotField" => "((WackoWiki:DocEnglish/WhatIsNameSurname NameSurname)) or email",
   "SendButton" => "Send!",
   "UserNotFound" => "<em>User with this name or email address was not found.</em>",
   "NotConfirmedMail" => "<em>Your email address is not confirmed.<br />Mail can't be send to non-confirmed address.</em>",

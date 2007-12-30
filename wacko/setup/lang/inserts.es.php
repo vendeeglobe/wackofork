@@ -3,7 +3,7 @@ $lng = "es";
 
 if ($config["language"]==$lng)
 {
- InsertPage($config["root_page"], "((file:wacko4.gif WackoWiki))\n**Bienvenida a tu ((WackoWiki:WackoWiki WackoWiki))!**\n\nDa click en el enlace \"Editar esta pagina\" abajo en la pagina para empezar.\n\nLa documentación se puede encontrar en WackoWiki:WackoDocEnglish.\n\nPaginas útiles: PaginasOrfelinas, PaginasBuscadas, ((Buscar)), MisPaginas, MisCambios.\n\n", $lng);
+ InsertPage($config["root_page"], "((file:wacko4.gif WackoWiki))\n**Bienvenida a tu ((WackoWiki:WackoWiki WackoWiki))!**\n\nDa click en el enlace \"Editar esta pagina\" abajo en la pagina para empezar.\n\nLa documentación se puede encontrar en WackoWiki:DocEnglish.\n\nPaginas útiles: PaginasOrfelinas, PaginasBuscadas, ((Buscar)), MisPaginas, MisCambios.\n\n", $lng);
  InsertPage('PaginasBuscadas', '{{WantedPages}}', $lng);
  InsertPage('PaginasOrfelinas', '{{OrphanedPages}}', $lng);
  InsertPage('MisPaginas', '{{MyPages}}', $lng);

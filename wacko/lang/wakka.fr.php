@@ -10,14 +10,14 @@ $wakkaResource = array(
   "LogoutAreYouSure" => "&Ecirc;tes-vous s&ucirc;r de vouloir vous d&eacute;connecter&nbsp;?",
   // registration panel
   "RegistrationWelcome" => "Enregistrement d&rsquo;un nouvel utilisateur&nbsp;:",
-  "RegistrationName" => "Identifiez-vous sous la forme ((WackoWiki:WackoDocEnglish/WhatIsNameSurname Pr&eacute;nomNom))&nbsp;",
+  "RegistrationName" => "Identifiez-vous sous la forme ((WackoWiki:DocEnglish/WhatIsNameSurname Pr&eacute;nomNom))&nbsp;",
   "RegistrationPassword" => "Mot de Passe (au moins 5 caract&egrave;res)&nbsp;",
   "RegistrationButton" => "Enregistrez-moi&nbsp;!",
   "RegistrationNameOwned" => "Ce nom est d&eacute;j&agrave;  utilis&eacute;. Merci d&rsquo;en choisir un autre.",
   // login panel
   "LoginWelcome" => "Connexion",
   "LoginWelcome2" => " . . . . . . . . [[/Registration Enregistrement]]",
-  "LoginName" => "((WackoWiki:WackoDocEnglish/WhatIsNameSurname Pr&eacute;nomNom))",
+  "LoginName" => "((WackoWiki:DocEnglish/WhatIsNameSurname Pr&eacute;nomNom))",
   "LoginPassword" => "Mot de Passe&nbsp;",
   "LoginButton" => "Connexion",
   // other
@@ -174,7 +174,7 @@ $wakkaResource = array(
   "StuffYouNeed" => "Information &agrave; indiquer seulement pour votre premi&eagrave; connexion (devenant ainsi un nouvel utilisateur de ce site).",
   "ConfirmPassword" => "Confirmez votre mot de passe&nbsp;",
   "Email" => "Adresse de messagerie&nbsp;",
-  "MustBeWikiName" => "Votre nom d&rsquo;utilisateur doit prendre la forme d&rsquo;un ((WackoWiki:WackoDocEnglish/WikiName NomWiki))&nbsp;!",
+  "MustBeWikiName" => "Votre nom d&rsquo;utilisateur doit prendre la forme d&rsquo;un ((WackoWiki:DocEnglish/WikiName NomWiki))&nbsp;!",
   "SpecifyEmail" => "Vous devez indiquer une adresse de messagerie.",
   "NotAEmail" => "Ceci ne ressemble pas vraiment &agrave; une adresse de messagerie.",
   "PasswordsDidntMatch" => "Mots de passe non identiques.",
@@ -234,7 +234,7 @@ $wakkaResource = array(
 
   "ForgotComment" => "Indiquez votre NomWiki ou votre adresse de messagerie,\nun courriel avec des instructions vous sera envoy&eacute;.",
   "ForgotMain" => "Vous avez oubli&eacute; votre mot de passe&nbsp;?",
-  "ForgotField" => "((WackoWiki:WackoDocEnglish/WhatIsNameSurname Pr&eacute;nomNom)) ou adresse de messagerie",
+  "ForgotField" => "((WackoWiki:DocEnglish/WhatIsNameSurname Pr&eacute;nomNom)) ou adresse de messagerie",
   "SendButton" => "Envoyer&nbsp;!",
   "UserNotFound" => "<em>Aucun utilisateur avec ce nom ou cette adresse de messagerie n&rsquo;a &eacute;t&eacute; trouv&eacute;.</em>",
   "NotConfirmedMail" => "<em>Vous n&rsquo;avez pas confirm&eacute; votre adresse de messagerie suite au courriel que vous avez d&ucirc; recevoir.<br />Aucun courriel ne peut &ecirc;tre envoy&eacute; &agrave; une adresse non confirm&eacute;e.</em>",

@@ -9,7 +9,7 @@ $lang = array(
 "useralter" => "La table des utilisateurs a été modifiée...",
 "NextStep" => "A la prochaine étape, l'installateur essaiera d'écrire le nouveau fichier de configuration,",
 "MakeWrite" => "Vérifiez que votre serveur a le droit d'écrire le fichier de configuration, ou vous devrez l'éditer manuellement",
-"ForDetailsSee" => "Pour les détails, voir, regardez <a href=\"http://wackowiki.de/WackoDocFrancophone/InstallationEtMiseAJour\" target=\"_blank\">WackoWiki:WackoDocFrancophone/InstallationEtMiseAJour</a> pour les détails",
+"ForDetailsSee" => "Pour les détails, voir, regardez <a href=\"http://wackowiki.de/DocFrancophone/InstallationEtMiseAJour\" target=\"_blank\">WackoWiki:DocFrancophone/InstallationEtMiseAJour</a> pour les détails",
 "Continue" => "Poursuivre",
 "Installing Stuff" => "Installe les tables",
 "Creating table..." => "%1 table(s) créée(s)...",
@@ -30,11 +30,11 @@ $lang = array(
 "GivePrivileges" => "n'a pas pu être écrit. Vous aurez besoin de donner temporairement à votre serveur de réseau les droits d'accès en
 écriture soit sur le répertoire WackoWiki ou soit sur un fichier vide nommé <tt>wakka.config.php</tt> (<tt>touch wakka.config.php ; chmod 666
 wakka.config.php</tt>; n'oubliez pas de supprimer ensuite l'accès en écriture à ce fichier, ie <tt>chmod 644 wakka.config.php</tt>). Si, pour
-quelque raison que ce soit, vous ne pouvez pas le faire, vous devrez copier le texte ci-dessous dans un fichier et l'enregistrer comme <tt>wakka.config.php</tt> dans le répertoire WackoWiki. Ceci fait, votre site WackoWiki devrait fonctionner. Sinon, consultez la page <a href=\"http://wackowiki.de/WackoDocFrancophone/InstallationEtMiseAJour\">WackoWiki:WackoDocFrancophone/InstallationEtMiseAJour</a>",
+quelque raison que ce soit, vous ne pouvez pas le faire, vous devrez copier le texte ci-dessous dans un fichier et l'enregistrer comme <tt>wakka.config.php</tt> dans le répertoire WackoWiki. Ceci fait, votre site WackoWiki devrait fonctionner. Sinon, consultez la page <a href=\"http://wackowiki.de/DocFrancophone/InstallationEtMiseAJour\">WackoWiki:DocFrancophone/InstallationEtMiseAJour</a>",
 "try again" => "Réessayez",
 "title" => "Installation de WackoWiki",
 "failed" => "ECHEC",
-"note" => "NOTE : Cet installateur enregistrera le fichier de configuration <tt>wakka.config.php</tt> dans votre répertoire WackoWiki. Pour cela, le serveur de réseau devra avoir le droit d'écrire ce fichier&nbsp;! Sinon, vous devrez le créer et l'enregistrer manuellement (l'installateur vous dira comment).<br /><br />Voir <a href=\"http://wackowiki.de/WackoDocFrancophone/InstallationEtMiseAJour\" target=\"_blank\">WackoWiki:WackoDocFrancophone/InstallationEtMiseAJour</a> pour les détails.",
+"note" => "NOTE : Cet installateur enregistrera le fichier de configuration <tt>wakka.config.php</tt> dans votre répertoire WackoWiki. Pour cela, le serveur de réseau devra avoir le droit d'écrire ce fichier&nbsp;! Sinon, vous devrez le créer et l'enregistrer manuellement (l'installateur vous dira comment).<br /><br />Voir <a href=\"http://wackowiki.de/DocFrancophone/InstallationEtMiseAJour\" target=\"_blank\">WackoWiki:DocFrancophone/InstallationEtMiseAJour</a> pour les détails.",
 "dbConf" => "Configuration de la base de données",
 #"mysqlHostDesc" => "Le serveur sur lequel tourne votre server MySQL. Normalement \"localhost\" (ie, la même machine que votre serveur).",
 #"mysqlHost" => "Serveur MySQL",
@@ -97,7 +97,7 @@ quelque raison que ce soit, vous ne pouvez pas le faire, vous devrez copier le t
 "passwords don't match" => "Les mots de passe sont différents, recommencez.",
 "password too short" => "Mot de passe trop court, recommencez.",
 "adding admin" => "Ajout de l'utilisateur administrateur...",
-"Doubles" => "Si vous utilisez un <a href=\"http://wackowiki.de/WackoDocEnglish/CleanupScript\" target=\"_blank\">WackoWiki:WackoDocEnglish/CleanupScript</a>, vous augmenterez la rapidité de votre WackoWiki.",
+"Doubles" => "Si vous utilisez un <a href=\"http://wackowiki.de/DocEnglish/CleanupScript\" target=\"_blank\">WackoWiki:DocEnglish/CleanupScript</a>, vous augmenterez la rapidité de votre WackoWiki.",
 "newinstall" => "Comme il s'agit d'une nouvelle installation, l'installateur a essayé de deviner les valeurs correctes. Changez-les seulement si vous savez ce que vous faites&nbsp;!",
 "multilangDesc" => "Le mode multilingue permet d'avoir des pages dans différentes langues dans le même WackoWiki. Si ce mode est activé, l'installateur créera les pages de base pour toutes les langues disponibles.",
 "multilang" => "Mode multilingue",

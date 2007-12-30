@@ -1,11 +1,11 @@
 <?php
 $lang = array(
 "SecurityRisk" => "Не забравяйте накрая да промените обратно правата за достъп на <tt>wakka.config.php</tt> на сървъра. Въпрос на \"сигурност\"!",
-"note" => "ОБЪРНЕТЕ ВНИМАНИЕ: Програмата за инсталиране ще опита да запише настройките във файл <tt>wakka.config.php</tt>, разположен в главната директория, където е WackoWiki. За да стане това, този файл трябва да е достъпен за запис чрез системата сървър/скрипт! За да няма проблеми, трябва сега временно да се променят правата за достъп до (мястото на) този файл.<br /><br />Вж. <a href=\"http://wackowiki.de/WackoDocEnglish/Installation\" target=\"_blank\">WackoWiki:WackoDocEnglish/Installation</a>.",
+"note" => "ОБЪРНЕТЕ ВНИМАНИЕ: Програмата за инсталиране ще опита да запише настройките във файл <tt>wakka.config.php</tt>, разположен в главната директория, където е WackoWiki. За да стане това, този файл трябва да е достъпен за запис чрез системата сървър/скрипт! За да няма проблеми, трябва сега временно да се променят правата за достъп до (мястото на) този файл.<br /><br />Вж. <a href=\"http://wackowiki.de/DocEnglish/Installation\" target=\"_blank\">WackoWiki:DocEnglish/Installation</a>.",
 "metaDesc" => "META тагове. Някои казват, че търсачките ги ползували.",
 "meta1" => "Ключови думи",
 "meta2" => "Описание",
-"ForDetailsSee" => "Отново, погледнете за подробности, малко е на английски, но все пак <a href=\"http://wackowiki.de/WackoDocEnglish/Installation\" target=\"_blank\">WackoWiki:WackoDocEnglish/Installation</a>",
+"ForDetailsSee" => "Отново, погледнете за подробности, малко е на английски, но все пак <a href=\"http://wackowiki.de/DocEnglish/Installation\" target=\"_blank\">WackoWiki:DocEnglish/Installation</a>",
 "review" => "Моля, проверете настройките.",
 "pleaseConfigure" => "Моля, настройте вашия WackoWiki .",
 "fresh" => "Изглежда като за нова инсталация, няма следи от стар WackoWiki . Ще се инсталира нов WackoWiki ",
@@ -42,7 +42,7 @@ $lang = array(
 "ready" => "<p>Ура! Изглежда успешно. Сега можете",
 "return" => "да се върнете на вашия Уики",
 "warning" => "<span class=\"failed\">ВНИМАНИЕ:</span> Конфигурационния файл",
-"GivePrivileges" => "не може да се запише. Трябва сега временно да се променят правата за достъп до (мястото на) този файл или да се направи празен файл <tt>wakka.config.php</tt> (<tt>touch wakka.config.php ; chmod 666 wakka.config.php</tt>; не забравяйте накрая да забраните обратно правата, т.e. <tt>chmod 644 wakka.config.php</tt>). Ако нещо не става, ще трябва да копирате и запишете следващия текст в нов празен файл на вашия компютър и после да го прехвърлите с име <tt>wakka.config.php</tt> на сървъра в главната директория на Wacko. При проблеми, вижте (англ.) <a href=\"http://wackowiki.de/WackoDocEnglish/Installation\" target=\"_blank\">WackoWiki:WackoDocEnglish/Installation</a> или (руски) <a href=\"http://wackowiki.de/WackoDokumetacija/Ustanovka\">WackoWiki:WackoДокументация/Установка</a>",
+"GivePrivileges" => "не може да се запише. Трябва сега временно да се променят правата за достъп до (мястото на) този файл или да се направи празен файл <tt>wakka.config.php</tt> (<tt>touch wakka.config.php ; chmod 666 wakka.config.php</tt>; не забравяйте накрая да забраните обратно правата, т.e. <tt>chmod 644 wakka.config.php</tt>). Ако нещо не става, ще трябва да копирате и запишете следващия текст в нов празен файл на вашия компютър и после да го прехвърлите с име <tt>wakka.config.php</tt> на сървъра в главната директория на Wacko. При проблеми, вижте (англ.) <a href=\"http://wackowiki.de/DocEnglish/Installation\" target=\"_blank\">WackoWiki:DocEnglish/Installation</a> или (руски) <a href=\"http://wackowiki.de/WackoDokumetacija/Ustanovka\">WackoWiki:WackoДокументация/Установка</a>",
 "try again" => "Нов опит",
 "title" => "Инсталация  на WackoWiki",
 "dbConf" => "Настройка на БД",

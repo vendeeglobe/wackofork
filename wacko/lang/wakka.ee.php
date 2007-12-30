@@ -10,14 +10,14 @@ $wakkaResource = array(
   "LogoutAreYouSure" => "Kas oled kindel, et tahad välja logida?",
   // registration panel
   "RegistrationWelcome" => "Uue kasutaja registreerimine:",
-  "RegistrationName" => "Omista ((WackoWiki:WackoDocEnglish/WhatIsNameSurname WikiNimi))",
+  "RegistrationName" => "Omista ((WackoWiki:DocEnglish/WhatIsNameSurname WikiNimi))",
   "RegistrationPassword" => "Parool (vähemalt 5 tähemärki)",
   "RegistrationButton" => "Registreerun",
   "RegistrationNameOwned" => "Valitud kasutajanimi on juba kasutusel. Palun vali mõni teine.",
 // login panel
   "LoginWelcome" => "Logi sisse",
   "LoginWelcome2" => " . . . . . . . . [[/Registration Registereeri]]",
-  "LoginName" => "((WackoWiki:WackoDocEnglish/WhatIsNameSurname WikiNimi))",
+  "LoginName" => "((WackoWiki:DocEnglish/WhatIsNameSurname WikiNimi))",
   "LoginPassword" => "Parool",
   "LoginButton" => "Sisse!",
   // other
@@ -174,7 +174,7 @@ $wakkaResource = array(
  "StuffYouNeed" => "Asjad mis sa pead ära täitma, kui logid sisse esimest korda (seetõttu registreerud kui esmakordne kasutaja).",
  "ConfirmPassword" => "Korda parooli",
  "Email" => "E-posti aadress",
- "MustBeWikiName" => "Kasutajanimi peab olema formaadis ((WackoWiki:WackoDocEnglish/WikiName WikiNimi))!",
+ "MustBeWikiName" => "Kasutajanimi peab olema formaadis ((WackoWiki:DocEnglish/WikiName WikiNimi))!",
  "SpecifyEmail" => "Sa pead täpsustama oma e-posti aadressi.",
  "NotAEmail" => "See ei tundu olema õige aadress.",
  "PasswordsDidntMatch" => "Parool ei klapi.",
@@ -234,7 +234,7 @@ $wakkaResource = array(
 
  "ForgotComment" => "Sisetage oma kasutajanimi või e-posti aadress,\n siis saadetakse sulle e-postiga instruktsioonid.",
  "ForgotMain" => "Unustasid parooli?",
- "ForgotField" => "((WackoWiki:WackoDocEnglish/WhatIsNameSurname WikiNimi)) või e-post",
+ "ForgotField" => "((WackoWiki:DocEnglish/WhatIsNameSurname WikiNimi)) või e-post",
  "SendButton" => "Saada!",
  "UserNotFound" => "<em>Sellist kasutajanimi või e-postii aadressi ei leitud.</em>",
  "NotConfirmedMail" => "<em>Sinu e-posti aadress ei leidnud kinnitust..<br />Kirja ei saa saata kinnitust leidmata aadressile.</em>",

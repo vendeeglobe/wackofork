@@ -10,14 +10,14 @@ $wakkaResource = array(
   "LogoutAreYouSure" => "Weet u zeker dat u wilt uitloggen ?",
   // registration panel
   "RegistrationWelcome" => "Nieuwe gebruikers registratie:",
-  "RegistrationName" => "Geef een ((WackoWiki:WackoDocEnglish/WhatIsNameSurname Wiki-naam)) op",
+  "RegistrationName" => "Geef een ((WackoWiki:DocEnglish/WhatIsNameSurname Wiki-naam)) op",
   "RegistrationPassword" => "Wachtwoord (>=5 tekens)",
   "RegistrationButton" => "Registreer mij!",
   "RegistrationNameOwned" => "Deze naam is al geregistreerd, Kies a.u.b. een andere.",
   // login panel
   "LoginWelcome" => "Inloggen",
   "LoginWelcome2" => " . . . . . . . . [[/Registration Registreren]]",
-  "LoginName" => "((WackoWiki:WackoDocEnglish/WhatIsNameSurname Gebruikersnaam))",
+  "LoginName" => "((WackoWiki:DocEnglish/WhatIsNameSurname Gebruikersnaam))",
   "LoginPassword" => "Wachtwoord",
   "LoginButton" => "Login!",
   // other
@@ -174,7 +174,7 @@ $wakkaResource = array(
   "StuffYouNeed" => "Wat u moet invullen als u voor het eerst inlogt (en dus aanmeldt als een nieuwe gebruiker op deze site).",
   "ConfirmPassword" => "Bevestig het wachtwoord",
   "Email" => "Email adres",
-  "MustBeWikiName" => "Gebruikersnaam moet een ((WackoWiki:WackoDocEnglish/WikiName WikiNaam)) zijn!",
+  "MustBeWikiName" => "Gebruikersnaam moet een ((WackoWiki:DocEnglish/WikiName WikiNaam)) zijn!",
   "SpecifyEmail" => "U moet een email adres opgeven.",
   "NotAEmail" => "Dat lijkt niet op een email adres.",
   "PasswordsDidntMatch" => "Wachtwoorden komen niet overeen.",
@@ -234,7 +234,7 @@ $wakkaResource = array(
 
   "ForgotComment" => "Vul uw gebruikersnaam of emailadres in. U krijgt dan een email met instructies.",
   "ForgotMain" => "Wachtwoord vergeten?",
-  "ForgotField" => "((WackoWiki:WackoDocEnglish/WhatIsNameSurname NameSurname)) of emailadres",
+  "ForgotField" => "((WackoWiki:DocEnglish/WhatIsNameSurname NameSurname)) of emailadres",
   "SendButton" => "Verzenden!",
   "UserNotFound" => "<em>Er is geen gebruiker gevonden met deze naam of dit emailadres.</em>",
   "NotConfirmedMail" => "<em>Uw emailadres is nog niet bevestigd. U kunt dus nog geen notificaties ontvangen.</em>",
