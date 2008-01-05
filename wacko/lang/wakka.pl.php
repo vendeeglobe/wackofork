@@ -35,6 +35,7 @@ $wakkaResource = array(
   "ShowTip" => "Powróæ do trybu podgl±du",
   "ShowText" => "Podgl±d",
   "ShowDateTimeInLinks" => "Dodaj datê/godzinê do odno¶ników",
+  "WikieditAutocomplete" => "Complete wikilinks by Ctrl+Space",
   "Typografica" => "Automatycznie poprawiaj literówki",
   "Comments_0" => "Komentarze (0). ",
   "Comments_1" => "Komentarze (1). ",

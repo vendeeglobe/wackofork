@@ -35,6 +35,7 @@ $wakkaResource = array(
   "ShowTip" => "Cliquez pour revenir au mode vue",
   "ShowText" => "Voir",
   "ShowDateTimeInLinks" => "Ajouter date et heure au lien",
+  "WikieditAutocomplete" => "Complete wikilinks by Ctrl+Space",
   "Typografica" => "Correction automatique de la typographie lors de l&rsquo;affichage",
   "Comments_0" => "Cette page n&rsquo;a pas été commentée.",
   "Comments_1" => "Cette page a suscité un commentaire.",

@@ -35,6 +35,7 @@ $wakkaResource = array(
   "ShowTip" => "Klik for at vende tilbage til visning",
   "ShowText" => "Vis",
   "ShowDateTimeInLinks" => "Tilføj tidsangivelse ved links",
+  "WikieditAutocomplete" => "Complete wikilinks by Ctrl+Space",
   "Typografica" => "Autokorriger typografi ved visning",
   "Comments_0" => "Ingen kommentarer til denne side.",
   "Comments_1" => "En kommentar til denne side.",

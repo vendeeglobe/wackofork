@@ -35,6 +35,7 @@ $wakkaResource = array(
   "ShowTip" => "Kliki, et minna tagasi vaatereþiimi",
   "ShowText" => "Vaata",
   "ShowDateTimeInLinks" => "Lisa kellaeg viitedele",
+  "WikieditAutocomplete" => "Complete wikilinks by Ctrl+Space",
   "Typografica" => "Trükivea autokorrektuur",
   "Comments_0" => "Sellel lehel puudub kommentaar.",
   "Comments_1" => "Sellel lehel on üks kommentaar.",

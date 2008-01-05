@@ -35,6 +35,7 @@ $wakkaResource = array(
   "ShowTip" => "Кликнете, за да се върнете към прегледа",
   "ShowText" => "Преглед",
   "ShowDateTimeInLinks" => "Добавя дата/време на изпращане",
+  "WikieditAutocomplete" => "Complete wikilinks by Ctrl+Space",
   "Typografica" => "Корекция на типографика при прегледа",
   "Comments_0" => "Коментар няма.",
   "Comments_1" => "Един коментар.",
