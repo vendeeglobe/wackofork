@@ -35,7 +35,7 @@
       if ($this->IsAdmin() || (!$this->GetConfigValue("remove_onlyadmins") && $this->UserIsOwner()))
       {
         $this->EchoTab( $this->href("remove"),  $this->GetResourceValue("DeleteTip")."",
-                        '<img src="'.$this->GetConfigValue("theme_url").'icons/del'.($this->method != "remove"?"":"_").'.gif" width="14" align="absmiddle" hspace="2" vspace="2" height="15" alt="" border="0" />'.$this->GetResourceValue("DeleteText"),
+                        '<img src="'.$this->GetConfigValue("theme_url").'icons/del'.($this->method != "remove"?"":"_").'.gif" width="14" height="15" alt="" />'.$this->GetResourceValue("DeleteText"),
                         $this->method != "remove",
                         "2a"
                        );
@@ -197,7 +197,7 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_comments") != 1 && (
         if ($this->IsAdmin() || $this->UserIsOwner($comment["tag"]) || ($this->GetConfigValue("owners_can_remove_comments") && $this->UserIsOwner($this->GetPageTag())))
           print("<div style=\"float:right;\" style='background:#ffcfa8; border: solid 1px; border-color:#cccccc'>".
           "<a href=\"".$this->href("remove",$comment["tag"])."\" title=\"".$this->GetResourceValue("DeleteTip")."\">".
-          "<img src=\"".$this->GetConfigValue("theme_url")."icons/del.gif\" hspace=4 vspace=4 title=\"".$this->GetResourceValue("DeleteText")."\"  align=\"absmiddle\" border=\"0\" /></a>".
+          "<img src=\"".$this->GetConfigValue("theme_url")."icons/del.gif\" hspace=4 vspace=4 title=\"".$this->GetResourceValue("DeleteText")."\" /></a>".
           "</div>");
         print($this->Format($comment["body"])."\n");
         print("<div class=\"commentinfo\">\n-- ".($this->IsWikiName($comment["user"])?$this->Link("/".$comment["user"],"",$comment["user"]):$comment["user"])." (".$comment["time"].")\n</div>\n");

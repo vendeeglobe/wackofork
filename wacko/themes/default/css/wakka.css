@@ -26,6 +26,9 @@ A:LINK {
 A:VISITED {
   color: #993366;
 }
+img {
+	border-width: 0px;
+	}
 
 UL, OL {
   margin-top: 0px;

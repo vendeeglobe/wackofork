@@ -336,12 +336,12 @@ $wakkaResource = array(
   "site_bookmarks" => "SeitenIndex / LetzteAenderungen / LetzteKommentare",
 
   //icons
-  "outericon" => '<img src="{theme}icons/web.gif" alt="externer Link" border="0" />',
-  "fileicon" => '<img src="{theme}icons/file.gif" alt="Datei" border="0" />',
-  "pdficon"  => '<img src="{theme}icons/pdf.gif" alt="PDF Dokument" border="0" />',
-  "mailicon" => '<img src="{theme}icons/mail.gif" alt="E-Mail" border="0" />',
-  "lockicon" => '<img src="{theme}icons/lock.gif" align="middle" hspace="2" alt="Zugriff verweigert" border="0" />',
-  "keyicon" => '<img src="{theme}icons/key.gif" align="middle" hspace="2" alt="Seite mit benutzerdefiniertem Zugriff" border="0" />',
+  "outericon" => '<img src="{theme}icons/web.gif" alt="externer Link" />',
+  "fileicon" => '<img src="{theme}icons/file.gif" alt="Datei" />',
+  "pdficon"  => '<img src="{theme}icons/pdf.gif" alt="PDF Dokument" />',
+  "mailicon" => '<img src="{theme}icons/mail.gif" alt="E-Mail" />',
+  "lockicon" => '<img src="{theme}icons/lock.gif" alt="Zugriff verweigert" />',
+  "keyicon" => '<img src="{theme}icons/key.gif" alt="Seite mit benutzerdefiniertem Zugriff" />',
   "wantedicon" => '?',
   
   // My Groups

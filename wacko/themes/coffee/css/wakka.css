@@ -10,7 +10,9 @@ dfn { font-variant: small-caps; letter-spacing: 0.1em; font-style: normal; curso
 a:link { color: #0000CD}
 a:visited { color: #0068CC }
 span.missingpage {background-color: #FFFACD;}
-
+img {
+	border-width: 0px;
+	}
 /* Основы всех основ */
 
 body {color: black; background: white; font: 10pt Trebuchet MS }

@@ -339,12 +339,12 @@ $wakkaResource = array(
   "site_bookmarks" => "PageIndex / RecentChanges / RecentlyCommented",
 
   //icons
-  "outericon" => '<img src="{theme}icons/web.gif" alt="" border="0" />',
-  "fileicon" => '<img src="{theme}icons/file.gif" alt="" border="0" />',
-  "pdficon"  => '<img src="{theme}icons/pdf.gif" alt="PDF Document" border="0" />',
-  "mailicon" => '<img src="{theme}icons/mail.gif" alt="" border="0" />',
-  "lockicon" => '<img src="{theme}icons/lock.gif" align="middle" hspace="2" alt="Geen toegang" border="0" />',
-  "keyicon" => '<img src="{theme}icons/key.gif" align="middle" hspace="2" alt="Pagina met specifieke toegangsrechten" border="0" />',
+  "outericon" => '<img src="{theme}icons/web.gif" alt="" />',
+  "fileicon" => '<img src="{theme}icons/file.gif" alt="" />',
+  "pdficon"  => '<img src="{theme}icons/pdf.gif" alt="PDF Document" />',
+  "mailicon" => '<img src="{theme}icons/mail.gif" alt="" />',
+  "lockicon" => '<img src="{theme}icons/lock.gif" alt="Geen toegang" />',
+  "keyicon" => '<img src="{theme}icons/key.gif" alt="Pagina met specifieke toegangsrechten" />',
   "wantedicon" => '?',
   
   // My Groups

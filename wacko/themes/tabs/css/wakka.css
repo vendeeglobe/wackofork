@@ -1,5 +1,7 @@
 BODY { padding:0; margin:0; background:#eeeeee; line-height: 130%; }
-
+img {
+	border-width: 0px;
+	}
 UL, OL {  margin-top:0; margin-bottom: 3px; }
 LI { margin-bottom: 2px; }
 TEXTAREA { font-size:100%; font-family: Georgia, Courier New; color:#222222;   line-height: 1.5em;  }

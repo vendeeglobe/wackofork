@@ -336,12 +336,12 @@ $wakkaResource = array(
   "site_bookmarks" => "IndiceDePaginas / UltimasModificaciones / UltimosCommentarios",
 
   //icons
-  "outericon" => '<img src="{theme}icons/web.gif" alt="" border="0" />',
-  "fileicon" => '<img src="{theme}icons/file.gif" alt="" border="0" />',
-  "pdficon"  => '<img src="{theme}icons/pdf.gif" alt="PDF Document" border="0" />',
-  "mailicon" => '<img src="{theme}icons/mail.gif" alt="" border="0" />',
-  "lockicon" => '<img src="{theme}icons/lock.gif" align="middle" hspace="2" alt="Accesso negado" border="0" />',
-  "keyicon" => '<img src="{theme}icons/key.gif" align="middle" hspace="2" alt="Página con acceso especial" border="0" />',
+  "outericon" => '<img src="{theme}icons/web.gif" alt="" />',
+  "fileicon" => '<img src="{theme}icons/file.gif" alt="" />',
+  "pdficon"  => '<img src="{theme}icons/pdf.gif" alt="PDF Document" />',
+  "mailicon" => '<img src="{theme}icons/mail.gif" alt="" />',
+  "lockicon" => '<img src="{theme}icons/lock.gif" alt="Accesso negado" />',
+  "keyicon" => '<img src="{theme}icons/key.gif" alt="Página con acceso especial" />',
   "wantedicon" => '?',
   
   // My Groups

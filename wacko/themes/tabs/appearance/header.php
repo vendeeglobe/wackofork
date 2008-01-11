@@ -56,7 +56,7 @@ if ($user["doubleclickedit"] == "Y") {?>
     <?php echo $this->FormClose(); ?>
   </div><div class="TopLeft">
   <?php if ($this->GetUser()) { ?>
-   <img src="<?php echo $this->GetConfigValue("theme_url") ?>icons/role.gif" hspace="5" vspace="5" align="absmiddle" width="9" height="15" alt="" border="0"
+   <img src="<?php echo $this->GetConfigValue("theme_url") ?>icons/role.gif" hspace="5" vspace="5" width="9" height="15" alt=""
    /><span class="nobr"><?php echo $this->GetResourceValue("YouAre")." ".$this->Link($this->GetUserName()) ?></span>
    <small>( <span class="nobr Tune"><?php
       echo $this->ComposeLinkToPage($this->GetResourceValue("YouArePanelLink"), "", $this->GetResourceValue("YouArePanelName"), 0); ?> |
@@ -66,7 +66,7 @@ if ($user["doubleclickedit"] == "Y") {?>
       <?php echo $this->FormOpen("", "Login", "post"); ?>
       <input type="hidden" name="action" value="login" />
       <tr><td>
-         <img src="<?php echo $this->GetConfigValue("theme_url") ?>icons/norole.gif" hspace="5" vspace="5" align="absmiddle" width="9" height="15" alt="" border="0"
+         <img src="<?php echo $this->GetConfigValue("theme_url") ?>icons/norole.gif" hspace="5" vspace="5" width="9" height="15" alt=""
          />
       </td><td>
       <strong><?php echo $this->GetResourceValue("LoginWelcome") ?>:&nbsp;</strong>
@@ -86,9 +86,9 @@ if ($user["doubleclickedit"] == "Y") {?>
       <?php echo $this->FormClose(); ?>
       </table>
   <?php } ?>
-  </div><br clear="all"><img src="<?php echo $this->GetConfigValue("root_url") ?>images/z.gif" width="1" height="1" alt="" hspace="0" vspace="0" border="0" /></div>
+  </div><br clear="all"><img src="<?php echo $this->GetConfigValue("root_url") ?>images/z.gif" width="1" height="1" alt="" /></div>
 
-<div class="TopDiv"><img src="<?php echo $this->GetConfigValue("root_url");?>images/z.gif" width="1" height="1" alt="" border="0" /></div>
+<div class="TopDiv"><img src="<?php echo $this->GetConfigValue("root_url");?>images/z.gif" width="1" height="1" alt="" /></div>
 
 <table cellspacing="0" cellpadding="0" border="0" width="100%">
 <tr>
@@ -97,7 +97,7 @@ if ($user["doubleclickedit"] == "Y") {?>
   <?php echo $this->Format(implode(" | ", $this->GetBookmarks())); ?>&nbsp;&nbsp;</td>
 </tr>
 </table>
-<div class="TopDiv2"><img src="<?php echo $this->GetConfigValue("root_url");?>images/z.gif" width="1" height="1" alt="" border="0" /></div>
+<div class="TopDiv2"><img src="<?php echo $this->GetConfigValue("root_url");?>images/z.gif" width="1" height="1" alt="" /></div>
 
 
 <div class="Wrapper" <?php if ($this->method == "edit") echo "style='margin-bottom:0;padding-bottom:0'"?>>
@@ -110,25 +110,25 @@ if ($user["doubleclickedit"] == "Y") {?>
 <?php if (!in_array($this->GetPageSuperTag(),$this->GetBookmarkLinks())) {?>
   <a href="<?php echo $this->Href('', '', "addbookmark=yes")?>" ><img
                             src="<?php echo $this->GetConfigValue("theme_url") ?>icons/bookmark.gif"
-                            hspace="0" vspace="0" align="absmiddle" width="12" height="12"
-                            alt="<?php echo $this->GetResourceValue("AddToBookmarks") ?>" border="0" /></a> ::
+                            width="12" height="12"
+                            alt="<?php echo $this->GetResourceValue("AddToBookmarks") ?>" /></a> ::
 <?php } else { ?>
   <a href="<?php echo $this->Href('', '', "removebookmark=yes")?>" ><img
                             src="<?php echo $this->GetConfigValue("theme_url") ?>icons/unbookmark.gif"
-                            hspace="0" vspace="0" align="absmiddle" width="12" height="12"
-                            alt="<?php echo $this->GetResourceValue("RemoveFromBookmarks") ?>" border="0" /></a> ::
+                            width="12" height="12"
+                            alt="<?php echo $this->GetResourceValue("RemoveFromBookmarks") ?>" /></a> ::
 <?php } }
 ?>
 
 <?php echo"<a href=\"".$this->href("print")."\" target=\"_blank\">" ?><img
                             src="<?php echo $this->GetConfigValue("theme_url") ?>icons/print.gif"
-                            hspace="0" vspace="0" align="absmiddle" width="21" height="20"
-                            alt="<?php echo $this->GetResourceValue("PrintVersion") ?>" border="0" /></a>
+                            width="21" height="20"
+                            alt="<?php echo $this->GetResourceValue("PrintVersion") ?>" /></a>
 ::
 <?php echo"<a href=\"".$this->href("msword")."\" target=\"_blank\">" ?><img
                             src="<?php echo $this->GetConfigValue("theme_url") ?>icons/msword.gif"
-                            hspace="2" vspace="2" align="absmiddle" width="16" height="16"
-                            alt="<?php echo $this->GetResourceValue("MsWordVersion") ?>" border="0" /></a>
+                            width="16" height="16"
+                            alt="<?php echo $this->GetResourceValue("MsWordVersion") ?>" /></a>
   </div>
   <div class="header">
     <h1>
@@ -138,6 +138,6 @@ if ($user["doubleclickedit"] == "Y") {?>
         href="<?php echo $this->config["base_url"] ?>TextSearch<?php echo ($this->config["rewrite_mode"] ? "?" : "&amp;");?>phrase=<?php echo urlencode($this->GetPageTag()); ?>">...</a>
     </h1>
 <?php if (($this->method != "edit") || !$this->HasAccess("write")) { ?>
-    <div style="background-image:url(<?php echo $this->GetConfigValue("theme_url") ?>icons/shade2.gif);" class="Shade"><img src="<?php echo $this->GetConfigValue("theme_url") ?>icons/shade1.gif" width="106" height="6" alt="" border="0" /></div>
+    <div style="background-image:url(<?php echo $this->GetConfigValue("theme_url") ?>icons/shade2.gif);" class="Shade"><img src="<?php echo $this->GetConfigValue("theme_url") ?>icons/shade1.gif" width="106" height="6" alt="" /></div>
 <?php } ?>
   </div>
