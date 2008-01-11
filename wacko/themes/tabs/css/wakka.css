@@ -115,7 +115,8 @@ cite {color:#888800;font-style:normal;}
 .del { font-style: italic; color:#c00; text-decoration: line-through; }
 .error { color: #CC3333; font-weight: bold; }
 
-
+.time{ color:#999999; font-size: 9px; margin:5px 20px;}
+.debug { font-size: 11px; color: 888888;}
 
 .commentsheader, .filesheader {
   background-color: #eeeeee;

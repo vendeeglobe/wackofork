@@ -28,6 +28,7 @@ A:VISITED {
 }
 img {
 	border-width: 0px;
+	vertical-align: middle;
 	}
 
 UL, OL {
@@ -36,8 +37,6 @@ UL, OL {
   padding-top: 0px;
   padding-bottom: 0px;
 }
-
-.time{ font-family: Tahoma, Arial, Verdana; color: #cccccc; font-size: 9px;}
 
 /* paddings headers */
 FORM, H1, H2, H3, H4, H5, H6 {
@@ -56,6 +55,8 @@ FORM, H1, H2, H3, H4, H5, H6 {
 .error {
   color: #CC3333; font-weight: bold;
 }
+.time{ color:#999999; font-size: 9px; margin:5px 20px;}
+.debug { font-size: 11px; color: 888888;}
 
 .header {
   padding: 10px;

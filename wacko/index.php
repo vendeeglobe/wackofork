@@ -283,7 +283,7 @@ if ($iscache)
 $ddd = $wacko->GetMicroTime();
 if ($wacko->GetConfigValue("debug")>=1 && strpos($method,".xml")===false && $method!="print")
 {
- echo ("<div style='margin:5px 20px; color:#999999'><small>".$wacko->GetResourceValue("MeasuredTime").": ".(number_format(($ddd-$wacko->timer),3))." s<br />");
+ echo ("<div class=\"time\"><small>".$wacko->GetResourceValue("MeasuredTime").": ".(number_format(($ddd-$wacko->timer),3))." s<br />");
  if ($mem = @memory_get_usage()) echo ($wacko->GetResourceValue("MeasuredMemory").": ".(number_format(($mem/(1024*1024)),3))." Mb");
  if ($wacko->GetConfigValue("debug")>=2)
  {
