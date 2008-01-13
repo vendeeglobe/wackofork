@@ -1,4 +1,4 @@
-@import "../../common/X11ColorNames.css";
+@import "../../_common/X11ColorNames.css";
 /* basic -------------------------------------------------- */
 P, TD, LI, SELECT, TEXTAREA {
   font-family: Verdana;
