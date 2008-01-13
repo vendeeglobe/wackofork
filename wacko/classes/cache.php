@@ -163,8 +163,8 @@ class Cache
        if ($this->debug>=1 && strpos($method,".xml")===false)
        {
         $ddd = $this->GetMicroTime();
-        echo ("<div class=\"debug\"><small>cache time: ".(number_format(($ddd-$this->timer),3))." s<br />");
-        echo "</small></div>";
+        echo ("<div class=\"debug\">cache time: ".(number_format(($ddd-$this->timer),3))." s<br />");
+        echo "</div>";
        }
        if (strpos($method,".xml")===false)
          echo "</body></html>";
