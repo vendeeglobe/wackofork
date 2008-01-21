@@ -5,7 +5,7 @@ if ($this->HasAccess("read")) {
   if ($pages = $this->LoadRevisions($this->tag))
   {
     $this->context[++$this->current_context] = "";
-    $output .= $this->FormOpen("diff", "", "GET");
+    $output .= $this->FormOpen("diff", "", "get");
     $output .= "<table border=\"0\" cellspacing=\"0\" cellpadding=\"1\">\n";
     $output .= "<tr>\n";
     $output .= "<td><input type=\"submit\" value=\"".$this->GetResourceValue("ShowDifferencesButton")."\" /></td>";

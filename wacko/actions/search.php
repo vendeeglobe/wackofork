@@ -11,7 +11,7 @@ if ($vars[0] != "") $phrase = $vars[0]; else { $phrase=""; $form=1; }
 
 if ($form)
 {
-   echo $this->FormOpen("", "", "GET") ?>
+   echo $this->FormOpen("", "", "get") ?>
   <table border="0" cellspacing="0" cellpadding="0">
     <tr>
     <td><?php echo $this->GetResourceValue("SearchFor");?>:&nbsp;</td>
