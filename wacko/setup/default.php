@@ -97,7 +97,7 @@ if (!$wakkaConfig["wakka_version"])
       }
    else
       {
-         print("<tr><td></td><td>".$lang["fresh"].WACKO_VERSION.". ".$lang["pleaseConfigure"]."</td></tr>\n");
+         print("<tr><td></td><td>".$lang["fresh"]."<strong>".WACKO_VERSION."</strong>. ".$lang["pleaseConfigure"]."</td></tr>\n");
       }
  ?>
 

@@ -9,7 +9,7 @@ else
 
 // do not change this two lines, PLEASE-PLEASE. In fact, don't change anything! Ever!
 define("WAKKA_VERSION", "0.1.2");
-define("WACKO_VERSION", "R4.2");
+define("WACKO_VERSION", "R4.3");
 define('XML_HTMLSAX3', dirname(__FILE__)."/lib/HTMLSax3/");
 
 // stupid version check
