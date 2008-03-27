@@ -2214,7 +2214,7 @@ function WriteGoogleSiteMapXML()
  {
   $handle=opendir("themes");
   while (false!==($file = readdir($handle))) {
-    if ($file != "." && $file != "CVS" && $file != ".." && is_dir("themes/".$file))
+    if ($file != "." && $file != "CVS" && $file != ".." && is_dir("themes/".$file) && $file != ".svn" && $file != "_common")
       $themelist[] = $file;
   }
   closedir($handle);
