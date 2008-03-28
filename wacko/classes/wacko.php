@@ -631,6 +631,35 @@ class Wacko
    }
  }
 
+ function LoadRecentlyComment($limit=70, $for="", $from="") {
+   $limit= (int) $limit;
+   if ($pages =
+       $this->LoadAll("select ".$this->pages_meta." from ".$this->config["table_prefix"]."pages ".
+       "where latest = 'Y' and comment_on != '' ".($from?"and time<='".quote($this->dblink, $from)." 23:59:59'":"").
+       ($for?"and supertag like '".quote($this->dblink, $this->NpjTranslit($for))."/%' ":"").
+       "order by time desc  limit ".$limit))
+   {
+     foreach ($pages as $page)
+     {
+       $this->CachePage($page, 1);
+     }
+
+     if ($read_acls = $this->LoadAll("select a.* "
+                  ."from ".$this->config["table_prefix"]."acls a, ".$this->config["table_prefix"]."pages p "
+                    ."where p.latest = 'Y' "
+                    ."and p.comment_on = '' "
+                    ."and a.supertag = p.supertag "
+                    .($for?"and p.supertag like '".quote($this->dblink, $this->NpjTranslit($for))."/%' ":"")
+                    ."and privilege = 'read' "
+                    ."order by time desc limit ".$limit))
+       for ($i=0; $i<count($read_acls); $i++) {
+         $this->CacheACL($read_acls[$i]["supertag"], "read", 1,$read_acls[$i]);
+       }
+
+     return $pages;
+   }
+ }
+
  function LoadWantedPages($for="")
  {
    $pref = $this->config["table_prefix"];
@@ -888,6 +917,7 @@ class Wacko
 
    $this->WriteRecentChangesXML();
    $this->WriteGoogleSiteMapXML();
+   $this->WriteRecentCommentsXML();
 
    return $body_r;
  }
@@ -2031,6 +2061,42 @@ function WriteGoogleSiteMapXML()
             fclose($fp);
          }
    }
+
+ // XML
+ function WriteRecentCommentsXML() {
+   $xml = "<?xml version=\"1.0\" encoding=\"windows-1251\"?>\n";
+   $xml .= "<rss version=\"0.92\">\n";
+   $xml .= "<channel>\n";
+   $xml .= "<title>".$this->GetConfigValue("wakka_name")." - RecentComments</title>\n";
+   $xml .= "<link>".$this->GetConfigValue("root_url")."</link>\n";
+   $xml .= "<description>Recent comments to the ".$this->GetConfigValue("wakka_name")." WackoWiki</description>\n";
+   $xml .= "<language>en-us</language>\n";
+
+   if ( $pages = $this->LoadRecentlyComment() ) {
+     foreach ($pages as $i => $page) {
+       if ($this->config["hide_locked"]) $access =$this->HasAccess("read",$page["tag"],"guest@wacko");
+       if ( $access && ($count < 30) ) {
+         $count++;
+         $xml .= "<item>\n";
+         $xml .= "<title>".$page["tag"]."</title>\n";
+         $xml .= "<link>".$this->href("show", $page["tag"], "time=".urlencode($page["time"]))."</link>\n";
+         $xml .= "<description>".$page["time"]." by ".$page["user"]."</description>\n";
+         $xml .= "</item>\n";
+       }
+     }
+   }
+
+   $xml .= "</channel>\n";
+   $xml .= "</rss>\n";
+
+   $filename = "xml/recentcomment_".preg_replace("/[^a-zA-Z0-9]/", "", strtolower($this->GetConfigValue("wakka_name"))).".xml";
+
+   $fp = @fopen($filename, "w");
+   if ($fp)  {
+     fwrite($fp, $xml);
+     fclose($fp);
+   }
+ }
 
  // MAINTENANCE
  function Maintenance()

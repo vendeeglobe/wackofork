@@ -47,6 +47,7 @@ if (!$max)  $max = 50;
 
 if ($pages = LoadRecentlyCommented($this, $root, (int)$max))
 {
+if ($root=="" && !(int)$noxml)  print("<a href=\"".$this->GetConfigValue("root_url")."xml/recentcomment_".preg_replace("/[^a-zA-Z0-9]/", "", strtolower($this->GetConfigValue("wakka_name"))).".xml\"><img src=\"".$this->GetConfigValue("theme_url")."icons/xml.gif"."\" style=\"border : 0px;\" alt=\"XML\" /></a><br /><br />");
   foreach ($pages as $page)
   {
     if ($this->config["hide_locked"]) $access = $this->HasAccess("read",$page["tag"]);
