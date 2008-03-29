@@ -1,5 +1,4 @@
 <?php
-// $Id: cache.php 452 2005-02-23 16:31:53Z nikolay $
 
 class Cache
 {

@@ -1,5 +1,4 @@
 <?php
-// $Id: wacko.php 551 2005-06-04 14:29:41Z kukutz $
 
 // constants
 define("TRAN_DONTCHANGE", "0");
