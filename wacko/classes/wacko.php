@@ -1978,7 +1978,7 @@ class Wacko
    $xml .= "<channel>\n";
    $xml .= "<title>".$this->GetConfigValue("wakka_name")." - RecentChanges</title>\n";
    $xml .= "<link>".$this->GetConfigValue("root_url")."</link>\n";
-   $xml .= "<description>Recent changes to the ".$this->GetConfigValue("wakka_name")." WackoWiki</description>\n";
+   $xml .= "<description>Recent changes to the ".$this->GetConfigValue("wakka_name")." </description>\n";
    $xml .= "<language>en-us</language>\n";
 
    if ($pages = $this->LoadRecentlyChanged())
@@ -2011,7 +2011,7 @@ class Wacko
    }
  }
 
-function WriteGoogleSiteMapXML()
+ function WriteGoogleSiteMapXML()
    {
       $xml = "<?xml version=\"1.0\" encoding=\"windows-1251\"?>\n";
       $xml .= "<urlset xmlns=\"http://www.google.com/schemas/sitemap/0.84\">\n";
@@ -2062,14 +2062,13 @@ function WriteGoogleSiteMapXML()
          }
    }
 
- // XML
  function WriteRecentCommentsXML() {
    $xml = "<?xml version=\"1.0\" encoding=\"windows-1251\"?>\n";
    $xml .= "<rss version=\"0.92\">\n";
    $xml .= "<channel>\n";
    $xml .= "<title>".$this->GetConfigValue("wakka_name")." - RecentComments</title>\n";
    $xml .= "<link>".$this->GetConfigValue("root_url")."</link>\n";
-   $xml .= "<description>Recent comments to the ".$this->GetConfigValue("wakka_name")." WackoWiki</description>\n";
+   $xml .= "<description>Recent comments to the ".$this->GetConfigValue("wakka_name")." </description>\n";
    $xml .= "<language>en-us</language>\n";
 
    if ( $pages = $this->LoadRecentlyComment() ) {
