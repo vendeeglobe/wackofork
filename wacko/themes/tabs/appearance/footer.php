@@ -1,18 +1,17 @@
 <div class="Footer"><img src="<?php echo $this->GetConfigValue("root_url");?>images/z.gif" width="5" height="1" alt="" align="left" border="0" /><img src="<?php echo $this->GetConfigValue("root_url");?>images/z.gif" width="5" height="1" alt="" align="right" border="0" />
-   <?php $this->EchoTab( $this->href("show"),  $this->GetResourceValue("ShowTip"),
+  <?php $this->EchoTab( $this->href("show"),  $this->GetResourceValue("ShowTip"),
         $this->HasAccess("read") ? $this->GetResourceValue("ShowText") : "",
         $this->method != "show"
                        ) ?>
-   <?php $this->EchoTab( $this->href("edit"),  $this->GetResourceValue("EditTip"),
+  <?php $this->EchoTab( $this->href("edit"),  $this->GetResourceValue("EditTip"),
         $this->HasAccess("write") ? $this->GetResourceValue("EditText") : "",
         $this->method != "edit"
                        ) ?>
-   <?php $this->EchoTab( $this->href("revisions"),  $this->GetResourceValue("RevisionTip"),
+  <?php $this->EchoTab( $this->href("revisions"),  $this->GetResourceValue("RevisionTip"),
         $this->GetPageTime() ? $this->GetPageTime() : "",
         $this->method != "revisions"
                        ) ?>
-
-<?php
+  <?php
     // if this page exists
     if ($this->page)
     {
@@ -42,14 +41,18 @@
       }
     }
 ?>
-
-   <?php $this->EchoTab( $this->href("referrers"),  $this->GetResourceValue("ReferrersTip"),
+  <?php 
+   if ($this->GetUser())
+      {
+   $this->EchoTab( $this->href("referrers"),  $this->GetResourceValue("ReferrersTip"),
          $this->GetResourceValue("ReferrersText"),
          $this->method != "referrers",
          "2"
-                       ) ?>
-
-   <div class="TabSpace"><div class="TabText" style="padding-left:10px"><?php
+                       ); 
+		}	?>
+  <div class="TabSpace">
+    <div class="TabText" style="padding-left:10px">
+      <?php
     // if this page exists
     if ($this->page)
     {
@@ -62,11 +65,11 @@
        else if (!$this->page["comment_on"])
         print($this->GetResourceValue("Nobody").($this->GetUser() ? " (<a href=\"".$this->href("claim")."\">".$this->GetResourceValue("TakeOwnership")."</a>)" : ""));
     }
-?></div></div>
-
+?>
+    </div>
   </div>
 </div>
-
+</div>
 <!-- !! -->
 <?php
   if ($this->method == "show") {
@@ -94,9 +97,9 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_files") != 1 && ($th
   {
     // display files header
     ?>
-    <a name="files"></a>
-    <div class="filesheader">
-      <?php echo $this->GetResourceValue("Files_all") ?> [<a href="<?php echo $this->href("", "", "show_files=0")."\">".$this->GetResourceValue("HideFiles"); ?></a>]
+<a name="files"></a>
+<div class="filesheader">
+<?php echo $this->GetResourceValue("Files_all") ?> [<a href="<?php echo $this->href("", "", "show_files=0")."\">".$this->GetResourceValue("HideFiles"); ?></a>]
     </div>
     <?php
 
@@ -127,7 +130,7 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_files") != 1 && ($th
   {
     ?>
     <div class="filesheader">
-    <?php
+<?php
       if ($this->page["id"])
        $files = $this->LoadAll( "select id from ".$this->config["table_prefix"]."upload where ".
                              " page_id = '". quote($this->dblink, $this->page["id"]) ."'");
@@ -145,8 +148,7 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_files") != 1 && ($th
         print(str_replace("%1",count($files), $this->GetResourceValue("Files_n")));
       }
     ?>
-
-    [<a href="<?php echo $this->href("", "", "show_files=1#files")."\">".$this->GetResourceValue("ShowFiles"); ?></a>]
+[<a href="<?php echo $this->href("", "", "show_files=1#files")."\">".$this->GetResourceValue("ShowFiles"); ?></a>]
 
     </div>
     <?php
@@ -181,8 +183,8 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_comments") != 1 && (
     // display comments header
     ?>
     <a name="comments"></a>
-    <div class="commentsheader">
-      <?php echo $this->GetResourceValue("Comments_all") ?> [<a href="<?php echo $this->href("", "", "show_comments=0")."\">".$this->GetResourceValue("HideComments"); ?></a>]
+<div class="commentsheader">
+<?php echo $this->GetResourceValue("Comments_all") ?> [<a href="<?php echo $this->href("", "", "show_comments=0")."\">".$this->GetResourceValue("HideComments"); ?></a>]
     </div>
     <?php
 
@@ -212,18 +214,20 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_comments") != 1 && (
       ?>
         <?php echo $this->GetResourceValue("AttachComment"); ?><br />
         <?php echo $this->FormOpen("addcomment"); ?>
-          <textarea name="body" rows="6" style="width: 95%"></textarea><br />
-          <input type="submit" value="<?php echo $this->GetResourceValue("AttachCommentButton"); ?>" accesskey="s" />
-        <?php echo $this->FormClose(); ?>
-      <?php
+          <textarea name="body" rows="6" style="width: 95%">
+</textarea>
+<br />
+<input type="submit" value="<?php echo $this->GetResourceValue("AttachCommentButton"); ?>" accesskey="s" />
+<?php echo $this->FormClose(); ?>
+<?php
     }
     print("</div>\n");
   }
   else
   {
     ?>
-    <div class="commentsheader">
-    <?php
+<div class="commentsheader">
+  <?php
       switch (count($comments))
       {
       case 0:
@@ -236,8 +240,7 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_comments") != 1 && (
         print(str_replace("%1",count($comments), $this->GetResourceValue("Comments_n")));
       }
     ?>
-
-    [<a href="<?php echo $this->href("", "", "show_comments=1#comments")."\">".$this->GetResourceValue("ShowComments"); ?></a>]
+  [<a href="<?php echo $this->href("", "", "show_comments=1#comments")."\">".$this->GetResourceValue("ShowComments"); ?></a>]
 
     </div>
     <?php
@@ -250,14 +253,12 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_comments") != 1 && (
 <!-- !!! -->
 
 <div class="Copyright">
-<?php 
+  <?php 
 if ($this->GetUser()){
 echo $this->GetResourceValue("PoweredBy")." ".$this->Link("WackoWiki:WackoWiki", "", "WackoWiki ".$this->GetWackoVersion())." :: Redesign by Mendokusee"; 
 }
 ?>
-
 </div>
-
 <?php
   if ($this->GetConfigValue("debug")>=2)
   {
