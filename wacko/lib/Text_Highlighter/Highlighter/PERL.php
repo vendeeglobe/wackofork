@@ -30,8 +30,6 @@
  * @ignore
  */
 
-require_once 'Text/Highlighter.php';
-
 /**
  * Auto-generated class. PERL syntax highlighting
  *
