@@ -1973,12 +1973,14 @@ class Wacko
  function WriteRecentChangesXML()
  {
    $xml = "<?xml version=\"1.0\" encoding=\"windows-1251\"?>\n";
-   $xml .= "<rss version=\"0.92\">\n";
+   $xml .= "<rss version=\"2.0\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\">\n";
    $xml .= "<channel>\n";
    $xml .= "<title>".$this->GetConfigValue("wakka_name")." - RecentChanges</title>\n";
    $xml .= "<link>".$this->GetConfigValue("root_url")."</link>\n";
    $xml .= "<description>Recent changes to the ".$this->GetConfigValue("wakka_name")." </description>\n";
    $xml .= "<language>en-us</language>\n";
+   $xml .= "<docs>http://blogs.law.harvard.edu/tech/rss</docs>\n";
+   $xml .= "<generator>WackoWiki ".WACKO_VERSION."</generator>\n";//!!!
 
    if ($pages = $this->LoadRecentlyChanged())
    {
@@ -2005,6 +2007,43 @@ class Wacko
    $fp = @fopen($filename, "w");
    if ($fp)
    {
+     fwrite($fp, $xml);
+     fclose($fp);
+   }
+ }
+
+ function WriteRecentCommentsXML() {
+   $xml = "<?xml version=\"1.0\" encoding=\"windows-1251\"?>\n";
+   $xml .= "<rss version=\"2.0\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\">\n";
+   $xml .= "<channel>\n";
+   $xml .= "<title>".$this->GetConfigValue("wakka_name")." - RecentComments</title>\n";
+   $xml .= "<link>".$this->GetConfigValue("root_url")."</link>\n";
+   $xml .= "<description>Recent comments to the ".$this->GetConfigValue("wakka_name")." </description>\n";
+   $xml .= "<language>en-us</language>\n";
+   $xml .= "<docs>http://blogs.law.harvard.edu/tech/rss</docs>\n";
+   $xml .= "<generator>WackoWiki ".WACKO_VERSION."</generator>\n";//!!!
+
+   if ( $pages = $this->LoadRecentlyComment() ) {
+     foreach ($pages as $i => $page) {
+       if ($this->config["hide_locked"]) $access =$this->HasAccess("read",$page["tag"],"guest@wacko");
+       if ( $access && ($count < 30) ) {
+         $count++;
+         $xml .= "<item>\n";
+         $xml .= "<title>".$page["tag"]."</title>\n";
+         $xml .= "<link>".$this->href("show", $page["tag"], "time=".urlencode($page["time"]))."</link>\n";
+         $xml .= "<description>".$page["time"]." by ".$page["user"]."</description>\n";
+         $xml .= "</item>\n";
+       }
+     }
+   }
+
+   $xml .= "</channel>\n";
+   $xml .= "</rss>\n";
+
+   $filename = "xml/recentcomment_".preg_replace("/[^a-zA-Z0-9]/", "", strtolower($this->GetConfigValue("wakka_name"))).".xml";
+
+   $fp = @fopen($filename, "w");
+   if ($fp)  {
      fwrite($fp, $xml);
      fclose($fp);
    }
@@ -2060,41 +2099,6 @@ class Wacko
             fclose($fp);
          }
    }
-
- function WriteRecentCommentsXML() {
-   $xml = "<?xml version=\"1.0\" encoding=\"windows-1251\"?>\n";
-   $xml .= "<rss version=\"0.92\">\n";
-   $xml .= "<channel>\n";
-   $xml .= "<title>".$this->GetConfigValue("wakka_name")." - RecentComments</title>\n";
-   $xml .= "<link>".$this->GetConfigValue("root_url")."</link>\n";
-   $xml .= "<description>Recent comments to the ".$this->GetConfigValue("wakka_name")." </description>\n";
-   $xml .= "<language>en-us</language>\n";
-
-   if ( $pages = $this->LoadRecentlyComment() ) {
-     foreach ($pages as $i => $page) {
-       if ($this->config["hide_locked"]) $access =$this->HasAccess("read",$page["tag"],"guest@wacko");
-       if ( $access && ($count < 30) ) {
-         $count++;
-         $xml .= "<item>\n";
-         $xml .= "<title>".$page["tag"]."</title>\n";
-         $xml .= "<link>".$this->href("show", $page["tag"], "time=".urlencode($page["time"]))."</link>\n";
-         $xml .= "<description>".$page["time"]." by ".$page["user"]."</description>\n";
-         $xml .= "</item>\n";
-       }
-     }
-   }
-
-   $xml .= "</channel>\n";
-   $xml .= "</rss>\n";
-
-   $filename = "xml/recentcomment_".preg_replace("/[^a-zA-Z0-9]/", "", strtolower($this->GetConfigValue("wakka_name"))).".xml";
-
-   $fp = @fopen($filename, "w");
-   if ($fp)  {
-     fwrite($fp, $xml);
-     fclose($fp);
-   }
- }
 
  // MAINTENANCE
  function Maintenance()
