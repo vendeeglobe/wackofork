@@ -33,8 +33,6 @@
  * @ignore
  */
 
-require_once 'Text/Highlighter.php';
-
 /**
  * Auto-generated class. RUBY syntax highlighting
  *
