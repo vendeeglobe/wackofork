@@ -16,10 +16,8 @@ Commented by Roman Ivanov.
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title><?php
-// Echoes Title of the page.
-  echo $this->GetWakkaName()." : ".$this->AddSpaces($this->GetPageTag()).($this->method!="show"?" (".$this->method.")":"");
-?></title>
+  <title><?php // Echoes Title of the page.  
+  echo $this->GetWakkaName()." : ".$this->AddSpaces($this->GetPageTag()).($this->method!="show"?" (".$this->method.")":"");?></title>
 <?php
 // We don't need search robots to index subordinate pages
   if ($this->GetMethod() != 'show' || $this->page["latest"] == "N")
@@ -30,9 +28,9 @@ Commented by Roman Ivanov.
   <meta http-equiv="content-type" content="text/html; charset=<?php echo $this->GetCharset(); ?>" />
   <link rel="stylesheet" type="text/css" href="<?php echo $this->GetConfigValue("theme_url") ?>css/wakka.css" />
   <link rel="shortcut icon" href="<?php echo $this->GetConfigValue("theme_url") ?>icons/wacko.ico" type="image/x-icon" />
-  <link rel="alternate" type="application/rss+xml" title="RecentChanges in RSS" href="<?php echo $this->GetConfigValue("root_url");?>xml/recentchanges_<?php echo preg_replace("/[^a-zA-Z0-9]/", "", strtolower($this->GetConfigValue("wakka_name")));?>.xml" />
-  <link rel="alternate" type="application/rss+xml" title="RecentComments in RSS" href="<?php echo $this->GetConfigValue("root_url");?>xml/recentcomment_<?php echo preg_replace("/[^a-zA-Z0-9]/", "", strtolower($this->GetConfigValue("wakka_name")));?>.xml" />
-  <link rel="alternate" type="application/rss+xml" title="History/revisions of <?php echo $this->tag; ?> in RSS" href="<?php echo $this->href("revisions.xml");?>" />
+  <link rel="alternate" type="application/rss+xml" title="<?php echo $this->GetResourceValue("RecentChangesRSS");?>" href="<?php echo $this->GetConfigValue("root_url");?>xml/recentchanges_<?php echo preg_replace("/[^a-zA-Z0-9]/", "", strtolower($this->GetConfigValue("wakka_name")));?>.xml" />
+  <link rel="alternate" type="application/rss+xml" title="<?php echo $this->GetResourceValue("RecentCommentsRSS");?>" href="<?php echo $this->GetConfigValue("root_url");?>xml/recentcomment_<?php echo preg_replace("/[^a-zA-Z0-9]/", "", strtolower($this->GetConfigValue("wakka_name")));?>.xml" />
+  <link rel="alternate" type="application/rss+xml" title="<?php echo $this->GetResourceValue("HistoryRevisionsRSS");?><?php echo $this->tag; ?> in RSS" href="<?php echo $this->href("revisions.xml");?>" />
 <?php
 // Three JS files.
 // default.js contains common procedures and should be included everywhere

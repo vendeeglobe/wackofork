@@ -353,6 +353,20 @@ $wakkaResource = array(
   // Cache
   "ClearCache" => "Clear cache",
   "CacheCleared" => "Cache cleared.",
+  
+  // XML / RSS autodiscovery
+  "RecentChangesTitelXML" => " - RecentChanges",
+  "RecentChangesXML" => "Recent changes to the ",
+  "RecentCommentsTitelXML" => " - RecentComments",
+  "RecentCommentsXML" => "Recent comments to the ",
+  "PageRevisionsXML" => "History/revisions of ",
+  "ExportClusterXML" => "Export of entire cluster of ",
+  "AccessDeniedXML" => "You're not allowed to access this information.",
+   
+  "RecentChangesRSS" => "RecentChanges in RSS",
+  "RecentCommentsRSS" => "RecentComments in RSS",
+  "HistoryRevisionsRSS" => "History/revisions of ",
+
 );
 
 ?>

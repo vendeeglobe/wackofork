@@ -1975,9 +1975,9 @@ class Wacko
    $xml = "<?xml version=\"1.0\" encoding=\"windows-1251\"?>\n";
    $xml .= "<rss version=\"2.0\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\">\n";
    $xml .= "<channel>\n";
-   $xml .= "<title>".$this->GetConfigValue("wakka_name")." - RecentChanges</title>\n";
+   $xml .= "<title>".$this->GetConfigValue("wakka_name").$this->GetResourceValue("RecentChangesTitelXML")."</title>\n";
    $xml .= "<link>".$this->GetConfigValue("root_url")."</link>\n";
-   $xml .= "<description>Recent changes to the ".$this->GetConfigValue("wakka_name")." </description>\n";
+   $xml .= "<description>".$this->GetResourceValue("RecentChangesXML").$this->GetConfigValue("wakka_name")." </description>\n";
    $xml .= "<language>en-us</language>\n";
    $xml .= "<docs>http://blogs.law.harvard.edu/tech/rss</docs>\n";
    $xml .= "<generator>WackoWiki ".WACKO_VERSION."</generator>\n";//!!!
@@ -2016,9 +2016,9 @@ class Wacko
    $xml = "<?xml version=\"1.0\" encoding=\"windows-1251\"?>\n";
    $xml .= "<rss version=\"2.0\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\">\n";
    $xml .= "<channel>\n";
-   $xml .= "<title>".$this->GetConfigValue("wakka_name")." - RecentComments</title>\n";
+   $xml .= "<title>".$this->GetConfigValue("wakka_name").$this->GetResourceValue("RecentCommentsTitelXML")."</title>\n";
    $xml .= "<link>".$this->GetConfigValue("root_url")."</link>\n";
-   $xml .= "<description>Recent comments to the ".$this->GetConfigValue("wakka_name")." </description>\n";
+   $xml .= "<description>".$this->GetResourceValue("RecentCommentsXML").$this->GetConfigValue("wakka_name")." </description>\n";
    $xml .= "<language>en-us</language>\n";
    $xml .= "<docs>http://blogs.law.harvard.edu/tech/rss</docs>\n";
    $xml .= "<generator>WackoWiki ".WACKO_VERSION."</generator>\n";//!!!
