@@ -13,15 +13,18 @@
  *
  * @category   Text
  * @package    Text_Highlighter
- * @author     Andrey Demenev <demenev@on-line.jar.ru>
- * @copyright  2004 Andrey Demenev
+ * @author     Andrey Demenev <demenev@gmail.com>
+ * @copyright  2004-2006 Andrey Demenev
  * @license    http://www.php.net/license/3_0.txt  PHP License
+ * @version    CVS: $Id: Console.php,v 1.1 2007/06/03 02:37:08 ssttoo Exp $
  * @link       http://pear.php.net/package/Text_Highlighter
  */
 
 /**
  * @ignore
  */
+
+# require_once 'Text/Highlighter/Renderer.php';
 
 define ('HL_CONSOLE_DEFCOLOR', "\033[0m");
 
@@ -37,12 +40,12 @@ define ('HL_CONSOLE_DEFCOLOR', "\033[0m");
  * - 'tabsize' - Tab size
  * - 'colors'  - additional colors
  *
- * @author Andrey Demenev <demenev@on-line.jar.ru>
+ * @author Andrey Demenev <demenev@gmail.com>
  * @category   Text
  * @package    Text_Highlighter
- * @copyright  2004 Andrey Demenev
+ * @copyright  2004-2006 Andrey Demenev
  * @license    http://www.php.net/license/3_0.txt  PHP License
- * @version    Release: 0.5.0
+ * @version    Release: 0.7.1
  * @link       http://pear.php.net/package/Text_Highlighter
  */
 
@@ -92,6 +95,7 @@ class Text_Highlighter_Renderer_Console extends Text_Highlighter_Renderer
         'quotes' => "\033[34m",
         'inlinedoc' => "\033[34m",
         'var' => "\033[1m",
+        'types' => "\033[32m",
         'number' => "\033[32m",
         'string' => "\033[31m",
         'reserved' => "\033[35m",
@@ -107,6 +111,7 @@ class Text_Highlighter_Renderer_Console extends Text_Highlighter_Renderer
         return rtrim($str);
     }
 
+
     /**
      * Resets renderer state
      *
@@ -118,7 +123,7 @@ class Text_Highlighter_Renderer_Console extends Text_Highlighter_Renderer
      */
     function reset()
     {
-        $this->_lastClass = 'default';
+        $this->_lastClass = '';
         if (isset($this->_options['numbers'])) {
             $this->_numbers = (bool)$this->_options['numbers'];
         } else {
@@ -137,10 +142,11 @@ class Text_Highlighter_Renderer_Console extends Text_Highlighter_Renderer
         $this->_output = '';
     }
 
+
+
     /**
      * Accepts next token
      *
-     * @abstract
      * @access public
      *
      * @param  string $class   Token class
@@ -164,7 +170,6 @@ class Text_Highlighter_Renderer_Console extends Text_Highlighter_Renderer
     /**
      * Signals that no more tokens are available
      *
-     * @abstract
      * @access public
      *
      */
@@ -182,7 +187,6 @@ class Text_Highlighter_Renderer_Console extends Text_Highlighter_Renderer
     /**
      * Get generated output
      *
-     * @abstract
      * @return string Highlighted code
      * @access public
      *

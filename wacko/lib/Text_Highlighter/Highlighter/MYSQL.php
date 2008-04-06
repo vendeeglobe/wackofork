@@ -10,12 +10,13 @@
  * the PHP License and are unable to obtain it through the web, please
  * send a note to license@php.net so we can mail you a copy immediately.
  *
- * @copyright  2004 Andrey Demenev
+ * @copyright  2004-2006 Andrey Demenev
  * @license    http://www.php.net/license/3_0.txt  PHP License
  * @link       http://pear.php.net/package/Text_Highlighter
  * @category   Text
  * @package    Text_Highlighter
- * @author Andrey Demenev <demenev@on-line.jar.ru>
+ * @version    generated from: : mysql.xml,v 1.1 2007/06/03 02:35:28 ssttoo Exp 
+ * @author Andrey Demenev <demenev@gmail.com>
  *
  */
 
@@ -23,19 +24,24 @@
  * @ignore
  */
 
+# require_once 'Text/Highlighter.php';
+
 /**
  * Auto-generated class. MYSQL syntax highlighting
  *
- * @author Andrey Demenev <demenev@on-line.jar.ru>
+ * @author Andrey Demenev <demenev@gmail.com>
  * @category   Text
  * @package    Text_Highlighter
- * @copyright  2004 Andrey Demenev
+ * @copyright  2004-2006 Andrey Demenev
  * @license    http://www.php.net/license/3_0.txt  PHP License
- * @version    Release: @package_version@
+ * @version    Release: 0.7.1
  * @link       http://pear.php.net/package/Text_Highlighter
  */
 class  Text_Highlighter_MYSQL extends Text_Highlighter
-{    /**
+{
+    var $_language = 'mysql';
+
+    /**
      * PHP4 Compatible Constructor
      *
      * @param array  $options
@@ -46,6 +52,7 @@ class  Text_Highlighter_MYSQL extends Text_Highlighter
         $this->__construct($options);
     }
 
+
     /**
      *  Constructor
      *
@@ -54,555 +61,374 @@ class  Text_Highlighter_MYSQL extends Text_Highlighter
      */
     function __construct($options=array())
     {
-        $this->_syntax = array (
-            'keywords' => 
-            array (
-                'reserved' => 
-                array (
-                    'name' => 'reserved',
-                    'innerGroup' => 'reserved',
-                    'case' => false,
-                    'inherits' => 'identifier',
-                    'match' => 
-                    array (
-                        'action' => true,
-                        'add' => true,
-                        'aggregate' => true,
-                        'all' => true,
-                        'alter' => true,
-                        'after' => true,
-                        'and' => true,
-                        'as' => true,
-                        'asc' => true,
-                        'avg' => true,
-                        'avg_row_length' => true,
-                        'auto_increment' => true,
-                        'between' => true,
-                        'bigint' => true,
-                        'bit' => true,
-                        'binary' => true,
-                        'blob' => true,
-                        'bool' => true,
-                        'both' => true,
-                        'by' => true,
-                        'cascade' => true,
-                        'case' => true,
-                        'char' => true,
-                        'character' => true,
-                        'change' => true,
-                        'check' => true,
-                        'checksum' => true,
-                        'column' => true,
-                        'columns' => true,
-                        'comment' => true,
-                        'constraint' => true,
-                        'create' => true,
-                        'cross' => true,
-                        'current_date' => true,
-                        'current_time' => true,
-                        'current_timestamp' => true,
-                        'data' => true,
-                        'database' => true,
-                        'databases' => true,
-                        'date' => true,
-                        'datetime' => true,
-                        'day' => true,
-                        'day_hour' => true,
-                        'day_minute' => true,
-                        'day_second' => true,
-                        'dayofmonth' => true,
-                        'dayofweek' => true,
-                        'dayofyear' => true,
-                        'dec' => true,
-                        'decimal' => true,
-                        'default' => true,
-                        'delayed' => true,
-                        'delay_key_write' => true,
-                        'delete' => true,
-                        'desc' => true,
-                        'describe' => true,
-                        'distinct' => true,
-                        'distinctrow' => true,
-                        'double' => true,
-                        'drop' => true,
-                        'end' => true,
-                        'else' => true,
-                        'escape' => true,
-                        'escaped' => true,
-                        'enclosed' => true,
-                        'enum' => true,
-                        'explain' => true,
-                        'exists' => true,
-                        'fields' => true,
-                        'file' => true,
-                        'first' => true,
-                        'float' => true,
-                        'float4' => true,
-                        'float8' => true,
-                        'flush' => true,
-                        'foreign' => true,
-                        'from' => true,
-                        'for' => true,
-                        'full' => true,
-                        'function' => true,
-                        'global' => true,
-                        'grant' => true,
-                        'grants' => true,
-                        'group' => true,
-                        'having' => true,
-                        'heap' => true,
-                        'high_priority' => true,
-                        'hour' => true,
-                        'hour_minute' => true,
-                        'hour_second' => true,
-                        'hosts' => true,
-                        'identified' => true,
-                        'ignore' => true,
-                        'in' => true,
-                        'index' => true,
-                        'infile' => true,
-                        'inner' => true,
-                        'insert' => true,
-                        'insert_id' => true,
-                        'int' => true,
-                        'integer' => true,
-                        'interval' => true,
-                        'int1' => true,
-                        'int2' => true,
-                        'int3' => true,
-                        'int4' => true,
-                        'int8' => true,
-                        'into' => true,
-                        'if' => true,
-                        'is' => true,
-                        'isam' => true,
-                        'join' => true,
-                        'key' => true,
-                        'keys' => true,
-                        'kill' => true,
-                        'last_insert_id' => true,
-                        'leading' => true,
-                        'left' => true,
-                        'length' => true,
-                        'like' => true,
-                        'lines' => true,
-                        'limit' => true,
-                        'load' => true,
-                        'local' => true,
-                        'lock' => true,
-                        'logs' => true,
-                        'long' => true,
-                        'longblob' => true,
-                        'longtext' => true,
-                        'low_priority' => true,
-                        'max' => true,
-                        'max_rows' => true,
-                        'match' => true,
-                        'mediumblob' => true,
-                        'mediumtext' => true,
-                        'mediumint' => true,
-                        'middleint' => true,
-                        'min_rows' => true,
-                        'minute' => true,
-                        'minute_second' => true,
-                        'modify' => true,
-                        'month' => true,
-                        'monthname' => true,
-                        'myisam' => true,
-                        'natural' => true,
-                        'numeric' => true,
-                        'no' => true,
-                        'not' => true,
-                        'null' => true,
-                        'on' => true,
-                        'optimize' => true,
-                        'option' => true,
-                        'optionally' => true,
-                        'or' => true,
-                        'order' => true,
-                        'outer' => true,
-                        'outfile' => true,
-                        'pack_keys' => true,
-                        'partial' => true,
-                        'password' => true,
-                        'precision' => true,
-                        'primary' => true,
-                        'procedure' => true,
-                        'process' => true,
-                        'processlist' => true,
-                        'privileges' => true,
-                        'read' => true,
-                        'real' => true,
-                        'references' => true,
-                        'reload' => true,
-                        'regexp' => true,
-                        'rename' => true,
-                        'replace' => true,
-                        'restrict' => true,
-                        'returns' => true,
-                        'revoke' => true,
-                        'rlike' => true,
-                        'row' => true,
-                        'rows' => true,
-                        'second' => true,
-                        'select' => true,
-                        'set' => true,
-                        'show' => true,
-                        'shutdown' => true,
-                        'smallint' => true,
-                        'soname' => true,
-                        'sql_big_tables' => true,
-                        'sql_big_selects' => true,
-                        'sql_low_priority_updates' => true,
-                        'sql_log_off' => true,
-                        'sql_log_update' => true,
-                        'sql_select_limit' => true,
-                        'sql_small_result' => true,
-                        'sql_big_result' => true,
-                        'sql_warnings' => true,
-                        'straight_join' => true,
-                        'starting' => true,
-                        'status' => true,
-                        'string' => true,
-                        'table' => true,
-                        'tables' => true,
-                        'temporary' => true,
-                        'terminated' => true,
-                        'text' => true,
-                        'then' => true,
-                        'time' => true,
-                        'timestamp' => true,
-                        'tinyblob' => true,
-                        'tinytext' => true,
-                        'tinyint' => true,
-                        'trailing' => true,
-                        'to' => true,
-                        'type' => true,
-                        'use' => true,
-                        'using' => true,
-                        'unique' => true,
-                        'unlock' => true,
-                        'unsigned' => true,
-                        'update' => true,
-                        'usage' => true,
-                        'values' => true,
-                        'varchar' => true,
-                        'variables' => true,
-                        'varying' => true,
-                        'varbinary' => true,
-                        'with' => true,
-                        'write' => true,
-                        'when' => true,
-                        'where' => true,
-                        'year' => true,
-                        'year_month' => true,
-                        'zerofill' => true,
-                    ),
-                ),
-                'function' => 
-                array (
-                    'name' => 'function',
-                    'innerGroup' => 'reserved',
-                    'case' => false,
-                    'inherits' => 'possiblefunction',
-                    'otherwise' => 'identifier',
-                    'match' => 
-                    array (
-                        'abs' => true,
-                        'acos' => true,
-                        'adddate' => true,
-                        'ascii' => true,
-                        'asin' => true,
-                        'atan' => true,
-                        'atan2' => true,
-                        'avg' => true,
-                        'benchmark' => true,
-                        'bin' => true,
-                        'ceiling' => true,
-                        'char' => true,
-                        'coalesce' => true,
-                        'concat' => true,
-                        'conv' => true,
-                        'cos' => true,
-                        'cot' => true,
-                        'count' => true,
-                        'curdate' => true,
-                        'curtime' => true,
-                        'database' => true,
-                        'dayname' => true,
-                        'dayofmonth' => true,
-                        'dayofweek' => true,
-                        'dayofyear' => true,
-                        'decode' => true,
-                        'degrees' => true,
-                        'elt' => true,
-                        'encode' => true,
-                        'encrypt' => true,
-                        'exp' => true,
-                        'extract' => true,
-                        'field' => true,
-                        'floor' => true,
-                        'format' => true,
-                        'greatest' => true,
-                        'hex' => true,
-                        'hour' => true,
-                        'if' => true,
-                        'ifnull' => true,
-                        'insert' => true,
-                        'instr' => true,
-                        'interval' => true,
-                        'isnull' => true,
-                        'lcase' => true,
-                        'least' => true,
-                        'left' => true,
-                        'length' => true,
-                        'locate' => true,
-                        'log' => true,
-                        'log10' => true,
-                        'lower' => true,
-                        'lpad' => true,
-                        'ltrim' => true,
-                        'max' => true,
-                        'md5' => true,
-                        'mid' => true,
-                        'min' => true,
-                        'minute' => true,
-                        'mod' => true,
-                        'month' => true,
-                        'monthname' => true,
-                        'now' => true,
-                        'nullif' => true,
-                        'oct' => true,
-                        'ord' => true,
-                        'password' => true,
-                        'pi' => true,
-                        'position' => true,
-                        'pow' => true,
-                        'power' => true,
-                        'prepare' => true,
-                        'quarter' => true,
-                        'radians' => true,
-                        'rand' => true,
-                        'repeat' => true,
-                        'replace' => true,
-                        'reverse' => true,
-                        'right' => true,
-                        'round' => true,
-                        'rpad' => true,
-                        'rtrim' => true,
-                        'second' => true,
-                        'sign' => true,
-                        'sin' => true,
-                        'soundex' => true,
-                        'space' => true,
-                        'sqrt' => true,
-                        'std' => true,
-                        'stddev' => true,
-                        'strcmp' => true,
-                        'subdate' => true,
-                        'substring' => true,
-                        'sum' => true,
-                        'sysdate' => true,
-                        'tan' => true,
-                        'trim' => true,
-                        'truncate' => true,
-                        'ucase' => true,
-                        'upper' => true,
-                        'user' => true,
-                        'version' => true,
-                        'week' => true,
-                        'weekday' => true,
-                        'year' => true,
-                    ),
-                ),
-            ),
-            'blocks' => 
-            array (
-                'qidentifier' => 
-                array (
-                    'name' => 'qidentifier',
-                    'case' => false,
-                    'innerGroup' => 'identifier',
-                    'delimGroup' => 'quotes',
-                    'start' => '/`/i',
-                    'end' => '/`/i',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 0,
-                ),
-                'mlcomment' => 
-                array (
-                    'name' => 'mlcomment',
-                    'case' => false,
-                    'innerGroup' => 'comment',
-                    'delimGroup' => 'comment',
-                    'start' => '/\\/\\*/i',
-                    'end' => '/\\*\\//i',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 1,
-                ),
-                'comment' => 
-                array (
-                    'name' => 'comment',
-                    'case' => false,
-                    'innerGroup' => 'comment',
-                    'match' => '/(#|--\\s).*/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 2,
-                ),
-                'possiblefunction' => 
-                array (
-                    'name' => 'possiblefunction',
-                    'case' => false,
-                    'innerGroup' => 'identifier',
-                    'match' => '/[a-z_]\\w*(?=\\s*\\()/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 3,
-                ),
-                'identifier' => 
-                array (
-                    'name' => 'identifier',
-                    'case' => false,
-                    'innerGroup' => 'identifier',
-                    'match' => '/[a-z_]\\w*/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 4,
-                ),
-                'strdouble' => 
-                array (
-                    'name' => 'strdouble',
-                    'case' => false,
-                    'innerGroup' => 'string',
-                    'delimGroup' => 'quotes',
-                    'start' => '/"/i',
-                    'end' => '/"/i',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 5,
-                    'lookfor' => 
-                    array (
-                        0 => 'escaped',
-                    ),
-                ),
-                'brackets' => 
-                array (
-                    'name' => 'brackets',
-                    'case' => false,
-                    'innerGroup' => 'code',
-                    'delimGroup' => 'brackets',
-                    'start' => '/\\(/i',
-                    'end' => '/\\)/i',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 6,
-                    'lookfor' => 
-                    array (
-                        0 => 'qidentifier',
-                        1 => 'mlcomment',
-                        2 => 'comment',
-                        3 => 'possiblefunction',
-                        4 => 'identifier',
-                        5 => 'strdouble',
-                        6 => 'brackets',
-                        7 => 'strsingle',
-                        8 => 'exponent',
-                        9 => 'float',
-                        10 => 'integer',
-                        11 => 'hexinteger',
-                    ),
-                ),
-                'strsingle' => 
-                array (
-                    'name' => 'strsingle',
-                    'case' => false,
-                    'innerGroup' => 'string',
-                    'delimGroup' => 'quotes',
-                    'start' => '/\'/i',
-                    'end' => '/\'/i',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 7,
-                    'lookfor' => 
-                    array (
-                        0 => 'escaped',
-                    ),
-                ),
-                'escaped' => 
-                array (
-                    'name' => 'escaped',
-                    'case' => false,
-                    'innerGroup' => 'special',
-                    'match' => '/\\\\./i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 8,
-                ),
-                'exponent' => 
-                array (
-                    'name' => 'exponent',
-                    'case' => false,
-                    'innerGroup' => 'number',
-                    'match' => '/((\\d+|((\\d*\\.\\d+)|(\\d+\\.\\d*)))[eE][+-]?\\d+)/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 9,
-                ),
-                'float' => 
-                array (
-                    'name' => 'float',
-                    'case' => false,
-                    'innerGroup' => 'number',
-                    'match' => '/(\\d*\\.\\d+)|(\\d+\\.\\d*)/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 10,
-                ),
-                'integer' => 
-                array (
-                    'name' => 'integer',
-                    'case' => false,
-                    'innerGroup' => 'number',
-                    'match' => '/\\d+l?|\\b0l?\\b/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 11,
-                ),
-                'hexinteger' => 
-                array (
-                    'name' => 'hexinteger',
-                    'case' => false,
-                    'innerGroup' => 'number',
-                    'match' => '/0[xX][\\da-f]+l?/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 12,
-                ),
-            ),
-            'toplevel' => 
-            array (
-                0 => 'qidentifier',
-                1 => 'mlcomment',
-                2 => 'comment',
-                3 => 'possiblefunction',
-                4 => 'identifier',
-                5 => 'strdouble',
-                6 => 'brackets',
-                7 => 'strsingle',
-                8 => 'exponent',
-                9 => 'float',
-                10 => 'integer',
-                11 => 'hexinteger',
-            ),
-            'case' => false,
-            'defClass' => 'code',
-        );
 
         $this->_options = $options;
+        $this->_regs = array (
+            -1 => '/((?i)`)|((?i)\\/\\*)|((?i)(#|--\\s).*)|((?i)[a-z_]\\w*(?=\\s*\\())|((?i)[a-z_]\\w*)|((?i)")|((?i)\\()|((?i)\')|((?i)((\\d+|((\\d*\\.\\d+)|(\\d+\\.\\d*)))[eE][+-]?\\d+))|((?i)(\\d*\\.\\d+)|(\\d+\\.\\d*))|((?i)\\d+l?|\\b0l?\\b)|((?i)0[xX][\\da-f]+l?)/',
+            0 => '//',
+            1 => '//',
+            2 => '/((?i)\\\\.)/',
+            3 => '/((?i)`)|((?i)\\/\\*)|((?i)(#|--\\s).*)|((?i)[a-z_]\\w*(?=\\s*\\())|((?i)[a-z_]\\w*)|((?i)")|((?i)\\()|((?i)\')|((?i)((\\d+|((\\d*\\.\\d+)|(\\d+\\.\\d*)))[eE][+-]?\\d+))|((?i)(\\d*\\.\\d+)|(\\d+\\.\\d*))|((?i)\\d+l?|\\b0l?\\b)|((?i)0[xX][\\da-f]+l?)/',
+            4 => '/((?i)\\\\.)/',
+        );
+        $this->_counts = array (
+            -1 => 
+            array (
+                0 => 0,
+                1 => 0,
+                2 => 1,
+                3 => 0,
+                4 => 0,
+                5 => 0,
+                6 => 0,
+                7 => 0,
+                8 => 5,
+                9 => 2,
+                10 => 0,
+                11 => 0,
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+            ),
+            2 => 
+            array (
+                0 => 0,
+            ),
+            3 => 
+            array (
+                0 => 0,
+                1 => 0,
+                2 => 1,
+                3 => 0,
+                4 => 0,
+                5 => 0,
+                6 => 0,
+                7 => 0,
+                8 => 5,
+                9 => 2,
+                10 => 0,
+                11 => 0,
+            ),
+            4 => 
+            array (
+                0 => 0,
+            ),
+        );
+        $this->_delim = array (
+            -1 => 
+            array (
+                0 => 'quotes',
+                1 => 'comment',
+                2 => '',
+                3 => '',
+                4 => '',
+                5 => 'quotes',
+                6 => 'brackets',
+                7 => 'quotes',
+                8 => '',
+                9 => '',
+                10 => '',
+                11 => '',
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+            ),
+            2 => 
+            array (
+                0 => '',
+            ),
+            3 => 
+            array (
+                0 => 'quotes',
+                1 => 'comment',
+                2 => '',
+                3 => '',
+                4 => '',
+                5 => 'quotes',
+                6 => 'brackets',
+                7 => 'quotes',
+                8 => '',
+                9 => '',
+                10 => '',
+                11 => '',
+            ),
+            4 => 
+            array (
+                0 => '',
+            ),
+        );
+        $this->_inner = array (
+            -1 => 
+            array (
+                0 => 'identifier',
+                1 => 'comment',
+                2 => 'comment',
+                3 => 'identifier',
+                4 => 'identifier',
+                5 => 'string',
+                6 => 'code',
+                7 => 'string',
+                8 => 'number',
+                9 => 'number',
+                10 => 'number',
+                11 => 'number',
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+            ),
+            2 => 
+            array (
+                0 => 'special',
+            ),
+            3 => 
+            array (
+                0 => 'identifier',
+                1 => 'comment',
+                2 => 'comment',
+                3 => 'identifier',
+                4 => 'identifier',
+                5 => 'string',
+                6 => 'code',
+                7 => 'string',
+                8 => 'number',
+                9 => 'number',
+                10 => 'number',
+                11 => 'number',
+            ),
+            4 => 
+            array (
+                0 => 'special',
+            ),
+        );
+        $this->_end = array (
+            0 => '/(?i)`/',
+            1 => '/(?i)\\*\\//',
+            2 => '/(?i)"/',
+            3 => '/(?i)\\)/',
+            4 => '/(?i)\'/',
+        );
+        $this->_states = array (
+            -1 => 
+            array (
+                0 => 0,
+                1 => 1,
+                2 => -1,
+                3 => -1,
+                4 => -1,
+                5 => 2,
+                6 => 3,
+                7 => 4,
+                8 => -1,
+                9 => -1,
+                10 => -1,
+                11 => -1,
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+            ),
+            2 => 
+            array (
+                0 => -1,
+            ),
+            3 => 
+            array (
+                0 => 0,
+                1 => 1,
+                2 => -1,
+                3 => -1,
+                4 => -1,
+                5 => 2,
+                6 => 3,
+                7 => 4,
+                8 => -1,
+                9 => -1,
+                10 => -1,
+                11 => -1,
+            ),
+            4 => 
+            array (
+                0 => -1,
+            ),
+        );
+        $this->_keywords = array (
+            -1 => 
+            array (
+                0 => -1,
+                1 => -1,
+                2 => 
+                array (
+                ),
+                3 => 
+                array (
+                    'function' => '/^((?i)abs|acos|adddate|ascii|asin|atan|atan2|avg|benchmark|bin|ceiling|char|coalesce|concat|conv|cos|cot|count|curdate|curtime|database|dayname|dayofmonth|dayofweek|dayofyear|decode|degrees|elt|encode|encrypt|exp|extract|field|floor|format|greatest|hex|hour|if|ifnull|insert|instr|interval|isnull|lcase|least|left|length|locate|log|log10|lower|lpad|ltrim|max|md5|mid|min|minute|mod|month|monthname|now|nullif|oct|ord|password|pi|position|pow|power|prepare|quarter|radians|rand|repeat|replace|reverse|right|round|rpad|rtrim|second|sign|sin|soundex|space|sqrt|std|stddev|strcmp|subdate|substring|sum|sysdate|tan|trim|truncate|ucase|upper|user|version|week|weekday|year)$/',
+                ),
+                4 => 
+                array (
+                    'reserved' => '/^((?i)action|add|aggregate|all|alter|after|and|as|asc|avg|avg_row_length|auto_increment|between|bigint|bit|binary|blob|bool|both|by|cascade|case|char|character|change|check|checksum|column|columns|comment|constraint|create|cross|current_date|current_time|current_timestamp|data|database|databases|date|datetime|day|day_hour|day_minute|day_second|dayofmonth|dayofweek|dayofyear|dec|decimal|default|delayed|delay_key_write|delete|desc|describe|distinct|distinctrow|double|drop|end|else|escape|escaped|enclosed|enum|explain|exists|fields|file|first|float|float4|float8|flush|foreign|from|for|full|function|global|grant|grants|group|having|heap|high_priority|hour|hour_minute|hour_second|hosts|identified|ignore|in|index|infile|inner|insert|insert_id|int|integer|interval|int1|int2|int3|int4|int8|into|if|is|isam|join|key|keys|kill|last_insert_id|leading|left|length|like|lines|limit|load|local|lock|logs|long|longblob|longtext|low_priority|max|max_rows|match|mediumblob|mediumtext|mediumint|middleint|min_rows|minute|minute_second|modify|month|monthname|myisam|natural|numeric|no|not|null|on|optimize|option|optionally|or|order|outer|outfile|pack_keys|partial|password|precision|primary|procedure|process|processlist|privileges|read|real|references|reload|regexp|rename|replace|restrict|returns|revoke|rlike|row|rows|second|select|set|show|shutdown|smallint|soname|sql_big_tables|sql_big_selects|sql_low_priority_updates|sql_log_off|sql_log_update|sql_select_limit|sql_small_result|sql_big_result|sql_warnings|straight_join|starting|status|string|table|tables|temporary|terminated|text|then|time|timestamp|tinyblob|tinytext|tinyint|trailing|to|type|use|using|unique|unlock|unsigned|update|usage|values|varchar|variables|varying|varbinary|with|write|when|where|year|year_month|zerofill)$/',
+                ),
+                5 => -1,
+                6 => -1,
+                7 => -1,
+                8 => 
+                array (
+                ),
+                9 => 
+                array (
+                ),
+                10 => 
+                array (
+                ),
+                11 => 
+                array (
+                ),
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+            ),
+            2 => 
+            array (
+                0 => 
+                array (
+                ),
+            ),
+            3 => 
+            array (
+                0 => -1,
+                1 => -1,
+                2 => 
+                array (
+                ),
+                3 => 
+                array (
+                    'function' => '/^((?i)abs|acos|adddate|ascii|asin|atan|atan2|avg|benchmark|bin|ceiling|char|coalesce|concat|conv|cos|cot|count|curdate|curtime|database|dayname|dayofmonth|dayofweek|dayofyear|decode|degrees|elt|encode|encrypt|exp|extract|field|floor|format|greatest|hex|hour|if|ifnull|insert|instr|interval|isnull|lcase|least|left|length|locate|log|log10|lower|lpad|ltrim|max|md5|mid|min|minute|mod|month|monthname|now|nullif|oct|ord|password|pi|position|pow|power|prepare|quarter|radians|rand|repeat|replace|reverse|right|round|rpad|rtrim|second|sign|sin|soundex|space|sqrt|std|stddev|strcmp|subdate|substring|sum|sysdate|tan|trim|truncate|ucase|upper|user|version|week|weekday|year)$/',
+                ),
+                4 => 
+                array (
+                    'reserved' => '/^((?i)action|add|aggregate|all|alter|after|and|as|asc|avg|avg_row_length|auto_increment|between|bigint|bit|binary|blob|bool|both|by|cascade|case|char|character|change|check|checksum|column|columns|comment|constraint|create|cross|current_date|current_time|current_timestamp|data|database|databases|date|datetime|day|day_hour|day_minute|day_second|dayofmonth|dayofweek|dayofyear|dec|decimal|default|delayed|delay_key_write|delete|desc|describe|distinct|distinctrow|double|drop|end|else|escape|escaped|enclosed|enum|explain|exists|fields|file|first|float|float4|float8|flush|foreign|from|for|full|function|global|grant|grants|group|having|heap|high_priority|hour|hour_minute|hour_second|hosts|identified|ignore|in|index|infile|inner|insert|insert_id|int|integer|interval|int1|int2|int3|int4|int8|into|if|is|isam|join|key|keys|kill|last_insert_id|leading|left|length|like|lines|limit|load|local|lock|logs|long|longblob|longtext|low_priority|max|max_rows|match|mediumblob|mediumtext|mediumint|middleint|min_rows|minute|minute_second|modify|month|monthname|myisam|natural|numeric|no|not|null|on|optimize|option|optionally|or|order|outer|outfile|pack_keys|partial|password|precision|primary|procedure|process|processlist|privileges|read|real|references|reload|regexp|rename|replace|restrict|returns|revoke|rlike|row|rows|second|select|set|show|shutdown|smallint|soname|sql_big_tables|sql_big_selects|sql_low_priority_updates|sql_log_off|sql_log_update|sql_select_limit|sql_small_result|sql_big_result|sql_warnings|straight_join|starting|status|string|table|tables|temporary|terminated|text|then|time|timestamp|tinyblob|tinytext|tinyint|trailing|to|type|use|using|unique|unlock|unsigned|update|usage|values|varchar|variables|varying|varbinary|with|write|when|where|year|year_month|zerofill)$/',
+                ),
+                5 => -1,
+                6 => -1,
+                7 => -1,
+                8 => 
+                array (
+                ),
+                9 => 
+                array (
+                ),
+                10 => 
+                array (
+                ),
+                11 => 
+                array (
+                ),
+            ),
+            4 => 
+            array (
+                0 => 
+                array (
+                ),
+            ),
+        );
+        $this->_parts = array (
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+            ),
+            2 => 
+            array (
+                0 => NULL,
+            ),
+            3 => 
+            array (
+                0 => NULL,
+                1 => NULL,
+                2 => NULL,
+                3 => NULL,
+                4 => NULL,
+                5 => NULL,
+                6 => NULL,
+                7 => NULL,
+                8 => NULL,
+                9 => NULL,
+                10 => NULL,
+                11 => NULL,
+            ),
+            4 => 
+            array (
+                0 => NULL,
+            ),
+        );
+        $this->_subst = array (
+            -1 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+                3 => false,
+                4 => false,
+                5 => false,
+                6 => false,
+                7 => false,
+                8 => false,
+                9 => false,
+                10 => false,
+                11 => false,
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+            ),
+            2 => 
+            array (
+                0 => false,
+            ),
+            3 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+                3 => false,
+                4 => false,
+                5 => false,
+                6 => false,
+                7 => false,
+                8 => false,
+                9 => false,
+                10 => false,
+                11 => false,
+            ),
+            4 => 
+            array (
+                0 => false,
+            ),
+        );
+        $this->_conditions = array (
+        );
+        $this->_kwmap = array (
+            'function' => 'reserved',
+            'reserved' => 'reserved',
+        );
+        $this->_defClass = 'code';
+        $this->_checkDefines();
     }
+    
 }
-
-?>

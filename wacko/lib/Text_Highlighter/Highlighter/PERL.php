@@ -15,14 +15,14 @@
  * the PHP License and are unable to obtain it through the web, please
  * send a note to license@php.net so we can mail you a copy immediately.
  *
- * @copyright  2004 Andrey Demenev
+ * @copyright  2004-2006 Andrey Demenev
  * @license    http://www.php.net/license/3_0.txt  PHP License
  * @link       http://pear.php.net/package/Text_Highlighter
  * @category   Text
  * @package    Text_Highlighter
- * @version    CVS: $Id: PERL.php,v 1.3 2004/10/07 14:28:15 blindman Exp $
+ * @version    generated from: : perl.xml,v 1.1 2007/06/03 02:35:28 ssttoo Exp 
  * @author Mariusz 'kg' Jakubowski <kg@alternatywa.info>
- * @author Andrey Demenev <demenev@on-line.jar.ru>
+ * @author Andrey Demenev <demenev@gmail.com>
  *
  */
 
@@ -30,20 +30,25 @@
  * @ignore
  */
 
+# require_once 'Text/Highlighter.php';
+
 /**
  * Auto-generated class. PERL syntax highlighting
  *
  * @author Mariusz 'kg' Jakubowski <kg@alternatywa.info>
- * @author Andrey Demenev <demenev@on-line.jar.ru>
+ * @author Andrey Demenev <demenev@gmail.com>
  * @category   Text
  * @package    Text_Highlighter
- * @copyright  2004 Andrey Demenev
+ * @copyright  2004-2006 Andrey Demenev
  * @license    http://www.php.net/license/3_0.txt  PHP License
- * @version    Release: @package_version@
+ * @version    Release: 0.7.1
  * @link       http://pear.php.net/package/Text_Highlighter
  */
 class  Text_Highlighter_PERL extends Text_Highlighter
-{    /**
+{
+    var $_language = 'perl';
+
+    /**
      * PHP4 Compatible Constructor
      *
      * @param array  $options
@@ -54,6 +59,7 @@ class  Text_Highlighter_PERL extends Text_Highlighter
         $this->__construct($options);
     }
 
+
     /**
      *  Constructor
      *
@@ -62,754 +68,1285 @@ class  Text_Highlighter_PERL extends Text_Highlighter
      */
     function __construct($options=array())
     {
-        $this->_syntax = array (
-            'keywords' => 
+
+        $this->_options = $options;
+        $this->_regs = array (
+            -1 => '/((?m)^(#!)(.*))|((?m)^=\\w+)|(\\{)|(\\()|(\\[)|((use)\\s+([\\w:]*))|([& ](\\w{2,}::)+\\w{2,})|((?Us)\\b(q[wq]\\s*((\\{)|(\\()|(\\[)|(\\<)|([\\W\\S])))(?=(.*)((?(3)\\})(?(4)\\))(?(5)\\])(?(6)\\>)(?(7)\\7))))|((?Us)\\b(q\\s*((\\{)|(\\()|(\\[)|(\\<)|([\\W\\S])))(?=(.*)((?(3)\\})(?(4)\\))(?(5)\\])(?(6)\\>)(?(7)\\7))))|(#.*)|((?x)(s|tr) ([|#~`!@$%^&*-+=\\\\;:\'",.\\/?])  ((\\\\.|[^\\\\])*?) (\\2)((\\\\.|[^\\\\])*?)(\\2[ecgimosx]*))|((?x)(m) ([|#~`!@$%^&*-+=\\\\;:\'",.\\/?])  ((\\\\.|[^\\\\])*?) (\\2[ecgimosx]*))|( \\/)|(\\$#?[1-9\'`@!])|((?i)(\\$#?|[@%*])([a-z1-9_]+::)*([a-z1-9_]+|\\^(?-i)[A-Z]?(?i)))|((?i)\\$([a-z1-9_]+|\\^(?-i)[A-Z]?(?i)))|((?i)(&|\\w+)\'[\\w_\']+\\b)|((?i)(\\{)([a-z1-9]+)(\\}))|((?i)[\\$@%]#?\\{[a-z1-9]+\\})|(`)|(\')|(")|((?i)[a-z_]\\w*)|(\\d*\\.?\\d+)/',
+            0 => '//',
+            1 => '/((?m)^(#!)(.*))|((?m)^=\\w+)|(\\{)|(\\()|(\\[)|((use)\\s+([\\w:]*))|([& ](\\w{2,}::)+\\w{2,})|((?Us)\\b(q[wq]\\s*((\\{)|(\\()|(\\[)|(\\<)|([\\W\\S])))(?=(.*)((?(3)\\})(?(4)\\))(?(5)\\])(?(6)\\>)(?(7)\\7))))|((?Us)\\b(q\\s*((\\{)|(\\()|(\\[)|(\\<)|([\\W\\S])))(?=(.*)((?(3)\\})(?(4)\\))(?(5)\\])(?(6)\\>)(?(7)\\7))))|(#.*)|((?x)(s|tr) ([|#~`!@$%^&*-+=\\\\;:\'",.\\/?])  ((\\\\.|[^\\\\])*?) (\\2)((\\\\.|[^\\\\])*?)(\\2[ecgimosx]*))|((?x)(m) ([|#~`!@$%^&*-+=\\\\;:\'",.\\/?])  ((\\\\.|[^\\\\])*?) (\\2[ecgimosx]*))|( \\/)|(\\$#?[1-9\'`@!])|((?i)(\\$#?|[@%*])([a-z1-9_]+::)*([a-z1-9_]+|\\^(?-i)[A-Z]?(?i)))|((?i)\\$([a-z1-9_]+|\\^(?-i)[A-Z]?(?i)))|((?i)(&|\\w+)\'[\\w_\']+\\b)|((?i)(\\{)([a-z1-9]+)(\\}))|((?i)[\\$@%]#?\\{[a-z1-9]+\\})|(`)|(\')|(")|((?i)[a-z_]\\w*)|(\\d*\\.?\\d+)/',
+            2 => '/((?m)^(#!)(.*))|((?m)^=\\w+)|(\\{)|(\\()|(\\[)|((use)\\s+([\\w:]*))|([& ](\\w{2,}::)+\\w{2,})|((?Us)\\b(q[wq]\\s*((\\{)|(\\()|(\\[)|(\\<)|([\\W\\S])))(?=(.*)((?(3)\\})(?(4)\\))(?(5)\\])(?(6)\\>)(?(7)\\7))))|((?Us)\\b(q\\s*((\\{)|(\\()|(\\[)|(\\<)|([\\W\\S])))(?=(.*)((?(3)\\})(?(4)\\))(?(5)\\])(?(6)\\>)(?(7)\\7))))|(#.*)|((?x)(s|tr) ([|#~`!@$%^&*-+=\\\\;:\'",.\\/?])  ((\\\\.|[^\\\\])*?) (\\2)((\\\\.|[^\\\\])*?)(\\2[ecgimosx]*))|((?x)(m) ([|#~`!@$%^&*-+=\\\\;:\'",.\\/?])  ((\\\\.|[^\\\\])*?) (\\2[ecgimosx]*))|( \\/)|((?i)([a-z1-9_]+)(\\s*=>))|(\\$#?[1-9\'`@!])|((?i)(\\$#?|[@%*])([a-z1-9_]+::)*([a-z1-9_]+|\\^(?-i)[A-Z]?(?i)))|((?i)\\$([a-z1-9_]+|\\^(?-i)[A-Z]?(?i)))|((?i)(&|\\w+)\'[\\w_\']+\\b)|((?i)(\\{)([a-z1-9]+)(\\}))|((?i)[\\$@%]#?\\{[a-z1-9]+\\})|(`)|(\')|(")|((?i)[a-z_]\\w*)|(\\d*\\.?\\d+)/',
+            3 => '/((?m)^(#!)(.*))|((?m)^=\\w+)|(\\{)|(\\()|(\\[)|((use)\\s+([\\w:]*))|([& ](\\w{2,}::)+\\w{2,})|((?Us)\\b(q[wq]\\s*((\\{)|(\\()|(\\[)|(\\<)|([\\W\\S])))(?=(.*)((?(3)\\})(?(4)\\))(?(5)\\])(?(6)\\>)(?(7)\\7))))|((?Us)\\b(q\\s*((\\{)|(\\()|(\\[)|(\\<)|([\\W\\S])))(?=(.*)((?(3)\\})(?(4)\\))(?(5)\\])(?(6)\\>)(?(7)\\7))))|(#.*)|((?x)(s|tr) ([|#~`!@$%^&*-+=\\\\;:\'",.\\/?])  ((\\\\.|[^\\\\])*?) (\\2)((\\\\.|[^\\\\])*?)(\\2[ecgimosx]*))|((?x)(m) ([|#~`!@$%^&*-+=\\\\;:\'",.\\/?])  ((\\\\.|[^\\\\])*?) (\\2[ecgimosx]*))|( \\/)|(\\$#?[1-9\'`@!])|((?i)(\\$#?|[@%*])([a-z1-9_]+::)*([a-z1-9_]+|\\^(?-i)[A-Z]?(?i)))|((?i)\\$([a-z1-9_]+|\\^(?-i)[A-Z]?(?i)))|((?i)(&|\\w+)\'[\\w_\']+\\b)|((?i)(\\{)([a-z1-9]+)(\\}))|((?i)[\\$@%]#?\\{[a-z1-9]+\\})|(`)|(\')|(")|((?i)[a-z_]\\w*)|(\\d*\\.?\\d+)/',
+            4 => '/(\\$#?[1-9\'`@!])|((?i)\\$([a-z1-9_]+|\\^(?-i)[A-Z]?(?i)))|((?i)[\\$@%]#?\\{[a-z1-9]+\\})|(\\\\[\\\\"\'`tnr\\$\\{@])/',
+            5 => '/(\\\\\\\\|\\\\"|\\\\\'|\\\\`)/',
+            6 => '/(\\\\\\/)/',
+            7 => '/(\\$#?[1-9\'`@!])|((?i)\\$([a-z1-9_]+|\\^(?-i)[A-Z]?(?i)))|((?i)[\\$@%]#?\\{[a-z1-9]+\\})|(\\\\\\\\|\\\\"|\\\\\'|\\\\`)/',
+            8 => '/(\\\\\\\\|\\\\"|\\\\\'|\\\\`)/',
+            9 => '/(\\$#?[1-9\'`@!])|((?i)\\$([a-z1-9_]+|\\^(?-i)[A-Z]?(?i)))|((?i)[\\$@%]#?\\{[a-z1-9]+\\})|(\\\\[\\\\"\'`tnr\\$\\{@])/',
+        );
+        $this->_counts = array (
+            -1 => 
             array (
-                'reserved' => 
-                array (
-                    'name' => 'reserved',
-                    'innerGroup' => 'reserved',
-                    'case' => true,
-                    'inherits' => 'identifier',
-                    'match' => 
-                    array (
-                        'abs' => true,
-                        'accept' => true,
-                        'alarm' => true,
-                        'atan2' => true,
-                        'bind' => true,
-                        'binmode' => true,
-                        'bless' => true,
-                        'caller' => true,
-                        'chdir' => true,
-                        'chmod' => true,
-                        'chomp' => true,
-                        'chop' => true,
-                        'chown' => true,
-                        'chr' => true,
-                        'chroot' => true,
-                        'close' => true,
-                        'closedir' => true,
-                        'connect' => true,
-                        'continue' => true,
-                        'cos' => true,
-                        'crypt' => true,
-                        'dbmclose' => true,
-                        'dbmopen' => true,
-                        'defined' => true,
-                        'delete' => true,
-                        'die' => true,
-                        'do' => true,
-                        'dump' => true,
-                        'each' => true,
-                        'endgrent' => true,
-                        'endhostent' => true,
-                        'endnetent' => true,
-                        'endprotoent' => true,
-                        'endpwent' => true,
-                        'endservent' => true,
-                        'eof' => true,
-                        'eval' => true,
-                        'exec' => true,
-                        'exists' => true,
-                        'exit' => true,
-                        'exp' => true,
-                        'fcntl' => true,
-                        'fileno' => true,
-                        'flock' => true,
-                        'fork' => true,
-                        'format' => true,
-                        'formline' => true,
-                        'getc' => true,
-                        'getgrent' => true,
-                        'getgrgid' => true,
-                        'getgrnam' => true,
-                        'gethostbyaddr' => true,
-                        'gethostbyname' => true,
-                        'gethostent' => true,
-                        'getlogin' => true,
-                        'getnetbyaddr' => true,
-                        'getnetbyname' => true,
-                        'getnetent' => true,
-                        'getpeername' => true,
-                        'getpgrp' => true,
-                        'getppid' => true,
-                        'getpriority' => true,
-                        'getprotobyname' => true,
-                        'getprotobynumber' => true,
-                        'getprotoent' => true,
-                        'getpwent' => true,
-                        'getpwnam' => true,
-                        'getpwuid' => true,
-                        'getservbyname' => true,
-                        'getservbyport' => true,
-                        'getservent' => true,
-                        'getsockname' => true,
-                        'getsockopt' => true,
-                        'glob' => true,
-                        'gmtime' => true,
-                        'goto' => true,
-                        'grep' => true,
-                        'hex' => true,
-                        'import' => true,
-                        'index' => true,
-                        'int' => true,
-                        'ioctl' => true,
-                        'join' => true,
-                        'keys' => true,
-                        'kill' => true,
-                        'last' => true,
-                        'lc' => true,
-                        'lcfirst' => true,
-                        'length' => true,
-                        'link' => true,
-                        'listen' => true,
-                        'local' => true,
-                        'localtime' => true,
-                        'lock' => true,
-                        'log' => true,
-                        'lstat' => true,
-                        'map' => true,
-                        'mkdir' => true,
-                        'msgctl' => true,
-                        'msgget' => true,
-                        'msgrcv' => true,
-                        'msgsnd' => true,
-                        'my' => true,
-                        'next' => true,
-                        'no' => true,
-                        'oct' => true,
-                        'open' => true,
-                        'opendir' => true,
-                        'ord' => true,
-                        'our' => true,
-                        'pack' => true,
-                        'package' => true,
-                        'pipe' => true,
-                        'pop' => true,
-                        'pos' => true,
-                        'print' => true,
-                        'printf' => true,
-                        'prototype' => true,
-                        'push' => true,
-                        'quotemeta' => true,
-                        'rand' => true,
-                        'read' => true,
-                        'readdir' => true,
-                        'readline' => true,
-                        'readlink' => true,
-                        'readpipe' => true,
-                        'recv' => true,
-                        'redo' => true,
-                        'ref' => true,
-                        'rename' => true,
-                        'require' => true,
-                        'reset' => true,
-                        'return' => true,
-                        'reverse' => true,
-                        'rewinddir' => true,
-                        'rindex' => true,
-                        'rmdir' => true,
-                        'scalar' => true,
-                        'seek' => true,
-                        'seekdir' => true,
-                        'select' => true,
-                        'semctl' => true,
-                        'semget' => true,
-                        'semop' => true,
-                        'send' => true,
-                        'setgrent' => true,
-                        'sethostent' => true,
-                        'setnetent' => true,
-                        'setpgrp' => true,
-                        'setpriority' => true,
-                        'setprotoent' => true,
-                        'setpwent' => true,
-                        'setservent' => true,
-                        'setsockopt' => true,
-                        'shift' => true,
-                        'shmctl' => true,
-                        'shmget' => true,
-                        'shmread' => true,
-                        'shmwrite' => true,
-                        'shutdown' => true,
-                        'sin' => true,
-                        'sleep' => true,
-                        'socket' => true,
-                        'socketpair' => true,
-                        'sort' => true,
-                        'splice' => true,
-                        'split' => true,
-                        'sprintf' => true,
-                        'sqrt' => true,
-                        'srand' => true,
-                        'stat' => true,
-                        'study' => true,
-                        'sub' => true,
-                        'substr' => true,
-                        'symlink' => true,
-                        'syscall' => true,
-                        'sysopen' => true,
-                        'sysread' => true,
-                        'sysseek' => true,
-                        'system' => true,
-                        'syswrite' => true,
-                        'tell' => true,
-                        'telldir' => true,
-                        'tie' => true,
-                        'tied' => true,
-                        'time' => true,
-                        'times' => true,
-                        'truncate' => true,
-                        'uc' => true,
-                        'ucfirst' => true,
-                        'umask' => true,
-                        'undef' => true,
-                        'unlink' => true,
-                        'unpack' => true,
-                        'unshift' => true,
-                        'untie' => true,
-                        'use' => true,
-                        'utime' => true,
-                        'values' => true,
-                        'vec' => true,
-                        'wait' => true,
-                        'waitpid' => true,
-                        'wantarray' => true,
-                        'warn' => true,
-                        'write' => true,
-                        'y' => true,
-                    ),
-                ),
-                'missingreserved' => 
-                array (
-                    'name' => 'missingreserved',
-                    'innerGroup' => 'reserved',
-                    'case' => true,
-                    'inherits' => 'identifier',
-                    'match' => 
-                    array (
-                        'new' => true,
-                    ),
-                ),
-                'flowcontrol' => 
-                array (
-                    'name' => 'flowcontrol',
-                    'innerGroup' => 'reserved',
-                    'case' => true,
-                    'inherits' => 'identifier',
-                    'match' => 
-                    array (
-                        'if' => true,
-                        'else' => true,
-                        'elsif' => true,
-                        'while' => true,
-                        'unless' => true,
-                        'for' => true,
-                        'foreach' => true,
-                        'until' => true,
-                        'do' => true,
-                        'continue' => true,
-                        'not' => true,
-                        'or' => true,
-                        'and' => true,
-                        'eq' => true,
-                        'ne' => true,
-                        'gt' => true,
-                        'lt' => true,
-                    ),
-                ),
+                0 => 2,
+                1 => 0,
+                2 => 0,
+                3 => 0,
+                4 => 0,
+                5 => 2,
+                6 => 1,
+                7 => 9,
+                8 => 9,
+                9 => 0,
+                10 => 8,
+                11 => 5,
+                12 => 0,
+                13 => 0,
+                14 => 3,
+                15 => 1,
+                16 => 1,
+                17 => 3,
+                18 => 0,
+                19 => 0,
+                20 => 0,
+                21 => 0,
+                22 => 0,
+                23 => 0,
             ),
-            'blocks' => 
+            0 => 
             array (
-                'interpreter' => 
-                array (
-                    'name' => 'interpreter',
-                    'case' => true,
-                    'innerGroup' => 'special',
-                    'match' => '/^(#!)(.*)/m',
-                    'multiline' => false,
-                    'partClass' => 
-                    array (
-                        1 => 'special',
-                        2 => 'string',
-                    ),
-                    'type' => 'block',
-                    'order' => 0,
-                ),
-                'pod' => 
-                array (
-                    'name' => 'pod',
-                    'case' => true,
-                    'innerGroup' => 'comment',
-                    'delimGroup' => 'comment',
-                    'start' => '/^=\\w+/m',
-                    'end' => '/^=cut[^\\n]*/m',
-                    'remember' => false,
-                    'startBOL' => true,
-                    'endBOL' => true,
-                    'type' => 'region',
-                    'order' => 1,
-                ),
-                'block' => 
-                array (
-                    'name' => 'block',
-                    'case' => true,
-                    'innerGroup' => 'code',
-                    'delimGroup' => 'brackets',
-                    'start' => '/\\{/',
-                    'end' => '/\\}/',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 2,
-                    'lookfor' => 
-                    array (
-                        0 => 'interpreter',
-                        1 => 'pod',
-                        2 => 'block',
-                        3 => 'brackets',
-                        4 => 'sqbrackets',
-                        5 => 'usestatement',
-                        6 => 'packagereference',
-                        7 => 'q-w-q-statement',
-                        8 => 'qstatement',
-                        9 => 'comment',
-                        10 => 'dblregexprver1',
-                        11 => 'dblregexprver2',
-                        12 => 'regexp',
-                        13 => 'specialvar',
-                        14 => 'var',
-                        15 => 'containedvar',
-                        16 => 'var2',
-                        17 => 'classvar',
-                        18 => 'curlyvar',
-                        19 => 'exec',
-                        20 => 'strsingle',
-                        21 => 'strdouble',
-                        22 => 'identifier',
-                        23 => 'number',
-                    ),
-                ),
-                'brackets' => 
-                array (
-                    'name' => 'brackets',
-                    'case' => true,
-                    'innerGroup' => 'code',
-                    'delimGroup' => 'brackets',
-                    'start' => '/\\(/',
-                    'end' => '/\\)/',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 3,
-                    'lookfor' => 
-                    array (
-                        0 => 'interpreter',
-                        1 => 'pod',
-                        2 => 'block',
-                        3 => 'brackets',
-                        4 => 'sqbrackets',
-                        5 => 'usestatement',
-                        6 => 'packagereference',
-                        7 => 'q-w-q-statement',
-                        8 => 'qstatement',
-                        9 => 'comment',
-                        10 => 'dblregexprver1',
-                        11 => 'dblregexprver2',
-                        12 => 'regexp',
-                        13 => 'bracketsvars',
-                        14 => 'specialvar',
-                        15 => 'var',
-                        16 => 'containedvar',
-                        17 => 'var2',
-                        18 => 'classvar',
-                        19 => 'curlyvar',
-                        20 => 'exec',
-                        21 => 'strsingle',
-                        22 => 'strdouble',
-                        23 => 'identifier',
-                        24 => 'number',
-                    ),
-                ),
-                'sqbrackets' => 
-                array (
-                    'name' => 'sqbrackets',
-                    'case' => true,
-                    'innerGroup' => 'code',
-                    'delimGroup' => 'brackets',
-                    'start' => '/\\[/',
-                    'end' => '/\\]/',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 4,
-                    'lookfor' => 
-                    array (
-                        0 => 'interpreter',
-                        1 => 'pod',
-                        2 => 'block',
-                        3 => 'brackets',
-                        4 => 'sqbrackets',
-                        5 => 'usestatement',
-                        6 => 'packagereference',
-                        7 => 'q-w-q-statement',
-                        8 => 'qstatement',
-                        9 => 'comment',
-                        10 => 'dblregexprver1',
-                        11 => 'dblregexprver2',
-                        12 => 'regexp',
-                        13 => 'specialvar',
-                        14 => 'var',
-                        15 => 'containedvar',
-                        16 => 'var2',
-                        17 => 'classvar',
-                        18 => 'curlyvar',
-                        19 => 'exec',
-                        20 => 'strsingle',
-                        21 => 'strdouble',
-                        22 => 'identifier',
-                        23 => 'number',
-                    ),
-                ),
-                'usestatement' => 
-                array (
-                    'name' => 'usestatement',
-                    'case' => true,
-                    'innerGroup' => 'special',
-                    'match' => '/(use)\\s+([\\w:]*)/',
-                    'multiline' => false,
-                    'partClass' => 
-                    array (
-                        1 => 'reserved',
-                        2 => 'special',
-                    ),
-                    'type' => 'block',
-                    'order' => 5,
-                ),
-                'packagereference' => 
-                array (
-                    'name' => 'packagereference',
-                    'case' => true,
-                    'innerGroup' => 'special',
-                    'match' => '/[& ](\\w{2,}::)+\\w{2,}/',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 6,
-                ),
-                'q-w-q-statement' => 
-                array (
-                    'name' => 'q-w-q-statement',
-                    'case' => true,
-                    'innerGroup' => 'string',
-                    'delimGroup' => 'quotes',
-                    'start' => '/\\b(q[wq]\\s*((\\{)|(\\()|(\\[)|(\\<)|([\\W\\S])))(?=(.*)((?(3)\\})(?(4)\\))(?(5)\\])(?(6)\\>)(?(7)\\7)))/Us',
-                    'end' => '/%b2%/',
-                    'remember' => true,
-                    'type' => 'region',
-                    'order' => 7,
-                    'lookfor' => 
-                    array (
-                        0 => 'specialvar',
-                        1 => 'containedvar',
-                        2 => 'curlyvar',
-                        3 => 'descaped',
-                    ),
-                ),
-                'qstatement' => 
-                array (
-                    'name' => 'qstatement',
-                    'case' => true,
-                    'innerGroup' => 'string',
-                    'delimGroup' => 'quotes',
-                    'start' => '/\\b(q\\s*((\\{)|(\\()|(\\[)|(\\<)|([\\W\\S])))(?=(.*)((?(3)\\})(?(4)\\))(?(5)\\])(?(6)\\>)(?(7)\\7)))/Us',
-                    'end' => '/%b2%/',
-                    'remember' => true,
-                    'type' => 'region',
-                    'order' => 8,
-                    'lookfor' => 
-                    array (
-                        0 => 'escaped',
-                    ),
-                ),
-                'comment' => 
-                array (
-                    'name' => 'comment',
-                    'case' => true,
-                    'innerGroup' => 'comment',
-                    'match' => '/#.*/',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 9,
-                ),
-                'dblregexprver1' => 
-                array (
-                    'name' => 'dblregexprver1',
-                    'case' => true,
-                    'innerGroup' => 'string',
-                    'match' => '/(s|tr) ([|#~`!@$%^&*-+=\\\\;:\'",.\\/?])  ((\\\\.|[^\\\\])*?) (\\2)((\\\\.|[^\\\\])*?)(\\2[ecgimosx]*)/x',
-                    'multiline' => false,
-                    'partClass' => 
-                    array (
-                        1 => 'quotes',
-                        2 => 'quotes',
-                        3 => 'string',
-                        5 => 'quotes',
-                        6 => 'string',
-                        8 => 'quotes',
-                    ),
-                    'type' => 'block',
-                    'order' => 10,
-                ),
-                'dblregexprver2' => 
-                array (
-                    'name' => 'dblregexprver2',
-                    'case' => true,
-                    'innerGroup' => 'string',
-                    'match' => '/(m) ([|#~`!@$%^&*-+=\\\\;:\'",.\\/?])  ((\\\\.|[^\\\\])*?) (\\2[ecgimosx]*)/x',
-                    'multiline' => false,
-                    'partClass' => 
-                    array (
-                        1 => 'quotes',
-                        2 => 'quotes',
-                        3 => 'string',
-                        5 => 'quotes',
-                    ),
-                    'type' => 'block',
-                    'order' => 11,
-                ),
-                'regexp' => 
-                array (
-                    'name' => 'regexp',
-                    'case' => true,
-                    'innerGroup' => 'string',
-                    'delimGroup' => 'quotes',
-                    'start' => '/ \\//',
-                    'end' => '/\\/[cgimosx]*/',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 12,
-                    'lookfor' => 
-                    array (
-                        0 => 'reescaped',
-                    ),
-                ),
-                'reescaped' => 
-                array (
-                    'name' => 'reescaped',
-                    'case' => true,
-                    'innerGroup' => 'string',
-                    'match' => '/\\\\\\//',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 13,
-                ),
-                'bracketsvars' => 
-                array (
-                    'name' => 'bracketsvars',
-                    'case' => false,
-                    'innerGroup' => 'string',
-                    'match' => '/([a-z1-9_]+)(\\s*=>)/i',
-                    'multiline' => false,
-                    'partClass' => 
-                    array (
-                        1 => 'string',
-                        2 => 'code',
-                    ),
-                    'type' => 'block',
-                    'order' => 14,
-                ),
-                'specialvar' => 
-                array (
-                    'name' => 'specialvar',
-                    'case' => true,
-                    'innerGroup' => 'var',
-                    'match' => '/\\$#?[1-9\'`@!]/',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 15,
-                ),
-                'var' => 
-                array (
-                    'name' => 'var',
-                    'case' => false,
-                    'innerGroup' => 'var',
-                    'match' => '/(\\$#?|[@%*])([a-z1-9_]+::)*([a-z1-9_]+|\\^(?-i)[A-Z]?(?i))/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 16,
-                ),
-                'containedvar' => 
-                array (
-                    'name' => 'containedvar',
-                    'case' => false,
-                    'innerGroup' => 'var',
-                    'match' => '/\\$([a-z1-9_]+|\\^(?-i)[A-Z]?(?i))/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 17,
-                ),
-                'var2' => 
-                array (
-                    'name' => 'var2',
-                    'case' => false,
-                    'innerGroup' => 'var',
-                    'match' => '/(&|\\w+)\'[\\w_\']+\\b/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 18,
-                ),
-                'classvar' => 
-                array (
-                    'name' => 'classvar',
-                    'case' => false,
-                    'innerGroup' => 'var',
-                    'match' => '/(\\{)([a-z1-9]+)(\\})/i',
-                    'multiline' => false,
-                    'partClass' => 
-                    array (
-                        1 => 'brackets',
-                        2 => 'var',
-                        3 => 'brackets',
-                    ),
-                    'type' => 'block',
-                    'order' => 19,
-                ),
-                'curlyvar' => 
-                array (
-                    'name' => 'curlyvar',
-                    'case' => false,
-                    'innerGroup' => 'var',
-                    'match' => '/[\\$@%]#?\\{[a-z1-9]+\\}/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 20,
-                ),
-                'exec' => 
-                array (
-                    'name' => 'exec',
-                    'case' => true,
-                    'innerGroup' => 'string',
-                    'delimGroup' => 'quotes',
-                    'start' => '/`/',
-                    'end' => '/`/',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 21,
-                    'lookfor' => 
-                    array (
-                        0 => 'specialvar',
-                        1 => 'containedvar',
-                        2 => 'curlyvar',
-                        3 => 'escaped',
-                    ),
-                ),
-                'strsingle' => 
-                array (
-                    'name' => 'strsingle',
-                    'case' => true,
-                    'innerGroup' => 'string',
-                    'delimGroup' => 'quotes',
-                    'start' => '/\'/',
-                    'end' => '/\'/',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 22,
-                    'lookfor' => 
-                    array (
-                        0 => 'escaped',
-                    ),
-                ),
-                'escaped' => 
-                array (
-                    'name' => 'escaped',
-                    'case' => true,
-                    'innerGroup' => 'special',
-                    'match' => '/\\\\\\\\|\\\\"|\\\\\'|\\\\`/',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 23,
-                ),
-                'strdouble' => 
-                array (
-                    'name' => 'strdouble',
-                    'case' => true,
-                    'innerGroup' => 'string',
-                    'delimGroup' => 'quotes',
-                    'start' => '/"/',
-                    'end' => '/"/',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 24,
-                    'lookfor' => 
-                    array (
-                        0 => 'specialvar',
-                        1 => 'containedvar',
-                        2 => 'curlyvar',
-                        3 => 'descaped',
-                    ),
-                ),
-                'descaped' => 
-                array (
-                    'name' => 'descaped',
-                    'case' => true,
-                    'innerGroup' => 'special',
-                    'match' => '/\\\\[\\\\"\'`tnr\\$\\{@]/',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 25,
-                ),
-                'identifier' => 
-                array (
-                    'name' => 'identifier',
-                    'case' => false,
-                    'innerGroup' => 'identifier',
-                    'match' => '/[a-z_]\\w*/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 26,
-                ),
-                'number' => 
-                array (
-                    'name' => 'number',
-                    'case' => true,
-                    'innerGroup' => 'number',
-                    'match' => '/\\d*\\.?\\d+/',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 27,
-                ),
             ),
-            'toplevel' => 
+            1 => 
             array (
-                0 => 'interpreter',
-                1 => 'pod',
-                2 => 'block',
+                0 => 2,
+                1 => 0,
+                2 => 0,
+                3 => 0,
+                4 => 0,
+                5 => 2,
+                6 => 1,
+                7 => 9,
+                8 => 9,
+                9 => 0,
+                10 => 8,
+                11 => 5,
+                12 => 0,
+                13 => 0,
+                14 => 3,
+                15 => 1,
+                16 => 1,
+                17 => 3,
+                18 => 0,
+                19 => 0,
+                20 => 0,
+                21 => 0,
+                22 => 0,
+                23 => 0,
+            ),
+            2 => 
+            array (
+                0 => 2,
+                1 => 0,
+                2 => 0,
+                3 => 0,
+                4 => 0,
+                5 => 2,
+                6 => 1,
+                7 => 9,
+                8 => 9,
+                9 => 0,
+                10 => 8,
+                11 => 5,
+                12 => 0,
+                13 => 2,
+                14 => 0,
+                15 => 3,
+                16 => 1,
+                17 => 1,
+                18 => 3,
+                19 => 0,
+                20 => 0,
+                21 => 0,
+                22 => 0,
+                23 => 0,
+                24 => 0,
+            ),
+            3 => 
+            array (
+                0 => 2,
+                1 => 0,
+                2 => 0,
+                3 => 0,
+                4 => 0,
+                5 => 2,
+                6 => 1,
+                7 => 9,
+                8 => 9,
+                9 => 0,
+                10 => 8,
+                11 => 5,
+                12 => 0,
+                13 => 0,
+                14 => 3,
+                15 => 1,
+                16 => 1,
+                17 => 3,
+                18 => 0,
+                19 => 0,
+                20 => 0,
+                21 => 0,
+                22 => 0,
+                23 => 0,
+            ),
+            4 => 
+            array (
+                0 => 0,
+                1 => 1,
+                2 => 0,
+                3 => 0,
+            ),
+            5 => 
+            array (
+                0 => 0,
+            ),
+            6 => 
+            array (
+                0 => 0,
+            ),
+            7 => 
+            array (
+                0 => 0,
+                1 => 1,
+                2 => 0,
+                3 => 0,
+            ),
+            8 => 
+            array (
+                0 => 0,
+            ),
+            9 => 
+            array (
+                0 => 0,
+                1 => 1,
+                2 => 0,
+                3 => 0,
+            ),
+        );
+        $this->_delim = array (
+            -1 => 
+            array (
+                0 => '',
+                1 => 'comment',
+                2 => 'brackets',
                 3 => 'brackets',
-                4 => 'sqbrackets',
-                5 => 'usestatement',
-                6 => 'packagereference',
-                7 => 'q-w-q-statement',
-                8 => 'qstatement',
+                4 => 'brackets',
+                5 => '',
+                6 => '',
+                7 => 'quotes',
+                8 => 'quotes',
+                9 => '',
+                10 => '',
+                11 => '',
+                12 => 'quotes',
+                13 => '',
+                14 => '',
+                15 => '',
+                16 => '',
+                17 => '',
+                18 => '',
+                19 => 'quotes',
+                20 => 'quotes',
+                21 => 'quotes',
+                22 => '',
+                23 => '',
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+                0 => '',
+                1 => 'comment',
+                2 => 'brackets',
+                3 => 'brackets',
+                4 => 'brackets',
+                5 => '',
+                6 => '',
+                7 => 'quotes',
+                8 => 'quotes',
+                9 => '',
+                10 => '',
+                11 => '',
+                12 => 'quotes',
+                13 => '',
+                14 => '',
+                15 => '',
+                16 => '',
+                17 => '',
+                18 => '',
+                19 => 'quotes',
+                20 => 'quotes',
+                21 => 'quotes',
+                22 => '',
+                23 => '',
+            ),
+            2 => 
+            array (
+                0 => '',
+                1 => 'comment',
+                2 => 'brackets',
+                3 => 'brackets',
+                4 => 'brackets',
+                5 => '',
+                6 => '',
+                7 => 'quotes',
+                8 => 'quotes',
+                9 => '',
+                10 => '',
+                11 => '',
+                12 => 'quotes',
+                13 => '',
+                14 => '',
+                15 => '',
+                16 => '',
+                17 => '',
+                18 => '',
+                19 => '',
+                20 => 'quotes',
+                21 => 'quotes',
+                22 => 'quotes',
+                23 => '',
+                24 => '',
+            ),
+            3 => 
+            array (
+                0 => '',
+                1 => 'comment',
+                2 => 'brackets',
+                3 => 'brackets',
+                4 => 'brackets',
+                5 => '',
+                6 => '',
+                7 => 'quotes',
+                8 => 'quotes',
+                9 => '',
+                10 => '',
+                11 => '',
+                12 => 'quotes',
+                13 => '',
+                14 => '',
+                15 => '',
+                16 => '',
+                17 => '',
+                18 => '',
+                19 => 'quotes',
+                20 => 'quotes',
+                21 => 'quotes',
+                22 => '',
+                23 => '',
+            ),
+            4 => 
+            array (
+                0 => '',
+                1 => '',
+                2 => '',
+                3 => '',
+            ),
+            5 => 
+            array (
+                0 => '',
+            ),
+            6 => 
+            array (
+                0 => '',
+            ),
+            7 => 
+            array (
+                0 => '',
+                1 => '',
+                2 => '',
+                3 => '',
+            ),
+            8 => 
+            array (
+                0 => '',
+            ),
+            9 => 
+            array (
+                0 => '',
+                1 => '',
+                2 => '',
+                3 => '',
+            ),
+        );
+        $this->_inner = array (
+            -1 => 
+            array (
+                0 => 'special',
+                1 => 'comment',
+                2 => 'code',
+                3 => 'code',
+                4 => 'code',
+                5 => 'special',
+                6 => 'special',
+                7 => 'string',
+                8 => 'string',
                 9 => 'comment',
-                10 => 'dblregexprver1',
-                11 => 'dblregexprver2',
-                12 => 'regexp',
-                13 => 'specialvar',
+                10 => 'string',
+                11 => 'string',
+                12 => 'string',
+                13 => 'var',
                 14 => 'var',
-                15 => 'containedvar',
-                16 => 'var2',
-                17 => 'classvar',
-                18 => 'curlyvar',
-                19 => 'exec',
-                20 => 'strsingle',
-                21 => 'strdouble',
+                15 => 'var',
+                16 => 'var',
+                17 => 'var',
+                18 => 'var',
+                19 => 'string',
+                20 => 'string',
+                21 => 'string',
                 22 => 'identifier',
                 23 => 'number',
             ),
-            'case' => true,
-            'defClass' => 'code',
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+                0 => 'special',
+                1 => 'comment',
+                2 => 'code',
+                3 => 'code',
+                4 => 'code',
+                5 => 'special',
+                6 => 'special',
+                7 => 'string',
+                8 => 'string',
+                9 => 'comment',
+                10 => 'string',
+                11 => 'string',
+                12 => 'string',
+                13 => 'var',
+                14 => 'var',
+                15 => 'var',
+                16 => 'var',
+                17 => 'var',
+                18 => 'var',
+                19 => 'string',
+                20 => 'string',
+                21 => 'string',
+                22 => 'identifier',
+                23 => 'number',
+            ),
+            2 => 
+            array (
+                0 => 'special',
+                1 => 'comment',
+                2 => 'code',
+                3 => 'code',
+                4 => 'code',
+                5 => 'special',
+                6 => 'special',
+                7 => 'string',
+                8 => 'string',
+                9 => 'comment',
+                10 => 'string',
+                11 => 'string',
+                12 => 'string',
+                13 => 'string',
+                14 => 'var',
+                15 => 'var',
+                16 => 'var',
+                17 => 'var',
+                18 => 'var',
+                19 => 'var',
+                20 => 'string',
+                21 => 'string',
+                22 => 'string',
+                23 => 'identifier',
+                24 => 'number',
+            ),
+            3 => 
+            array (
+                0 => 'special',
+                1 => 'comment',
+                2 => 'code',
+                3 => 'code',
+                4 => 'code',
+                5 => 'special',
+                6 => 'special',
+                7 => 'string',
+                8 => 'string',
+                9 => 'comment',
+                10 => 'string',
+                11 => 'string',
+                12 => 'string',
+                13 => 'var',
+                14 => 'var',
+                15 => 'var',
+                16 => 'var',
+                17 => 'var',
+                18 => 'var',
+                19 => 'string',
+                20 => 'string',
+                21 => 'string',
+                22 => 'identifier',
+                23 => 'number',
+            ),
+            4 => 
+            array (
+                0 => 'var',
+                1 => 'var',
+                2 => 'var',
+                3 => 'special',
+            ),
+            5 => 
+            array (
+                0 => 'special',
+            ),
+            6 => 
+            array (
+                0 => 'string',
+            ),
+            7 => 
+            array (
+                0 => 'var',
+                1 => 'var',
+                2 => 'var',
+                3 => 'special',
+            ),
+            8 => 
+            array (
+                0 => 'special',
+            ),
+            9 => 
+            array (
+                0 => 'var',
+                1 => 'var',
+                2 => 'var',
+                3 => 'special',
+            ),
         );
-
-        $this->_options = $options;
+        $this->_end = array (
+            0 => '/(?m)^=cut[^\\n]*/',
+            1 => '/\\}/',
+            2 => '/\\)/',
+            3 => '/\\]/',
+            4 => '/%b2%/',
+            5 => '/%b2%/',
+            6 => '/\\/[cgimosx]*/',
+            7 => '/`/',
+            8 => '/\'/',
+            9 => '/"/',
+        );
+        $this->_states = array (
+            -1 => 
+            array (
+                0 => -1,
+                1 => 0,
+                2 => 1,
+                3 => 2,
+                4 => 3,
+                5 => -1,
+                6 => -1,
+                7 => 4,
+                8 => 5,
+                9 => -1,
+                10 => -1,
+                11 => -1,
+                12 => 6,
+                13 => -1,
+                14 => -1,
+                15 => -1,
+                16 => -1,
+                17 => -1,
+                18 => -1,
+                19 => 7,
+                20 => 8,
+                21 => 9,
+                22 => -1,
+                23 => -1,
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+                0 => -1,
+                1 => 0,
+                2 => 1,
+                3 => 2,
+                4 => 3,
+                5 => -1,
+                6 => -1,
+                7 => 4,
+                8 => 5,
+                9 => -1,
+                10 => -1,
+                11 => -1,
+                12 => 6,
+                13 => -1,
+                14 => -1,
+                15 => -1,
+                16 => -1,
+                17 => -1,
+                18 => -1,
+                19 => 7,
+                20 => 8,
+                21 => 9,
+                22 => -1,
+                23 => -1,
+            ),
+            2 => 
+            array (
+                0 => -1,
+                1 => 0,
+                2 => 1,
+                3 => 2,
+                4 => 3,
+                5 => -1,
+                6 => -1,
+                7 => 4,
+                8 => 5,
+                9 => -1,
+                10 => -1,
+                11 => -1,
+                12 => 6,
+                13 => -1,
+                14 => -1,
+                15 => -1,
+                16 => -1,
+                17 => -1,
+                18 => -1,
+                19 => -1,
+                20 => 7,
+                21 => 8,
+                22 => 9,
+                23 => -1,
+                24 => -1,
+            ),
+            3 => 
+            array (
+                0 => -1,
+                1 => 0,
+                2 => 1,
+                3 => 2,
+                4 => 3,
+                5 => -1,
+                6 => -1,
+                7 => 4,
+                8 => 5,
+                9 => -1,
+                10 => -1,
+                11 => -1,
+                12 => 6,
+                13 => -1,
+                14 => -1,
+                15 => -1,
+                16 => -1,
+                17 => -1,
+                18 => -1,
+                19 => 7,
+                20 => 8,
+                21 => 9,
+                22 => -1,
+                23 => -1,
+            ),
+            4 => 
+            array (
+                0 => -1,
+                1 => -1,
+                2 => -1,
+                3 => -1,
+            ),
+            5 => 
+            array (
+                0 => -1,
+            ),
+            6 => 
+            array (
+                0 => -1,
+            ),
+            7 => 
+            array (
+                0 => -1,
+                1 => -1,
+                2 => -1,
+                3 => -1,
+            ),
+            8 => 
+            array (
+                0 => -1,
+            ),
+            9 => 
+            array (
+                0 => -1,
+                1 => -1,
+                2 => -1,
+                3 => -1,
+            ),
+        );
+        $this->_keywords = array (
+            -1 => 
+            array (
+                0 => 
+                array (
+                ),
+                1 => -1,
+                2 => -1,
+                3 => -1,
+                4 => -1,
+                5 => 
+                array (
+                ),
+                6 => 
+                array (
+                ),
+                7 => -1,
+                8 => -1,
+                9 => 
+                array (
+                ),
+                10 => 
+                array (
+                ),
+                11 => 
+                array (
+                ),
+                12 => -1,
+                13 => 
+                array (
+                ),
+                14 => 
+                array (
+                ),
+                15 => 
+                array (
+                ),
+                16 => 
+                array (
+                ),
+                17 => 
+                array (
+                ),
+                18 => 
+                array (
+                ),
+                19 => -1,
+                20 => -1,
+                21 => -1,
+                22 => 
+                array (
+                    'reserved' => '/^(abs|accept|alarm|atan2|bind|binmode|bless|caller|chdir|chmod|chomp|chop|chown|chr|chroot|close|closedir|connect|continue|cos|crypt|dbmclose|dbmopen|defined|delete|die|do|dump|each|endgrent|endhostent|endnetent|endprotoent|endpwent|endservent|eof|eval|exec|exists|exit|exp|fcntl|fileno|flock|fork|format|formline|getc|getgrent|getgrgid|getgrnam|gethostbyaddr|gethostbyname|gethostent|getlogin|getnetbyaddr|getnetbyname|getnetent|getpeername|getpgrp|getppid|getpriority|getprotobyname|getprotobynumber|getprotoent|getpwent|getpwnam|getpwuid|getservbyname|getservbyport|getservent|getsockname|getsockopt|glob|gmtime|goto|grep|hex|import|index|int|ioctl|join|keys|kill|last|lc|lcfirst|length|link|listen|local|localtime|lock|log|lstat|map|mkdir|msgctl|msgget|msgrcv|msgsnd|my|next|no|oct|open|opendir|ord|our|pack|package|pipe|pop|pos|print|printf|prototype|push|quotemeta|rand|read|readdir|readline|readlink|readpipe|recv|redo|ref|rename|require|reset|return|reverse|rewinddir|rindex|rmdir|scalar|seek|seekdir|select|semctl|semget|semop|send|setgrent|sethostent|setnetent|setpgrp|setpriority|setprotoent|setpwent|setservent|setsockopt|shift|shmctl|shmget|shmread|shmwrite|shutdown|sin|sleep|socket|socketpair|sort|splice|split|sprintf|sqrt|srand|stat|study|sub|substr|symlink|syscall|sysopen|sysread|sysseek|system|syswrite|tell|telldir|tie|tied|time|times|truncate|uc|ucfirst|umask|undef|unlink|unpack|unshift|untie|use|utime|values|vec|wait|waitpid|wantarray|warn|write|y)$/',
+                    'missingreserved' => '/^(new)$/',
+                    'flowcontrol' => '/^(if|else|elsif|while|unless|for|foreach|until|do|continue|not|or|and|eq|ne|gt|lt)$/',
+                ),
+                23 => 
+                array (
+                ),
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+                0 => 
+                array (
+                ),
+                1 => -1,
+                2 => -1,
+                3 => -1,
+                4 => -1,
+                5 => 
+                array (
+                ),
+                6 => 
+                array (
+                ),
+                7 => -1,
+                8 => -1,
+                9 => 
+                array (
+                ),
+                10 => 
+                array (
+                ),
+                11 => 
+                array (
+                ),
+                12 => -1,
+                13 => 
+                array (
+                ),
+                14 => 
+                array (
+                ),
+                15 => 
+                array (
+                ),
+                16 => 
+                array (
+                ),
+                17 => 
+                array (
+                ),
+                18 => 
+                array (
+                ),
+                19 => -1,
+                20 => -1,
+                21 => -1,
+                22 => 
+                array (
+                    'reserved' => '/^(abs|accept|alarm|atan2|bind|binmode|bless|caller|chdir|chmod|chomp|chop|chown|chr|chroot|close|closedir|connect|continue|cos|crypt|dbmclose|dbmopen|defined|delete|die|do|dump|each|endgrent|endhostent|endnetent|endprotoent|endpwent|endservent|eof|eval|exec|exists|exit|exp|fcntl|fileno|flock|fork|format|formline|getc|getgrent|getgrgid|getgrnam|gethostbyaddr|gethostbyname|gethostent|getlogin|getnetbyaddr|getnetbyname|getnetent|getpeername|getpgrp|getppid|getpriority|getprotobyname|getprotobynumber|getprotoent|getpwent|getpwnam|getpwuid|getservbyname|getservbyport|getservent|getsockname|getsockopt|glob|gmtime|goto|grep|hex|import|index|int|ioctl|join|keys|kill|last|lc|lcfirst|length|link|listen|local|localtime|lock|log|lstat|map|mkdir|msgctl|msgget|msgrcv|msgsnd|my|next|no|oct|open|opendir|ord|our|pack|package|pipe|pop|pos|print|printf|prototype|push|quotemeta|rand|read|readdir|readline|readlink|readpipe|recv|redo|ref|rename|require|reset|return|reverse|rewinddir|rindex|rmdir|scalar|seek|seekdir|select|semctl|semget|semop|send|setgrent|sethostent|setnetent|setpgrp|setpriority|setprotoent|setpwent|setservent|setsockopt|shift|shmctl|shmget|shmread|shmwrite|shutdown|sin|sleep|socket|socketpair|sort|splice|split|sprintf|sqrt|srand|stat|study|sub|substr|symlink|syscall|sysopen|sysread|sysseek|system|syswrite|tell|telldir|tie|tied|time|times|truncate|uc|ucfirst|umask|undef|unlink|unpack|unshift|untie|use|utime|values|vec|wait|waitpid|wantarray|warn|write|y)$/',
+                    'missingreserved' => '/^(new)$/',
+                    'flowcontrol' => '/^(if|else|elsif|while|unless|for|foreach|until|do|continue|not|or|and|eq|ne|gt|lt)$/',
+                ),
+                23 => 
+                array (
+                ),
+            ),
+            2 => 
+            array (
+                0 => 
+                array (
+                ),
+                1 => -1,
+                2 => -1,
+                3 => -1,
+                4 => -1,
+                5 => 
+                array (
+                ),
+                6 => 
+                array (
+                ),
+                7 => -1,
+                8 => -1,
+                9 => 
+                array (
+                ),
+                10 => 
+                array (
+                ),
+                11 => 
+                array (
+                ),
+                12 => -1,
+                13 => 
+                array (
+                ),
+                14 => 
+                array (
+                ),
+                15 => 
+                array (
+                ),
+                16 => 
+                array (
+                ),
+                17 => 
+                array (
+                ),
+                18 => 
+                array (
+                ),
+                19 => 
+                array (
+                ),
+                20 => -1,
+                21 => -1,
+                22 => -1,
+                23 => 
+                array (
+                    'reserved' => '/^(abs|accept|alarm|atan2|bind|binmode|bless|caller|chdir|chmod|chomp|chop|chown|chr|chroot|close|closedir|connect|continue|cos|crypt|dbmclose|dbmopen|defined|delete|die|do|dump|each|endgrent|endhostent|endnetent|endprotoent|endpwent|endservent|eof|eval|exec|exists|exit|exp|fcntl|fileno|flock|fork|format|formline|getc|getgrent|getgrgid|getgrnam|gethostbyaddr|gethostbyname|gethostent|getlogin|getnetbyaddr|getnetbyname|getnetent|getpeername|getpgrp|getppid|getpriority|getprotobyname|getprotobynumber|getprotoent|getpwent|getpwnam|getpwuid|getservbyname|getservbyport|getservent|getsockname|getsockopt|glob|gmtime|goto|grep|hex|import|index|int|ioctl|join|keys|kill|last|lc|lcfirst|length|link|listen|local|localtime|lock|log|lstat|map|mkdir|msgctl|msgget|msgrcv|msgsnd|my|next|no|oct|open|opendir|ord|our|pack|package|pipe|pop|pos|print|printf|prototype|push|quotemeta|rand|read|readdir|readline|readlink|readpipe|recv|redo|ref|rename|require|reset|return|reverse|rewinddir|rindex|rmdir|scalar|seek|seekdir|select|semctl|semget|semop|send|setgrent|sethostent|setnetent|setpgrp|setpriority|setprotoent|setpwent|setservent|setsockopt|shift|shmctl|shmget|shmread|shmwrite|shutdown|sin|sleep|socket|socketpair|sort|splice|split|sprintf|sqrt|srand|stat|study|sub|substr|symlink|syscall|sysopen|sysread|sysseek|system|syswrite|tell|telldir|tie|tied|time|times|truncate|uc|ucfirst|umask|undef|unlink|unpack|unshift|untie|use|utime|values|vec|wait|waitpid|wantarray|warn|write|y)$/',
+                    'missingreserved' => '/^(new)$/',
+                    'flowcontrol' => '/^(if|else|elsif|while|unless|for|foreach|until|do|continue|not|or|and|eq|ne|gt|lt)$/',
+                ),
+                24 => 
+                array (
+                ),
+            ),
+            3 => 
+            array (
+                0 => 
+                array (
+                ),
+                1 => -1,
+                2 => -1,
+                3 => -1,
+                4 => -1,
+                5 => 
+                array (
+                ),
+                6 => 
+                array (
+                ),
+                7 => -1,
+                8 => -1,
+                9 => 
+                array (
+                ),
+                10 => 
+                array (
+                ),
+                11 => 
+                array (
+                ),
+                12 => -1,
+                13 => 
+                array (
+                ),
+                14 => 
+                array (
+                ),
+                15 => 
+                array (
+                ),
+                16 => 
+                array (
+                ),
+                17 => 
+                array (
+                ),
+                18 => 
+                array (
+                ),
+                19 => -1,
+                20 => -1,
+                21 => -1,
+                22 => 
+                array (
+                    'reserved' => '/^(abs|accept|alarm|atan2|bind|binmode|bless|caller|chdir|chmod|chomp|chop|chown|chr|chroot|close|closedir|connect|continue|cos|crypt|dbmclose|dbmopen|defined|delete|die|do|dump|each|endgrent|endhostent|endnetent|endprotoent|endpwent|endservent|eof|eval|exec|exists|exit|exp|fcntl|fileno|flock|fork|format|formline|getc|getgrent|getgrgid|getgrnam|gethostbyaddr|gethostbyname|gethostent|getlogin|getnetbyaddr|getnetbyname|getnetent|getpeername|getpgrp|getppid|getpriority|getprotobyname|getprotobynumber|getprotoent|getpwent|getpwnam|getpwuid|getservbyname|getservbyport|getservent|getsockname|getsockopt|glob|gmtime|goto|grep|hex|import|index|int|ioctl|join|keys|kill|last|lc|lcfirst|length|link|listen|local|localtime|lock|log|lstat|map|mkdir|msgctl|msgget|msgrcv|msgsnd|my|next|no|oct|open|opendir|ord|our|pack|package|pipe|pop|pos|print|printf|prototype|push|quotemeta|rand|read|readdir|readline|readlink|readpipe|recv|redo|ref|rename|require|reset|return|reverse|rewinddir|rindex|rmdir|scalar|seek|seekdir|select|semctl|semget|semop|send|setgrent|sethostent|setnetent|setpgrp|setpriority|setprotoent|setpwent|setservent|setsockopt|shift|shmctl|shmget|shmread|shmwrite|shutdown|sin|sleep|socket|socketpair|sort|splice|split|sprintf|sqrt|srand|stat|study|sub|substr|symlink|syscall|sysopen|sysread|sysseek|system|syswrite|tell|telldir|tie|tied|time|times|truncate|uc|ucfirst|umask|undef|unlink|unpack|unshift|untie|use|utime|values|vec|wait|waitpid|wantarray|warn|write|y)$/',
+                    'missingreserved' => '/^(new)$/',
+                    'flowcontrol' => '/^(if|else|elsif|while|unless|for|foreach|until|do|continue|not|or|and|eq|ne|gt|lt)$/',
+                ),
+                23 => 
+                array (
+                ),
+            ),
+            4 => 
+            array (
+                0 => 
+                array (
+                ),
+                1 => 
+                array (
+                ),
+                2 => 
+                array (
+                ),
+                3 => 
+                array (
+                ),
+            ),
+            5 => 
+            array (
+                0 => 
+                array (
+                ),
+            ),
+            6 => 
+            array (
+                0 => 
+                array (
+                ),
+            ),
+            7 => 
+            array (
+                0 => 
+                array (
+                ),
+                1 => 
+                array (
+                ),
+                2 => 
+                array (
+                ),
+                3 => 
+                array (
+                ),
+            ),
+            8 => 
+            array (
+                0 => 
+                array (
+                ),
+            ),
+            9 => 
+            array (
+                0 => 
+                array (
+                ),
+                1 => 
+                array (
+                ),
+                2 => 
+                array (
+                ),
+                3 => 
+                array (
+                ),
+            ),
+        );
+        $this->_parts = array (
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+                0 => 
+                array (
+                    1 => 'special',
+                    2 => 'string',
+                ),
+                1 => NULL,
+                2 => NULL,
+                3 => NULL,
+                4 => NULL,
+                5 => 
+                array (
+                    1 => 'reserved',
+                    2 => 'special',
+                ),
+                6 => NULL,
+                7 => NULL,
+                8 => NULL,
+                9 => NULL,
+                10 => 
+                array (
+                    1 => 'quotes',
+                    2 => 'quotes',
+                    3 => 'string',
+                    5 => 'quotes',
+                    6 => 'string',
+                    8 => 'quotes',
+                ),
+                11 => 
+                array (
+                    1 => 'quotes',
+                    2 => 'quotes',
+                    3 => 'string',
+                    5 => 'quotes',
+                ),
+                12 => NULL,
+                13 => NULL,
+                14 => NULL,
+                15 => NULL,
+                16 => NULL,
+                17 => 
+                array (
+                    1 => 'brackets',
+                    2 => 'var',
+                    3 => 'brackets',
+                ),
+                18 => NULL,
+                19 => NULL,
+                20 => NULL,
+                21 => NULL,
+                22 => NULL,
+                23 => NULL,
+            ),
+            2 => 
+            array (
+                0 => 
+                array (
+                    1 => 'special',
+                    2 => 'string',
+                ),
+                1 => NULL,
+                2 => NULL,
+                3 => NULL,
+                4 => NULL,
+                5 => 
+                array (
+                    1 => 'reserved',
+                    2 => 'special',
+                ),
+                6 => NULL,
+                7 => NULL,
+                8 => NULL,
+                9 => NULL,
+                10 => 
+                array (
+                    1 => 'quotes',
+                    2 => 'quotes',
+                    3 => 'string',
+                    5 => 'quotes',
+                    6 => 'string',
+                    8 => 'quotes',
+                ),
+                11 => 
+                array (
+                    1 => 'quotes',
+                    2 => 'quotes',
+                    3 => 'string',
+                    5 => 'quotes',
+                ),
+                12 => NULL,
+                13 => 
+                array (
+                    1 => 'string',
+                    2 => 'code',
+                ),
+                14 => NULL,
+                15 => NULL,
+                16 => NULL,
+                17 => NULL,
+                18 => 
+                array (
+                    1 => 'brackets',
+                    2 => 'var',
+                    3 => 'brackets',
+                ),
+                19 => NULL,
+                20 => NULL,
+                21 => NULL,
+                22 => NULL,
+                23 => NULL,
+                24 => NULL,
+            ),
+            3 => 
+            array (
+                0 => 
+                array (
+                    1 => 'special',
+                    2 => 'string',
+                ),
+                1 => NULL,
+                2 => NULL,
+                3 => NULL,
+                4 => NULL,
+                5 => 
+                array (
+                    1 => 'reserved',
+                    2 => 'special',
+                ),
+                6 => NULL,
+                7 => NULL,
+                8 => NULL,
+                9 => NULL,
+                10 => 
+                array (
+                    1 => 'quotes',
+                    2 => 'quotes',
+                    3 => 'string',
+                    5 => 'quotes',
+                    6 => 'string',
+                    8 => 'quotes',
+                ),
+                11 => 
+                array (
+                    1 => 'quotes',
+                    2 => 'quotes',
+                    3 => 'string',
+                    5 => 'quotes',
+                ),
+                12 => NULL,
+                13 => NULL,
+                14 => NULL,
+                15 => NULL,
+                16 => NULL,
+                17 => 
+                array (
+                    1 => 'brackets',
+                    2 => 'var',
+                    3 => 'brackets',
+                ),
+                18 => NULL,
+                19 => NULL,
+                20 => NULL,
+                21 => NULL,
+                22 => NULL,
+                23 => NULL,
+            ),
+            4 => 
+            array (
+                0 => NULL,
+                1 => NULL,
+                2 => NULL,
+                3 => NULL,
+            ),
+            5 => 
+            array (
+                0 => NULL,
+            ),
+            6 => 
+            array (
+                0 => NULL,
+            ),
+            7 => 
+            array (
+                0 => NULL,
+                1 => NULL,
+                2 => NULL,
+                3 => NULL,
+            ),
+            8 => 
+            array (
+                0 => NULL,
+            ),
+            9 => 
+            array (
+                0 => NULL,
+                1 => NULL,
+                2 => NULL,
+                3 => NULL,
+            ),
+        );
+        $this->_subst = array (
+            -1 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+                3 => false,
+                4 => false,
+                5 => false,
+                6 => false,
+                7 => true,
+                8 => true,
+                9 => false,
+                10 => false,
+                11 => false,
+                12 => false,
+                13 => false,
+                14 => false,
+                15 => false,
+                16 => false,
+                17 => false,
+                18 => false,
+                19 => false,
+                20 => false,
+                21 => false,
+                22 => false,
+                23 => false,
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+                3 => false,
+                4 => false,
+                5 => false,
+                6 => false,
+                7 => true,
+                8 => true,
+                9 => false,
+                10 => false,
+                11 => false,
+                12 => false,
+                13 => false,
+                14 => false,
+                15 => false,
+                16 => false,
+                17 => false,
+                18 => false,
+                19 => false,
+                20 => false,
+                21 => false,
+                22 => false,
+                23 => false,
+            ),
+            2 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+                3 => false,
+                4 => false,
+                5 => false,
+                6 => false,
+                7 => true,
+                8 => true,
+                9 => false,
+                10 => false,
+                11 => false,
+                12 => false,
+                13 => false,
+                14 => false,
+                15 => false,
+                16 => false,
+                17 => false,
+                18 => false,
+                19 => false,
+                20 => false,
+                21 => false,
+                22 => false,
+                23 => false,
+                24 => false,
+            ),
+            3 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+                3 => false,
+                4 => false,
+                5 => false,
+                6 => false,
+                7 => true,
+                8 => true,
+                9 => false,
+                10 => false,
+                11 => false,
+                12 => false,
+                13 => false,
+                14 => false,
+                15 => false,
+                16 => false,
+                17 => false,
+                18 => false,
+                19 => false,
+                20 => false,
+                21 => false,
+                22 => false,
+                23 => false,
+            ),
+            4 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+                3 => false,
+            ),
+            5 => 
+            array (
+                0 => false,
+            ),
+            6 => 
+            array (
+                0 => false,
+            ),
+            7 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+                3 => false,
+            ),
+            8 => 
+            array (
+                0 => false,
+            ),
+            9 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+                3 => false,
+            ),
+        );
+        $this->_conditions = array (
+        );
+        $this->_kwmap = array (
+            'reserved' => 'reserved',
+            'missingreserved' => 'reserved',
+            'flowcontrol' => 'reserved',
+        );
+        $this->_defClass = 'code';
+        $this->_checkDefines();
     }
+    
 }
-
-?>

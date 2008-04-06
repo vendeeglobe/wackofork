@@ -10,12 +10,13 @@
  * the PHP License and are unable to obtain it through the web, please
  * send a note to license@php.net so we can mail you a copy immediately.
  *
- * @copyright  2004 Andrey Demenev
+ * @copyright  2004-2006 Andrey Demenev
  * @license    http://www.php.net/license/3_0.txt  PHP License
  * @link       http://pear.php.net/package/Text_Highlighter
  * @category   Text
  * @package    Text_Highlighter
- * @author Andrey Demenev <demenev@on-line.jar.ru>
+ * @version    generated from: : php.xml,v 1.1 2007/06/03 02:35:28 ssttoo Exp 
+ * @author Andrey Demenev <demenev@gmail.com>
  *
  */
 
@@ -23,19 +24,24 @@
  * @ignore
  */
 
+# require_once 'Text/Highlighter.php';
+
 /**
  * Auto-generated class. PHP syntax highlighting
  *
- * @author Andrey Demenev <demenev@on-line.jar.ru>
+ * @author Andrey Demenev <demenev@gmail.com>
  * @category   Text
  * @package    Text_Highlighter
- * @copyright  2004 Andrey Demenev
+ * @copyright  2004-2006 Andrey Demenev
  * @license    http://www.php.net/license/3_0.txt  PHP License
- * @version    Release: @package_version@
+ * @version    Release: 0.7.1
  * @link       http://pear.php.net/package/Text_Highlighter
  */
 class  Text_Highlighter_PHP extends Text_Highlighter
-{    /**
+{
+    var $_language = 'php';
+
+    /**
      * PHP4 Compatible Constructor
      *
      * @param array  $options
@@ -46,6 +52,7 @@ class  Text_Highlighter_PHP extends Text_Highlighter
         $this->__construct($options);
     }
 
+
     /**
      *  Constructor
      *
@@ -54,519 +61,1047 @@ class  Text_Highlighter_PHP extends Text_Highlighter
      */
     function __construct($options=array())
     {
-        $this->_syntax = array (
-            'keywords' => 
-            array (
-                'constants' => 
-                array (
-                    'name' => 'constants',
-                    'innerGroup' => 'reserved',
-                    'case' => true,
-                    'inherits' => 'identifier',
-                    'match' => 
-                    array (
-                        'DIRECTORY_SEPARATOR' => true,
-                        'PATH_SEPARATOR' => true,
-                    ),
-                ),
-                'reserved' => 
-                array (
-                    'name' => 'reserved',
-                    'innerGroup' => 'reserved',
-                    'case' => false,
-                    'inherits' => 'identifier',
-                    'match' => 
-                    array (
-                        'echo' => true,
-                        'foreach' => true,
-                        'else' => true,
-                        'if' => true,
-                        'elseif' => true,
-                        'for' => true,
-                        'as' => true,
-                        'while' => true,
-                        'break' => true,
-                        'continue' => true,
-                        'class' => true,
-                        'const' => true,
-                        'declare' => true,
-                        'switch' => true,
-                        'case' => true,
-                        'endfor' => true,
-                        'endswitch' => true,
-                        'endforeach' => true,
-                        'endif' => true,
-                        'array' => true,
-                        'default' => true,
-                        'do' => true,
-                        'enddeclare' => true,
-                        'eval' => true,
-                        'exit' => true,
-                        'die' => true,
-                        'extends' => true,
-                        'function' => true,
-                        'global' => true,
-                        'include' => true,
-                        'include_once' => true,
-                        'require' => true,
-                        'require_once' => true,
-                        'isset' => true,
-                        'empty' => true,
-                        'list' => true,
-                        'new' => true,
-                        'static' => true,
-                        'unset' => true,
-                        'var' => true,
-                        'return' => true,
-                        'try' => true,
-                        'catch' => true,
-                        'final' => true,
-                        'throw' => true,
-                        'public' => true,
-                        'private' => true,
-                        'protected' => true,
-                        'abstract' => true,
-                        'interface' => true,
-                        'implements' => true,
-                        'define' => true,
-                        '__file__' => true,
-                        '__line__' => true,
-                        '__class__' => true,
-                        '__method__' => true,
-                        '__function__' => true,
-                        'null' => true,
-                        'true' => true,
-                        'false' => true,
-                        'and' => true,
-                        'or' => true,
-                        'xor' => true,
-                    ),
-                ),
-            ),
-            'blocks' => 
-            array (
-                'phpCode' => 
-                array (
-                    'name' => 'phpCode',
-                    'case' => false,
-                    'innerGroup' => 'code',
-                    'delimGroup' => 'inlinetags',
-                    'start' => '/\\<\\?(php|=)?/i',
-                    'end' => '/\\?\\>/i',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 0,
-                    'lookfor' => 
-                    array (
-                        0 => 'block',
-                        1 => 'brackets',
-                        2 => 'sqbrackets',
-                        3 => 'mlcomment',
-                        4 => 'strdouble',
-                        5 => 'exec',
-                        6 => 'heredoc',
-                        7 => 'strsingle',
-                        8 => 'comment',
-                        9 => 'identifier',
-                        10 => 'typecast',
-                        11 => 'hexinteger',
-                        12 => 'var',
-                        13 => 'integer',
-                        14 => 'octinteger',
-                        15 => 'float',
-                        16 => 'exponent',
-                    ),
-                ),
-                'block' => 
-                array (
-                    'name' => 'block',
-                    'case' => false,
-                    'innerGroup' => 'code',
-                    'delimGroup' => 'brackets',
-                    'start' => '/\\{/i',
-                    'end' => '/\\}/i',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 1,
-                    'lookfor' => 
-                    array (
-                        0 => 'block',
-                        1 => 'brackets',
-                        2 => 'sqbrackets',
-                        3 => 'mlcomment',
-                        4 => 'strdouble',
-                        5 => 'exec',
-                        6 => 'heredoc',
-                        7 => 'strsingle',
-                        8 => 'comment',
-                        9 => 'identifier',
-                        10 => 'typecast',
-                        11 => 'codeescape',
-                        12 => 'hexinteger',
-                        13 => 'var',
-                        14 => 'integer',
-                        15 => 'octinteger',
-                        16 => 'float',
-                        17 => 'exponent',
-                    ),
-                ),
-                'brackets' => 
-                array (
-                    'name' => 'brackets',
-                    'case' => false,
-                    'innerGroup' => 'code',
-                    'delimGroup' => 'brackets',
-                    'start' => '/\\(/i',
-                    'end' => '/\\)/i',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 2,
-                    'lookfor' => 
-                    array (
-                        0 => 'block',
-                        1 => 'brackets',
-                        2 => 'sqbrackets',
-                        3 => 'mlcomment',
-                        4 => 'strdouble',
-                        5 => 'exec',
-                        6 => 'heredoc',
-                        7 => 'strsingle',
-                        8 => 'comment',
-                        9 => 'identifier',
-                        10 => 'typecast',
-                        11 => 'hexinteger',
-                        12 => 'var',
-                        13 => 'integer',
-                        14 => 'octinteger',
-                        15 => 'float',
-                        16 => 'exponent',
-                    ),
-                ),
-                'sqbrackets' => 
-                array (
-                    'name' => 'sqbrackets',
-                    'case' => false,
-                    'innerGroup' => 'code',
-                    'delimGroup' => 'brackets',
-                    'start' => '/\\[/i',
-                    'end' => '/\\]/i',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 3,
-                    'lookfor' => 
-                    array (
-                        0 => 'block',
-                        1 => 'brackets',
-                        2 => 'sqbrackets',
-                        3 => 'mlcomment',
-                        4 => 'strdouble',
-                        5 => 'exec',
-                        6 => 'heredoc',
-                        7 => 'strsingle',
-                        8 => 'comment',
-                        9 => 'identifier',
-                        10 => 'typecast',
-                        11 => 'hexinteger',
-                        12 => 'var',
-                        13 => 'integer',
-                        14 => 'octinteger',
-                        15 => 'float',
-                        16 => 'exponent',
-                    ),
-                ),
-                'mlcomment' => 
-                array (
-                    'name' => 'mlcomment',
-                    'case' => false,
-                    'innerGroup' => 'comment',
-                    'delimGroup' => 'comment',
-                    'start' => '/\\/\\*/i',
-                    'end' => '/\\*\\//i',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 4,
-                    'lookfor' => 
-                    array (
-                        0 => 'phpdoc',
-                        1 => 'url',
-                        2 => 'email',
-                        3 => 'note',
-                        4 => 'cvstag',
-                    ),
-                ),
-                'strdouble' => 
-                array (
-                    'name' => 'strdouble',
-                    'case' => false,
-                    'innerGroup' => 'string',
-                    'delimGroup' => 'quotes',
-                    'start' => '/"/i',
-                    'end' => '/"/i',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 5,
-                    'lookfor' => 
-                    array (
-                        0 => 'descaped',
-                        1 => 'curlyvar',
-                        2 => 'var',
-                    ),
-                ),
-                'exec' => 
-                array (
-                    'name' => 'exec',
-                    'case' => false,
-                    'innerGroup' => 'string',
-                    'delimGroup' => 'quotes',
-                    'start' => '/`/i',
-                    'end' => '/`/i',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 6,
-                    'lookfor' => 
-                    array (
-                        0 => 'escaped',
-                        1 => 'curlyvar',
-                        2 => 'var',
-                    ),
-                ),
-                'heredoc' => 
-                array (
-                    'name' => 'heredoc',
-                    'case' => false,
-                    'innerGroup' => 'string',
-                    'delimGroup' => 'quotes',
-                    'start' => '/\\<\\<\\<[\\x20\\x09]*(\\w+)$/mi',
-                    'end' => '/^%1%;?$/mi',
-                    'remember' => true,
-                    'type' => 'region',
-                    'order' => 7,
-                    'lookfor' => 
-                    array (
-                        0 => 'descaped',
-                        1 => 'curlyvar',
-                        2 => 'var',
-                    ),
-                ),
-                'strsingle' => 
-                array (
-                    'name' => 'strsingle',
-                    'case' => false,
-                    'innerGroup' => 'string',
-                    'delimGroup' => 'quotes',
-                    'start' => '/\'/i',
-                    'end' => '/\'/i',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 8,
-                    'lookfor' => 
-                    array (
-                        0 => 'escaped',
-                    ),
-                ),
-                'escaped' => 
-                array (
-                    'name' => 'escaped',
-                    'case' => false,
-                    'innerGroup' => 'special',
-                    'match' => '/\\\\\\\\|\\\\"|\\\\\'|\\\\`/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 9,
-                ),
-                'descaped' => 
-                array (
-                    'name' => 'descaped',
-                    'case' => false,
-                    'innerGroup' => 'special',
-                    'match' => '/\\\\[\\\\"\'`tnr\\$\\{]/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 10,
-                ),
-                'comment' => 
-                array (
-                    'name' => 'comment',
-                    'case' => false,
-                    'innerGroup' => 'comment',
-                    'delimGroup' => 'comment',
-                    'start' => '/(#|\\/\\/)/i',
-                    'end' => '/$|(?=\\?\\>)/mi',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 11,
-                    'lookfor' => 
-                    array (
-                        0 => 'phpdoc',
-                        1 => 'url',
-                        2 => 'email',
-                        3 => 'note',
-                        4 => 'cvstag',
-                    ),
-                ),
-                'identifier' => 
-                array (
-                    'name' => 'identifier',
-                    'case' => false,
-                    'innerGroup' => 'identifier',
-                    'match' => '/[a-z_]\\w*/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 12,
-                ),
-                'typecast' => 
-                array (
-                    'name' => 'typecast',
-                    'case' => false,
-                    'innerGroup' => 'reserved',
-                    'match' => '/\\((array|int|integer|string|bool|boolean|object|float|double)\\)/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 13,
-                ),
-                'curlyvar' => 
-                array (
-                    'name' => 'curlyvar',
-                    'case' => false,
-                    'innerGroup' => 'var',
-                    'match' => '/\\{\\$[a-z_].*\\}/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 14,
-                ),
-                'codeescape' => 
-                array (
-                    'name' => 'codeescape',
-                    'case' => false,
-                    'innerGroup' => 'default',
-                    'delimGroup' => 'inlinetags',
-                    'start' => '/\\?\\>/i',
-                    'end' => '/\\<\\?(php|=)?/i',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 15,
-                ),
-                'hexinteger' => 
-                array (
-                    'name' => 'hexinteger',
-                    'case' => false,
-                    'innerGroup' => 'number',
-                    'match' => '/0[xX][\\da-f]+/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 16,
-                ),
-                'var' => 
-                array (
-                    'name' => 'var',
-                    'case' => false,
-                    'innerGroup' => 'var',
-                    'match' => '/\\$[a-z_]\\w*/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 17,
-                ),
-                'integer' => 
-                array (
-                    'name' => 'integer',
-                    'case' => false,
-                    'innerGroup' => 'number',
-                    'match' => '/\\d\\d*|\\b0\\b/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 18,
-                ),
-                'octinteger' => 
-                array (
-                    'name' => 'octinteger',
-                    'case' => false,
-                    'innerGroup' => 'number',
-                    'match' => '/0[0-7]+/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 19,
-                ),
-                'float' => 
-                array (
-                    'name' => 'float',
-                    'case' => false,
-                    'innerGroup' => 'number',
-                    'match' => '/(\\d*\\.\\d+)|(\\d+\\.\\d*)/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 20,
-                ),
-                'exponent' => 
-                array (
-                    'name' => 'exponent',
-                    'case' => false,
-                    'innerGroup' => 'number',
-                    'match' => '/((\\d+|((\\d*\\.\\d+)|(\\d+\\.\\d*)))[eE][+-]?\\d+)/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 21,
-                ),
-                'phpdoc' => 
-                array (
-                    'name' => 'phpdoc',
-                    'case' => false,
-                    'innerGroup' => 'inlinedoc',
-                    'match' => '/\\s@\\w+\\s/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 22,
-                ),
-                'url' => 
-                array (
-                    'name' => 'url',
-                    'case' => false,
-                    'innerGroup' => 'url',
-                    'match' => '/((https?|ftp):\\/\\/[\\w\\?\\.\\-\\&=\\/]+([^\\w\\?\\.\\&=\\/]|$))|(^|[\\s,!?])www\\.\\w+\\.\\w+[\\w\\?\\.\\&=\\/]*([^\\w\\?\\.\\&=\\/]|$)/mi',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 23,
-                ),
-                'email' => 
-                array (
-                    'name' => 'email',
-                    'case' => false,
-                    'innerGroup' => 'url',
-                    'match' => '/\\w+[\\.\\w\\-]+@(\\w+[\\.\\w\\-])+/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 24,
-                ),
-                'note' => 
-                array (
-                    'name' => 'note',
-                    'case' => false,
-                    'innerGroup' => 'inlinedoc',
-                    'match' => '/\\bnote:/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 25,
-                ),
-                'cvstag' => 
-                array (
-                    'name' => 'cvstag',
-                    'case' => false,
-                    'innerGroup' => 'inlinedoc',
-                    'match' => '/\\$\\w+\\s*:.*\\$/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 26,
-                ),
-            ),
-            'toplevel' => 
-            array (
-                0 => 'phpCode',
-            ),
-            'case' => false,
-            'defClass' => 'code',
-        );
 
         $this->_options = $options;
+        $this->_regs = array (
+            -1 => '/((?i)\\<\\?(php|=)?)/',
+            0 => '/((?i)\\{)|((?i)\\()|((?i)\\[)|((?i)\\/\\*)|((?i)")|((?i)`)|((?mi)\\<\\<\\<[\\x20\\x09]*(\\w+)$)|((?i)\')|((?i)(#|\\/\\/))|((?i)[a-z_]\\w*)|((?i)\\((array|int|integer|string|bool|boolean|object|float|double)\\))|((?i)0[xX][\\da-f]+)|((?i)\\$[a-z_]\\w*)|((?i)\\d\\d*|\\b0\\b)|((?i)0[0-7]+)|((?i)(\\d*\\.\\d+)|(\\d+\\.\\d*))|((?i)((\\d+|((\\d*\\.\\d+)|(\\d+\\.\\d*)))[eE][+-]?\\d+))/',
+            1 => '/((?i)\\{)|((?i)\\()|((?i)\\[)|((?i)\\/\\*)|((?i)")|((?i)`)|((?mi)\\<\\<\\<[\\x20\\x09]*(\\w+)$)|((?i)\')|((?i)(#|\\/\\/))|((?i)[a-z_]\\w*)|((?i)\\((array|int|integer|string|bool|boolean|object|float|double)\\))|((?i)\\?\\>)|((?i)0[xX][\\da-f]+)|((?i)\\$[a-z_]\\w*)|((?i)\\d\\d*|\\b0\\b)|((?i)0[0-7]+)|((?i)(\\d*\\.\\d+)|(\\d+\\.\\d*))|((?i)((\\d+|((\\d*\\.\\d+)|(\\d+\\.\\d*)))[eE][+-]?\\d+))/',
+            2 => '/((?i)\\{)|((?i)\\()|((?i)\\[)|((?i)\\/\\*)|((?i)")|((?i)`)|((?mi)\\<\\<\\<[\\x20\\x09]*(\\w+)$)|((?i)\')|((?i)(#|\\/\\/))|((?i)[a-z_]\\w*)|((?i)\\((array|int|integer|string|bool|boolean|object|float|double)\\))|((?i)0[xX][\\da-f]+)|((?i)\\$[a-z_]\\w*)|((?i)\\d\\d*|\\b0\\b)|((?i)0[0-7]+)|((?i)(\\d*\\.\\d+)|(\\d+\\.\\d*))|((?i)((\\d+|((\\d*\\.\\d+)|(\\d+\\.\\d*)))[eE][+-]?\\d+))/',
+            3 => '/((?i)\\{)|((?i)\\()|((?i)\\[)|((?i)\\/\\*)|((?i)")|((?i)`)|((?mi)\\<\\<\\<[\\x20\\x09]*(\\w+)$)|((?i)\')|((?i)(#|\\/\\/))|((?i)[a-z_]\\w*)|((?i)\\((array|int|integer|string|bool|boolean|object|float|double)\\))|((?i)0[xX][\\da-f]+)|((?i)\\$[a-z_]\\w*)|((?i)\\d\\d*|\\b0\\b)|((?i)0[0-7]+)|((?i)(\\d*\\.\\d+)|(\\d+\\.\\d*))|((?i)((\\d+|((\\d*\\.\\d+)|(\\d+\\.\\d*)))[eE][+-]?\\d+))/',
+            4 => '/((?i)\\s@\\w+\\s)|((?i)((https?|ftp):\\/\\/[\\w\\?\\.\\-\\&=\\/%+]+)|(^|[\\s,!?])www\\.\\w+\\.\\w+[\\w\\?\\.\\&=\\/%+]*)|((?i)\\w+[\\.\\w\\-]+@(\\w+[\\.\\w\\-])+)|((?i)\\bnote:)|((?i)\\$\\w+\\s*:.*\\$)/',
+            5 => '/((?i)\\\\[\\\\"\'`tnr\\$\\{])|((?i)\\{\\$[a-z_].*\\})|((?i)\\$[a-z_]\\w*)/',
+            6 => '/((?i)\\\\\\\\|\\\\"|\\\\\'|\\\\`)|((?i)\\{\\$[a-z_].*\\})|((?i)\\$[a-z_]\\w*)/',
+            7 => '/((?i)\\\\[\\\\"\'`tnr\\$\\{])|((?i)\\{\\$[a-z_].*\\})|((?i)\\$[a-z_]\\w*)/',
+            8 => '/((?i)\\\\\\\\|\\\\"|\\\\\'|\\\\`)/',
+            9 => '/((?i)\\s@\\w+\\s)|((?i)((https?|ftp):\\/\\/[\\w\\?\\.\\-\\&=\\/%+]+)|(^|[\\s,!?])www\\.\\w+\\.\\w+[\\w\\?\\.\\&=\\/%+]*)|((?i)\\w+[\\.\\w\\-]+@(\\w+[\\.\\w\\-])+)|((?i)\\bnote:)|((?i)\\$\\w+\\s*:.*\\$)/',
+            10 => '//',
+        );
+        $this->_counts = array (
+            -1 => 
+            array (
+                0 => 1,
+            ),
+            0 => 
+            array (
+                0 => 0,
+                1 => 0,
+                2 => 0,
+                3 => 0,
+                4 => 0,
+                5 => 0,
+                6 => 1,
+                7 => 0,
+                8 => 1,
+                9 => 0,
+                10 => 1,
+                11 => 0,
+                12 => 0,
+                13 => 0,
+                14 => 0,
+                15 => 2,
+                16 => 5,
+            ),
+            1 => 
+            array (
+                0 => 0,
+                1 => 0,
+                2 => 0,
+                3 => 0,
+                4 => 0,
+                5 => 0,
+                6 => 1,
+                7 => 0,
+                8 => 1,
+                9 => 0,
+                10 => 1,
+                11 => 0,
+                12 => 0,
+                13 => 0,
+                14 => 0,
+                15 => 0,
+                16 => 2,
+                17 => 5,
+            ),
+            2 => 
+            array (
+                0 => 0,
+                1 => 0,
+                2 => 0,
+                3 => 0,
+                4 => 0,
+                5 => 0,
+                6 => 1,
+                7 => 0,
+                8 => 1,
+                9 => 0,
+                10 => 1,
+                11 => 0,
+                12 => 0,
+                13 => 0,
+                14 => 0,
+                15 => 2,
+                16 => 5,
+            ),
+            3 => 
+            array (
+                0 => 0,
+                1 => 0,
+                2 => 0,
+                3 => 0,
+                4 => 0,
+                5 => 0,
+                6 => 1,
+                7 => 0,
+                8 => 1,
+                9 => 0,
+                10 => 1,
+                11 => 0,
+                12 => 0,
+                13 => 0,
+                14 => 0,
+                15 => 2,
+                16 => 5,
+            ),
+            4 => 
+            array (
+                0 => 0,
+                1 => 3,
+                2 => 1,
+                3 => 0,
+                4 => 0,
+            ),
+            5 => 
+            array (
+                0 => 0,
+                1 => 0,
+                2 => 0,
+            ),
+            6 => 
+            array (
+                0 => 0,
+                1 => 0,
+                2 => 0,
+            ),
+            7 => 
+            array (
+                0 => 0,
+                1 => 0,
+                2 => 0,
+            ),
+            8 => 
+            array (
+                0 => 0,
+            ),
+            9 => 
+            array (
+                0 => 0,
+                1 => 3,
+                2 => 1,
+                3 => 0,
+                4 => 0,
+            ),
+            10 => 
+            array (
+            ),
+        );
+        $this->_delim = array (
+            -1 => 
+            array (
+                0 => 'inlinetags',
+            ),
+            0 => 
+            array (
+                0 => 'brackets',
+                1 => 'brackets',
+                2 => 'brackets',
+                3 => 'comment',
+                4 => 'quotes',
+                5 => 'quotes',
+                6 => 'quotes',
+                7 => 'quotes',
+                8 => 'comment',
+                9 => '',
+                10 => '',
+                11 => '',
+                12 => '',
+                13 => '',
+                14 => '',
+                15 => '',
+                16 => '',
+            ),
+            1 => 
+            array (
+                0 => 'brackets',
+                1 => 'brackets',
+                2 => 'brackets',
+                3 => 'comment',
+                4 => 'quotes',
+                5 => 'quotes',
+                6 => 'quotes',
+                7 => 'quotes',
+                8 => 'comment',
+                9 => '',
+                10 => '',
+                11 => 'inlinetags',
+                12 => '',
+                13 => '',
+                14 => '',
+                15 => '',
+                16 => '',
+                17 => '',
+            ),
+            2 => 
+            array (
+                0 => 'brackets',
+                1 => 'brackets',
+                2 => 'brackets',
+                3 => 'comment',
+                4 => 'quotes',
+                5 => 'quotes',
+                6 => 'quotes',
+                7 => 'quotes',
+                8 => 'comment',
+                9 => '',
+                10 => '',
+                11 => '',
+                12 => '',
+                13 => '',
+                14 => '',
+                15 => '',
+                16 => '',
+            ),
+            3 => 
+            array (
+                0 => 'brackets',
+                1 => 'brackets',
+                2 => 'brackets',
+                3 => 'comment',
+                4 => 'quotes',
+                5 => 'quotes',
+                6 => 'quotes',
+                7 => 'quotes',
+                8 => 'comment',
+                9 => '',
+                10 => '',
+                11 => '',
+                12 => '',
+                13 => '',
+                14 => '',
+                15 => '',
+                16 => '',
+            ),
+            4 => 
+            array (
+                0 => '',
+                1 => '',
+                2 => '',
+                3 => '',
+                4 => '',
+            ),
+            5 => 
+            array (
+                0 => '',
+                1 => '',
+                2 => '',
+            ),
+            6 => 
+            array (
+                0 => '',
+                1 => '',
+                2 => '',
+            ),
+            7 => 
+            array (
+                0 => '',
+                1 => '',
+                2 => '',
+            ),
+            8 => 
+            array (
+                0 => '',
+            ),
+            9 => 
+            array (
+                0 => '',
+                1 => '',
+                2 => '',
+                3 => '',
+                4 => '',
+            ),
+            10 => 
+            array (
+            ),
+        );
+        $this->_inner = array (
+            -1 => 
+            array (
+                0 => 'code',
+            ),
+            0 => 
+            array (
+                0 => 'code',
+                1 => 'code',
+                2 => 'code',
+                3 => 'comment',
+                4 => 'string',
+                5 => 'string',
+                6 => 'string',
+                7 => 'string',
+                8 => 'comment',
+                9 => 'identifier',
+                10 => 'reserved',
+                11 => 'number',
+                12 => 'var',
+                13 => 'number',
+                14 => 'number',
+                15 => 'number',
+                16 => 'number',
+            ),
+            1 => 
+            array (
+                0 => 'code',
+                1 => 'code',
+                2 => 'code',
+                3 => 'comment',
+                4 => 'string',
+                5 => 'string',
+                6 => 'string',
+                7 => 'string',
+                8 => 'comment',
+                9 => 'identifier',
+                10 => 'reserved',
+                11 => 'default',
+                12 => 'number',
+                13 => 'var',
+                14 => 'number',
+                15 => 'number',
+                16 => 'number',
+                17 => 'number',
+            ),
+            2 => 
+            array (
+                0 => 'code',
+                1 => 'code',
+                2 => 'code',
+                3 => 'comment',
+                4 => 'string',
+                5 => 'string',
+                6 => 'string',
+                7 => 'string',
+                8 => 'comment',
+                9 => 'identifier',
+                10 => 'reserved',
+                11 => 'number',
+                12 => 'var',
+                13 => 'number',
+                14 => 'number',
+                15 => 'number',
+                16 => 'number',
+            ),
+            3 => 
+            array (
+                0 => 'code',
+                1 => 'code',
+                2 => 'code',
+                3 => 'comment',
+                4 => 'string',
+                5 => 'string',
+                6 => 'string',
+                7 => 'string',
+                8 => 'comment',
+                9 => 'identifier',
+                10 => 'reserved',
+                11 => 'number',
+                12 => 'var',
+                13 => 'number',
+                14 => 'number',
+                15 => 'number',
+                16 => 'number',
+            ),
+            4 => 
+            array (
+                0 => 'inlinedoc',
+                1 => 'url',
+                2 => 'url',
+                3 => 'inlinedoc',
+                4 => 'inlinedoc',
+            ),
+            5 => 
+            array (
+                0 => 'special',
+                1 => 'var',
+                2 => 'var',
+            ),
+            6 => 
+            array (
+                0 => 'special',
+                1 => 'var',
+                2 => 'var',
+            ),
+            7 => 
+            array (
+                0 => 'special',
+                1 => 'var',
+                2 => 'var',
+            ),
+            8 => 
+            array (
+                0 => 'special',
+            ),
+            9 => 
+            array (
+                0 => 'inlinedoc',
+                1 => 'url',
+                2 => 'url',
+                3 => 'inlinedoc',
+                4 => 'inlinedoc',
+            ),
+            10 => 
+            array (
+            ),
+        );
+        $this->_end = array (
+            0 => '/(?i)\\?\\>/',
+            1 => '/(?i)\\}/',
+            2 => '/(?i)\\)/',
+            3 => '/(?i)\\]/',
+            4 => '/(?i)\\*\\//',
+            5 => '/(?i)"/',
+            6 => '/(?i)`/',
+            7 => '/(?mi)^%1%;?$/',
+            8 => '/(?i)\'/',
+            9 => '/(?mi)$|(?=\\?\\>)/',
+            10 => '/(?i)\\<\\?(php|=)?/',
+        );
+        $this->_states = array (
+            -1 => 
+            array (
+                0 => 0,
+            ),
+            0 => 
+            array (
+                0 => 1,
+                1 => 2,
+                2 => 3,
+                3 => 4,
+                4 => 5,
+                5 => 6,
+                6 => 7,
+                7 => 8,
+                8 => 9,
+                9 => -1,
+                10 => -1,
+                11 => -1,
+                12 => -1,
+                13 => -1,
+                14 => -1,
+                15 => -1,
+                16 => -1,
+            ),
+            1 => 
+            array (
+                0 => 1,
+                1 => 2,
+                2 => 3,
+                3 => 4,
+                4 => 5,
+                5 => 6,
+                6 => 7,
+                7 => 8,
+                8 => 9,
+                9 => -1,
+                10 => -1,
+                11 => 10,
+                12 => -1,
+                13 => -1,
+                14 => -1,
+                15 => -1,
+                16 => -1,
+                17 => -1,
+            ),
+            2 => 
+            array (
+                0 => 1,
+                1 => 2,
+                2 => 3,
+                3 => 4,
+                4 => 5,
+                5 => 6,
+                6 => 7,
+                7 => 8,
+                8 => 9,
+                9 => -1,
+                10 => -1,
+                11 => -1,
+                12 => -1,
+                13 => -1,
+                14 => -1,
+                15 => -1,
+                16 => -1,
+            ),
+            3 => 
+            array (
+                0 => 1,
+                1 => 2,
+                2 => 3,
+                3 => 4,
+                4 => 5,
+                5 => 6,
+                6 => 7,
+                7 => 8,
+                8 => 9,
+                9 => -1,
+                10 => -1,
+                11 => -1,
+                12 => -1,
+                13 => -1,
+                14 => -1,
+                15 => -1,
+                16 => -1,
+            ),
+            4 => 
+            array (
+                0 => -1,
+                1 => -1,
+                2 => -1,
+                3 => -1,
+                4 => -1,
+            ),
+            5 => 
+            array (
+                0 => -1,
+                1 => -1,
+                2 => -1,
+            ),
+            6 => 
+            array (
+                0 => -1,
+                1 => -1,
+                2 => -1,
+            ),
+            7 => 
+            array (
+                0 => -1,
+                1 => -1,
+                2 => -1,
+            ),
+            8 => 
+            array (
+                0 => -1,
+            ),
+            9 => 
+            array (
+                0 => -1,
+                1 => -1,
+                2 => -1,
+                3 => -1,
+                4 => -1,
+            ),
+            10 => 
+            array (
+            ),
+        );
+        $this->_keywords = array (
+            -1 => 
+            array (
+                0 => -1,
+            ),
+            0 => 
+            array (
+                0 => -1,
+                1 => -1,
+                2 => -1,
+                3 => -1,
+                4 => -1,
+                5 => -1,
+                6 => -1,
+                7 => -1,
+                8 => -1,
+                9 => 
+                array (
+                    'constants' => '/^(DIRECTORY_SEPARATOR|PATH_SEPARATOR)$/',
+                    'reserved' => '/^((?i)echo|foreach|else|if|elseif|for|as|while|break|continue|class|const|declare|switch|case|endfor|endswitch|endforeach|endif|array|default|do|enddeclare|eval|exit|die|extends|function|global|include|include_once|require|require_once|isset|empty|list|new|static|unset|var|return|try|catch|final|throw|public|private|protected|abstract|interface|implements|define|__file__|__line__|__class__|__method__|__function__|null|true|false|and|or|xor)$/',
+                ),
+                10 => 
+                array (
+                ),
+                11 => 
+                array (
+                ),
+                12 => 
+                array (
+                ),
+                13 => 
+                array (
+                ),
+                14 => 
+                array (
+                ),
+                15 => 
+                array (
+                ),
+                16 => 
+                array (
+                ),
+            ),
+            1 => 
+            array (
+                0 => -1,
+                1 => -1,
+                2 => -1,
+                3 => -1,
+                4 => -1,
+                5 => -1,
+                6 => -1,
+                7 => -1,
+                8 => -1,
+                9 => 
+                array (
+                    'constants' => '/^(DIRECTORY_SEPARATOR|PATH_SEPARATOR)$/',
+                    'reserved' => '/^((?i)echo|foreach|else|if|elseif|for|as|while|break|continue|class|const|declare|switch|case|endfor|endswitch|endforeach|endif|array|default|do|enddeclare|eval|exit|die|extends|function|global|include|include_once|require|require_once|isset|empty|list|new|static|unset|var|return|try|catch|final|throw|public|private|protected|abstract|interface|implements|define|__file__|__line__|__class__|__method__|__function__|null|true|false|and|or|xor)$/',
+                ),
+                10 => 
+                array (
+                ),
+                11 => -1,
+                12 => 
+                array (
+                ),
+                13 => 
+                array (
+                ),
+                14 => 
+                array (
+                ),
+                15 => 
+                array (
+                ),
+                16 => 
+                array (
+                ),
+                17 => 
+                array (
+                ),
+            ),
+            2 => 
+            array (
+                0 => -1,
+                1 => -1,
+                2 => -1,
+                3 => -1,
+                4 => -1,
+                5 => -1,
+                6 => -1,
+                7 => -1,
+                8 => -1,
+                9 => 
+                array (
+                    'constants' => '/^(DIRECTORY_SEPARATOR|PATH_SEPARATOR)$/',
+                    'reserved' => '/^((?i)echo|foreach|else|if|elseif|for|as|while|break|continue|class|const|declare|switch|case|endfor|endswitch|endforeach|endif|array|default|do|enddeclare|eval|exit|die|extends|function|global|include|include_once|require|require_once|isset|empty|list|new|static|unset|var|return|try|catch|final|throw|public|private|protected|abstract|interface|implements|define|__file__|__line__|__class__|__method__|__function__|null|true|false|and|or|xor)$/',
+                ),
+                10 => 
+                array (
+                ),
+                11 => 
+                array (
+                ),
+                12 => 
+                array (
+                ),
+                13 => 
+                array (
+                ),
+                14 => 
+                array (
+                ),
+                15 => 
+                array (
+                ),
+                16 => 
+                array (
+                ),
+            ),
+            3 => 
+            array (
+                0 => -1,
+                1 => -1,
+                2 => -1,
+                3 => -1,
+                4 => -1,
+                5 => -1,
+                6 => -1,
+                7 => -1,
+                8 => -1,
+                9 => 
+                array (
+                    'constants' => '/^(DIRECTORY_SEPARATOR|PATH_SEPARATOR)$/',
+                    'reserved' => '/^((?i)echo|foreach|else|if|elseif|for|as|while|break|continue|class|const|declare|switch|case|endfor|endswitch|endforeach|endif|array|default|do|enddeclare|eval|exit|die|extends|function|global|include|include_once|require|require_once|isset|empty|list|new|static|unset|var|return|try|catch|final|throw|public|private|protected|abstract|interface|implements|define|__file__|__line__|__class__|__method__|__function__|null|true|false|and|or|xor)$/',
+                ),
+                10 => 
+                array (
+                ),
+                11 => 
+                array (
+                ),
+                12 => 
+                array (
+                ),
+                13 => 
+                array (
+                ),
+                14 => 
+                array (
+                ),
+                15 => 
+                array (
+                ),
+                16 => 
+                array (
+                ),
+            ),
+            4 => 
+            array (
+                0 => 
+                array (
+                ),
+                1 => 
+                array (
+                ),
+                2 => 
+                array (
+                ),
+                3 => 
+                array (
+                ),
+                4 => 
+                array (
+                ),
+            ),
+            5 => 
+            array (
+                0 => 
+                array (
+                ),
+                1 => 
+                array (
+                ),
+                2 => 
+                array (
+                ),
+            ),
+            6 => 
+            array (
+                0 => 
+                array (
+                ),
+                1 => 
+                array (
+                ),
+                2 => 
+                array (
+                ),
+            ),
+            7 => 
+            array (
+                0 => 
+                array (
+                ),
+                1 => 
+                array (
+                ),
+                2 => 
+                array (
+                ),
+            ),
+            8 => 
+            array (
+                0 => 
+                array (
+                ),
+            ),
+            9 => 
+            array (
+                0 => 
+                array (
+                ),
+                1 => 
+                array (
+                ),
+                2 => 
+                array (
+                ),
+                3 => 
+                array (
+                ),
+                4 => 
+                array (
+                ),
+            ),
+            10 => 
+            array (
+            ),
+        );
+        $this->_parts = array (
+            0 => 
+            array (
+                0 => NULL,
+                1 => NULL,
+                2 => NULL,
+                3 => NULL,
+                4 => NULL,
+                5 => NULL,
+                6 => NULL,
+                7 => NULL,
+                8 => NULL,
+                9 => NULL,
+                10 => NULL,
+                11 => NULL,
+                12 => NULL,
+                13 => NULL,
+                14 => NULL,
+                15 => NULL,
+                16 => NULL,
+            ),
+            1 => 
+            array (
+                0 => NULL,
+                1 => NULL,
+                2 => NULL,
+                3 => NULL,
+                4 => NULL,
+                5 => NULL,
+                6 => NULL,
+                7 => NULL,
+                8 => NULL,
+                9 => NULL,
+                10 => NULL,
+                11 => NULL,
+                12 => NULL,
+                13 => NULL,
+                14 => NULL,
+                15 => NULL,
+                16 => NULL,
+                17 => NULL,
+            ),
+            2 => 
+            array (
+                0 => NULL,
+                1 => NULL,
+                2 => NULL,
+                3 => NULL,
+                4 => NULL,
+                5 => NULL,
+                6 => NULL,
+                7 => NULL,
+                8 => NULL,
+                9 => NULL,
+                10 => NULL,
+                11 => NULL,
+                12 => NULL,
+                13 => NULL,
+                14 => NULL,
+                15 => NULL,
+                16 => NULL,
+            ),
+            3 => 
+            array (
+                0 => NULL,
+                1 => NULL,
+                2 => NULL,
+                3 => NULL,
+                4 => NULL,
+                5 => NULL,
+                6 => NULL,
+                7 => NULL,
+                8 => NULL,
+                9 => NULL,
+                10 => NULL,
+                11 => NULL,
+                12 => NULL,
+                13 => NULL,
+                14 => NULL,
+                15 => NULL,
+                16 => NULL,
+            ),
+            4 => 
+            array (
+                0 => NULL,
+                1 => NULL,
+                2 => NULL,
+                3 => NULL,
+                4 => NULL,
+            ),
+            5 => 
+            array (
+                0 => NULL,
+                1 => NULL,
+                2 => NULL,
+            ),
+            6 => 
+            array (
+                0 => NULL,
+                1 => NULL,
+                2 => NULL,
+            ),
+            7 => 
+            array (
+                0 => NULL,
+                1 => NULL,
+                2 => NULL,
+            ),
+            8 => 
+            array (
+                0 => NULL,
+            ),
+            9 => 
+            array (
+                0 => NULL,
+                1 => NULL,
+                2 => NULL,
+                3 => NULL,
+                4 => NULL,
+            ),
+            10 => 
+            array (
+            ),
+        );
+        $this->_subst = array (
+            -1 => 
+            array (
+                0 => false,
+            ),
+            0 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+                3 => false,
+                4 => false,
+                5 => false,
+                6 => true,
+                7 => false,
+                8 => false,
+                9 => false,
+                10 => false,
+                11 => false,
+                12 => false,
+                13 => false,
+                14 => false,
+                15 => false,
+                16 => false,
+            ),
+            1 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+                3 => false,
+                4 => false,
+                5 => false,
+                6 => true,
+                7 => false,
+                8 => false,
+                9 => false,
+                10 => false,
+                11 => false,
+                12 => false,
+                13 => false,
+                14 => false,
+                15 => false,
+                16 => false,
+                17 => false,
+            ),
+            2 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+                3 => false,
+                4 => false,
+                5 => false,
+                6 => true,
+                7 => false,
+                8 => false,
+                9 => false,
+                10 => false,
+                11 => false,
+                12 => false,
+                13 => false,
+                14 => false,
+                15 => false,
+                16 => false,
+            ),
+            3 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+                3 => false,
+                4 => false,
+                5 => false,
+                6 => true,
+                7 => false,
+                8 => false,
+                9 => false,
+                10 => false,
+                11 => false,
+                12 => false,
+                13 => false,
+                14 => false,
+                15 => false,
+                16 => false,
+            ),
+            4 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+                3 => false,
+                4 => false,
+            ),
+            5 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+            ),
+            6 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+            ),
+            7 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+            ),
+            8 => 
+            array (
+                0 => false,
+            ),
+            9 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+                3 => false,
+                4 => false,
+            ),
+            10 => 
+            array (
+            ),
+        );
+        $this->_conditions = array (
+        );
+        $this->_kwmap = array (
+            'constants' => 'reserved',
+            'reserved' => 'reserved',
+        );
+        $this->_defClass = 'code';
+        $this->_checkDefines();
     }
+    
 }
-
-?>

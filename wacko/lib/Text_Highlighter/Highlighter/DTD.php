@@ -10,12 +10,13 @@
  * the PHP License and are unable to obtain it through the web, please
  * send a note to license@php.net so we can mail you a copy immediately.
  *
- * @copyright  2004 Andrey Demenev
+ * @copyright  2004-2006 Andrey Demenev
  * @license    http://www.php.net/license/3_0.txt  PHP License
  * @link       http://pear.php.net/package/Text_Highlighter
  * @category   Text
  * @package    Text_Highlighter
- * @author Andrey Demenev <demenev@on-line.jar.ru>
+ * @version    generated from: : dtd.xml,v 1.1 2007/06/03 02:35:28 ssttoo Exp 
+ * @author Andrey Demenev <demenev@gmail.com>
  *
  */
 
@@ -23,19 +24,24 @@
  * @ignore
  */
 
+# require_once 'Text/Highlighter.php';
+
 /**
  * Auto-generated class. DTD syntax highlighting
  *
- * @author Andrey Demenev <demenev@on-line.jar.ru>
+ * @author Andrey Demenev <demenev@gmail.com>
  * @category   Text
  * @package    Text_Highlighter
- * @copyright  2004 Andrey Demenev
+ * @copyright  2004-2006 Andrey Demenev
  * @license    http://www.php.net/license/3_0.txt  PHP License
- * @version    Release: @package_version@
+ * @version    Release: 0.7.1
  * @link       http://pear.php.net/package/Text_Highlighter
  */
 class  Text_Highlighter_DTD extends Text_Highlighter
-{    /**
+{
+    var $_language = 'dtd';
+
+    /**
      * PHP4 Compatible Constructor
      *
      * @param array  $options
@@ -46,6 +52,7 @@ class  Text_Highlighter_DTD extends Text_Highlighter
         $this->__construct($options);
     }
 
+
     /**
      *  Constructor
      *
@@ -54,181 +61,366 @@ class  Text_Highlighter_DTD extends Text_Highlighter
      */
     function __construct($options=array())
     {
-        $this->_syntax = array (
-            'keywords' => 
-            array (
-            ),
-            'blocks' => 
-            array (
-                'comment' => 
-                array (
-                    'name' => 'comment',
-                    'case' => true,
-                    'innerGroup' => 'comment',
-                    'delimGroup' => 'comment',
-                    'start' => '/\\<!--/',
-                    'end' => '/--\\>/',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 0,
-                ),
-                'redecl' => 
-                array (
-                    'name' => 'redecl',
-                    'case' => true,
-                    'innerGroup' => 'code',
-                    'delimGroup' => 'brackets',
-                    'start' => '/\\<\\!\\[/',
-                    'end' => '/\\]\\]\\>/',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 1,
-                    'lookfor' => 
-                    array (
-                        0 => 'comment',
-                        1 => 'tag',
-                        2 => 'pcdata',
-                        3 => 'entity',
-                        4 => 'identifier',
-                    ),
-                ),
-                'tag' => 
-                array (
-                    'name' => 'tag',
-                    'case' => true,
-                    'innerGroup' => 'code',
-                    'delimGroup' => 'brackets',
-                    'start' => '/\\</',
-                    'end' => '/\\>/',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 2,
-                    'lookfor' => 
-                    array (
-                        0 => 'comment',
-                        1 => 'brackets',
-                        2 => 'strsingle',
-                        3 => 'strdouble',
-                        4 => 'tagname',
-                        5 => 'reserved',
-                        6 => 'pcdata',
-                        7 => 'entity',
-                        8 => 'identifier',
-                    ),
-                ),
-                'brackets' => 
-                array (
-                    'name' => 'brackets',
-                    'case' => true,
-                    'innerGroup' => 'code',
-                    'delimGroup' => 'brackets',
-                    'start' => '/\\(/',
-                    'end' => '/\\)/',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 3,
-                    'lookfor' => 
-                    array (
-                        0 => 'entity',
-                        1 => 'identifier',
-                    ),
-                ),
-                'strsingle' => 
-                array (
-                    'name' => 'strsingle',
-                    'case' => true,
-                    'innerGroup' => 'string',
-                    'delimGroup' => 'quotes',
-                    'start' => '/\'/',
-                    'end' => '/\'/',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 4,
-                    'lookfor' => 
-                    array (
-                        0 => 'entity',
-                    ),
-                ),
-                'strdouble' => 
-                array (
-                    'name' => 'strdouble',
-                    'case' => true,
-                    'innerGroup' => 'string',
-                    'delimGroup' => 'quotes',
-                    'start' => '/"/',
-                    'end' => '/"/',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 5,
-                    'lookfor' => 
-                    array (
-                        0 => 'entity',
-                    ),
-                ),
-                'tagname' => 
-                array (
-                    'name' => 'tagname',
-                    'case' => true,
-                    'innerGroup' => 'var',
-                    'match' => '/^!(ENTITY|ATTLIST|ELEMENT|NOTATION)\\b/',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 6,
-                ),
-                'reserved' => 
-                array (
-                    'name' => 'reserved',
-                    'case' => true,
-                    'innerGroup' => 'reserved',
-                    'match' => '/\\s(#(IMPLIED|REQUIRED|FIXED))|CDATA|ENTITY|NOTATION|NMTOKENS?|PUBLIC|SYSTEM\\b/',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 7,
-                ),
-                'pcdata' => 
-                array (
-                    'name' => 'pcdata',
-                    'case' => true,
-                    'innerGroup' => 'reserved',
-                    'match' => '/#PCDATA\\b/',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 8,
-                ),
-                'entity' => 
-                array (
-                    'name' => 'entity',
-                    'case' => true,
-                    'innerGroup' => 'special',
-                    'match' => '/(\\&|\\%)[\\w\\-\\.]+;/',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 9,
-                ),
-                'identifier' => 
-                array (
-                    'name' => 'identifier',
-                    'case' => false,
-                    'innerGroup' => 'identifier',
-                    'match' => '/[a-z][a-z\\d\\-\\,:]+/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 10,
-                ),
-            ),
-            'toplevel' => 
-            array (
-                0 => 'comment',
-                1 => 'redecl',
-                2 => 'tag',
-                3 => 'entity',
-            ),
-            'case' => true,
-            'defClass' => 'code',
-        );
 
         $this->_options = $options;
+        $this->_regs = array (
+            -1 => '/(\\<!--)|(\\<\\!\\[)|((\\&|\\%)[\\w\\-\\.]+;)/',
+            0 => '//',
+            1 => '/(\\<!--)|(\\<)|(#PCDATA\\b)|((\\&|\\%)[\\w\\-\\.]+;)|((?i)[a-z][a-z\\d\\-\\,:]+)/',
+            2 => '/(\\<!--)|(\\()|(\')|(")|((?<=\\<)!(ENTITY|ATTLIST|ELEMENT|NOTATION)\\b)|(\\s(#(IMPLIED|REQUIRED|FIXED))|CDATA|ENTITY|NOTATION|NMTOKENS?|PUBLIC|SYSTEM\\b)|(#PCDATA\\b)|((\\&|\\%)[\\w\\-\\.]+;)|((?i)[a-z][a-z\\d\\-\\,:]+)/',
+            3 => '/(\\()|((\\&|\\%)[\\w\\-\\.]+;)|((?i)[a-z][a-z\\d\\-\\,:]+)/',
+            4 => '/((\\&|\\%)[\\w\\-\\.]+;)/',
+            5 => '/((\\&|\\%)[\\w\\-\\.]+;)/',
+        );
+        $this->_counts = array (
+            -1 => 
+            array (
+                0 => 0,
+                1 => 0,
+                2 => 1,
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+                0 => 0,
+                1 => 0,
+                2 => 0,
+                3 => 1,
+                4 => 0,
+            ),
+            2 => 
+            array (
+                0 => 0,
+                1 => 0,
+                2 => 0,
+                3 => 0,
+                4 => 1,
+                5 => 2,
+                6 => 0,
+                7 => 1,
+                8 => 0,
+            ),
+            3 => 
+            array (
+                0 => 0,
+                1 => 1,
+                2 => 0,
+            ),
+            4 => 
+            array (
+                0 => 1,
+            ),
+            5 => 
+            array (
+                0 => 1,
+            ),
+        );
+        $this->_delim = array (
+            -1 => 
+            array (
+                0 => 'comment',
+                1 => 'brackets',
+                2 => '',
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+                0 => 'comment',
+                1 => 'brackets',
+                2 => '',
+                3 => '',
+                4 => '',
+            ),
+            2 => 
+            array (
+                0 => 'comment',
+                1 => 'brackets',
+                2 => 'quotes',
+                3 => 'quotes',
+                4 => '',
+                5 => '',
+                6 => '',
+                7 => '',
+                8 => '',
+            ),
+            3 => 
+            array (
+                0 => 'brackets',
+                1 => '',
+                2 => '',
+            ),
+            4 => 
+            array (
+                0 => '',
+            ),
+            5 => 
+            array (
+                0 => '',
+            ),
+        );
+        $this->_inner = array (
+            -1 => 
+            array (
+                0 => 'comment',
+                1 => 'code',
+                2 => 'special',
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+                0 => 'comment',
+                1 => 'code',
+                2 => 'reserved',
+                3 => 'special',
+                4 => 'identifier',
+            ),
+            2 => 
+            array (
+                0 => 'comment',
+                1 => 'code',
+                2 => 'string',
+                3 => 'string',
+                4 => 'var',
+                5 => 'reserved',
+                6 => 'reserved',
+                7 => 'special',
+                8 => 'identifier',
+            ),
+            3 => 
+            array (
+                0 => 'code',
+                1 => 'special',
+                2 => 'identifier',
+            ),
+            4 => 
+            array (
+                0 => 'special',
+            ),
+            5 => 
+            array (
+                0 => 'special',
+            ),
+        );
+        $this->_end = array (
+            0 => '/--\\>/',
+            1 => '/\\]\\]\\>/',
+            2 => '/\\>/',
+            3 => '/\\)/',
+            4 => '/\'/',
+            5 => '/"/',
+        );
+        $this->_states = array (
+            -1 => 
+            array (
+                0 => 0,
+                1 => 1,
+                2 => -1,
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+                0 => 0,
+                1 => 2,
+                2 => -1,
+                3 => -1,
+                4 => -1,
+            ),
+            2 => 
+            array (
+                0 => 0,
+                1 => 3,
+                2 => 4,
+                3 => 5,
+                4 => -1,
+                5 => -1,
+                6 => -1,
+                7 => -1,
+                8 => -1,
+            ),
+            3 => 
+            array (
+                0 => 3,
+                1 => -1,
+                2 => -1,
+            ),
+            4 => 
+            array (
+                0 => -1,
+            ),
+            5 => 
+            array (
+                0 => -1,
+            ),
+        );
+        $this->_keywords = array (
+            -1 => 
+            array (
+                0 => -1,
+                1 => -1,
+                2 => 
+                array (
+                ),
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+                0 => -1,
+                1 => -1,
+                2 => 
+                array (
+                ),
+                3 => 
+                array (
+                ),
+                4 => 
+                array (
+                ),
+            ),
+            2 => 
+            array (
+                0 => -1,
+                1 => -1,
+                2 => -1,
+                3 => -1,
+                4 => 
+                array (
+                ),
+                5 => 
+                array (
+                ),
+                6 => 
+                array (
+                ),
+                7 => 
+                array (
+                ),
+                8 => 
+                array (
+                ),
+            ),
+            3 => 
+            array (
+                0 => -1,
+                1 => 
+                array (
+                ),
+                2 => 
+                array (
+                ),
+            ),
+            4 => 
+            array (
+                0 => 
+                array (
+                ),
+            ),
+            5 => 
+            array (
+                0 => 
+                array (
+                ),
+            ),
+        );
+        $this->_parts = array (
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+                0 => NULL,
+                1 => NULL,
+                2 => NULL,
+                3 => NULL,
+                4 => NULL,
+            ),
+            2 => 
+            array (
+                0 => NULL,
+                1 => NULL,
+                2 => NULL,
+                3 => NULL,
+                4 => NULL,
+                5 => NULL,
+                6 => NULL,
+                7 => NULL,
+                8 => NULL,
+            ),
+            3 => 
+            array (
+                0 => NULL,
+                1 => NULL,
+                2 => NULL,
+            ),
+            4 => 
+            array (
+                0 => NULL,
+            ),
+            5 => 
+            array (
+                0 => NULL,
+            ),
+        );
+        $this->_subst = array (
+            -1 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+                3 => false,
+                4 => false,
+            ),
+            2 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+                3 => false,
+                4 => false,
+                5 => false,
+                6 => false,
+                7 => false,
+                8 => false,
+            ),
+            3 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+            ),
+            4 => 
+            array (
+                0 => false,
+            ),
+            5 => 
+            array (
+                0 => false,
+            ),
+        );
+        $this->_conditions = array (
+        );
+        $this->_kwmap = array (
+        );
+        $this->_defClass = 'code';
+        $this->_checkDefines();
     }
+    
 }
-
-?>

@@ -13,9 +13,10 @@
  *
  * @category   Text
  * @package    Text_Highlighter
- * @author     Andrey Demenev <demenev@on-line.jar.ru>
- * @copyright  2004 Andrey Demenev
+ * @author     Andrey Demenev <demenev@gmail.com>
+ * @copyright  2004-2006 Andrey Demenev
  * @license    http://www.php.net/license/3_0.txt  PHP License
+ * @version    CVS: $Id: Highlighter.php,v 1.1 2007/06/03 02:35:28 ssttoo Exp $
  * @link       http://pear.php.net/package/Text_Highlighter
  */
 
@@ -54,10 +55,10 @@ define ('HL_INFINITY',      1000000000);
 /**
  * Text highlighter base class
  *
- * @author     Andrey Demenev <demenev@on-line.jar.ru>
- * @copyright  2004 Andrey Demenev
+ * @author     Andrey Demenev <demenev@gmail.com>
+ * @copyright  2004-2006 Andrey Demenev
  * @license    http://www.php.net/license/3_0.txt  PHP License
- * @version    Release: @package_version@
+ * @version    Release: 0.7.1
  * @link       http://pear.php.net/package/Text_Highlighter
  */
 
@@ -86,7 +87,7 @@ define ('HL_INFINITY',      1000000000);
  *echo $hlSQL->highlight('SELECT * FROM table a WHERE id = 12');
  * </code>
  *
- * @author Andrey Demenev <demenev@on-line.jar.ru>
+ * @author Andrey Demenev <demenev@gmail.com>
  * @package Text_Highlighter
  * @access public
  */
@@ -121,6 +122,63 @@ class Text_Highlighter
      */
     var $_options = array();
 
+    /**
+     * Conditionds
+     *
+     * @access protected
+     * @var array
+     */
+    var $_conditions = array();
+
+    /**
+     * Disabled keywords
+     *
+     * @access protected
+     * @var array
+     */
+    var $_disabled = array();
+
+    /**
+     * Language
+     *
+     * @access protected
+     * @var string
+     */
+    var $_language = '';
+
+    // }}}
+    // {{{ _checkDefines
+    
+    /**
+     * Called by subclssses' constructors to enable/disable
+     * optional highlighter rules
+     *
+     * @param array $defines  Conditional defines
+     *
+     * @access protected
+     */
+    function _checkDefines()
+    {
+        if (isset($this->_options['defines'])) {
+            $defines = $this->_options['defines'];
+        } else {
+            $defines = array();
+        }
+        foreach ($this->_conditions as $name => $actions) {
+            foreach($actions as $action) {
+                $present = in_array($name, $defines);
+                if (!$action[1]) {
+                    $present = !$present;
+                }
+                if ($present) {
+                    unset($this->_disabled[$action[0]]);
+                } else {
+                    $this->_disabled[$action[0]] = true;
+                }
+            }
+        }
+    }
+
     // }}}
     // {{{ factory
     
@@ -146,7 +204,7 @@ class Text_Highlighter
         $classname = 'Text_Highlighter_' . $lang;
 
         if (!class_exists($classname)) {
-            return 'Highlighter for ' . $lang . ' not found';
+            return PEAR::raiseError('Highlighter for ' . $lang . ' not found');
         }
 
         $obj =& new $classname($options);
@@ -181,6 +239,113 @@ class Text_Highlighter
         return strtr($str, '()<>[]{}', ')(><][}{');
     }
 
+
+    
+    
+    function _getToken()
+    {
+        if (!empty($this->_tokenStack)) {
+            return array_pop($this->_tokenStack);
+        }
+        if ($this->_pos >= $this->_len) {
+            return NULL;
+        }
+
+        if ($this->_state != -1 && preg_match($this->_endpattern, $this->_str, $m, PREG_OFFSET_CAPTURE, $this->_pos)) {
+            $endpos = $m[0][1];
+            $endmatch = $m[0][0];
+        } else {
+            $endpos = -1;
+        }
+        preg_match ($this->_regs[$this->_state], $this->_str, $m, PREG_OFFSET_CAPTURE, $this->_pos);
+        $n = 1;
+ 
+ 
+         foreach ($this->_counts[$this->_state] as $i=>$count) {
+            if (!isset($m[$n])) {
+                break;
+            }
+            if ($m[$n][1]>-1 && ($endpos == -1 || $m[$n][1] < $endpos)) {
+                if ($this->_states[$this->_state][$i] != -1) {
+                    $this->_tokenStack[] = array($this->_delim[$this->_state][$i], $m[$n][0]);
+                } else {
+                    $inner = $this->_inner[$this->_state][$i];
+                    if (isset($this->_parts[$this->_state][$i])) {
+                        $parts = array();
+                        $partpos = $m[$n][1];
+                        for ($j=1; $j<=$count; $j++) {
+                            if ($m[$j+$n][1] < 0) {
+                                continue;
+                            }
+                            if (isset($this->_parts[$this->_state][$i][$j])) {
+                                if ($m[$j+$n][1] > $partpos) {
+                                    array_unshift($parts, array($inner, substr($this->_str, $partpos, $m[$j+$n][1]-$partpos)));
+                                }
+                                array_unshift($parts, array($this->_parts[$this->_state][$i][$j], $m[$j+$n][0]));
+                            }
+                            $partpos = $m[$j+$n][1] + strlen($m[$j+$n][0]);
+                        }
+                        if ($partpos < $m[$n][1] + strlen($m[$n][0])) {
+                            array_unshift($parts, array($inner, substr($this->_str, $partpos, $m[$n][1] - $partpos + strlen($m[$n][0]))));
+                        }
+                        $this->_tokenStack = array_merge($this->_tokenStack, $parts);
+                    } else {
+                        foreach ($this->_keywords[$this->_state][$i] as $g => $re) {
+                            if (isset($this->_disabled[$g])) {
+                                continue;
+                            }
+                            if (preg_match($re, $m[$n][0])) {
+                                $inner = $this->_kwmap[$g];
+                                break;
+                            }
+                        }
+                        $this->_tokenStack[] = array($inner, $m[$n][0]);
+                    }
+                }
+                if ($m[$n][1] > $this->_pos) {
+                    $this->_tokenStack[] = array($this->_lastinner, substr($this->_str, $this->_pos, $m[$n][1]-$this->_pos));
+                }
+                $this->_pos = $m[$n][1] + strlen($m[$n][0]);
+                if ($this->_states[$this->_state][$i] != -1) {
+                    $this->_stack[] = array($this->_state, $this->_lastdelim, $this->_lastinner, $this->_endpattern);
+                    $this->_lastinner = $this->_inner[$this->_state][$i];
+                    $this->_lastdelim = $this->_delim[$this->_state][$i];
+                    $l = $this->_state;
+                    $this->_state = $this->_states[$this->_state][$i];
+                    $this->_endpattern = $this->_end[$this->_state];
+                    if ($this->_subst[$l][$i]) {
+                        for ($k=0; $k<=$this->_counts[$l][$i]; $k++) {
+                            if (!isset($m[$i+$k])) {
+                                break;
+                            }
+                            $quoted = preg_quote($m[$n+$k][0], '/');
+                            $this->_endpattern = str_replace('%'.$k.'%', $quoted, $this->_endpattern);
+                            $this->_endpattern = str_replace('%b'.$k.'%', $this->_matchingBrackets($quoted), $this->_endpattern);
+                        }
+                    }
+                }
+                return array_pop($this->_tokenStack);
+            }
+            $n += $count + 1;
+        }
+
+        if ($endpos > -1) {
+            $this->_tokenStack[] = array($this->_lastdelim, $endmatch);
+            if ($endpos > $this->_pos) {
+                $this->_tokenStack[] = array($this->_lastinner, substr($this->_str, $this->_pos, $endpos-$this->_pos));
+            }
+            list($this->_state, $this->_lastdelim, $this->_lastinner, $this->_endpattern) = array_pop($this->_stack);
+            $this->_pos = $endpos + strlen($endmatch);
+            return array_pop($this->_tokenStack);
+        }
+        $p = $this->_pos;
+        $this->_pos = HL_INFINITY;
+        return array($this->_lastinner, substr($this->_str, $p));
+    }
+    
+    
+    
+    
     // {{{ highlight
 
     /**
@@ -191,250 +356,31 @@ class Text_Highlighter
      * @return string Highlighted text
      *
      */
+
     function highlight($str)
     {
         if (!($this->_renderer)) {
             include_once(dirname(__FILE__).'/Highlighter/Renderer/Html.php');
             $this->_renderer =& new Text_Highlighter_Renderer_Html($this->_options);
         }
+        $this->_state = -1;
+        $this->_pos = 0;
+        $this->_stack = array();
+        $this->_tokenStack = array();
+        $this->_lastinner = $this->_defClass;
+        $this->_lastdelim = $this->_defClass;
+        $this->_endpattern = '';
         $this->_renderer->reset();
-        $str = $this->_renderer->preprocess($str);
-
-        $this->_lastMatch = '';
-        // current position in string
-        $pos = 0;
-        // nested regions stack
-        $stack = array();
-
-        // current region
-        $current = NULL;
-        
-        // what to seek first
-        $blocksToSeek = isset($this->_syntax['toplevel']) ? 
-                          $this->_syntax['toplevel'] :
-                          null;
-
-        $defClass=$this->_syntax['defClass'];
-        $matches = null;
-        while (true) {
-            // init loop vars
-            $matchpos = HL_INFINITY;
-            $matchlen = 0;
-            $what = -1;
-            $thematch = null;
-            $theregion = null;
-            
-            // get rid of the chars already processed
-            $substr = substr($str, $pos);
-            if ($substr === false) break;
-
-            $firstline = $substr;
-            
-            
-            // look for blocks, either top-level or
-            // allowed within current region
-            if ($matchpos && $blocksToSeek) {
-                foreach ($blocksToSeek as $region) {
-                    $region = $this->_syntax['blocks'][$region];
-                    if ($region['type'] == 'block') {
-                    // {{{ blocks search
-                        if ($current) {
-                            $defClass = $current['innerGroup'];
-                        }
-                        if (preg_match($region['match'], $substr, $matches, PREG_OFFSET_CAPTURE) &&
-                                $matchpos > $matches[0][1]) {
-                            if (isset($region['BOL']) && ($pos || $matches[0][1]) && $substr{$matches[0][1]-1} != "\n") {
-                                continue;
-                            }
-                            if (isset($region['neverafter']) && !$matches[0][1] && preg_match($region['neverafter'], $this->_lastMatch)) {
-                                continue;
-                            }
-                            if (isset($region['neverafter']) && $matches[0][1] && preg_match($region['neverafter'], $this->_lastMatch . substr($substr, 0, $matches[0][1]))) {
-                                continue;
-                            }
-                            $matchlen = strlen($matches[0][0]);
-                            $matchpos = $matches[0][1];
-                            $thematch = $matches[0][0];
-                            $thematches = $matches;
-                            $what     = 1;
-                            $theregion = $region;
-                            if (!$region['multiline']) {
-                                // if found a block, and it is not multi-line
-                                // then remove all after that line from the subject string
-                                $newlinePos = strpos($firstline, "\n", $matchpos);
-                                if ($newlinePos) {
-                                    $firstline = substr($firstline, 0, $newlinePos);
-                                }
-                            }
-                        }
-                        if (!$matchpos) {
-                            break;
-                        }
-                    // }}}
-                    } else {
-                    // {{{ start of region search
-                        if ($current) {
-                            $defClass=$current['innerGroup'];
-                        }
-                        if (preg_match($region['start'], $substr, $matches, PREG_OFFSET_CAPTURE) &&
-                                $matchpos > $matches[0][1]) {
-                            if (isset($region['startBOL']) && ($pos || $matches[0][1]) && $str{$pos + $matches[0][1]-1} != "\n") {
-                                continue;
-                            }
-                            if (isset($region['neverafter']) && !$matches[0][1] && preg_match($region['neverafter'], $this->_lastMatch)) {
-                                continue;
-                            }
-                            if (isset($region['neverafter']) && $matches[0][1] && preg_match($region['neverafter'], $this->_lastMatch . substr($substr, 0 ,$matches[0][1]))) {
-                                continue;
-                            }
-                            $matchlen  = strlen($matches[0][0]);
-                            $matchpos  = $matches[0][1];
-                            $thematch  = $matches[0][0];
-                            $what      = 0;
-                            if ($region['remember']) {
-                                foreach ($matches as $i => $amatch) {
-                                    $quoted = preg_quote($amatch[0], '/');
-                                    $region['end'] = str_replace('%'.$i.'%', $quoted, $region['end']);
-                                    $region['end'] = str_replace('%b'.$i.'%', $this->_matchingBrackets($quoted), $region['end']);
-                                }
-                            }
-                            $theregion = $region;
-                        }
-                        if (!$matchpos) {
-                            break;
-                        }
-                    // }}}
-                    }
-                }
-            }
-            // {{{ end of region search
-            
-            // look for end of region
-            if ($matchpos &&
-                    $current && 
-                    preg_match($current['end'], $substr, $matches, PREG_OFFSET_CAPTURE) &&
-                    $matchpos > $matches[0][1]) {
-                if (isset($region['endBOL']) && ($pos || $matches[0][1]) && $str{$pos + $matches[0][1]-1} != "\n") {
-                } else {
-                    $matchlen  = strlen($matches[0][0]);
-                    $matchpos  = $matches[0][1];
-                    $thematch  = $matches[0][0];
-                    $what      = 2;
-                    $theregion = $region;
-                }
-            }
-
-            // }}}
-            switch ($what) {
-                // found start of region
-                case 0:
-                    if ($matchpos) {
-                        $this->_renderer->acceptToken($defClass, substr($substr, 0, $matchpos));
-                    }
-                    $this->_renderer->acceptToken($theregion['delimGroup'], $thematch);
-                    if ($current) {
-                        array_push($stack, $current);
-                    }
-                    $current = $theregion;
-                    $blocksToSeek = isset($current['lookfor']) ? 
-                                       $current['lookfor'] :
-                                       null;
-/*                    $regionsToSeek = isset($current['lookfor']['regions']) ? 
-                                       $current['lookfor']['regions'] :
-                                       null;
-                    $blocksToSeek = array_merge((array)$blocksToSeek, (array)$regionsToSeek); */
-                    $pos += $matchpos + $matchlen;
-                    $defClass = $current['innerGroup'];
-                    break;
-
-                // found a block
-                case 1:
-                    if ($matchpos) {
-                        $this->_renderer->acceptToken($defClass, substr($substr, 0, $matchpos));
-                    }
-                    if (isset($theregion['partClass'])) {
-                        $partpos = $matchpos;
-                        $nparts=count($thematches);
-                        for ($i=1; $i<$nparts; $i++) {
-                            if ($thematches[$i][1] < 0) {
-                                continue;
-                            }
-                            if (isset($theregion['partClass'][$i])) {
-                                if ($thematches[$i][1] > $partpos) {
-                                    $this->_renderer->acceptToken($class, substr($substr, $partpos, $thematches[$i][1]-$partpos));
-                                }
-                                $this->_renderer->acceptToken($theregion['partClass'][$i], $thematches[$i][0]);
-                            }
-                            $partpos = $thematches[$i][1] + strlen($thematches[$i][0]);
-                        }
-                        if ($partpos < $matchpos + $matchlen) {
-                            $this->_renderer->acceptToken($class, substr($substr, $partpos, $matchlen - $partpos + $matchpos));
-                        }
-                    } else {
-                        while (true) {
-                            $newregion = null;
-                            if (isset($theregion['innerGroup'])) {
-                                $class = $theregion['innerGroup'];
-                            } else {
-                                $class = $defClass;
-                            }
-                            foreach ((array)$this->_syntax['keywords'] as $kwgroup) {
-                                if ($kwgroup['inherits'] == $theregion['name']) {
-                                    $csmatch = $kwgroup['case'] ? $thematch : strtolower($thematch);
-                                    if (isset($kwgroup['match'][$csmatch])) {
-                                        $class = $kwgroup['innerGroup'];
-                                        $newregion = null;
-                                        break;
-                                    }
-                                    if (isset($kwgroup['otherwise'])) {
-                                        $newregion = $this->_syntax['blocks'][$kwgroup['otherwise']];
-                                    }
-                                }
-                            }
-                            if ($newregion) {
-                                $theregion = $newregion;
-                                continue;
-                            }
-                            break;
-                        }
-                        $this->_renderer->acceptToken($class, $thematch);
-                    }
-                    $pos += $matchpos + $matchlen;
-                    break;
-
-                // found end of region
-                case 2:
-                    if ($matchpos) {
-                        $this->_renderer->acceptToken($current['innerGroup'], substr($substr, 0, $matchpos));
-                    }
-                    $pos += $matchpos + $matchlen;
-                    $this->_renderer->acceptToken($current['delimGroup'], $thematch);
-                    $current = array_pop($stack);
-                    if ($current) {
-                        $blocksToSeek = isset($current['lookfor']) ? 
-                            $current['lookfor'] :
-                            null;
-                    } else {
-                        $blocksToSeek = isset($this->_syntax['toplevel']) ? 
-                            $this->_syntax['toplevel'] :
-                            null;
-                         $defClass=$this->_syntax['defClass'];
-                    }
-                    break;
-                default:
-                    $this->_renderer->acceptToken($defClass, $substr);
-                    $pos = HL_INFINITY;
-            }
-            $this->_lastMatch = $thematch;
-
-        }
-        if ($pos<strlen($substr)) {
-            $this->_renderer->acceptToken($defClass, $substr);
+        $this->_renderer->setCurrentLanguage($this->_language);
+        $this->_str = $this->_renderer->preprocess($str);
+        $this->_len = strlen($this->_str);
+        while ($token = $this->_getToken()) {
+            $this->_renderer->acceptToken($token[0], $token[1]);
         }
         $this->_renderer->finalize();
         return $this->_renderer->getOutput();
     }
-
+    
     // }}}
     
 }

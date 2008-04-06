@@ -13,22 +13,22 @@
  *
  * @category   Text
  * @package    Text_Highlighter
- * @author     Andrey Demenev <demenev@on-line.jar.ru>
- * @copyright  2004 Andrey Demenev
+ * @author     Andrey Demenev <demenev@gmail.com>
+ * @copyright  2004-2006 Andrey Demenev
  * @license    http://www.php.net/license/3_0.txt  PHP License
- * @version    CVS: $Id: Renderer.php,v 1.2 2004/10/07 14:18:36 blindman Exp $
+ * @version    CVS: $Id: Renderer.php,v 1.1 2007/06/03 02:36:35 ssttoo Exp $
  * @link       http://pear.php.net/package/Text_Highlighter
  */
 
 /**
  * Abstract base class for Highlighter renderers
  *
- * @author Andrey Demenev <demenev@on-line.jar.ru>
+ * @author Andrey Demenev <demenev@gmail.com>
  * @category   Text
  * @package    Text_Highlighter
- * @copyright  2004 Andrey Demenev
+ * @copyright  2004-2006 Andrey Demenev
  * @license    http://www.php.net/license/3_0.txt  PHP License
- * @version    Release: @package_version@
+ * @version    Release: 0.7.1
  * @link       http://pear.php.net/package/Text_Highlighter
  * @abstract
  */
@@ -42,6 +42,14 @@ class Text_Highlighter_Renderer
      * @access protected
      */
     var $_options = array();
+
+    /**
+     * Current language
+     *
+     * @var string
+     * @access protected
+     */
+    var $_language = '';
 
     /**
      * Constructor
@@ -129,6 +137,20 @@ class Text_Highlighter_Renderer
     {
         return;
     }
+
+    /**
+     * Set current language
+     *
+     * @abstract
+     * @return void
+     * @access public
+     *
+     */
+    function setCurrentLanguage($lang)
+    {
+        $this->_language = $lang;
+    }
+
 }
 
 /*

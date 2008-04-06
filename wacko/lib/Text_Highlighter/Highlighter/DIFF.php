@@ -10,12 +10,13 @@
  * the PHP License and are unable to obtain it through the web, please
  * send a note to license@php.net so we can mail you a copy immediately.
  *
- * @copyright  2004 Andrey Demenev
+ * @copyright  2004-2006 Andrey Demenev
  * @license    http://www.php.net/license/3_0.txt  PHP License
  * @link       http://pear.php.net/package/Text_Highlighter
  * @category   Text
- * @package Text_Highlighter
- * @author Andrey Demenev <demenev@on-line.jar.ru>
+ * @package    Text_Highlighter
+ * @version    generated from: : diff.xml,v 1.1 2007/06/03 02:35:28 ssttoo Exp 
+ * @author Andrey Demenev <demenev@gmail.com>
  *
  */
 
@@ -23,19 +24,24 @@
  * @ignore
  */
 
+# require_once 'Text/Highlighter.php';
+
 /**
  * Auto-generated class. DIFF syntax highlighting
  *
- * @author Andrey Demenev <demenev@on-line.jar.ru>
+ * @author Andrey Demenev <demenev@gmail.com>
  * @category   Text
  * @package    Text_Highlighter
- * @copyright  2004 Andrey Demenev
+ * @copyright  2004-2006 Andrey Demenev
  * @license    http://www.php.net/license/3_0.txt  PHP License
- * @version    Release: @package_version@
+ * @version    Release: 0.7.1
  * @link       http://pear.php.net/package/Text_Highlighter
  */
 class  Text_Highlighter_DIFF extends Text_Highlighter
-{    /**
+{
+    var $_language = 'diff';
+
+    /**
      * PHP4 Compatible Constructor
      *
      * @param array  $options
@@ -46,6 +52,7 @@ class  Text_Highlighter_DIFF extends Text_Highlighter
         $this->__construct($options);
     }
 
+
     /**
      *  Constructor
      *
@@ -54,263 +61,324 @@ class  Text_Highlighter_DIFF extends Text_Highlighter
      */
     function __construct($options=array())
     {
-        $this->_syntax = array (
-            'keywords' => 
-            array (
-            ),
-            'blocks' => 
-            array (
-                'noNewLine' => 
-                array (
-                    'name' => 'noNewLine',
-                    'case' => true,
-                    'innerGroup' => 'special',
-                    'match' => '/^\\\\\\sNo\\snewline.+$/m',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 0,
-                ),
-                'diffSeparator' => 
-                array (
-                    'name' => 'diffSeparator',
-                    'case' => true,
-                    'innerGroup' => 'code',
-                    'match' => '/^\\-\\-\\-$/m',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 1,
-                ),
-                'diffCmdLine' => 
-                array (
-                    'name' => 'diffCmdLine',
-                    'case' => true,
-                    'innerGroup' => 'var',
-                    'match' => '/^(diff\\s+\\-|Only\\s+|Index).*$/m',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 2,
-                ),
-                'diffFiles' => 
-                array (
-                    'name' => 'diffFiles',
-                    'case' => true,
-                    'innerGroup' => 'reserved',
-                    'match' => '/^(\\-\\-\\-|\\+\\+\\+)\\s.+$/m',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 3,
-                ),
-                'contextOrg' => 
-                array (
-                    'name' => 'contextOrg',
-                    'case' => true,
-                    'innerGroup' => 'quotes',
-                    'match' => '/^\\*.*$/m',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 4,
-                ),
-                'contextNew' => 
-                array (
-                    'name' => 'contextNew',
-                    'case' => true,
-                    'innerGroup' => 'string',
-                    'match' => '/^\\+.*$/m',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 5,
-                ),
-                'contextChg' => 
-                array (
-                    'name' => 'contextChg',
-                    'case' => true,
-                    'innerGroup' => 'inlinedoc',
-                    'match' => '/^!.*$/m',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 6,
-                ),
-                'defOrg' => 
-                array (
-                    'name' => 'defOrg',
-                    'case' => true,
-                    'innerGroup' => 'quotes',
-                    'match' => '/^\\<\\s.*$/m',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 7,
-                ),
-                'defNew' => 
-                array (
-                    'name' => 'defNew',
-                    'case' => true,
-                    'innerGroup' => 'string',
-                    'match' => '/^\\>\\s.*$/m',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 8,
-                ),
-                'defChg' => 
-                array (
-                    'name' => 'defChg',
-                    'case' => true,
-                    'innerGroup' => 'code',
-                    'match' => '/^\\d+(\\,\\d+)?[acd]\\d+(,\\d+)?$/m',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 9,
-                ),
-                'uniOrg' => 
-                array (
-                    'name' => 'uniOrg',
-                    'case' => true,
-                    'innerGroup' => 'quotes',
-                    'match' => '/^\\-.*$/m',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 10,
-                ),
-                'uniNew' => 
-                array (
-                    'name' => 'uniNew',
-                    'case' => true,
-                    'innerGroup' => 'string',
-                    'match' => '/^\\+.*$/m',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 11,
-                ),
-                'uniChg' => 
-                array (
-                    'name' => 'uniChg',
-                    'case' => true,
-                    'innerGroup' => 'code',
-                    'match' => '/^@@.+@@$/m',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 12,
-                ),
-                'normOrg' => 
-                array (
-                    'name' => 'normOrg',
-                    'case' => true,
-                    'innerGroup' => 'code',
-                    'match' => '/^d\\d+\\s\\d+$/m',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 13,
-                ),
-                'normNew' => 
-                array (
-                    'name' => 'normNew',
-                    'case' => true,
-                    'innerGroup' => 'var',
-                    'delimGroup' => 'code',
-                    'start' => '/^a\\d+\\s\\d+$/m',
-                    'end' => '/(?=^[ad]\\d+\\s\\d+)/m',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 14,
-                ),
-                'edNew' => 
-                array (
-                    'name' => 'edNew',
-                    'case' => true,
-                    'innerGroup' => 'string',
-                    'delimGroup' => 'code',
-                    'start' => '/^(\\d+)(,\\d+)?(a)$/m',
-                    'end' => '/^(\\.)$/m',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 15,
-                ),
-                'edChg' => 
-                array (
-                    'name' => 'edChg',
-                    'case' => true,
-                    'innerGroup' => 'inlinedoc',
-                    'delimGroup' => 'code',
-                    'start' => '/^(\\d+)(,\\d+)?(c)$/m',
-                    'end' => '/^(\\.)$/m',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 16,
-                ),
-                'edDel' => 
-                array (
-                    'name' => 'edDel',
-                    'case' => true,
-                    'innerGroup' => 'code',
-                    'match' => '/^(\\d+)(,\\d+)?(d)$/m',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 17,
-                ),
-                'fedNew' => 
-                array (
-                    'name' => 'fedNew',
-                    'case' => true,
-                    'innerGroup' => 'string',
-                    'delimGroup' => 'code',
-                    'start' => '/^a(\\d+)(\\s\\d+)?$/m',
-                    'end' => '/^(\\.)$/m',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 18,
-                ),
-                'fedChg' => 
-                array (
-                    'name' => 'fedChg',
-                    'case' => true,
-                    'innerGroup' => 'inlinedoc',
-                    'delimGroup' => 'code',
-                    'start' => '/^c(\\d+)(\\s\\d+)?$/m',
-                    'end' => '/^(\\.)$/m',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 19,
-                ),
-                'fedDel' => 
-                array (
-                    'name' => 'fedDel',
-                    'case' => true,
-                    'innerGroup' => 'code',
-                    'match' => '/^d(\\d+)(\\s\\d+)?$/m',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 20,
-                ),
-            ),
-            'toplevel' => 
-            array (
-                0 => 'noNewLine',
-                1 => 'diffSeparator',
-                2 => 'diffCmdLine',
-                3 => 'diffFiles',
-                4 => 'contextOrg',
-                5 => 'contextNew',
-                6 => 'contextChg',
-                7 => 'defOrg',
-                8 => 'defNew',
-                9 => 'defChg',
-                10 => 'uniOrg',
-                11 => 'uniNew',
-                12 => 'uniChg',
-                13 => 'normOrg',
-                14 => 'normNew',
-                15 => 'edNew',
-                16 => 'edChg',
-                17 => 'edDel',
-                18 => 'fedNew',
-                19 => 'fedChg',
-                20 => 'fedDel',
-            ),
-            'case' => true,
-            'defClass' => 'default',
-        );
 
         $this->_options = $options;
+        $this->_regs = array (
+            -1 => '/((?m)^\\\\\\sNo\\snewline.+$)|((?m)^\\-\\-\\-$)|((?m)^(diff\\s+\\-|Only\\s+|Index).*$)|((?m)^(\\-\\-\\-|\\+\\+\\+)\\s.+$)|((?m)^\\*.*$)|((?m)^\\+.*$)|((?m)^!.*$)|((?m)^\\<\\s.*$)|((?m)^\\>\\s.*$)|((?m)^\\d+(\\,\\d+)?[acd]\\d+(,\\d+)?$)|((?m)^\\-.*$)|((?m)^\\+.*$)|((?m)^@@.+@@$)|((?m)^d\\d+\\s\\d+$)|((?m)^a\\d+\\s\\d+$)|((?m)^(\\d+)(,\\d+)?(a)$)|((?m)^(\\d+)(,\\d+)?(c)$)|((?m)^(\\d+)(,\\d+)?(d)$)|((?m)^a(\\d+)(\\s\\d+)?$)|((?m)^c(\\d+)(\\s\\d+)?$)|((?m)^d(\\d+)(\\s\\d+)?$)/',
+            0 => '//',
+            1 => '//',
+            2 => '//',
+            3 => '//',
+            4 => '//',
+        );
+        $this->_counts = array (
+            -1 => 
+            array (
+                0 => 0,
+                1 => 0,
+                2 => 1,
+                3 => 1,
+                4 => 0,
+                5 => 0,
+                6 => 0,
+                7 => 0,
+                8 => 0,
+                9 => 2,
+                10 => 0,
+                11 => 0,
+                12 => 0,
+                13 => 0,
+                14 => 0,
+                15 => 3,
+                16 => 3,
+                17 => 3,
+                18 => 2,
+                19 => 2,
+                20 => 2,
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+            ),
+            2 => 
+            array (
+            ),
+            3 => 
+            array (
+            ),
+            4 => 
+            array (
+            ),
+        );
+        $this->_delim = array (
+            -1 => 
+            array (
+                0 => '',
+                1 => '',
+                2 => '',
+                3 => '',
+                4 => '',
+                5 => '',
+                6 => '',
+                7 => '',
+                8 => '',
+                9 => '',
+                10 => '',
+                11 => '',
+                12 => '',
+                13 => '',
+                14 => 'code',
+                15 => 'code',
+                16 => 'code',
+                17 => '',
+                18 => 'code',
+                19 => 'code',
+                20 => '',
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+            ),
+            2 => 
+            array (
+            ),
+            3 => 
+            array (
+            ),
+            4 => 
+            array (
+            ),
+        );
+        $this->_inner = array (
+            -1 => 
+            array (
+                0 => 'special',
+                1 => 'code',
+                2 => 'var',
+                3 => 'reserved',
+                4 => 'quotes',
+                5 => 'string',
+                6 => 'inlinedoc',
+                7 => 'quotes',
+                8 => 'string',
+                9 => 'code',
+                10 => 'quotes',
+                11 => 'string',
+                12 => 'code',
+                13 => 'code',
+                14 => 'var',
+                15 => 'string',
+                16 => 'inlinedoc',
+                17 => 'code',
+                18 => 'string',
+                19 => 'inlinedoc',
+                20 => 'code',
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+            ),
+            2 => 
+            array (
+            ),
+            3 => 
+            array (
+            ),
+            4 => 
+            array (
+            ),
+        );
+        $this->_end = array (
+            0 => '/(?m)(?=^[ad]\\d+\\s\\d+)/',
+            1 => '/(?m)^(\\.)$/',
+            2 => '/(?m)^(\\.)$/',
+            3 => '/(?m)^(\\.)$/',
+            4 => '/(?m)^(\\.)$/',
+        );
+        $this->_states = array (
+            -1 => 
+            array (
+                0 => -1,
+                1 => -1,
+                2 => -1,
+                3 => -1,
+                4 => -1,
+                5 => -1,
+                6 => -1,
+                7 => -1,
+                8 => -1,
+                9 => -1,
+                10 => -1,
+                11 => -1,
+                12 => -1,
+                13 => -1,
+                14 => 0,
+                15 => 1,
+                16 => 2,
+                17 => -1,
+                18 => 3,
+                19 => 4,
+                20 => -1,
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+            ),
+            2 => 
+            array (
+            ),
+            3 => 
+            array (
+            ),
+            4 => 
+            array (
+            ),
+        );
+        $this->_keywords = array (
+            -1 => 
+            array (
+                0 => 
+                array (
+                ),
+                1 => 
+                array (
+                ),
+                2 => 
+                array (
+                ),
+                3 => 
+                array (
+                ),
+                4 => 
+                array (
+                ),
+                5 => 
+                array (
+                ),
+                6 => 
+                array (
+                ),
+                7 => 
+                array (
+                ),
+                8 => 
+                array (
+                ),
+                9 => 
+                array (
+                ),
+                10 => 
+                array (
+                ),
+                11 => 
+                array (
+                ),
+                12 => 
+                array (
+                ),
+                13 => 
+                array (
+                ),
+                14 => -1,
+                15 => -1,
+                16 => -1,
+                17 => 
+                array (
+                ),
+                18 => -1,
+                19 => -1,
+                20 => 
+                array (
+                ),
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+            ),
+            2 => 
+            array (
+            ),
+            3 => 
+            array (
+            ),
+            4 => 
+            array (
+            ),
+        );
+        $this->_parts = array (
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+            ),
+            2 => 
+            array (
+            ),
+            3 => 
+            array (
+            ),
+            4 => 
+            array (
+            ),
+        );
+        $this->_subst = array (
+            -1 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+                3 => false,
+                4 => false,
+                5 => false,
+                6 => false,
+                7 => false,
+                8 => false,
+                9 => false,
+                10 => false,
+                11 => false,
+                12 => false,
+                13 => false,
+                14 => false,
+                15 => false,
+                16 => false,
+                17 => false,
+                18 => false,
+                19 => false,
+                20 => false,
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+            ),
+            2 => 
+            array (
+            ),
+            3 => 
+            array (
+            ),
+            4 => 
+            array (
+            ),
+        );
+        $this->_conditions = array (
+        );
+        $this->_kwmap = array (
+        );
+        $this->_defClass = 'default';
+        $this->_checkDefines();
     }
+    
 }
-
-?>

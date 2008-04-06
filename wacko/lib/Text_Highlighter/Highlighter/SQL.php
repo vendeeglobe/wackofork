@@ -12,12 +12,13 @@
  * the PHP License and are unable to obtain it through the web, please
  * send a note to license@php.net so we can mail you a copy immediately.
  *
- * @copyright  2004 Andrey Demenev
+ * @copyright  2004-2006 Andrey Demenev
  * @license    http://www.php.net/license/3_0.txt  PHP License
  * @link       http://pear.php.net/package/Text_Highlighter
  * @category   Text
  * @package    Text_Highlighter
- * @author Andrey Demenev <demenev@on-line.jar.ru>
+ * @version    generated from: : sql.xml,v 1.1 2007/06/03 02:35:28 ssttoo Exp 
+ * @author Andrey Demenev <demenev@gmail.com>
  *
  */
 
@@ -25,19 +26,24 @@
  * @ignore
  */
 
+# require_once 'Text/Highlighter.php';
+
 /**
  * Auto-generated class. SQL syntax highlighting
  *
- * @author Andrey Demenev <demenev@on-line.jar.ru>
+ * @author Andrey Demenev <demenev@gmail.com>
  * @category   Text
  * @package    Text_Highlighter
- * @copyright  2004 Andrey Demenev
+ * @copyright  2004-2006 Andrey Demenev
  * @license    http://www.php.net/license/3_0.txt  PHP License
- * @version    Release: @package_version@
+ * @version    Release: 0.7.1
  * @link       http://pear.php.net/package/Text_Highlighter
  */
 class  Text_Highlighter_SQL extends Text_Highlighter
-{    /**
+{
+    var $_language = 'sql';
+
+    /**
      * PHP4 Compatible Constructor
      *
      * @param array  $options
@@ -48,6 +54,7 @@ class  Text_Highlighter_SQL extends Text_Highlighter
         $this->__construct($options);
     }
 
+
     /**
      *  Constructor
      *
@@ -56,644 +63,357 @@ class  Text_Highlighter_SQL extends Text_Highlighter
      */
     function __construct($options=array())
     {
-        $this->_syntax = array (
-            'keywords' => 
-            array (
-                'reserved' => 
-                array (
-                    'name' => 'reserved',
-                    'innerGroup' => 'reserved',
-                    'case' => false,
-                    'inherits' => 'identifier',
-                    'match' => 
-                    array (
-                        'absolute' => true,
-                        'action' => true,
-                        'add' => true,
-                        'admin' => true,
-                        'after' => true,
-                        'aggregate' => true,
-                        'alias' => true,
-                        'all' => true,
-                        'allocate' => true,
-                        'alter' => true,
-                        'and' => true,
-                        'any' => true,
-                        'are' => true,
-                        'array' => true,
-                        'as' => true,
-                        'asc' => true,
-                        'assertion' => true,
-                        'at' => true,
-                        'authorization' => true,
-                        'before' => true,
-                        'begin' => true,
-                        'binary' => true,
-                        'bit' => true,
-                        'blob' => true,
-                        'boolean' => true,
-                        'both' => true,
-                        'breadth' => true,
-                        'by' => true,
-                        'call' => true,
-                        'cascade' => true,
-                        'cascaded' => true,
-                        'case' => true,
-                        'cast' => true,
-                        'catalog' => true,
-                        'char' => true,
-                        'character' => true,
-                        'check' => true,
-                        'class' => true,
-                        'clob' => true,
-                        'close' => true,
-                        'collate' => true,
-                        'collation' => true,
-                        'column' => true,
-                        'commit' => true,
-                        'completion' => true,
-                        'connect' => true,
-                        'connection' => true,
-                        'constraint' => true,
-                        'constraints' => true,
-                        'constructor' => true,
-                        'continue' => true,
-                        'corresponding' => true,
-                        'create' => true,
-                        'cross' => true,
-                        'cube' => true,
-                        'current' => true,
-                        'current_date' => true,
-                        'current_path' => true,
-                        'current_role' => true,
-                        'current_time' => true,
-                        'current_timestamp' => true,
-                        'current_user' => true,
-                        'cursor' => true,
-                        'cycle' => true,
-                        'data' => true,
-                        'date' => true,
-                        'day' => true,
-                        'deallocate' => true,
-                        'dec' => true,
-                        'decimal' => true,
-                        'declare' => true,
-                        'default' => true,
-                        'deferrable' => true,
-                        'deferred' => true,
-                        'delete' => true,
-                        'depth' => true,
-                        'deref' => true,
-                        'desc' => true,
-                        'describe' => true,
-                        'descriptor' => true,
-                        'destroy' => true,
-                        'destructor' => true,
-                        'deterministic' => true,
-                        'diagnostics' => true,
-                        'dictionary' => true,
-                        'disconnect' => true,
-                        'distinct' => true,
-                        'domain' => true,
-                        'double' => true,
-                        'drop' => true,
-                        'dynamic' => true,
-                        'each' => true,
-                        'else' => true,
-                        'end' => true,
-                        'end-exec' => true,
-                        'equals' => true,
-                        'escape' => true,
-                        'every' => true,
-                        'except' => true,
-                        'exception' => true,
-                        'exec' => true,
-                        'execute' => true,
-                        'external' => true,
-                        'false' => true,
-                        'fetch' => true,
-                        'first' => true,
-                        'float' => true,
-                        'for' => true,
-                        'foreign' => true,
-                        'found' => true,
-                        'free' => true,
-                        'from' => true,
-                        'full' => true,
-                        'function' => true,
-                        'general' => true,
-                        'get' => true,
-                        'global' => true,
-                        'go' => true,
-                        'goto' => true,
-                        'grant' => true,
-                        'group' => true,
-                        'grouping' => true,
-                        'having' => true,
-                        'host' => true,
-                        'hour' => true,
-                        'identity' => true,
-                        'ignore' => true,
-                        'immediate' => true,
-                        'in' => true,
-                        'indicator' => true,
-                        'initialize' => true,
-                        'initially' => true,
-                        'inner' => true,
-                        'inout' => true,
-                        'input' => true,
-                        'insert' => true,
-                        'int' => true,
-                        'integer' => true,
-                        'intersect' => true,
-                        'interval' => true,
-                        'into' => true,
-                        'is' => true,
-                        'isolation' => true,
-                        'iterate' => true,
-                        'join' => true,
-                        'key' => true,
-                        'language' => true,
-                        'large' => true,
-                        'last' => true,
-                        'lateral' => true,
-                        'leading' => true,
-                        'left' => true,
-                        'less' => true,
-                        'level' => true,
-                        'like' => true,
-                        'limit' => true,
-                        'local' => true,
-                        'localtime' => true,
-                        'localtimestamp' => true,
-                        'locator' => true,
-                        'map' => true,
-                        'match' => true,
-                        'minute' => true,
-                        'modifies' => true,
-                        'modify' => true,
-                        'module' => true,
-                        'month' => true,
-                        'names' => true,
-                        'national' => true,
-                        'natural' => true,
-                        'nchar' => true,
-                        'nclob' => true,
-                        'new' => true,
-                        'next' => true,
-                        'no' => true,
-                        'none' => true,
-                        'not' => true,
-                        'null' => true,
-                        'numeric' => true,
-                        'object' => true,
-                        'of' => true,
-                        'off' => true,
-                        'old' => true,
-                        'on' => true,
-                        'only' => true,
-                        'open' => true,
-                        'operation' => true,
-                        'option' => true,
-                        'or' => true,
-                        'order' => true,
-                        'ordinality' => true,
-                        'out' => true,
-                        'outer' => true,
-                        'output' => true,
-                        'pad' => true,
-                        'parameter' => true,
-                        'parameters' => true,
-                        'partial' => true,
-                        'path' => true,
-                        'postfix' => true,
-                        'precision' => true,
-                        'prefix' => true,
-                        'preorder' => true,
-                        'prepare' => true,
-                        'preserve' => true,
-                        'primary' => true,
-                        'prior' => true,
-                        'privileges' => true,
-                        'procedure' => true,
-                        'public' => true,
-                        'read' => true,
-                        'reads' => true,
-                        'real' => true,
-                        'recursive' => true,
-                        'ref' => true,
-                        'references' => true,
-                        'referencing' => true,
-                        'relative' => true,
-                        'restrict' => true,
-                        'result' => true,
-                        'return' => true,
-                        'returns' => true,
-                        'revoke' => true,
-                        'right' => true,
-                        'role' => true,
-                        'rollback' => true,
-                        'rollup' => true,
-                        'routine' => true,
-                        'row' => true,
-                        'rows' => true,
-                        'savepoint' => true,
-                        'schema' => true,
-                        'scope' => true,
-                        'scroll' => true,
-                        'search' => true,
-                        'second' => true,
-                        'section' => true,
-                        'select' => true,
-                        'sequence' => true,
-                        'session' => true,
-                        'session_user' => true,
-                        'set' => true,
-                        'sets' => true,
-                        'size' => true,
-                        'smallint' => true,
-                        'some' => true,
-                        'space' => true,
-                        'specific' => true,
-                        'specifictype' => true,
-                        'sql' => true,
-                        'sqlexception' => true,
-                        'sqlstate' => true,
-                        'sqlwarning' => true,
-                        'start' => true,
-                        'state' => true,
-                        'statement' => true,
-                        'static' => true,
-                        'structure' => true,
-                        'system_user' => true,
-                        'table' => true,
-                        'temporary' => true,
-                        'terminate' => true,
-                        'than' => true,
-                        'then' => true,
-                        'time' => true,
-                        'timestamp' => true,
-                        'timezone_hour' => true,
-                        'timezone_minute' => true,
-                        'to' => true,
-                        'trailing' => true,
-                        'transaction' => true,
-                        'translation' => true,
-                        'treat' => true,
-                        'trigger' => true,
-                        'true' => true,
-                        'under' => true,
-                        'union' => true,
-                        'unique' => true,
-                        'unknown' => true,
-                        'unnest' => true,
-                        'update' => true,
-                        'usage' => true,
-                        'user' => true,
-                        'using' => true,
-                        'value' => true,
-                        'values' => true,
-                        'varchar' => true,
-                        'variable' => true,
-                        'varying' => true,
-                        'view' => true,
-                        'when' => true,
-                        'whenever' => true,
-                        'where' => true,
-                        'with' => true,
-                        'without' => true,
-                        'work' => true,
-                        'write' => true,
-                        'year' => true,
-                        'zone' => true,
-                    ),
-                ),
-                'keyword' => 
-                array (
-                    'name' => 'keyword',
-                    'innerGroup' => 'var',
-                    'case' => false,
-                    'inherits' => 'identifier',
-                    'match' => 
-                    array (
-                        'abs' => true,
-                        'ada' => true,
-                        'asensitive' => true,
-                        'assignment' => true,
-                        'asymmetric' => true,
-                        'atomic' => true,
-                        'avg' => true,
-                        'between' => true,
-                        'bitvar' => true,
-                        'bit_length' => true,
-                        'c' => true,
-                        'called' => true,
-                        'cardinality' => true,
-                        'catalog_name' => true,
-                        'chain' => true,
-                        'character_length' => true,
-                        'character_set_catalog' => true,
-                        'character_set_name' => true,
-                        'character_set_schema' => true,
-                        'char_length' => true,
-                        'checked' => true,
-                        'class_origin' => true,
-                        'coalesce' => true,
-                        'cobol' => true,
-                        'collation_catalog' => true,
-                        'collation_name' => true,
-                        'collation_schema' => true,
-                        'column_name' => true,
-                        'command_function' => true,
-                        'command_function_code' => true,
-                        'committed' => true,
-                        'condition_number' => true,
-                        'connection_name' => true,
-                        'constraint_catalog' => true,
-                        'constraint_name' => true,
-                        'constraint_schema' => true,
-                        'contains' => true,
-                        'convert' => true,
-                        'count' => true,
-                        'cursor_name' => true,
-                        'datetime_interval_code' => true,
-                        'datetime_interval_precision' => true,
-                        'defined' => true,
-                        'definer' => true,
-                        'dispatch' => true,
-                        'dynamic_function' => true,
-                        'dynamic_function_code' => true,
-                        'existing' => true,
-                        'exists' => true,
-                        'extract' => true,
-                        'final' => true,
-                        'fortran' => true,
-                        'g' => true,
-                        'generated' => true,
-                        'granted' => true,
-                        'hierarchy' => true,
-                        'hold' => true,
-                        'implementation' => true,
-                        'infix' => true,
-                        'insensitive' => true,
-                        'instance' => true,
-                        'instantiable' => true,
-                        'invoker' => true,
-                        'k' => true,
-                        'key_member' => true,
-                        'key_type' => true,
-                        'length' => true,
-                        'lower' => true,
-                        'm' => true,
-                        'max' => true,
-                        'message_length' => true,
-                        'message_octet_length' => true,
-                        'message_text' => true,
-                        'method' => true,
-                        'min' => true,
-                        'mod' => true,
-                        'more' => true,
-                        'mumps' => true,
-                        'name' => true,
-                        'nullable' => true,
-                        'nullif' => true,
-                        'number' => true,
-                        'octet_length' => true,
-                        'options' => true,
-                        'overlaps' => true,
-                        'overlay' => true,
-                        'overriding' => true,
-                        'parameter_mode' => true,
-                        'parameter_name' => true,
-                        'parameter_ordinal_position' => true,
-                        'parameter_specific_catalog' => true,
-                        'parameter_specific_name' => true,
-                        'parameter_specific_schema' => true,
-                        'pascal' => true,
-                        'pli' => true,
-                        'position' => true,
-                        'repeatable' => true,
-                        'returned_length' => true,
-                        'returned_octet_length' => true,
-                        'returned_sqlstate' => true,
-                        'routine_catalog' => true,
-                        'routine_name' => true,
-                        'routine_schema' => true,
-                        'row_count' => true,
-                        'scale' => true,
-                        'schema_name' => true,
-                        'security' => true,
-                        'self' => true,
-                        'sensitive' => true,
-                        'serializable' => true,
-                        'server_name' => true,
-                        'similar' => true,
-                        'simple' => true,
-                        'source' => true,
-                        'specific_name' => true,
-                        'style' => true,
-                        'subclass_origin' => true,
-                        'sublist' => true,
-                        'substring' => true,
-                        'sum' => true,
-                        'symmetric' => true,
-                        'system' => true,
-                        'table_name' => true,
-                        'transactions_committed' => true,
-                        'transactions_rolled_back' => true,
-                        'transaction_active' => true,
-                        'transform' => true,
-                        'transforms' => true,
-                        'translate' => true,
-                        'trigger_catalog' => true,
-                        'trigger_name' => true,
-                        'trigger_schema' => true,
-                        'trim' => true,
-                        'type' => true,
-                        'uncommitted' => true,
-                        'unnamed' => true,
-                        'upper' => true,
-                        'user_defined_type_catalog' => true,
-                        'user_defined_type_name' => true,
-                        'user_defined_type_schema' => true,
-                    ),
-                ),
-            ),
-            'blocks' => 
-            array (
-                'qidentifier' => 
-                array (
-                    'name' => 'qidentifier',
-                    'case' => false,
-                    'innerGroup' => 'identifier',
-                    'delimGroup' => 'quotes',
-                    'start' => '/`/i',
-                    'end' => '/`/i',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 0,
-                ),
-                'mlcomment' => 
-                array (
-                    'name' => 'mlcomment',
-                    'case' => false,
-                    'innerGroup' => 'comment',
-                    'delimGroup' => 'comment',
-                    'start' => '/\\/\\*/i',
-                    'end' => '/\\*\\//i',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 1,
-                ),
-                'comment' => 
-                array (
-                    'name' => 'comment',
-                    'case' => false,
-                    'innerGroup' => 'comment',
-                    'match' => '/(#|--\\s).*/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 2,
-                ),
-                'identifier' => 
-                array (
-                    'name' => 'identifier',
-                    'case' => false,
-                    'innerGroup' => 'identifier',
-                    'match' => '/[a-z_]\\w*/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 3,
-                ),
-                'strdouble' => 
-                array (
-                    'name' => 'strdouble',
-                    'case' => false,
-                    'innerGroup' => 'string',
-                    'delimGroup' => 'quotes',
-                    'start' => '/"/i',
-                    'end' => '/"/i',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 4,
-                    'lookfor' => 
-                    array (
-                        0 => 'escaped',
-                    ),
-                ),
-                'brackets' => 
-                array (
-                    'name' => 'brackets',
-                    'case' => false,
-                    'innerGroup' => 'code',
-                    'delimGroup' => 'brackets',
-                    'start' => '/\\(/i',
-                    'end' => '/\\)/i',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 5,
-                    'lookfor' => 
-                    array (
-                        0 => 'qidentifier',
-                        1 => 'mlcomment',
-                        2 => 'comment',
-                        3 => 'identifier',
-                        4 => 'strdouble',
-                        5 => 'brackets',
-                        6 => 'strsingle',
-                        7 => 'exponent',
-                        8 => 'float',
-                        9 => 'integer',
-                        10 => 'hexinteger',
-                    ),
-                ),
-                'strsingle' => 
-                array (
-                    'name' => 'strsingle',
-                    'case' => false,
-                    'innerGroup' => 'string',
-                    'delimGroup' => 'quotes',
-                    'start' => '/\'/i',
-                    'end' => '/\'/i',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 6,
-                    'lookfor' => 
-                    array (
-                        0 => 'escaped',
-                    ),
-                ),
-                'escaped' => 
-                array (
-                    'name' => 'escaped',
-                    'case' => false,
-                    'innerGroup' => 'special',
-                    'match' => '/\\\\./i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 7,
-                ),
-                'exponent' => 
-                array (
-                    'name' => 'exponent',
-                    'case' => false,
-                    'innerGroup' => 'number',
-                    'match' => '/((\\d+|((\\d*\\.\\d+)|(\\d+\\.\\d*)))[eE][+-]?\\d+)/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 8,
-                ),
-                'float' => 
-                array (
-                    'name' => 'float',
-                    'case' => false,
-                    'innerGroup' => 'number',
-                    'match' => '/(\\d*\\.\\d+)|(\\d+\\.\\d*)/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 9,
-                ),
-                'integer' => 
-                array (
-                    'name' => 'integer',
-                    'case' => false,
-                    'innerGroup' => 'number',
-                    'match' => '/\\d+l?|\\b0l?\\b/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 10,
-                ),
-                'hexinteger' => 
-                array (
-                    'name' => 'hexinteger',
-                    'case' => false,
-                    'innerGroup' => 'number',
-                    'match' => '/0[xX][\\da-f]+l?/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 11,
-                ),
-            ),
-            'toplevel' => 
-            array (
-                0 => 'qidentifier',
-                1 => 'mlcomment',
-                2 => 'comment',
-                3 => 'identifier',
-                4 => 'strdouble',
-                5 => 'brackets',
-                6 => 'strsingle',
-                7 => 'exponent',
-                8 => 'float',
-                9 => 'integer',
-                10 => 'hexinteger',
-            ),
-            'case' => false,
-            'defClass' => 'code',
-        );
 
         $this->_options = $options;
+        $this->_regs = array (
+            -1 => '/((?i)`)|((?i)\\/\\*)|((?i)(#|--\\s).*)|((?i)[a-z_]\\w*)|((?i)")|((?i)\\()|((?i)\')|((?i)((\\d+|((\\d*\\.\\d+)|(\\d+\\.\\d*)))[eE][+-]?\\d+))|((?i)(\\d*\\.\\d+)|(\\d+\\.\\d*))|((?i)\\d+l?|\\b0l?\\b)|((?i)0[xX][\\da-f]+l?)/',
+            0 => '//',
+            1 => '//',
+            2 => '/((?i)\\\\.)/',
+            3 => '/((?i)`)|((?i)\\/\\*)|((?i)(#|--\\s).*)|((?i)[a-z_]\\w*)|((?i)")|((?i)\\()|((?i)\')|((?i)((\\d+|((\\d*\\.\\d+)|(\\d+\\.\\d*)))[eE][+-]?\\d+))|((?i)(\\d*\\.\\d+)|(\\d+\\.\\d*))|((?i)\\d+l?|\\b0l?\\b)|((?i)0[xX][\\da-f]+l?)/',
+            4 => '/((?i)\\\\.)/',
+        );
+        $this->_counts = array (
+            -1 => 
+            array (
+                0 => 0,
+                1 => 0,
+                2 => 1,
+                3 => 0,
+                4 => 0,
+                5 => 0,
+                6 => 0,
+                7 => 5,
+                8 => 2,
+                9 => 0,
+                10 => 0,
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+            ),
+            2 => 
+            array (
+                0 => 0,
+            ),
+            3 => 
+            array (
+                0 => 0,
+                1 => 0,
+                2 => 1,
+                3 => 0,
+                4 => 0,
+                5 => 0,
+                6 => 0,
+                7 => 5,
+                8 => 2,
+                9 => 0,
+                10 => 0,
+            ),
+            4 => 
+            array (
+                0 => 0,
+            ),
+        );
+        $this->_delim = array (
+            -1 => 
+            array (
+                0 => 'quotes',
+                1 => 'comment',
+                2 => '',
+                3 => '',
+                4 => 'quotes',
+                5 => 'brackets',
+                6 => 'quotes',
+                7 => '',
+                8 => '',
+                9 => '',
+                10 => '',
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+            ),
+            2 => 
+            array (
+                0 => '',
+            ),
+            3 => 
+            array (
+                0 => 'quotes',
+                1 => 'comment',
+                2 => '',
+                3 => '',
+                4 => 'quotes',
+                5 => 'brackets',
+                6 => 'quotes',
+                7 => '',
+                8 => '',
+                9 => '',
+                10 => '',
+            ),
+            4 => 
+            array (
+                0 => '',
+            ),
+        );
+        $this->_inner = array (
+            -1 => 
+            array (
+                0 => 'identifier',
+                1 => 'comment',
+                2 => 'comment',
+                3 => 'identifier',
+                4 => 'string',
+                5 => 'code',
+                6 => 'string',
+                7 => 'number',
+                8 => 'number',
+                9 => 'number',
+                10 => 'number',
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+            ),
+            2 => 
+            array (
+                0 => 'special',
+            ),
+            3 => 
+            array (
+                0 => 'identifier',
+                1 => 'comment',
+                2 => 'comment',
+                3 => 'identifier',
+                4 => 'string',
+                5 => 'code',
+                6 => 'string',
+                7 => 'number',
+                8 => 'number',
+                9 => 'number',
+                10 => 'number',
+            ),
+            4 => 
+            array (
+                0 => 'special',
+            ),
+        );
+        $this->_end = array (
+            0 => '/(?i)`/',
+            1 => '/(?i)\\*\\//',
+            2 => '/(?i)"/',
+            3 => '/(?i)\\)/',
+            4 => '/(?i)\'/',
+        );
+        $this->_states = array (
+            -1 => 
+            array (
+                0 => 0,
+                1 => 1,
+                2 => -1,
+                3 => -1,
+                4 => 2,
+                5 => 3,
+                6 => 4,
+                7 => -1,
+                8 => -1,
+                9 => -1,
+                10 => -1,
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+            ),
+            2 => 
+            array (
+                0 => -1,
+            ),
+            3 => 
+            array (
+                0 => 0,
+                1 => 1,
+                2 => -1,
+                3 => -1,
+                4 => 2,
+                5 => 3,
+                6 => 4,
+                7 => -1,
+                8 => -1,
+                9 => -1,
+                10 => -1,
+            ),
+            4 => 
+            array (
+                0 => -1,
+            ),
+        );
+        $this->_keywords = array (
+            -1 => 
+            array (
+                0 => -1,
+                1 => -1,
+                2 => 
+                array (
+                ),
+                3 => 
+                array (
+                    'reserved' => '/^((?i)absolute|action|add|admin|after|aggregate|alias|all|allocate|alter|and|any|are|array|as|asc|assertion|at|authorization|before|begin|binary|bit|blob|boolean|both|breadth|by|call|cascade|cascaded|case|cast|catalog|char|character|check|class|clob|close|collate|collation|column|commit|completion|connect|connection|constraint|constraints|constructor|continue|corresponding|create|cross|cube|current|current_date|current_path|current_role|current_time|current_timestamp|current_user|cursor|cycle|data|date|day|deallocate|dec|decimal|declare|default|deferrable|deferred|delete|depth|deref|desc|describe|descriptor|destroy|destructor|deterministic|diagnostics|dictionary|disconnect|distinct|domain|double|drop|dynamic|each|else|end|end-exec|equals|escape|every|except|exception|exec|execute|external|false|fetch|first|float|for|foreign|found|free|from|full|function|general|get|global|go|goto|grant|group|grouping|having|host|hour|identity|ignore|immediate|in|indicator|initialize|initially|inner|inout|input|insert|int|integer|intersect|interval|into|is|isolation|iterate|join|key|language|large|last|lateral|leading|left|less|level|like|limit|local|localtime|localtimestamp|locator|map|match|minute|modifies|modify|module|month|names|national|natural|nchar|nclob|new|next|no|none|not|null|numeric|object|of|off|old|on|only|open|operation|option|or|order|ordinality|out|outer|output|pad|parameter|parameters|partial|path|postfix|precision|prefix|preorder|prepare|preserve|primary|prior|privileges|procedure|public|read|reads|real|recursive|ref|references|referencing|relative|restrict|result|return|returns|revoke|right|role|rollback|rollup|routine|row|rows|savepoint|schema|scope|scroll|search|second|section|select|sequence|session|session_user|set|sets|size|smallint|some|space|specific|specifictype|sql|sqlexception|sqlstate|sqlwarning|start|state|statement|static|structure|system_user|table|temporary|terminate|than|then|time|timestamp|timezone_hour|timezone_minute|to|trailing|transaction|translation|treat|trigger|true|under|union|unique|unknown|unnest|update|usage|user|using|value|values|varchar|variable|varying|view|when|whenever|where|with|without|work|write|year|zone)$/',
+                    'keyword' => '/^((?i)abs|ada|asensitive|assignment|asymmetric|atomic|avg|between|bitvar|bit_length|c|called|cardinality|catalog_name|chain|character_length|character_set_catalog|character_set_name|character_set_schema|char_length|checked|class_origin|coalesce|cobol|collation_catalog|collation_name|collation_schema|column_name|command_function|command_function_code|committed|condition_number|connection_name|constraint_catalog|constraint_name|constraint_schema|contains|convert|count|cursor_name|datetime_interval_code|datetime_interval_precision|defined|definer|dispatch|dynamic_function|dynamic_function_code|existing|exists|extract|final|fortran|g|generated|granted|hierarchy|hold|implementation|infix|insensitive|instance|instantiable|invoker|k|key_member|key_type|length|lower|m|max|message_length|message_octet_length|message_text|method|min|mod|more|mumps|name|nullable|nullif|number|octet_length|options|overlaps|overlay|overriding|parameter_mode|parameter_name|parameter_ordinal_position|parameter_specific_catalog|parameter_specific_name|parameter_specific_schema|pascal|pli|position|repeatable|returned_length|returned_octet_length|returned_sqlstate|routine_catalog|routine_name|routine_schema|row_count|scale|schema_name|security|self|sensitive|serializable|server_name|similar|simple|source|specific_name|style|subclass_origin|sublist|substring|sum|symmetric|system|table_name|transactions_committed|transactions_rolled_back|transaction_active|transform|transforms|translate|trigger_catalog|trigger_name|trigger_schema|trim|type|uncommitted|unnamed|upper|user_defined_type_catalog|user_defined_type_name|user_defined_type_schema)$/',
+                ),
+                4 => -1,
+                5 => -1,
+                6 => -1,
+                7 => 
+                array (
+                ),
+                8 => 
+                array (
+                ),
+                9 => 
+                array (
+                ),
+                10 => 
+                array (
+                ),
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+            ),
+            2 => 
+            array (
+                0 => 
+                array (
+                ),
+            ),
+            3 => 
+            array (
+                0 => -1,
+                1 => -1,
+                2 => 
+                array (
+                ),
+                3 => 
+                array (
+                    'reserved' => '/^((?i)absolute|action|add|admin|after|aggregate|alias|all|allocate|alter|and|any|are|array|as|asc|assertion|at|authorization|before|begin|binary|bit|blob|boolean|both|breadth|by|call|cascade|cascaded|case|cast|catalog|char|character|check|class|clob|close|collate|collation|column|commit|completion|connect|connection|constraint|constraints|constructor|continue|corresponding|create|cross|cube|current|current_date|current_path|current_role|current_time|current_timestamp|current_user|cursor|cycle|data|date|day|deallocate|dec|decimal|declare|default|deferrable|deferred|delete|depth|deref|desc|describe|descriptor|destroy|destructor|deterministic|diagnostics|dictionary|disconnect|distinct|domain|double|drop|dynamic|each|else|end|end-exec|equals|escape|every|except|exception|exec|execute|external|false|fetch|first|float|for|foreign|found|free|from|full|function|general|get|global|go|goto|grant|group|grouping|having|host|hour|identity|ignore|immediate|in|indicator|initialize|initially|inner|inout|input|insert|int|integer|intersect|interval|into|is|isolation|iterate|join|key|language|large|last|lateral|leading|left|less|level|like|limit|local|localtime|localtimestamp|locator|map|match|minute|modifies|modify|module|month|names|national|natural|nchar|nclob|new|next|no|none|not|null|numeric|object|of|off|old|on|only|open|operation|option|or|order|ordinality|out|outer|output|pad|parameter|parameters|partial|path|postfix|precision|prefix|preorder|prepare|preserve|primary|prior|privileges|procedure|public|read|reads|real|recursive|ref|references|referencing|relative|restrict|result|return|returns|revoke|right|role|rollback|rollup|routine|row|rows|savepoint|schema|scope|scroll|search|second|section|select|sequence|session|session_user|set|sets|size|smallint|some|space|specific|specifictype|sql|sqlexception|sqlstate|sqlwarning|start|state|statement|static|structure|system_user|table|temporary|terminate|than|then|time|timestamp|timezone_hour|timezone_minute|to|trailing|transaction|translation|treat|trigger|true|under|union|unique|unknown|unnest|update|usage|user|using|value|values|varchar|variable|varying|view|when|whenever|where|with|without|work|write|year|zone)$/',
+                    'keyword' => '/^((?i)abs|ada|asensitive|assignment|asymmetric|atomic|avg|between|bitvar|bit_length|c|called|cardinality|catalog_name|chain|character_length|character_set_catalog|character_set_name|character_set_schema|char_length|checked|class_origin|coalesce|cobol|collation_catalog|collation_name|collation_schema|column_name|command_function|command_function_code|committed|condition_number|connection_name|constraint_catalog|constraint_name|constraint_schema|contains|convert|count|cursor_name|datetime_interval_code|datetime_interval_precision|defined|definer|dispatch|dynamic_function|dynamic_function_code|existing|exists|extract|final|fortran|g|generated|granted|hierarchy|hold|implementation|infix|insensitive|instance|instantiable|invoker|k|key_member|key_type|length|lower|m|max|message_length|message_octet_length|message_text|method|min|mod|more|mumps|name|nullable|nullif|number|octet_length|options|overlaps|overlay|overriding|parameter_mode|parameter_name|parameter_ordinal_position|parameter_specific_catalog|parameter_specific_name|parameter_specific_schema|pascal|pli|position|repeatable|returned_length|returned_octet_length|returned_sqlstate|routine_catalog|routine_name|routine_schema|row_count|scale|schema_name|security|self|sensitive|serializable|server_name|similar|simple|source|specific_name|style|subclass_origin|sublist|substring|sum|symmetric|system|table_name|transactions_committed|transactions_rolled_back|transaction_active|transform|transforms|translate|trigger_catalog|trigger_name|trigger_schema|trim|type|uncommitted|unnamed|upper|user_defined_type_catalog|user_defined_type_name|user_defined_type_schema)$/',
+                ),
+                4 => -1,
+                5 => -1,
+                6 => -1,
+                7 => 
+                array (
+                ),
+                8 => 
+                array (
+                ),
+                9 => 
+                array (
+                ),
+                10 => 
+                array (
+                ),
+            ),
+            4 => 
+            array (
+                0 => 
+                array (
+                ),
+            ),
+        );
+        $this->_parts = array (
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+            ),
+            2 => 
+            array (
+                0 => NULL,
+            ),
+            3 => 
+            array (
+                0 => NULL,
+                1 => NULL,
+                2 => NULL,
+                3 => NULL,
+                4 => NULL,
+                5 => NULL,
+                6 => NULL,
+                7 => NULL,
+                8 => NULL,
+                9 => NULL,
+                10 => NULL,
+            ),
+            4 => 
+            array (
+                0 => NULL,
+            ),
+        );
+        $this->_subst = array (
+            -1 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+                3 => false,
+                4 => false,
+                5 => false,
+                6 => false,
+                7 => false,
+                8 => false,
+                9 => false,
+                10 => false,
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+            ),
+            2 => 
+            array (
+                0 => false,
+            ),
+            3 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+                3 => false,
+                4 => false,
+                5 => false,
+                6 => false,
+                7 => false,
+                8 => false,
+                9 => false,
+                10 => false,
+            ),
+            4 => 
+            array (
+                0 => false,
+            ),
+        );
+        $this->_conditions = array (
+        );
+        $this->_kwmap = array (
+            'reserved' => 'reserved',
+            'keyword' => 'var',
+        );
+        $this->_defClass = 'code';
+        $this->_checkDefines();
     }
+    
 }
-
-?>

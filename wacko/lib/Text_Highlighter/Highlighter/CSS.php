@@ -10,12 +10,13 @@
  * the PHP License and are unable to obtain it through the web, please
  * send a note to license@php.net so we can mail you a copy immediately.
  *
- * @copyright  2004 Andrey Demenev
+ * @copyright  2004-2006 Andrey Demenev
  * @license    http://www.php.net/license/3_0.txt  PHP License
  * @link       http://pear.php.net/package/Text_Highlighter
  * @category   Text
- * @package Text_Highlighter
- * @author Andrey Demenev <demenev@on-line.jar.ru>
+ * @package    Text_Highlighter
+ * @version    generated from: : css.xml,v 1.2 2008/01/01 23:45:07 ssttoo Exp 
+ * @author Andrey Demenev <demenev@gmail.com>
  *
  */
 
@@ -23,19 +24,24 @@
  * @ignore
  */
 
+# require_once 'Text/Highlighter.php';
+
 /**
  * Auto-generated class. CSS syntax highlighting
  *
- * @author Andrey Demenev <demenev@on-line.jar.ru>
+ * @author Andrey Demenev <demenev@gmail.com>
  * @category   Text
  * @package    Text_Highlighter
- * @copyright  2004 Andrey Demenev
+ * @copyright  2004-2006 Andrey Demenev
  * @license    http://www.php.net/license/3_0.txt  PHP License
- * @version    Release: @package_version@
+ * @version    Release: 0.7.1
  * @link       http://pear.php.net/package/Text_Highlighter
  */
 class  Text_Highlighter_CSS extends Text_Highlighter
-{    /**
+{
+    var $_language = 'css';
+
+    /**
      * PHP4 Compatible Constructor
      *
      * @param array  $options
@@ -46,6 +52,7 @@ class  Text_Highlighter_CSS extends Text_Highlighter
         $this->__construct($options);
     }
 
+
     /**
      *  Constructor
      *
@@ -54,532 +61,377 @@ class  Text_Highlighter_CSS extends Text_Highlighter
      */
     function __construct($options=array())
     {
-        $this->_syntax = array (
-            'keywords' => 
-            array (
-                'propertyValue' => 
-                array (
-                    'name' => 'propertyValue',
-                    'innerGroup' => 'string',
-                    'case' => false,
-                    'inherits' => 'identifier',
-                    'match' => 
-                    array (
-                        'far-left' => true,
-                        'left' => true,
-                        'center-left' => true,
-                        'center-right' => true,
-                        'center' => true,
-                        'far-right' => true,
-                        'right-side' => true,
-                        'right' => true,
-                        'behind' => true,
-                        'leftwards' => true,
-                        'rightwards' => true,
-                        'inherit' => true,
-                        'scroll' => true,
-                        'fixed' => true,
-                        'transparent' => true,
-                        'none' => true,
-                        'repeat-x' => true,
-                        'repeat-y' => true,
-                        'repeat' => true,
-                        'no-repeat' => true,
-                        'collapse' => true,
-                        'separate' => true,
-                        'auto' => true,
-                        'top' => true,
-                        'bottom' => true,
-                        'both' => true,
-                        'open-quote' => true,
-                        'close-quote' => true,
-                        'no-open-quote' => true,
-                        'no-close-quote' => true,
-                        'crosshair' => true,
-                        'default' => true,
-                        'pointer' => true,
-                        'move' => true,
-                        'e-resize' => true,
-                        'ne-resize' => true,
-                        'nw-resize' => true,
-                        'n-resize' => true,
-                        'se-resize' => true,
-                        'sw-resize' => true,
-                        's-resize' => true,
-                        'text' => true,
-                        'wait' => true,
-                        'help' => true,
-                        'ltr' => true,
-                        'rtl' => true,
-                        'inline' => true,
-                        'block' => true,
-                        'list-item' => true,
-                        'run-in' => true,
-                        'compact' => true,
-                        'marker' => true,
-                        'table' => true,
-                        'inline-table' => true,
-                        'table-row-group' => true,
-                        'table-header-group' => true,
-                        'table-footer-group' => true,
-                        'table-row' => true,
-                        'table-column-group' => true,
-                        'table-column' => true,
-                        'table-cell' => true,
-                        'table-caption' => true,
-                        'below' => true,
-                        'level' => true,
-                        'above' => true,
-                        'higher' => true,
-                        'lower' => true,
-                        'show' => true,
-                        'hide' => true,
-                        'caption' => true,
-                        'icon' => true,
-                        'menu' => true,
-                        'message-box' => true,
-                        'small-caption' => true,
-                        'status-bar' => true,
-                        'normal' => true,
-                        'wider' => true,
-                        'narrower' => true,
-                        'ultra-condensed' => true,
-                        'extra-condensed' => true,
-                        'condensed' => true,
-                        'semi-condensed' => true,
-                        'semi-expanded' => true,
-                        'expanded' => true,
-                        'extra-expanded' => true,
-                        'ultra-expanded' => true,
-                        'italic' => true,
-                        'oblique' => true,
-                        'small-caps' => true,
-                        'bold' => true,
-                        'bolder' => true,
-                        'lighter' => true,
-                        'inside' => true,
-                        'outside' => true,
-                        'disc' => true,
-                        'circle' => true,
-                        'square' => true,
-                        'decimal' => true,
-                        'decimal-leading-zero' => true,
-                        'lower-roman' => true,
-                        'upper-roman' => true,
-                        'lower-greek' => true,
-                        'lower-alpha' => true,
-                        'lower-latin' => true,
-                        'upper-alpha' => true,
-                        'upper-latin' => true,
-                        'hebrew' => true,
-                        'armenian' => true,
-                        'georgian' => true,
-                        'cjk-ideographic' => true,
-                        'hiragana' => true,
-                        'katakana' => true,
-                        'hiragana-iroha' => true,
-                        'katakana-iroha' => true,
-                        'crop' => true,
-                        'cross' => true,
-                        'invert' => true,
-                        'visible' => true,
-                        'hidden' => true,
-                        'always' => true,
-                        'avoid' => true,
-                        'x-low' => true,
-                        'low' => true,
-                        'medium' => true,
-                        'high' => true,
-                        'x-high' => true,
-                        'mix?' => true,
-                        'repeat?' => true,
-                        'static' => true,
-                        'relative' => true,
-                        'absolute' => true,
-                        'portrait' => true,
-                        'landscape' => true,
-                        'spell-out' => true,
-                        'once' => true,
-                        'digits' => true,
-                        'continuous' => true,
-                        'code' => true,
-                        'x-slow' => true,
-                        'slow' => true,
-                        'fast' => true,
-                        'x-fast' => true,
-                        'faster' => true,
-                        'slower' => true,
-                        'justify' => true,
-                        'underline' => true,
-                        'overline' => true,
-                        'line-through' => true,
-                        'blink' => true,
-                        'capitalize' => true,
-                        'uppercase' => true,
-                        'lowercase' => true,
-                        'embed' => true,
-                        'bidi-override' => true,
-                        'baseline' => true,
-                        'sub' => true,
-                        'super' => true,
-                        'text-top' => true,
-                        'middle' => true,
-                        'text-bottom' => true,
-                        'silent' => true,
-                        'x-soft' => true,
-                        'soft' => true,
-                        'loud' => true,
-                        'x-loud' => true,
-                        'pre' => true,
-                        'nowrap' => true,
-                        'serif' => true,
-                        'sans-serif' => true,
-                        'cursive' => true,
-                        'fantasy' => true,
-                        'monospace' => true,
-                        'empty' => true,
-                        'string' => true,
-                        'strict' => true,
-                        'loose' => true,
-                        'char' => true,
-                        'true' => true,
-                        'false' => true,
-                        'dotted' => true,
-                        'dashed' => true,
-                        'solid' => true,
-                        'double' => true,
-                        'groove' => true,
-                        'ridge' => true,
-                        'inset' => true,
-                        'outset' => true,
-                        'larger' => true,
-                        'smaller' => true,
-                        'xx-small' => true,
-                        'x-small' => true,
-                        'small' => true,
-                        'large' => true,
-                        'x-large' => true,
-                        'xx-large' => true,
-                        'all' => true,
-                        'newspaper' => true,
-                        'distribute' => true,
-                        'distribute-all-lines' => true,
-                        'distribute-center-last' => true,
-                        'inter-word' => true,
-                        'inter-ideograph' => true,
-                        'inter-cluster' => true,
-                        'kashida' => true,
-                        'ideograph-alpha' => true,
-                        'ideograph-numeric' => true,
-                        'ideograph-parenthesis' => true,
-                        'ideograph-space' => true,
-                        'keep-all' => true,
-                        'break-all' => true,
-                        'break-word' => true,
-                        'lr-tb' => true,
-                        'tb-rl' => true,
-                        'thin' => true,
-                        'thick' => true,
-                        'inline-block' => true,
-                        'w-resize' => true,
-                        'hand' => true,
-                        'distribute-letter' => true,
-                        'distribute-space' => true,
-                        'whitespace' => true,
-                        'male' => true,
-                        'female' => true,
-                        'child' => true,
-                    ),
-                ),
-                'namedcolor' => 
-                array (
-                    'name' => 'namedcolor',
-                    'innerGroup' => 'var',
-                    'case' => false,
-                    'inherits' => 'identifier',
-                    'match' => 
-                    array (
-                        'aqua' => true,
-                        'black' => true,
-                        'blue' => true,
-                        'fuchsia' => true,
-                        'gray' => true,
-                        'green' => true,
-                        'lime' => true,
-                        'maroon' => true,
-                        'navy' => true,
-                        'olive' => true,
-                        'purple' => true,
-                        'red' => true,
-                        'silver' => true,
-                        'teal' => true,
-                        'white' => true,
-                        'yellow' => true,
-                        'activeborder' => true,
-                        'activecaption' => true,
-                        'appworkspace' => true,
-                        'background' => true,
-                        'buttonface' => true,
-                        'buttonhighlight' => true,
-                        'buttonshadow' => true,
-                        'buttontext' => true,
-                        'captiontext' => true,
-                        'graytext' => true,
-                        'highlight' => true,
-                        'highlighttext' => true,
-                        'inactiveborder' => true,
-                        'inactivecaption' => true,
-                        'inactivecaptiontext' => true,
-                        'infobackground' => true,
-                        'infotext' => true,
-                        'menu' => true,
-                        'menutext' => true,
-                        'scrollbar' => true,
-                        'threeddarkshadow' => true,
-                        'threedface' => true,
-                        'threedhighlight' => true,
-                        'threedlightshadow' => true,
-                        'threedshadow' => true,
-                        'window' => true,
-                        'windowframe' => true,
-                        'windowtext' => true,
-                    ),
-                ),
-            ),
-            'blocks' => 
-            array (
-                'atrule' => 
-                array (
-                    'name' => 'atrule',
-                    'case' => false,
-                    'innerGroup' => 'var',
-                    'match' => '/(@[a-z\\d]+)/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 0,
-                ),
-                'property' => 
-                array (
-                    'name' => 'property',
-                    'case' => false,
-                    'innerGroup' => 'code',
-                    'delimGroup' => 'reserved',
-                    'start' => '/[a-z][a-z\\d\\-]*\\s*:/i',
-                    'end' => '/(?=;|\\})/i',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 1,
-                    'lookfor' => 
-                    array (
-                        0 => 'measure',
-                        1 => 'number',
-                        2 => 'identifier',
-                        3 => 'hexcolor',
-                    ),
-                ),
-                'selector' => 
-                array (
-                    'name' => 'selector',
-                    'case' => false,
-                    'innerGroup' => 'identifier',
-                    'match' => '/(((\\.|#)?[a-z]+[a-z\\d\\-]*(?![a-z\\d\\-]))|(\\*))(?!\\s*:\\s*[\\s\\{])/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 2,
-                ),
-                'pseudo' => 
-                array (
-                    'name' => 'pseudo',
-                    'case' => false,
-                    'innerGroup' => 'special',
-                    'match' => '/:[a-z][a-z\\d\\-]*/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 3,
-                ),
-                'bescaped' => 
-                array (
-                    'name' => 'bescaped',
-                    'case' => false,
-                    'innerGroup' => 'string',
-                    'match' => '/\\\\[\\\\(\\\\)\\\\]/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 4,
-                ),
-                'paramselector' => 
-                array (
-                    'name' => 'paramselector',
-                    'case' => false,
-                    'innerGroup' => 'code',
-                    'delimGroup' => 'brackets',
-                    'start' => '/\\[/i',
-                    'end' => '/\\]/i',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 5,
-                    'lookfor' => 
-                    array (
-                        0 => 'strsingle',
-                        1 => 'strdouble',
-                        2 => 'paramname',
-                    ),
-                ),
-                'block' => 
-                array (
-                    'name' => 'block',
-                    'case' => false,
-                    'innerGroup' => 'code',
-                    'delimGroup' => 'brackets',
-                    'start' => '/\\{/i',
-                    'end' => '/\\}/i',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 6,
-                    'lookfor' => 
-                    array (
-                        0 => 'property',
-                        1 => 'selector',
-                        2 => 'block',
-                    ),
-                ),
-                'brackets' => 
-                array (
-                    'name' => 'brackets',
-                    'case' => false,
-                    'innerGroup' => 'string',
-                    'delimGroup' => 'brackets',
-                    'start' => '/\\(/i',
-                    'end' => '/\\)/i',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 7,
-                    'lookfor' => 
-                    array (
-                        0 => 'bescaped',
-                    ),
-                ),
-                'strsingle' => 
-                array (
-                    'name' => 'strsingle',
-                    'case' => false,
-                    'innerGroup' => 'string',
-                    'delimGroup' => 'quotes',
-                    'start' => '/\'/i',
-                    'end' => '/\'/i',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 8,
-                    'lookfor' => 
-                    array (
-                        0 => 'escaped',
-                    ),
-                ),
-                'escaped' => 
-                array (
-                    'name' => 'escaped',
-                    'case' => false,
-                    'innerGroup' => 'special',
-                    'match' => '/\\\\\\\\|\\\\"|\\\\\'|\\\\`/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 9,
-                ),
-                'descaped' => 
-                array (
-                    'name' => 'descaped',
-                    'case' => false,
-                    'innerGroup' => 'special',
-                    'match' => '/\\\\\\\\|\\\\"|\\\\\'|\\\\`|\\\\t|\\\\n|\\\\r/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 10,
-                ),
-                'strdouble' => 
-                array (
-                    'name' => 'strdouble',
-                    'case' => false,
-                    'innerGroup' => 'string',
-                    'delimGroup' => 'quotes',
-                    'start' => '/"/i',
-                    'end' => '/"/i',
-                    'remember' => false,
-                    'type' => 'region',
-                    'order' => 11,
-                    'lookfor' => 
-                    array (
-                        0 => 'descaped',
-                    ),
-                ),
-                'measure' => 
-                array (
-                    'name' => 'measure',
-                    'case' => false,
-                    'innerGroup' => 'number',
-                    'match' => '/\\d*\\.?\\d+(\\%|em|ex|pc|pt|px|in|mm|cm)/i',
-                    'multiline' => false,
-                    'partClass' => 
-                    array (
-                        1 => 'string',
-                    ),
-                    'type' => 'block',
-                    'order' => 12,
-                ),
-                'number' => 
-                array (
-                    'name' => 'number',
-                    'case' => false,
-                    'innerGroup' => 'number',
-                    'match' => '/\\d*\\.?\\d+/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 13,
-                ),
-                'identifier' => 
-                array (
-                    'name' => 'identifier',
-                    'case' => false,
-                    'innerGroup' => 'code',
-                    'match' => '/[a-z][a-z\\d\\-]*/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 14,
-                ),
-                'hexcolor' => 
-                array (
-                    'name' => 'hexcolor',
-                    'case' => false,
-                    'innerGroup' => 'var',
-                    'match' => '/#([\\da-f]{6}|[\\da-f]{3})\\b/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 15,
-                ),
-                'paramname' => 
-                array (
-                    'name' => 'paramname',
-                    'case' => false,
-                    'innerGroup' => 'var',
-                    'match' => '/[\\w\\-\\:]+/i',
-                    'multiline' => false,
-                    'type' => 'block',
-                    'order' => 16,
-                ),
-            ),
-            'toplevel' => 
-            array (
-                0 => 'atrule',
-                1 => 'selector',
-                2 => 'pseudo',
-                3 => 'paramselector',
-                4 => 'block',
-            ),
-            'case' => false,
-            'defClass' => 'code',
-        );
 
         $this->_options = $options;
+        $this->_regs = array (
+            -1 => '/((?i)\\/\\*)|((?i)(@[a-z\\d]+))|((?i)(((\\.|#)?[a-z]+[a-z\\d\\-]*(?![a-z\\d\\-]))|(\\*))(?!\\s*:\\s*[\\s\\{]))|((?i):[a-z][a-z\\d\\-]*)|((?i)\\[)|((?i)\\{)/',
+            0 => '//',
+            1 => '/((?i)\\d*\\.?\\d+(\\%|em|ex|pc|pt|px|in|mm|cm))|((?i)\\d*\\.?\\d+)|((?i)[a-z][a-z\\d\\-]*)|((?i)#([\\da-f]{6}|[\\da-f]{3})\\b)/',
+            2 => '/((?i)\')|((?i)")|((?i)[\\w\\-\\:]+)/',
+            3 => '/((?i)\\/\\*)|((?i)[a-z][a-z\\d\\-]*\\s*:)|((?i)(((\\.|#)?[a-z]+[a-z\\d\\-]*(?![a-z\\d\\-]))|(\\*))(?!\\s*:\\s*[\\s\\{]))|((?i)\\{)/',
+            4 => '/((?i)\\\\[\\\\(\\\\)\\\\])/',
+            5 => '/((?i)\\\\\\\\|\\\\"|\\\\\'|\\\\`)/',
+            6 => '/((?i)\\\\\\\\|\\\\"|\\\\\'|\\\\`|\\\\t|\\\\n|\\\\r)/',
+        );
+        $this->_counts = array (
+            -1 => 
+            array (
+                0 => 0,
+                1 => 1,
+                2 => 4,
+                3 => 0,
+                4 => 0,
+                5 => 0,
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+                0 => 1,
+                1 => 0,
+                2 => 0,
+                3 => 1,
+            ),
+            2 => 
+            array (
+                0 => 0,
+                1 => 0,
+                2 => 0,
+            ),
+            3 => 
+            array (
+                0 => 0,
+                1 => 0,
+                2 => 4,
+                3 => 0,
+            ),
+            4 => 
+            array (
+                0 => 0,
+            ),
+            5 => 
+            array (
+                0 => 0,
+            ),
+            6 => 
+            array (
+                0 => 0,
+            ),
+        );
+        $this->_delim = array (
+            -1 => 
+            array (
+                0 => 'comment',
+                1 => '',
+                2 => '',
+                3 => '',
+                4 => 'brackets',
+                5 => 'brackets',
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+                0 => '',
+                1 => '',
+                2 => '',
+                3 => '',
+            ),
+            2 => 
+            array (
+                0 => 'quotes',
+                1 => 'quotes',
+                2 => '',
+            ),
+            3 => 
+            array (
+                0 => 'comment',
+                1 => 'reserved',
+                2 => '',
+                3 => 'brackets',
+            ),
+            4 => 
+            array (
+                0 => '',
+            ),
+            5 => 
+            array (
+                0 => '',
+            ),
+            6 => 
+            array (
+                0 => '',
+            ),
+        );
+        $this->_inner = array (
+            -1 => 
+            array (
+                0 => 'comment',
+                1 => 'var',
+                2 => 'identifier',
+                3 => 'special',
+                4 => 'code',
+                5 => 'code',
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+                0 => 'number',
+                1 => 'number',
+                2 => 'code',
+                3 => 'var',
+            ),
+            2 => 
+            array (
+                0 => 'string',
+                1 => 'string',
+                2 => 'var',
+            ),
+            3 => 
+            array (
+                0 => 'comment',
+                1 => 'code',
+                2 => 'identifier',
+                3 => 'code',
+            ),
+            4 => 
+            array (
+                0 => 'string',
+            ),
+            5 => 
+            array (
+                0 => 'special',
+            ),
+            6 => 
+            array (
+                0 => 'special',
+            ),
+        );
+        $this->_end = array (
+            0 => '/(?i)\\*\\//',
+            1 => '/(?i)(?=;|\\})/',
+            2 => '/(?i)\\]/',
+            3 => '/(?i)\\}/',
+            4 => '/(?i)\\)/',
+            5 => '/(?i)\'/',
+            6 => '/(?i)"/',
+        );
+        $this->_states = array (
+            -1 => 
+            array (
+                0 => 0,
+                1 => -1,
+                2 => -1,
+                3 => -1,
+                4 => 2,
+                5 => 3,
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+                0 => -1,
+                1 => -1,
+                2 => -1,
+                3 => -1,
+            ),
+            2 => 
+            array (
+                0 => 5,
+                1 => 6,
+                2 => -1,
+            ),
+            3 => 
+            array (
+                0 => 0,
+                1 => 1,
+                2 => -1,
+                3 => 3,
+            ),
+            4 => 
+            array (
+                0 => -1,
+            ),
+            5 => 
+            array (
+                0 => -1,
+            ),
+            6 => 
+            array (
+                0 => -1,
+            ),
+        );
+        $this->_keywords = array (
+            -1 => 
+            array (
+                0 => -1,
+                1 => 
+                array (
+                ),
+                2 => 
+                array (
+                ),
+                3 => 
+                array (
+                ),
+                4 => -1,
+                5 => -1,
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+                0 => 
+                array (
+                ),
+                1 => 
+                array (
+                ),
+                2 => 
+                array (
+                    'propertyValue' => '/^((?i)far-left|left|center-left|center-right|center|far-right|right-side|right|behind|leftwards|rightwards|inherit|scroll|fixed|transparent|none|repeat-x|repeat-y|repeat|no-repeat|collapse|separate|auto|top|bottom|both|open-quote|close-quote|no-open-quote|no-close-quote|crosshair|default|pointer|move|e-resize|ne-resize|nw-resize|n-resize|se-resize|sw-resize|s-resize|text|wait|help|ltr|rtl|inline|block|list-item|run-in|compact|marker|table|inline-table|table-row-group|table-header-group|table-footer-group|table-row|table-column-group|table-column|table-cell|table-caption|below|level|above|higher|lower|show|hide|caption|icon|menu|message-box|small-caption|status-bar|normal|wider|narrower|ultra-condensed|extra-condensed|condensed|semi-condensed|semi-expanded|expanded|extra-expanded|ultra-expanded|italic|oblique|small-caps|bold|bolder|lighter|inside|outside|disc|circle|square|decimal|decimal-leading-zero|lower-roman|upper-roman|lower-greek|lower-alpha|lower-latin|upper-alpha|upper-latin|hebrew|armenian|georgian|cjk-ideographic|hiragana|katakana|hiragana-iroha|katakana-iroha|crop|cross|invert|visible|hidden|always|avoid|x-low|low|medium|high|x-high|mix?|repeat?|static|relative|absolute|portrait|landscape|spell-out|once|digits|continuous|code|x-slow|slow|fast|x-fast|faster|slower|justify|underline|overline|line-through|blink|capitalize|uppercase|lowercase|embed|bidi-override|baseline|sub|super|text-top|middle|text-bottom|silent|x-soft|soft|loud|x-loud|pre|nowrap|serif|sans-serif|cursive|fantasy|monospace|empty|string|strict|loose|char|true|false|dotted|dashed|solid|double|groove|ridge|inset|outset|larger|smaller|xx-small|x-small|small|large|x-large|xx-large|all|newspaper|distribute|distribute-all-lines|distribute-center-last|inter-word|inter-ideograph|inter-cluster|kashida|ideograph-alpha|ideograph-numeric|ideograph-parenthesis|ideograph-space|keep-all|break-all|break-word|lr-tb|tb-rl|thin|thick|inline-block|w-resize|hand|distribute-letter|distribute-space|whitespace|male|female|child)$/',
+                    'namedcolor' => '/^((?i)aqua|black|blue|fuchsia|gray|green|lime|maroon|navy|olive|purple|red|silver|teal|white|yellow|activeborder|activecaption|appworkspace|background|buttonface|buttonhighlight|buttonshadow|buttontext|captiontext|graytext|highlight|highlighttext|inactiveborder|inactivecaption|inactivecaptiontext|infobackground|infotext|menu|menutext|scrollbar|threeddarkshadow|threedface|threedhighlight|threedlightshadow|threedshadow|window|windowframe|windowtext)$/',
+                ),
+                3 => 
+                array (
+                ),
+            ),
+            2 => 
+            array (
+                0 => -1,
+                1 => -1,
+                2 => 
+                array (
+                ),
+            ),
+            3 => 
+            array (
+                0 => -1,
+                1 => -1,
+                2 => 
+                array (
+                ),
+                3 => -1,
+            ),
+            4 => 
+            array (
+                0 => 
+                array (
+                ),
+            ),
+            5 => 
+            array (
+                0 => 
+                array (
+                ),
+            ),
+            6 => 
+            array (
+                0 => 
+                array (
+                ),
+            ),
+        );
+        $this->_parts = array (
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+                0 => 
+                array (
+                    1 => 'string',
+                ),
+                1 => NULL,
+                2 => NULL,
+                3 => NULL,
+            ),
+            2 => 
+            array (
+                0 => NULL,
+                1 => NULL,
+                2 => NULL,
+            ),
+            3 => 
+            array (
+                0 => NULL,
+                1 => NULL,
+                2 => NULL,
+                3 => NULL,
+            ),
+            4 => 
+            array (
+                0 => NULL,
+            ),
+            5 => 
+            array (
+                0 => NULL,
+            ),
+            6 => 
+            array (
+                0 => NULL,
+            ),
+        );
+        $this->_subst = array (
+            -1 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+                3 => false,
+                4 => false,
+                5 => false,
+            ),
+            0 => 
+            array (
+            ),
+            1 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+                3 => false,
+            ),
+            2 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+            ),
+            3 => 
+            array (
+                0 => false,
+                1 => false,
+                2 => false,
+                3 => false,
+            ),
+            4 => 
+            array (
+                0 => false,
+            ),
+            5 => 
+            array (
+                0 => false,
+            ),
+            6 => 
+            array (
+                0 => false,
+            ),
+        );
+        $this->_conditions = array (
+        );
+        $this->_kwmap = array (
+            'propertyValue' => 'string',
+            'namedcolor' => 'var',
+        );
+        $this->_defClass = 'code';
+        $this->_checkDefines();
     }
+    
 }
-
-?>
