@@ -262,7 +262,7 @@ echo $this->GetResourceValue("PoweredBy")." ".$this->Link("WackoWiki:WackoWiki",
 <?php
   if ($this->GetConfigValue("debug")>=2)
   {
-    print("<span style=\"font-size: 11px; color: #888888\"><strong>Query log:</strong><br />\n");
+    print("<span class=\"debug\"><strong>Query log:</strong><br />\n");
     foreach ($this->queryLog as $query)
     {
       print($query["query"]." (".$query["time"].")<br />\n");

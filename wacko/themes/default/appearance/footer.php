@@ -76,7 +76,7 @@ echo"<a href=\"".$this->href("print")."\" target=\"_new\"><img src=\"".$this->Ge
 
 // Searchbar
 ?> |
-  <span class="searchbar nobr"><?php echo $this->GetResourceValue("SearchText") ?><input type="text" name="phrase" size="15" style="border: none; border-bottom: 1px solid #CCCCAA; padding: 0px; margin: 0px;" /></span>
+  <span class="searchbar nobr"><?php echo $this->GetResourceValue("SearchText") ?><input type="text" name="phrase" size="15" /></span>
 </div>
 <?php
 

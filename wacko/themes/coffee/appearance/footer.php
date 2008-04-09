@@ -49,7 +49,7 @@ echo ($this->IsWatched($this->GetUserName(), $this->GetPageTag()) ? "<a href=\""
 // Print icon
 echo"<a href=\"".$this->href("print")."\" target=\"_new\"><img src=\"".$this->GetConfigValue("theme_url")."icons/1print.gif\" title=\"".$this->GetResourceValue("PrintVersion")."\" alt=\"".$this->GetResourceValue("PrintVersion")."\" /></a>";?> |
   <div class="searchbar">
-    <span class="nobr"><?php echo $this->GetResourceValue("SearchText") ?><input type="text" name="phrase" size="15" style="border: none; border-bottom: 1px solid #CCCCAA; padding: 0px; margin: 0px;" /></span>
+    <span class="nobr"><?php echo $this->GetResourceValue("SearchText") ?><input type="text" name="phrase" size="15" /></span>
   </div>
 </div>
 

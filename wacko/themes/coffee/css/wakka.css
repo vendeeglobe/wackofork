@@ -33,6 +33,7 @@ span.small {font-size: 80%}
 
 div.filesheader, div.commentsheader, div.footer {padding: 5px 10px; background-color: #FFEFD5; border-top: 1px solid #ccc; font-size: 90%}
 div.searchbar { float: right; padding: 10px; border: 1px solid #ccc; background-color: #FFE4B5;}
+div.searchbar input { border: none; border-bottom: 1px solid #CCCCAA; padding: 0px; margin: 0px;}
 div.copyright {clear: right; padding: 10px; color: #AAAAAA; font-size: 11px; text-align: right}
 .commentform form { width: 100% }
 .commentform form textarea { width: 100%; padding: 0}
@@ -79,13 +80,10 @@ div.toc4 { margin-left: 0px; padding-left: 45px; list-style-type: none }
 div.toc5 { margin-left: 0px; padding-left: 60px; list-style-type: none }
 div.toc6 { margin-left: 0px; padding-left: 75px; list-style-type: none }
 
-
 blockquote { border-left: #999 3px solid; padding: 5px }
 blockquote p { padding: 0px; margin: 5px 0px }
 
-
 cite { color: #888800; font-style: normal }
-
 
 p.auto { margin: 0px; padding: 0px; font-size: 100% }
 strike a:visited, s a:visited, strike, s, strike a:visited, s a:link { color: #999999 }
@@ -106,11 +104,9 @@ table.upload td.size- { padding-right: 0; text-align: right }
 table.usertable { border: 1px none; border-collapse: collapse }
 table.usertable tr td { border-width: 1px; border-color: black; border-style: solid; padding: 4px; vertical-align: top }
 
-
 .add { color: #c00; font-weight: bold; text-decoration: underline }
 .additions { color: #008800 }
 .center{ text-align: center }
-
 
 .codeold { border: solid #888888 2px; width: 100%; padding: 3px; background: #FFFFFF; color: black; font: 10pt Lucida Console; height: 400px; overflow: scroll }
 
@@ -126,11 +122,9 @@ table.usertable tr td { border-width: 1px; border-color: black; border-style: so
 .logbtn { font: 10px Trebuchet MS, Verdana, Arial, Helvetica, sans-serif; height: 21px }
 .main { font-size: 22px }
 
-
 .name { font-size: 11px; text-align: right }
 .notes { color: #888800 }
 .outerlink { color: #990000 }
-
 
 .pageedit { border: 1px inset; border-bottom: none; background: #FFFFFF }
 .pageedit form textarea {width: 100%;height: 400px; }
@@ -191,7 +185,6 @@ table.usertable tr td { border-width: 1px; border-color: black; border-style: so
  }
  .autocomplete-inplace div          { padding: 2px 5px; cursor: pointer; cursor: hand; }
  .autocomplete-inplace div.ac-over- { color:#ffffff; background: #1E9905; }
-
 
 /* Text_Highlighter */
 .hl-main {font-family: monospace; font-size:13px;}
