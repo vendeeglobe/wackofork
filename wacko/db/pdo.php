@@ -71,8 +71,7 @@ function connect($host, $user, $password, $db, $collation = false, $driver, $por
          }
       catch(PDOException $e)
          {
-            echo "PDO DSN Error: ".$dsn;
-            die("PDO DSN Error: ".$dsn);
+            die('PDO DSN Error: '.$dsn);
          }
 
       if ($collation)  $dblink->query("SET NAMES '".$collation."'");

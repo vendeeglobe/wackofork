@@ -87,7 +87,7 @@ function Move(&$parent, $OldPage, $NewName )
   {
      $supernewname = $parent->NpjTranslit($NewName);
 
-     if (!preg_match("/^(".$parent->language["ALPHANUM"]."+)$/", $NewName))
+     if (!preg_match("/^([\_\.\-".$parent->language["ALPHANUM_P"]."]+)$/", $NewName))
      {
        print($parent->GetResourceValue("BadName")."<br />\n");
      }

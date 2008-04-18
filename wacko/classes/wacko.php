@@ -697,9 +697,10 @@ class Wacko
  function TagSearch($phrase) { return $this->LoadAll("select ".$this->pages_meta." from ".$this->config["table_prefix"]."pages where latest = 'Y' and lower(tag) like binary lower('%".quote($this->dblink, $phrase)."%') order by supertag"); }
 
  function SendMail($email,$subject, $message) {
-   $headers = "From: \"".$this->GetConfigValue("wakka_name")."\"<".$this->GetConfigValue("admin_email").">\r\n";
+   $headers = "From: =?". $this->GetCharset() ."?B?". base64_encode($this->GetConfigValue("wakka_name")) ."?= <".$this->GetConfigValue("admin_email").">\r\n";
    $headers .= "X-Mailer: PHP/".phpversion()."\r\n"; //mailer
    $headers .= "X-Priority: 3\r\n"; //1 UrgentMessage, 3 Normal
+   $headers .= "X-Wacko: ".$this->GetConfigValue("base_url")."\r\n";
    $headers .= "Content-Type: text/html; charset=".$this->GetCharset()."\r\n";
    $subject =  "=?".$this->GetCharset()."?B?" . base64_encode($subject) . "?=";
    @mail($email, $subject, "<html><head></head><body>".$message."</body></html>", $headers);
@@ -769,7 +770,7 @@ class Wacko
        }
        // create default write acl. store empty write ACL for comments.
        // get default acl for root.
-       if (strstr($this->context[$this->current_context], "/"))
+       if (strstr($this->context[$this->current_context], "/") || $comment_on)
        {
          $root = preg_replace( "/^(.*)\\/([^\\/]+)$/", "$1", $this->context[$this->current_context] );
          $write_acl = $this->LoadAcl($root, "write");
@@ -780,12 +781,16 @@ class Wacko
            if ($root == $_root) break;
            $write_acl = $this->LoadAcl($root, "write");
          }
-                                                                       $write_acl   = $write_acl["list"];
-         $read_acl = $this->LoadAcl($root, "read");                    $read_acl    = $read_acl["list"];
-         $comment_acl = $this->LoadAcl($root, "comment");              $comment_acl = $comment_acl["list"];
+
+         $write_acl = $comment_on == "" ? $write_acl["list"] : '';
+         $read_acl = $this->LoadAcl($root, "read");
+         $read_acl = $read_acl["list"];
+         $comment_acl = $this->LoadAcl($root, "comment");
+         $comment_acl = $comment_acl["list"];
        }
        else
-       { $write_acl = $this->GetConfigValue("default_write_acl");
+       {
+         $write_acl = $this->GetConfigValue("default_write_acl");
          $read_acl  = $this->GetConfigValue("default_read_acl");
          $comment_acl = $this->GetConfigValue("default_comment_acl");
        }
@@ -1068,12 +1073,12 @@ class Wacko
      $tpl = "file";
    }
    else if (preg_match("/^(http|https|ftp|file):\/\/([^\\s\"<>]+)\.(pdf)$/", $tag)) {
- 	 // this is a PDF link
- 	 $url = str_replace("&", "&amp;", str_replace("&amp;", "&", $tag));
-	 $title= $this->GetResourceValue("PDFLink");
-	 $icon = $this->GetResourceValue("pdficon");
- 	 $tpl = "pdf";
-	}
+    // this is a PDF link
+    $url = str_replace("&", "&amp;", str_replace("&amp;", "&", $tag));
+    $title= $this->GetResourceValue("PDFLink");
+    $icon = $this->GetResourceValue("pdficon");
+    $tpl = "pdf";
+   }
    else if (preg_match("/^(http|https|ftp|file|nntp|telnet):\/\/([^\\s\"<>]+)$/", $tag))
    {// this is a valid external URL
      $url = str_replace("&", "&amp;", str_replace("&amp;", "&", $tag));
@@ -2238,7 +2243,7 @@ class Wacko
     $tag = $this->tryUtfDecode($tag);
 //    if (!$_REQUEST["add"]=="1" || $this->method=="watch" )
    $tag = str_replace("'", "_", str_replace("\\", "", str_replace("_", "", $tag)));
-   $tag = preg_replace("/[^".$this->language["ALPHANUM_P"]."\_\-]/", "", $tag);
+   $tag = preg_replace("/[^".$this->language["ALPHANUM_P"]."\_\-\.]/", "", $tag);
 
    //$this->tag=$this->Translit($tag, 1);
    $this->tag = $tag;

@@ -10,13 +10,26 @@ if ($this->UserIsOwner() || $this->IsAdmin())
     $this->SaveAcl($this->GetPageTag(), "write", $_POST["write_acl"]);
     $this->SaveAcl($this->GetPageTag(), "comment", $_POST["comment_acl"]);
     $message = $this->GetResourceValue("ACLUpdated");
-    
+
     // change owner?
     if ($newowner = $_POST["newowner"])
     {
       $this->SetPageOwner($this->GetPageTag(), $newowner);
       $message .= $this->GetResourceValue("ACLGaveOwnership").$newowner;
     }
+
+    // Change read permission for all comments on this page
+   $comments = $this->LoadAll("select ".$this->pages_meta." from ".$this->config["table_prefix"]."pages where comment_on = '".$this->GetPageTag()."' AND owner='".quote($this->dblink, $this->GetUserName())."'");
+   foreach ($comments as $num=>$page)
+   {
+    $this->SaveAcl($page["tag"], "read", $_POST["read_acl"]);
+    // $this->SaveAcl($page["tag"], "write", $page["comment_on"] == '' ? $_POST["write_acl"] : '');
+    // $this->SaveAcl($page["tag"], "comment", $page["comment_on"] == '' ? $_POST["comment_acl"] : '');
+
+    // change owner?
+    if ($newowner = $_POST["newowner"])
+      $this->SetPageOwner($page["tag"], $newowner);
+   }
 
     // redirect back to page
     $this->SetMessage($message."!");
@@ -33,7 +46,7 @@ if ($this->UserIsOwner() || $this->IsAdmin())
     ?>
     <h3><?php echo str_replace("%1",$this->Link("/".$this->GetPageTag()),$this->GetResourceValue("ACLFor")); ?></h3>
     <br />
-    
+
     <?php echo $this->FormOpen("acls") ?>
     <table border="0" cellspacing="0" cellpadding="0">
       <tr>
@@ -70,12 +83,12 @@ if ($this->UserIsOwner() || $this->IsAdmin())
       <tr>
         <td colspan="3">
           <br />
-          <input class="OkBtn" onmouseover='this.className="OkBtn_";' 
-                                 onmouseout ='this.className="OkBtn";' 
+          <input class="OkBtn" onmouseover='this.className="OkBtn_";'
+                                 onmouseout ='this.className="OkBtn";'
                  type="submit" align="top" value="<?php echo $this->GetResourceValue("ACLStoreButton"); ?>" style="width: 120px" accesskey="s" />
           <img src="<?php echo $this->GetConfigValue("root_url");?>images/z.gif" width="100" height="1" alt="" border="0" />
-          <input class="CancelBtn" onmouseover='this.className="CancelBtn_";' 
-                                     onmouseout ='this.className="CancelBtn";' 
+          <input class="CancelBtn" onmouseover='this.className="CancelBtn_";'
+                                     onmouseout ='this.className="CancelBtn";'
                  type="button" align="top" value="<?php echo $this->GetResourceValue("ACLCancelButton"); ?>" onclick="history.back();" style="width: 120px" />
         </td>
       </tr>

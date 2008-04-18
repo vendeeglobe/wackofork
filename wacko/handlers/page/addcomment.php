@@ -13,8 +13,9 @@ if ($this->HasAccess("comment"))
     $num = "1";
   }
 
+  $body = str_replace("\r", "", $_POST["body"]);
   $body = trim($_POST["body"]);
-  echo "Comment".$num."<p>".$body."<p>".$this->tag;
+
   if (!$body)
   {
     $this->SetMessage($this->GetResourceValue("EmptyComment"));
@@ -24,13 +25,13 @@ if ($this->HasAccess("comment"))
     // store new comment
     $this->SavePage("Comment".$num, $body, $this->tag);
   }
-  
+
   // redirect to page
   $this->redirect($this->href());
 }
 else
 {
-	print("<div class=\"page\">".$this->GetResourceValue("CommentAccessDenied")."</div>\n");
+   print("<div class=\"page\">".$this->GetResourceValue("CommentAccessDenied")."</div>\n");
 }
 
 ?>

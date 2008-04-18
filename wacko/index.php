@@ -47,7 +47,7 @@ $wakkaDefaultConfig = array(
   "database_host" => "localhost",
   "database_port" => "",
   "database_database" => "wacko",
-  "database_user" => "wacko",
+  "database_user" => "",
   "database_password" => "",
 
   "table_prefix" => "wacko_",

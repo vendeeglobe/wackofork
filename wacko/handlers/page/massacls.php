@@ -7,15 +7,17 @@ if ($this->UserIsOwner())
   {
    $pages = $this->LoadAll("select ".$this->pages_meta." from ".
             $this->config["table_prefix"]."pages where (supertag = '".quote($this->dblink, $this->tag)."'".
-            " OR supertag like '".quote($this->dblink, $this->tag."/%")."')".
-            " AND owner='".quote($this->dblink, $this->GetUserName())."'".
-            " and comment_on = ''");
+            " OR supertag like '".quote($this->dblink, $this->tag."/%")."'".
+            " OR comment_on = '".quote($this->dblink, $this->tag)."'".
+            " OR comment_on like '".quote($this->dblink, $this->tag."/%")."'".
+            ") AND owner='".quote($this->dblink, $this->GetUserName())."'");
+
    foreach ($pages as $num=>$page)
    {
     // store lists
     $this->SaveAcl($page["tag"], "read", $_POST["read_acl"]);
-    $this->SaveAcl($page["tag"], "write", $_POST["write_acl"]);
-    $this->SaveAcl($page["tag"], "comment", $_POST["comment_acl"]);
+    $this->SaveAcl($page["tag"], "write", $page["comment_on"] == '' ? $_POST["write_acl"] : '');
+    $this->SaveAcl($page["tag"], "comment", $page["comment_on"] == '' ? $_POST["comment_acl"] : '');
     // change owner?
     if ($newowner = $_POST["newowner"])
       $this->SetPageOwner($page["tag"], $newowner);

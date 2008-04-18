@@ -25,7 +25,7 @@
 
      $supernewname = $this->NpjTranslit($NewName);
 
-     if (!preg_match("/^(".$this->language["ALPHANUM"]."+)$/", $NewName))
+     if (!preg_match("/^([\_\.\-".$this->language["ALPHANUM_P"]."]+)$/", $NewName))
      {
        print($this->GetResourceValue("BadName")."<br />\n");
      }
