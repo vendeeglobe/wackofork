@@ -262,7 +262,7 @@ $wakkaResource = array(
   "SettingsRename" => "Umbenennen",
   "SettingsRemove" => "Löschen",
   "SettingsAcls" => "Berechtigungen",
-  "SettingsUpload" => "Upload",
+  "SettingsUpload" => "Dateien hochladen",
   "SettingsReferrers" => "Verweise",
   "SettingsWatch" => "Beobachten",
   "SettingsPrint" => "Druckversion",
@@ -332,8 +332,8 @@ $wakkaResource = array(
   "Next" => "weiter",
   "Prev" => "zurück", 
 
-  "default_bookmarks" => "SeitenIndex\nLetzteAenderungen\nLetzteKommentare\n((Benutzer))\n((Registrierung))",
-  "site_bookmarks" => "SeitenIndex / LetzteAenderungen / LetzteKommentare",
+  "default_bookmarks" => "((SeitenIndex))\n((LetzteAenderungen Änderungen))\n((LetzteKommentare Kommentare))\n((Benutzer))\n((Registrierung))",
+  "site_bookmarks" => "((SeitenIndex)) / ((LetzteAenderungen Änderungen)) / ((LetzteKommentare Kommentare))",
 
   //icons
   "outericon" => '<img src="{theme}icons/web.gif" alt="externer Link" />',
@@ -361,11 +361,11 @@ $wakkaResource = array(
   "RecentCommentsXML" => "Letzte Kommentare im ",
   "PageRevisionsXML" => "Historie/Revisionen von ",
   "ExportClusterXML" => "Export des ganzen Clusters von ",
-  "AccessDeniedXML" => "You're not allowed to access this information.",
+  "AccessDeniedXML" => "Du hast keine Berechtigung für den Zugriff auf diese Seite.",
    
-  "RecentChangesRSS" => "Letzte Änderungen als RSS",
-  "RecentCommentsRSS" => "Letzte Kommentare als RSS",
-  "HistoryRevisionsRSS" => "Historie/Revisionen von ",
+  "RecentChangesRSS" => "Letzte Änderungen",
+  "RecentCommentsRSS" => "Letzte Kommentare",
+  "HistoryRevisionsRSS" => "Versionen von ",
 
 );
 
