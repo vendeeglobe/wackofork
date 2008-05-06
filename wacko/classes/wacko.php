@@ -2095,7 +2095,7 @@ class Wacko
 
       $xml .= "</urlset>\n";
 
-      $filename = "/sitemap.xml";
+      $filename = "sitemap.xml";
 
       $fp = @fopen($filename, "w");
       if ($fp)
