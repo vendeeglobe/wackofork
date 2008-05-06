@@ -920,7 +920,7 @@ class Wacko
    }
 
    $this->WriteRecentChangesXML();
-   $this->WriteGoogleSiteMapXML();
+   $this->WriteSiteMapXML();
    $this->WriteRecentCommentsXML();
 
    return $body_r;
@@ -2054,7 +2054,7 @@ class Wacko
    }
  }
 
- function WriteGoogleSiteMapXML()
+ function WriteSiteMapXML()
    {
       $xml = "<?xml version=\"1.0\" encoding=\"windows-1251\"?>\n";
       $xml .= "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n";
