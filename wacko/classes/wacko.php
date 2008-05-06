@@ -2057,7 +2057,7 @@ class Wacko
  function WriteGoogleSiteMapXML()
    {
       $xml = "<?xml version=\"1.0\" encoding=\"windows-1251\"?>\n";
-      $xml .= "<urlset xmlns=\"http://www.google.com/schemas/sitemap/0.84\">\n";
+      $xml .= "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n";
 
       if ($pages = $this->LoadRecentlyChanged())
          {
