@@ -114,7 +114,7 @@ table.usertable tr td { border-width: 1px; border-color: black; border-style: so
 .deletions { color: #880000 }
 .error { color: #CC3333; font-weight: bold }
 .time{ color:#999999; font-size: 9px; margin:5px 20px;}
-.debug {font-size: 11px; color: 888888;}
+.debug {font-size: 11px; color: #888888;}
 .files, .comment { padding: 10px; border-left: 1px inset; border-right: 1px inset; border-top: 1px solid #CCCCCC; border-bottom: 1px solid #EEEEEE; background: #EEEEEE }
 .filesform, .commentform { padding: 10px; border-left: 1px inset; border-right: 1px inset; border-top: 1px solid #CCCCCC; background: #EEEEEE }
 .include { padding: 8px; background: #F5F5F5 }

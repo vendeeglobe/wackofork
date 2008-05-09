@@ -57,7 +57,7 @@ FORM, H1, H2, H3, H4, H5, H6 {
   color: #CC3333; font-weight: bold;
 }
 .time{ color:#999999; font-size: 9px; margin:5px 20px;}
-.debug { font-size: 11px; color: 888888;}
+.debug { font-size: 11px; color: #888888;}
 
 .header {
   padding: 10px;
