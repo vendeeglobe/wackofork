@@ -11,7 +11,7 @@
   <meta http-equiv="content-type" content="text/html; charset=<?php echo $this->GetCharset(); ?>" />
   <meta name="keywords" content="<?php echo $this->GetConfigValue("meta_keywords") ?>" />
   <meta name="description" content="<?php echo $this->GetConfigValue("meta_description") ?>" />
-  <link rel="stylesheet" type="text/css" href="<?php echo $this->GetConfigValue("theme_url") ?>css/wakkaword.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo $this->GetConfigValue("theme_url") ?>css/msword.css" />
 </head>
 
 <body>
