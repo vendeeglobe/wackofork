@@ -1077,7 +1077,14 @@ class Wacko
     $url = str_replace("&", "&amp;", str_replace("&amp;", "&", $tag));
     $title= $this->GetResourceValue("PDFLink");
     $icon = $this->GetResourceValue("pdficon");
-    $tpl = "pdf";
+    $tpl = "file";
+   }
+   else if (preg_match("/^(http|https|ftp|file):\/\/([^\\s\"<>]+)\.(rdf)$/", $tag)) {
+   // this is a RDF link
+   $url = str_replace("&", "&amp;", str_replace("&amp;", "&", $tag));
+   $title= $this->GetResourceValue("RDFLink");
+   $icon = $this->GetResourceValue("rdficon");
+   $tpl = "file";
    }
    else if (preg_match("/^(http|https|ftp|file|nntp|telnet):\/\/([^\\s\"<>]+)$/", $tag))
    {// this is a valid external URL
