@@ -2422,22 +2422,27 @@ class Wacko
  }
 
  // BREADCRUMBS -- additional navigation added with WackoClusters
- function GetPagePath()
- {
-   $steps = explode("/", $this->tag);
-   $result = "";
-   $links = array();
-   $_links = array();
-   for ($i=0;$i<count($steps)-1;$i++)
-   {
-     if ($i==0) $prev=""; else $prev=$links[$i-1]."/";
-     $links[] =  $prev.$steps[$i];
-   }
-   for ($i=0;$i<count($steps)-1;$i++)
-     $result.= $this->Link( $links[$i], "", $steps[$i] )."/";
-   $result.=$steps[count($steps)-1];
-   return $result;
+ function GetPagePath($separator='/') {
+	$steps = explode('/', $this->tag);
+	$result = '';
+
+	for ($i=0;$i<count($steps);$i++)
+	{
+		$link = '';
+		for($j=0;$j<$i+1;$j++)
+			$link .= '/'.$steps[$j];
+
+		# camel case'ing
+		$linktext = preg_replace('([A-Z][a-z])', ' ${0}', $steps[$i]);
+
+		if ($i == count($steps)-1)
+			$result .= $linktext;
+		else
+			$result .= $this->Link($link, '', $linktext) . $separator;
+	}
+	return $result;
  }
+
 
  function RenamePage($tag, $NewTag, $NewSuperTag="")
  {
@@ -2448,7 +2453,7 @@ class Wacko
    $this->Query("update ".$this->config["table_prefix"]."pages  set tag = '".quote($this->dblink, $NewTag)."', supertag = '".quote($this->dblink, $NewSuperTag)."' where tag = '".quote($this->dblink, $tag)."' ");
  }
 
-   function RenameFiles($tag, $NewTag, $NewSuperTag="")
+ function RenameFiles($tag, $NewTag, $NewSuperTag="")
       {
          if($NewSuperTag=="")
             $NewSuperTag = $this->NpjTranslit($NewTag);
