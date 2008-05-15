@@ -16,20 +16,20 @@
         $page_tag = pos($tree_pages_array);
 
 
-        //Сами себя не рисуем, об этом родитель должен позаботиться
+        //Itself we do not sketch, the parent must care about this
         if ($supertag == $page_supertag){
            next($tree_pages_array);
            continue;
         }
 
         if ( $supertag<>"/" && !( strpos($page_supertag,$supertag."/")===0) ){
-          //Кончились "Наши" листики.
+          //Ended “our” leaves.
           break;
         }
 
-        //Считаем supertag подстраницы
+        //We believe supertag sub
 
-        //Относительный
+        //Relative
         if ($supertag!="/"){
           $rel_supertag = substr($page_supertag,strlen($supertag)+1);
         }else{
@@ -37,7 +37,7 @@
         }
 
         if (!strpos($rel_supertag,"/")===FALSE){$rel_supertag = substr($rel_supertag,0,strpos($rel_supertag,"/"));};
-        //И абсолютный
+        //And the absolute
         if ($supertag!="/"){
           $sub_supertag = $supertag."/".$rel_supertag;
         }else{
@@ -45,25 +45,25 @@
         }
 
         if ($depth > 0){
-          //Надо посчитать таг для этого супертага
+          //We have to calculate tag for this supertag
           $sub_tag = "";
           $exists = 0;
 
           if ($tree_pages_array[$sub_supertag]){
-             //Такая страница есть, берем ее таг.
+             //This page is, take her tag.
              $sub_tag = $tree_pages_array[$sub_supertag];
              $exists = 1;
           }else{
-             //Такой страницы нет, есть ее подстраницы. Будем считать вероятный таг.
+             //This page does not have its sub. We will consider the likely tags.
              $sub_sub_tag = $page_tag;
 
-             //Отбираем столько слэшей, сколько есть в супертаге
+             //Searches for backslashes so long as there is in supertag
              $scount = substr_count($sub_supertag,"/");
              for ($i = 0;$i<$scount-1;$i++){
                 $sub_tag = $sub_tag.substr($sub_sub_tag,0,strpos($sub_sub_tag,"/")+1);;
                 $sub_sub_tag = substr($sub_sub_tag,strpos($sub_sub_tag,"/")+1);
               }
-              //Отбрасываем все после следующего слеша.
+              //Reject everything after the next slash.
               $sub_tag = $sub_tag.substr($sub_sub_tag,0,strpos($sub_sub_tag,"/"));
           }
 
@@ -122,7 +122,7 @@
           $linktext = $sub_tag;
           if ($style!="br" && (!strpos($linktext,"/")===false))
           {
-            //Выводим только последнее слово
+            //Displaying only the last word
             $linktext=substr($linktext,strrpos($linktext,"/")+1);
           }
 
@@ -132,14 +132,14 @@
             if (!preg_match("/[".$wacko->language["ALPHA_P"]."]/", $newletter)) { $newletter = "#"; }
             if ($newletter=='') $newletter = $linktext{0};
             if ( $letter <> $newletter){
-              $need_letter = 1; //Напечатать при первом удобном случае
+              $need_letter = 1; //Print at the first opportunity
             }
           };
 
           if ($sub_exists || ($style!="br" && ( $filter=="all" || test_page_existance($sub_tag_array) ) ) )
           {
             if ($need_letter == 1)
-            { //Удобный случай напечатать букву
+            { //Convenient case to print the letter
               if (($style=="ul" || $style=="ol" ) && $letter ) print "<br />";
               if ($letter) print "<br />";
               $letter = $newletter;
@@ -198,27 +198,27 @@
 
   if ($pages)
   {
-    //Кэшируем страницы и готовим список для кэширования acl
+    //Cache page and prepare a list for caching acl
     foreach($pages as $page)
     {
       $this->CachePage($page, 1);
       $supertag_list[] = $page["supertag"];
     }
 
-    //Составляем строчку запроса для acl
+    //Constituent line request for acl
     for ($i=0; $i<count($supertag_list); $i++) {
        $supertag_str .= "'".quote($this->dblink, $supertag_list[$i])."', ";
     }
     $supertag_str=substr($supertag_str,0,strlen($supertag_str)-2);
 
-    //Кэшируем права доступа
+    //Cache access rights
     if ( $read_acls = $this->LoadAll("select * from ".$this->config["table_prefix"]."acls where supertag in (".$supertag_str.") and privilege = 'read'")){
      for ($i=0; $i<count($read_acls); $i++) {
        $this->CacheACL($read_acls[$i]["supertag"], "read", 1,$read_acls[$i]);
      }
     }
 
-    //Собираем массив страниц
+    //Get an array of pages
     $tree_pages_array = array();
     foreach($pages as $page){
       if (!$this->config["hide_locked"] || $this->HasAccess("read", $page["supertag"])){
@@ -226,7 +226,7 @@
       }
     }
 
-    //Сортируем в порядке супертагов
+    //Sort in order supertag
     ksort ( $tree_pages_array, SORT_STRING );
 
     $tree = create_cluster_tree($this,"/".$this->NpjTranslit($root),$root,$depth);

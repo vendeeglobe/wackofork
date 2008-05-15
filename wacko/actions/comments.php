@@ -1,5 +1,5 @@
 <a href="<?php 
-// you can click “comments” inside from bookmarks and wikipages
+// you can click comments inside from bookmarks or wikipages
 // {{comments [page="CommentThisPage"] [text="your text"]}}
 if ($for) $page=$for; 
 if (!$page) {$page = "";}
