@@ -198,6 +198,18 @@
 
   if ($pages)
   {
+	//Check the pages, according to the desired depth ($depth)  at all to be displayed
+	$i=0;
+	$current_depth = count(explode("/", $query));
+	foreach($pages as $page) {
+		$page_depth = count(explode("/", $page["supertag"]));
+		if ($page_depth <= $depth+$current_depth-1) {
+			$new_pages[$i]=$page;
+			$i++;
+		}
+	}
+		$pages = $new_pages;
+
     //Cache page and prepare a list for caching acl
     foreach($pages as $page)
     {
