@@ -208,7 +208,7 @@
 			$i++;
 		}
 	}
-		$pages = $new_pages;
+	$pages = $new_pages;
 
     //Cache page and prepare a list for caching acl
     foreach($pages as $page)

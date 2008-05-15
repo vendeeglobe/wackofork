@@ -22,15 +22,16 @@ if (! $this->HasAccess("read",$vars[0])){
     $strings = preg_replace("/\¡\¡redirect[^\¡]*\¡\¡/i","",$strings);
     $strings = preg_replace("/.*\¡\¡a name=\"?$first_anchor\"?\¡\¡(.*)\¡\¡a name=\"?$last_anchor\"?\¡\¡.*$/is","\$1",$strings);
 
-    if (($nomark!=1) && ($nomark!=2 || $this->HasAccess("write", $vars[0])))
+    if (($this->GetMethod() != "print") && ($nomark!=1) && ($nomark!=2 || $this->HasAccess("write", $vars[0])))
       print "<div class=\"include\">"."<div class=\"name\">".$this->Link("/".$vars[0])."&nbsp;&nbsp;::&nbsp;".
                           "<a href=\"".$this->Href("edit", $vars[0])."\">".$this->GetResourceValue("EditIcon")."</a></div>";
-    
+
     $this->context[++$this->current_context] = $vars[0];
     print $this->Format($strings, "post_wacko");
+    $this->context[$this->current_context] = "~~"; // clean stack
     $this->current_context--;
-    
-    if (($nomark!=1) && ($nomark!=2 || $this->HasAccess("write", $vars[0])))
+ 
+    if (($this->GetMethod() != "print") && ($nomark!=1) && ($nomark!=2 || $this->HasAccess("write", $vars[0])))
       print "<div class=\"name\">".$this->Link("/".$vars[0])."&nbsp;&nbsp;::&nbsp;".
                           "<a href=\"".$this->Href("edit", $vars[0])."\">".$this->GetResourceValue("EditIcon")."</a></div></div>";
   };
