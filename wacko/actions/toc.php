@@ -36,36 +36,36 @@ else
 {
   $toc = $this->BuildToc( $context, $start_depth, $end_depth, $numerate, $link );
   { // ---------------------- toc numeration ------------------------
-    // вы€сн€ем, какие номера где сто€т
+    // identify what size where faces
     $toc_len = sizeof($toc);
     $numbers = array(); $depth = 0;
     for($i=0;$i<$toc_len;$i++)
      if ($toc[$i][2] < 66666)
-     { // нормировали глубину погружени€
+     { // normalized depth immersion
        $toc[$i][4] = $toc[$i][2]-$start_depth+1;
        if ($numerate)
        {
-         // если погрузились глубже, обнулили счЄтчик дл€ новой глубины
+         // if dive deeper, reset the meter for new depths
          if ($toc[$i][2] > $depth) $numbers[ $toc[$i][2] ] =0; 
-         // если вышли уровнем меньше, ничего делать не надо.
-         // запоминаем глубину и увеличиваем счЄтчик пункта
+         // if left lower level, nothing else to do.
+         // store and increase the depth meter item
          $depth = $toc[$i][2];
          $numbers[ $depth ]++;
-         // собираем нумерацию по массиву $numbers от начала до текущей глубины, пропуска€ нулевые
+         // collect numbering on the array of $ numbers from start to the current depth, allowing zero
          $num="";
          for($j=1;$j<=$depth; $j++)
           if ($numbers[$j] > 0) $num.=$numbers[$j].".";
-         // правим содержимое TOC
+         // Human content TOC
          $toc[$i][1] = $num." ".$toc[$i][1];
        }
      }
-     // неплохо б в кэш записать подобновлЄнную версию
+     // not bad in a cache write similar version
      $this->tocs[ $context ] = &$toc;
-     // теперь надо поставить флажок о том, что неплохо бы искурочить в пост-ваке 
-     // исходник странички, добавив туда цыфирки
+     // it is now necessary to place flag about the fact that good to [iskurochit] in Post-[vake]
+     // the source page, adding there [tsyfirki]
      if (!$ppage) { $this->post_wacko_toc = &$toc; $this->post_wacko_action["toc"] = 1; }
   } // --------------------------------------------------------------
- // отображаем!
+ // display!
   foreach( $toc as $v )
   if ($v[4])
   {
