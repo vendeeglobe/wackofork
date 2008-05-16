@@ -2201,6 +2201,9 @@ class Wacko
    $_SESSION["bookmarks"] = $bookmarks;
 //    $_SESSION["bookmarksfmt"] = $this->Format($this->Format(implode(" | ", $bookmarks), "wacko"), "post_wacko");
     $_SESSION["bookmarksfmt"] = $this->Format(implode(" | ", $bookmarks), "wacko");
+	$bmlinks = $bookmarks;
+    for ($i=0;$i<count($bmlinks);$i++) $bmlinks[$i] = trim($this->NpjTranslit($bmlinks[$i]),"()");
+    $_SESSION["bookmarklinks"] = $bmlinks;
   }
  }
 
