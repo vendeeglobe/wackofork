@@ -103,4 +103,6 @@ else
 }
 
 ?>
+<br />
+[<a href="<?php echo $this->href("massacls" )."\">".$this->GetResourceValue("SettingsMassAcls" ); ?></a>]
 </div>

@@ -97,9 +97,19 @@
 <input type="hidden" name="rename" value="1" />
 <input type="text" name="newname" value="<?php echo $this->tag;?>" size="40" /><br/>
 <?php echo "<input type=\"checkbox\" id=\"ch1\" name=\"redirect\" "; if ($this->GetConfigValue("default_rename_redirect")==1){echo "checked ";}; echo " /> <label for=\"ch1\">".$this->GetResourceValue("NeedRedirect")."</label>"; ?>
+<br/><br/><br/>
+<?php
+	if ($pages = $this->LoadPagesLinkingTo($this->getPageTag()))
+  	{
+    	print("<fieldset><legend>".$this->GetResourceValue("AlertReferringPages").":</legend>\n");
+    	foreach ($pages as $page)
+   	 {
+    	  echo($this->ComposeLinkToPage($page["tag"])."<br />\n");
+  	  }
+  	  echo "</fieldset>\n";
+ 	 }
+  ?>
 <br/><br/>
-
-<br/>
 <input name="submit" class="OkBtn_Top" onmouseover='this.className="OkBtn_Top_";'
                        onmouseout ='this.className="OkBtn_Top";'
        type="submit" align="top" value="<?php echo $this->GetResourceValue("RenameButton"); ?>" />
@@ -117,4 +127,6 @@ else
   print($this->GetResourceValue("NotOwnerAndCantRename"));
 }
 ?>
+<br />
+[<a href="<?php echo $this->href("massrename" )."\">".$this->GetResourceValue("SettingsMassRename" ); ?></a>]
 </div>
