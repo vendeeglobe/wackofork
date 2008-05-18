@@ -633,7 +633,7 @@ class Wacko
  function LoadRecentlyComment($limit=70, $for="", $from="") {
    $limit= (int) $limit;
    if ($pages =
-       $this->LoadAll("select ".$this->pages_meta." from ".$this->config["table_prefix"]."pages ".
+       $this->LoadAll("select ".$this->pages_meta.",`body` from ".$this->config["table_prefix"]."pages ".
        "where latest = 'Y' and comment_on != '' ".($from?"and time<='".quote($this->dblink, $from)." 23:59:59'":"").
        ($for?"and supertag like '".quote($this->dblink, $this->NpjTranslit($for))."/%' ":"").
        "order by time desc  limit ".$limit))
@@ -1984,12 +1984,13 @@ class Wacko
  // XML
  function WriteRecentChangesXML()
  {
-   $xml = "<?xml version=\"1.0\" encoding=\"windows-1251\"?>\n";
+   $xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
    $xml .= "<rss version=\"2.0\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\">\n";
    $xml .= "<channel>\n";
    $xml .= "<title>".$this->GetConfigValue("wakka_name").$this->GetResourceValue("RecentChangesTitelXML")."</title>\n";
    $xml .= "<link>".$this->GetConfigValue("root_url")."</link>\n";
    $xml .= "<description>".$this->GetResourceValue("RecentChangesXML").$this->GetConfigValue("wakka_name")." </description>\n";
+   $xml .= "<pubDate>".date('r')."</pubDate>\n";
    $xml .= "<language>en-us</language>\n";
    $xml .= "<docs>http://blogs.law.harvard.edu/tech/rss</docs>\n";
    $xml .= "<generator>WackoWiki ".WACKO_VERSION."</generator>\n";//!!!
@@ -2005,6 +2006,7 @@ class Wacko
          $xml .= "<item>\n";
          $xml .= "<title>".$page["tag"]."</title>\n";
          $xml .= "<link>".$this->href("show", $page["tag"], "time=".urlencode($page["time"]))."</link>\n";
+		 $xml .= "<pubDate>".date('r', strtotime($page['time']))."</pubDate>\n";
          $xml .= "<description>".$page["time"]." by ".$page["user"]."</description>\n";
          $xml .= "</item>\n";
        }
@@ -2031,7 +2033,8 @@ class Wacko
    $xml .= "<title>".$this->GetConfigValue("wakka_name").$this->GetResourceValue("RecentCommentsTitelXML")."</title>\n";
    $xml .= "<link>".$this->GetConfigValue("root_url")."</link>\n";
    $xml .= "<description>".$this->GetResourceValue("RecentCommentsXML").$this->GetConfigValue("wakka_name")." </description>\n";
-   $xml .= "<language>en-us</language>\n";
+   $xml .= "<pubDate>".date('r')."</pubDate>\n";
+   $xml .= "<language>en-us</language>\n";   
    $xml .= "<docs>http://blogs.law.harvard.edu/tech/rss</docs>\n";
    $xml .= "<generator>WackoWiki ".WACKO_VERSION."</generator>\n";//!!!
 
@@ -2041,9 +2044,13 @@ class Wacko
        if ( $access && ($count < 30) ) {
          $count++;
          $xml .= "<item>\n";
-         $xml .= "<title>".$page["tag"]."</title>\n";
+         $xml .= "<title>".$page["tag"]." ".$this->GetResourceValue("To")." ".$page["comment_on"]." ".$this->GetResourceValue("From")." ".$page["user"]."</title>\n";
+		 # $word = preg_split("/[\s,]+/", $page["body"]);
          $xml .= "<link>".$this->href("show", $page["tag"], "time=".urlencode($page["time"]))."</link>\n";
-         $xml .= "<description>".$page["time"]." by ".$page["user"]."</description>\n";
+		 $xml .= "<pubDate>".date('r', strtotime($page['time']))."</pubDate>\n";
+		 $xml .= "<dc:creator>".$page["user"]."</dc:creator>\n";
+		 $xml .= "<description><![CDATA[".str_replace("]]>","]]&gt;",$page["body"])."]]></description>\n";
+         # $xml .= "<description>".$word[0]." ".$word[1]." ".$word[2]."</description>\n";
          $xml .= "</item>\n";
        }
      }
@@ -2126,6 +2133,7 @@ class Wacko
    }
  }
 
+//BOOKMARKS
  function GetDefaultBookmarks($lang, $what="default")
  {
   if (!$lang) $lang = $this->config["language"];

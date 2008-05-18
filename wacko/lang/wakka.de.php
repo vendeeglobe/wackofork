@@ -55,6 +55,7 @@ $wakkaResource = array(
   "TakeOwnership" => "Seite übernehmen",
   "DeleteConfirm" => "Willst du wirklich diese Seite löschen?\\nDiese Aktion kann nicht rückgängig gemacht werden!.",
   "DeleteTip" => "Seite löschen.",
+  "DeleteTipComment" => "Kommentar löschen.",
   "DeleteText" => "(löschen)",
   "EditACLConfirm" => "Änderungen wirklich nicht speichern?",
   "EditACLText" => "Berechtigungen",
@@ -154,6 +155,7 @@ $wakkaResource = array(
   "To" => "zu",
   "By" => "durch",
   "From" => "von",
+  "ReturnToCommented" => "Zurück zur kommentierten Seite",
   
   "PagesLinkingTo" => "Seiten, die verweisen auf",
   "NoPageLinkingTo" => "Keine Seite verweist auf",

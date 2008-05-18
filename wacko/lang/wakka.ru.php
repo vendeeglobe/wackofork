@@ -55,6 +55,7 @@ $wakkaResource = array(
   "TakeOwnership" => "Вступить во владение",
   "DeleteConfirm" => "Вы действительно хотите УДАЛИТЬ текст? \\nВосстановить его потом не удастс\я.",
   "DeleteTip" => "Нажмите, чтобы удалить.",
+  "DeleteTipComment" => "Click here to delete comment.",
   "DeleteText" => "Удалить",
   "EditACLConfirm" => "Перейти без сохранения сделанных изменений?",
   "EditACLText" => "Доступ...",
@@ -158,6 +159,7 @@ $wakkaResource = array(
   "To" => "to",
   "By" => "by",
   "From" => "from",
+  "ReturnToCommented" => "Return to commented page",
   
   "RemoveWatch" => "Снять наблюдение",
   "SetWatch" => "Наблюдать",

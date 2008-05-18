@@ -55,6 +55,7 @@ $wakkaResource = array(
   "TakeOwnership" => "Wordt eigenaar",
   "DeleteConfirm" => "Wilt u deze pagina echt verwijderen?\\nU kunt deze handeling niet ongedaan maken!.",
   "DeleteTip" => "Klik hier om deze pagina te verwijderen.",
+  "DeleteTipComment" => "Click here to delete comment.",
   "DeleteText" => "(Verwijder)",
   "EditACLConfirm" => "Wilt u afsluiten zonder te bewaren?",
   "EditACLText" => "Bewerk ACL's (rechten)",
@@ -154,6 +155,7 @@ $wakkaResource = array(
   "To" => "to",
   "By" => "door",  
   "From" => "from",
+  "ReturnToCommented" => "Return to commented page",
     
   "PagesLinkingTo" => "Pagina's met verwijzingen naar ",
   "NoPageLinkingTo" => "Geen pagina bevat links naar",

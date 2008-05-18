@@ -17,6 +17,10 @@ if ($this->IsAdmin() ||
   else
   {
    if ($_POST["delete"]==1) {
+   
+    if ($this->page['comment_on'])
+				$comment_on = $this->page['comment_on'];
+   
     // Remove page
     if ($this->RemoveReferrers($this->tag))
     {
@@ -40,11 +44,18 @@ if ($this->IsAdmin() ||
     }
     if ($this->RemoveComments($this->tag))
     {
-      print("\n");
+      print("\n");	  
     }
 
       print($this->GetResourceValue("ThisActionHavenotUndo")."\n");
-   } else {
+	  
+	  // return to commented page
+	  if ($comment_on)
+	  {
+		echo '<br />'.$this->ComposeLinkToPage($comment_on, '', $this->GetResourceValue('ReturnToCommented'), 0);
+	  }
+   } 
+   else {
    echo "<h1>".$this->GetResourceValue("ReallyDelete".($this->page["comment_on"]?"Comment":""))."</h1>";
    echo $this->FormOpen("remove");
 

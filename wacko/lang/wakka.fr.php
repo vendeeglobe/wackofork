@@ -55,6 +55,7 @@ $wakkaResource = array(
   "TakeOwnership" => "S&rsquo;approprier",
   "DeleteConfirm" => "Êtes-vous sûr de vouloir supprimer cette page&nbsp;?\\vous ne pourrez pas revenir en arrière&nbsp;!.",
   "DeleteTip" => "Cliquez ici pour supprimer cette page.",
+  "DeleteTipComment" => "Cliquez ici pour supprimer cette commentaire.",
   "DeleteText" => "(supprimer)",
   "EditACLConfirm" => "Voulez-vous vraiment sortir sans sauvegarder&nbsp;?",
   "EditACLText" => "Changer les droits",
@@ -154,6 +155,7 @@ $wakkaResource = array(
   "To" => "to",
   "By" => "par",
   "From" => "from",
+  "ReturnToCommented" => "Return to commented page",
   
   "PagesLinkingTo" => "Pages ayants un lien vers",
   "NoPageLinkingTo" => "Aucune page n&rsquo;a de lien vers",

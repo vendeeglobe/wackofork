@@ -7,6 +7,7 @@ $xml .= "<channel>\n";
 $xml .= "<title>".$this->tag."</title>\n";
 $xml .= "<link>".$this->GetConfigValue("base_url")."</link>\n";
 $xml .= "<description>".$this->GetResourceValue("ExportClusterXML").$this->GetConfigValue("wakka_name")."/".$this->tag."</description>\n";
+$xml .= "<pubDate>".date('r')."</pubDate>\n";
 $xml .= "<language></language>\n";//!!!
 $xml .= "<docs>http://blogs.law.harvard.edu/tech/rss</docs>\n";
 $xml .= "<generator>WackoWiki ".WACKO_VERSION."</generator>\n";//!!!

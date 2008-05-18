@@ -55,6 +55,7 @@ $wakkaResource = array(
   "TakeOwnership" => "Apropiatela",
   "DeleteConfirm" => "Estas seguro/a de querer ELIMINAR esta página?\\nEsta acción no se puede recuperar!.",
   "DeleteTip" => "Pulsa aquí para eliminar la página.",
+  "DeleteTipComment" => "Pulsa aquí para eliminar comentario.",
   "DeleteText" => "(eliminar)",
   "EditACLConfirm" => "Cancelar sin guardar los cambios?",
   "EditACLText" => "Cambiar ACLs",
@@ -154,6 +155,7 @@ $wakkaResource = array(
   "To" => "to",
   "By" => "por",
   "From" => "from",
+  "ReturnToCommented" => "Return to commented page",
     
   "PagesLinkingTo" => "Páginas vinculadas a",
   "NoPageLinkingTo" => "no hay ninguna página vinculada a",

@@ -55,6 +55,7 @@ $wakkaResource = array(
   "TakeOwnership" => "Przejmij autorstwo",
   "DeleteConfirm" => "Czy na pewno USUN¡Æ tê stronê?\\nTej czynno¶ci nie mo¿na cofn±æ!.",
   "DeleteTip" => "Usuñ bie¿±c± stronê...",
+  "DeleteTipComment" => "Click here to delete comment.",
   "DeleteText" => "(usuñ)",
   "EditACLConfirm" => "Czy na pewno opu¶ciæ stronê bez zapisywania wprowadzonych zmian?",
   "EditACLText" => "Prawa dostêpu",
@@ -154,6 +155,7 @@ $wakkaResource = array(
   "To" => "to",
   "By" => "by",  
   "From" => "from",
+  "ReturnToCommented" => "Return to commented page",
   
   "PagesLinkingTo" => "Dokumenty zawieraj±ce odno¶nik do",
   "NoPageLinkingTo" => "¯aden dokument nie zawiera odno¶nika do strony: ",

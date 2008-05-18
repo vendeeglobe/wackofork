@@ -55,6 +55,7 @@ $wakkaResource = array(
   "TakeOwnership" => "Overtag ejerskabet",
   "DeleteConfirm" => "Er du sikker på, at du vil SLETTE denne side?\\nDen vil ikke kunne genskabes!.",
   "DeleteTip" => "Klik her for at slette siden.",
+  "DeleteTipComment" => "Klik her for at slette kommentar.",
   "DeleteText" => "(slet)",
   "EditACLConfirm" => "Vil du ikke gemme ændringerne?",
   "EditACLText" => "Rediger tilladelser",
@@ -154,6 +155,7 @@ $wakkaResource = array(
   "To" => "to",
   "By" => "af",
   "From" => "from",
+  "ReturnToCommented" => "Return to commented page",
       
   "PagesLinkingTo" => "Sider som linker til",
   "NoPageLinkingTo" => "Ingen sider linker til",

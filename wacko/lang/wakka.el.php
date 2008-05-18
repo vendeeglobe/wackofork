@@ -55,6 +55,7 @@ $wakkaResource = array(
   "TakeOwnership" => "Πάρε Ιδιοκτησία",
   "DeleteConfirm" => "Επιθυμείτε την ΔΙΑΓΡΑΦΗ της σελίδας;\\nΔεν υπάρχει αναίρεση για αυτή την ενέργεια!.",
   "DeleteTip" => "Πατήστε για να διαγράψετε την σελίδα.",
+  "DeleteTipComment" => "Click here to delete comment.",
   "DeleteText" => "(διαγραφή)",
   "EditACLConfirm" => "Θέλετε να φύγετε χωρίς να αποθηκεύσετε?",
   "EditACLText" => "Επεξεργασία ACLs",
@@ -154,6 +155,7 @@ $wakkaResource = array(
   "To" => "to",
   "By" => "από",
   "From" => "from",
+  "ReturnToCommented" => "Return to commented page",
 
   "PagesLinkingTo" => "Pages linking to",
   "NoPageLinkingTo" => "No page is linking to",

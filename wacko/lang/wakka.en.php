@@ -55,6 +55,7 @@ $wakkaResource = array(
   "TakeOwnership" => "Take Ownership",
   "DeleteConfirm" => "Do you really want to DELETE page?\\nThere is no undo for this action!.",
   "DeleteTip" => "Click here to delete page.",
+  "DeleteTipComment" => "Click here to delete comment.",
   "DeleteText" => "(delete)",
   "EditACLConfirm" => "Do you really want to leave without saving?",
   "EditACLText" => "Edit ACLs",
@@ -154,6 +155,7 @@ $wakkaResource = array(
   "To" => "to",
   "By" => "by",
   "From" => "from",
+  "ReturnToCommented" => "Return to commented page",
 
   "PagesLinkingTo" => "Pages linking to",
   "NoPageLinkingTo" => "No page is linking to",

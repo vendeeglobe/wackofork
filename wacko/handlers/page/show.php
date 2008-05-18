@@ -208,7 +208,7 @@ if ($this->HasAccess("read") && $this->GetConfigValue("hide_comments") != 1 && (
         print("<div class=\"comment\">\n");
         $del = "";
         if ($this->IsAdmin() || $this->UserIsOwner($comment["tag"]) || ($this->GetConfigValue("owners_can_remove_comments") && $this->UserIsOwner($this->GetPageTag())))
-          print("<a href=\"".$this->href("remove",$comment["tag"])."\"><img src=\"".$this->GetConfigValue("theme_url")."icons/1del.gif\" hspace=4 vspace=4 title=\"".$this->GetResourceValue("DeleteTip")."\" alt=\"".$this->GetResourceValue("DeleteText")."\"  align=\"right\" border=\"0\" /></a>");
+          print("<a href=\"".$this->href("remove",$comment["tag"])."\"><img src=\"".$this->GetConfigValue("theme_url")."icons/1del.gif\" hspace=4 vspace=4 title=\"".$this->GetResourceValue("DeleteTipComment")."\" alt=\"".$this->GetResourceValue("DeleteText")."\"  align=\"right\" border=\"0\" /></a>");
         if ($comment["body_r"]) $strings = $comment["body_r"];
         else $strings = $this->Format($comment["body"], "wacko");
         print($this->Format($strings,"post_wacko")."\n");

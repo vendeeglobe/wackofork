@@ -55,6 +55,7 @@ $wakkaResource = array(
   "TakeOwnership" => "Omasta",
   "DeleteConfirm" => "Kas tõesti soovid selle lehe KUSTUTADA?\\nTaastamise võimalust enam pole!.",
   "DeleteTip" => "Lehe kustutamiseks vajuta siia.",
+  "DeleteTipComment" => "Click here to delete comment.",
   "DeleteText" => "(kustuta)",
   "EditACLConfirm" => "Kas tõesti ei soovi muudatusi salvestada?",
   "EditACLText" => "Muuda KÕL'id",
@@ -154,6 +155,7 @@ $wakkaResource = array(
   "To" => "to",
   "By" => "by",
   "From" => "from",
+  "ReturnToCommented" => "Return to commented page",
   
   "PagesLinkingTo" => "Leht on lingitud",
   "NoPageLinkingTo" => "Leht ei ole lingitud",
