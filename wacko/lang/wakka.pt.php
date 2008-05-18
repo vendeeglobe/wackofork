@@ -151,6 +151,9 @@ $wakkaResource = array(
   "PostedBy"  => "posted by",
   "ThisIsCommentOn" => "This is a comment on",
   "At" => "at",
+  "To" => "to",
+  "By" => "by",
+  "From" => "from",  
   
   "PagesLinkingTo" => "Páginas ligando a ",
   "NoPageLinkingTo" => "Nenhuma página ligando a ",
@@ -328,8 +331,6 @@ $wakkaResource = array(
   "SettingsMassAcls" => "for entire cluster",
   "SettingsMassRename" => "for entire cluster",
   
-  "By" => "by",
-
   "Next" => "Next",
   "Prev" => "Prev",
 

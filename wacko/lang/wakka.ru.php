@@ -155,6 +155,9 @@ $wakkaResource = array(
   "PostedBy"  => "posted by",
   "ThisIsCommentOn" => "This is a comment on",
   "At" => "at",
+  "To" => "to",
+  "By" => "by",
+  "From" => "from",
   
   "RemoveWatch" => "Снять наблюдение",
   "SetWatch" => "Наблюдать",
@@ -327,8 +330,6 @@ $wakkaResource = array(
   "MassNeedRedirect" => "Поставить на старых страницых редирект на новые",
   "SettingsMassAcls" => "для всех страниц кластера",
   "SettingsMassRename" => "для всех страниц кластера",
-
-  "By" => "by",
 
   "Next" => "Вперед",
   "Prev" => "Назад",

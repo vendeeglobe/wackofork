@@ -151,6 +151,9 @@ $wakkaResource = array(
   "PostedBy" => "δημοσιεύτηκε από",
   "ThisIsCommentOn" => "Αυτό είναι ένα σχόλιο στην σελίδα ",
   "At" => "στις",
+  "To" => "to",
+  "By" => "από",
+  "From" => "from",
 
   "PagesLinkingTo" => "Pages linking to",
   "NoPageLinkingTo" => "No page is linking to",
@@ -327,8 +330,6 @@ $wakkaResource = array(
   "SettingsMassAcls" => "για ολόκληρο το cluster",
   "SettingsMassRename" => "για ολόκληρο το cluster",
   
-  "By" => "από",
-
   "Next" => "Επόμενο",
   "Prev" => "Προηγούμενο",
 

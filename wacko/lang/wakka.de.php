@@ -151,6 +151,9 @@ $wakkaResource = array(
   "PostedBy"  => "eingetragen von",
   "ThisIsCommentOn" => "Das ist ein Kommentar zu",
   "At" => "am",
+  "To" => "zu",
+  "By" => "durch",
+  "From" => "von",
   
   "PagesLinkingTo" => "Seiten, die verweisen auf",
   "NoPageLinkingTo" => "Keine Seite verweist auf",
@@ -327,8 +330,6 @@ $wakkaResource = array(
   "SettingsMassAcls" => "Berechtigungen für ganzen Cluster ändern",
   "SettingsMassRename" => "Ganzen Cluster umbenennen",
 
-  "By" => "durch",
-
   "Next" => "weiter",
   "Prev" => "zurück", 
 
@@ -339,6 +340,7 @@ $wakkaResource = array(
   "outericon" => '<img src="{theme}icons/web.gif" alt="externer Link" />',
   "fileicon" => '<img src="{theme}icons/file.gif" alt="Datei" />',
   "pdficon"  => '<img src="{theme}icons/pdf.gif" alt="PDF Dokument" />',
+  "rdficon"  => '<img src="{theme}icons/rdf.gif" alt="RDF Dokument" />',  
   "mailicon" => '<img src="{theme}icons/mail.gif" alt="E-Mail" />',
   "lockicon" => '<img src="{theme}icons/lock.gif" alt="Zugriff verweigert" />',
   "keyicon" => '<img src="{theme}icons/key.gif" alt="Seite mit benutzerdefiniertem Zugriff" />',
@@ -366,6 +368,12 @@ $wakkaResource = array(
   "RecentChangesRSS" => "Letzte Änderungen",
   "RecentCommentsRSS" => "Letzte Kommentare",
   "HistoryRevisionsRSS" => "Versionen von ",
+ 
+  "FileLink" => "", 
+  "PDFLink" => "PDF Dokument", 
+  "RDFLink" => "RDF Dokument",
+  
+  "LastModification" => "Letzte Änderung",
 
 );
 

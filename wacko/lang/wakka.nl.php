@@ -151,7 +151,10 @@ $wakkaResource = array(
   "PostedBy"  => "posted by",
   "ThisIsCommentOn" => "This is a comment on",
   "At" => "at",
-  
+  "To" => "to",
+  "By" => "door",  
+  "From" => "from",
+    
   "PagesLinkingTo" => "Pagina's met verwijzingen naar ",
   "NoPageLinkingTo" => "Geen pagina bevat links naar",
   "NoWantedPages" => "<em>Geen gewenste pagina's. Zo hoort dat!</em>",
@@ -329,8 +332,6 @@ $wakkaResource = array(
   "MassNeedRedirect" => "Verwijs de oude pagina's door naar de nieuwe pagina's",
   "SettingsMassAcls" => "voor de gehele cluster",
   "SettingsMassRename" => "voor de gehele cluster",
-
-  "By" => "door",
 
   "Next" => "Next",
   "Prev" => "Prev",

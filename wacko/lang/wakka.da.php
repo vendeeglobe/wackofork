@@ -151,7 +151,10 @@ $wakkaResource = array(
   "PostedBy"  => "posted by",
   "ThisIsCommentOn" => "This is a comment on",
   "At" => "at",
-  
+  "To" => "to",
+  "By" => "af",
+  "From" => "from",
+      
   "PagesLinkingTo" => "Sider som linker til",
   "NoPageLinkingTo" => "Ingen sider linker til",
   "NoWantedPages" => "<em>Ingen eftersøgte sider. Godt!</em>",
@@ -327,7 +330,7 @@ $wakkaResource = array(
   "SettingsMassAcls" => "for hele området",
   "SettingsMassRename" => "for hele området",
   
-  "By" => "af",
+
 
   "Next" => "Næste",
   "Prev" => "Forrige",

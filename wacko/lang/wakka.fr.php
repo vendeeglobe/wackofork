@@ -151,6 +151,9 @@ $wakkaResource = array(
   "PostedBy"  => "posté par",
   "ThisIsCommentOn" => "Ceci est un commentaire sur",
   "At" => "à",
+  "To" => "to",
+  "By" => "par",
+  "From" => "from",
   
   "PagesLinkingTo" => "Pages ayants un lien vers",
   "NoPageLinkingTo" => "Aucune page n&rsquo;a de lien vers",
@@ -326,8 +329,6 @@ $wakkaResource = array(
   "MassNeedRedirect" => "Rediriger des anciennes pages vers les nouvelles",
   "SettingsMassAcls" => "pour tout le groupe de pages",
   "SettingsMassRename" => "tout le groupe de pages",
-
-  "By" => "par",
 
   "Next" => "Suivant",
   "Prev" => "Précédent",

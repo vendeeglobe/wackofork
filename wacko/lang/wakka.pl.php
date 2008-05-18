@@ -151,6 +151,9 @@ $wakkaResource = array(
   "PostedBy"  => "posted by",
   "ThisIsCommentOn" => "This is a comment on",
   "At" => "at",
+  "To" => "to",
+  "By" => "by",  
+  "From" => "from",
   
   "PagesLinkingTo" => "Dokumenty zawieraj±ce odno¶nik do",
   "NoPageLinkingTo" => "¯aden dokument nie zawiera odno¶nika do strony: ",
@@ -326,8 +329,6 @@ $wakkaResource = array(
   "MassNeedRedirect" => "Create redirect to the new pages on the old pages",
   "SettingsMassAcls" => "for entire cluster",
   "SettingsMassRename" => "for entire cluster",
-
-  "By" => "by",
 
   "Next" => "Next",
   "Prev" => "Prev",
