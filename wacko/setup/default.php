@@ -92,7 +92,7 @@ if (!$wakkaConfig["wakka_version"])
  <?php
    if ($wakkaConfig["wakka_version"])
       {
-         print("<tr><td></td><td>".$lang["installed"].($wakkaConfig["wacko_version"]?$wakkaConfig["wacko_version"]:$wakkaConfig["wakka_version"]).". ".$lang["toUpgrade"].WACKO_VERSION.". ".$lang["review"]."</td></tr>\n");
+         print("<tr><td></td><td>".$lang["installed"]."<strong>".($wakkaConfig["wacko_version"]?$wakkaConfig["wacko_version"]:$wakkaConfig["wakka_version"])."</strong>. ".$lang["toUpgrade"]."<strong>".WACKO_VERSION."</strong>. ".$lang["review"]."</td></tr>\n");
          print("<tr><td></td><td class='warning'>".$lang["PleaseBackup"]."</td></tr>\n");
       }
    else
