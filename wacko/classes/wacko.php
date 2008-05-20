@@ -357,9 +357,7 @@ class Wacko
 
  // PAGES
  // NpjTranslit
- var $NpjMacros = array( "вики" => "wiki", "вака" => "wacko", "швака" => "shwacko",
-                         "веб" => "web", "ланс" => "lance", "кукуц" => "kukutz", "мендокуси" => "mendokusee",
-                         "€ремко" => "iaremko", "николай" => "nikolai", "алексей" => "aleksey", "анатолий" => "anatoly"
+ var $NpjMacros = array( "вики" => "wiki", "вака" => "wacko", "веб" => "web"
                        );
 
  function NpjTranslit($tag, $strtolow = TRAN_LOWERCASE, $donotload=TRAN_LOAD)
@@ -2045,12 +2043,10 @@ class Wacko
          $count++;
          $xml .= "<item>\n";
          $xml .= "<title>".$page["tag"]." ".$this->GetResourceValue("To")." ".$page["comment_on"]." ".$this->GetResourceValue("From")." ".$page["user"]."</title>\n";
-		 # $word = preg_split("/[\s,]+/", $page["body"]);
          $xml .= "<link>".$this->href("show", $page["tag"], "time=".urlencode($page["time"]))."</link>\n";
 		 $xml .= "<pubDate>".date('r', strtotime($page['time']))."</pubDate>\n";
 		 $xml .= "<dc:creator>".$page["user"]."</dc:creator>\n";
 		 $xml .= "<description><![CDATA[".str_replace("]]>","]]&gt;",$page["body"])."]]></description>\n";
-         # $xml .= "<description>".$word[0]." ".$word[1]." ".$word[2]."</description>\n";
          $xml .= "</item>\n";
        }
      }

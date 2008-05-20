@@ -15,11 +15,11 @@ function array_to_str ($arr, $name="") {
 }
 
 //apply rights
-test($lang["apply rights"]."_cache...",       @chmod ("_cache", 0777),        $lang["apply rights yourself"]."_cache", 0);
-test($lang["apply rights"]."xml...",          @chmod ("xml", 0777),           $lang["apply rights yourself"]."xml", 0);
-test($lang["apply rights"]."files...",        @chmod ("files", 0777),         $lang["apply rights yourself"]."files", 0);
-test($lang["apply rights"]."files/perpage...",@chmod ("files/perpage", 0777), $lang["apply rights yourself"]."files/perpage", 0);
-test($lang["apply rights"]."sitemap.xml...",  @chmod ("sitemap.xml", 0777),   $lang["apply rights yourself"]."sitemap.xml", 0);
+test($lang["apply rights"]." _cache...",       @chmod ("_cache", 0777),        $lang["apply rights yourself"]."_cache", 0);
+test($lang["apply rights"]." xml...",          @chmod ("xml", 0777),           $lang["apply rights yourself"]."xml", 0);
+test($lang["apply rights"]." files...",        @chmod ("files", 0777),         $lang["apply rights yourself"]."files", 0);
+test($lang["apply rights"]." files/perpage...",@chmod ("files/perpage", 0777), $lang["apply rights yourself"]."files/perpage", 0);
+test($lang["apply rights"]." sitemap.xml...",  @chmod ("sitemap.xml", 0777),   $lang["apply rights yourself"]."sitemap.xml", 0);
 
 // fetch config
 $config = $config2 = unserialize($_POST["config_s"]);
