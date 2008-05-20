@@ -18,8 +18,8 @@ if ($this->IsAdmin() ||
   {
    if ($_POST["delete"]==1) {
    
-    if ($this->page['comment_on'])
-				$comment_on = $this->page['comment_on'];
+    if ($this->page["comment_on"])
+				$comment_on = $this->page["comment_on"];
    
     // Remove page
     if ($this->RemoveReferrers($this->tag))
@@ -52,7 +52,7 @@ if ($this->IsAdmin() ||
 	  // return to commented page
 	  if ($comment_on)
 	  {
-		echo '<br />'.$this->ComposeLinkToPage($comment_on, '', $this->GetResourceValue('ReturnToCommented'), 0);
+		echo "<br />".$this->ComposeLinkToPage($comment_on."#comments", "", $this->GetResourceValue("ReturnToCommented"), 0);
 	  }
    } 
    else {
