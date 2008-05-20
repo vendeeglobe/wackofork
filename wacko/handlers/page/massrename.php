@@ -46,7 +46,8 @@ if ($registered
 <input class="CancelBtn_Top" onmouseover='this.className="CancelBtn_Top_";'
                            onmouseout ='this.className="CancelBtn_Top";'
        type="button" align="top" value="<?php echo str_replace("\n"," ",$this->GetResourceValue("EditCancelButton")); ?>" onclick="document.location='<?php echo addslashes($this->href(""))?>';"
-        /><br />
+        /><br /><br />
+		[<a href="<?php echo $this->href("rename" )."\">".$this->GetResourceValue("SettingsRename" ); ?></a>]<br />
 <?php echo $this->FormClose();
    }
   }

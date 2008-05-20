@@ -89,7 +89,7 @@ if ($this->UserIsOwner() || $this->IsAdmin())
           <img src="<?php echo $this->GetConfigValue("root_url");?>images/z.gif" width="100" height="1" alt="" border="0" />
           <input class="CancelBtn" onmouseover='this.className="CancelBtn_";'
                                      onmouseout ='this.className="CancelBtn";'
-                 type="button" align="top" value="<?php echo $this->GetResourceValue("ACLCancelButton"); ?>" onclick="history.back();" style="width: 120px" />
+                 type="button" align="top" value="<?php echo $this->GetResourceValue("ACLCancelButton"); ?>" onclick="document.location='<?php echo addslashes($this->href(""))?>';" style="width: 120px" />
         </td>
       </tr>
     </table>
@@ -101,7 +101,6 @@ else
 {
   print($this->GetResourceValue("ACLAccessDenied"));
 }
-
 ?>
 <br />
 [<a href="<?php echo $this->href("massacls" )."\">".$this->GetResourceValue("SettingsMassAcls" ); ?></a>]
