@@ -31,6 +31,9 @@ $wakkaResource = array(
   "TOCTitle" => "Antetul documentului",
   "SearchButtonText" => "Cauta",
   "OuterLink2" => "Link extern (in geam nou)",
+  "FileLink" => "", 
+  "PDFLink" => "PDF Document", 
+  "RDFLink" => "RDF Document",
   "MailLink" => "Scrie scrisoare (deschide programul Dvs. postal)",
   "ShowTip" => "Apasati, pentru intoarcere la vizualizare",
   "ShowText" => "Vizualizare",
@@ -369,6 +372,8 @@ $wakkaResource = array(
   "RecentChangesRSS" => "RecentChanges in RSS",
   "RecentCommentsRSS" => "RecentComments in RSS",
   "HistoryRevisionsRSS" => "History/revisions of ",
+  
+  "LastModification" => "Last Modification",
 
 );
 

@@ -31,6 +31,9 @@ $wakkaResource = array(
   "TOCTitle" => "Inhalt ",
   "SearchButtonText" => "Suche",
   "OuterLink2" => "externer Verweis\n(in neuem Fenster)",
+  "FileLink" => "", 
+  "PDFLink" => "PDF Dokument", 
+  "RDFLink" => "RDF Dokument",
   "MailLink" => "Schreibe E-Mail\n(Mailprogramm wird gestartet)",
   "ShowTip" => "Klicke um in den Ansichtsmodus zurückzukehren",
   "ShowText" => "Ansicht",
@@ -371,10 +374,6 @@ $wakkaResource = array(
   "RecentCommentsRSS" => "Letzte Kommentare",
   "HistoryRevisionsRSS" => "Versionen von ",
  
-  "FileLink" => "", 
-  "PDFLink" => "PDF Dokument", 
-  "RDFLink" => "RDF Dokument",
-  
   "LastModification" => "Letzte Änderung",
 
 );

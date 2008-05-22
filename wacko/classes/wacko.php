@@ -1988,7 +1988,7 @@ class Wacko
    $xml .= "<title>".$this->GetConfigValue("wakka_name").$this->GetResourceValue("RecentChangesTitelXML")."</title>\n";
    $xml .= "<link>".$this->GetConfigValue("root_url")."</link>\n";
    $xml .= "<description>".$this->GetResourceValue("RecentChangesXML").$this->GetConfigValue("wakka_name")." </description>\n";
-   $xml .= "<pubDate>".date('r')."</pubDate>\n";
+   $xml .= "<lastBuildDate>".date('r')."</lastBuildDate>\n";
    $xml .= "<language>en-us</language>\n";
    $xml .= "<docs>http://blogs.law.harvard.edu/tech/rss</docs>\n";
    $xml .= "<generator>WackoWiki ".WACKO_VERSION."</generator>\n";//!!!
@@ -2033,7 +2033,7 @@ class Wacko
    $xml .= "<title>".$this->GetConfigValue("wakka_name").$this->GetResourceValue("RecentCommentsTitelXML")."</title>\n";
    $xml .= "<link>".$this->GetConfigValue("root_url")."</link>\n";
    $xml .= "<description>".$this->GetResourceValue("RecentCommentsXML").$this->GetConfigValue("wakka_name")." </description>\n";
-   $xml .= "<pubDate>".date('r')."</pubDate>\n";
+   $xml .= "<lastBuildDate>".date('r')."</lastBuildDate>\n";
    $xml .= "<image>\n";
 	   $xml .= "<title>".$this->GetConfigValue("wakka_name").$this->GetResourceValue("RecentCommentsTitelXML")."</title>\n";
 	   $xml .= "<link>".$this->GetConfigValue("root_url")."</link>\n";
