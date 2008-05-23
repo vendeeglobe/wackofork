@@ -90,39 +90,39 @@ else if ($user = $this->GetUser())
     </tr>
     <tr>
       <td align="right"><?php echo $this->GetResourceValue("DoubleclickEditing");?>:</td>
-      <td><input type="hidden" name="doubleclickedit" value="N" /><input type="checkbox" name="doubleclickedit" value="Y" <?php echo $user["doubleclickedit"] == "Y" ? "checked" : "" ?> /></td>
+      <td><input type="hidden" name="doubleclickedit" value="N" /><input type="checkbox" name="doubleclickedit" value="Y" <?php echo $user["doubleclickedit"] == "Y" ? "checked=\"checked\"" : "" ?> /></td>
     </tr>
     <tr>
       <td align="right"><?php echo $this->GetResourceValue("WikieditAutocomplete");?>:</td>
-      <td><input type="hidden" name="autocomplete" value="N" /><input type="checkbox" name="autocomplete" value="Y" <?php echo $user["options"]["autocomplete"] == "Y" ? "checked" : "" ?> /></td>
+      <td><input type="hidden" name="autocomplete" value="N" /><input type="checkbox" name="autocomplete" value="Y" <?php echo $user["options"]["autocomplete"] == "Y" ? "checked=\"checked\"" : "" ?> /></td>
     </tr>
     <tr>
       <td align="right"><?php echo $this->GetResourceValue("ShowDateTimeInLinks");?>:</td>
-      <td><input type="hidden" name="showdatetimeinlinks" value="N" /><input type="checkbox" name="showdatetimeinlinks" value="Y" <?php echo $user["showdatetime"] == "Y" ? "checked" : "" ?> /></td>
+      <td><input type="hidden" name="showdatetimeinlinks" value="N" /><input type="checkbox" name="showdatetimeinlinks" value="Y" <?php echo $user["showdatetime"] == "Y" ? "checked=\"checked\"" : "" ?> /></td>
     </tr>
     <tr>
       <td align="right"><?php echo $this->GetResourceValue("ShowComments?");?>:</td>
-      <td><input type="hidden" name="show_comments" value="N" /><input type="checkbox" name="show_comments" value="Y" <?php echo $user["show_comments"] == "Y" ? "checked" : "" ?> /></td>
+      <td><input type="hidden" name="show_comments" value="N" /><input type="checkbox" name="show_comments" value="Y" <?php echo $user["show_comments"] == "Y" ? "checked=\"checked\"" : "" ?> /></td>
     </tr>
     <tr>
       <td align="right"><?php echo $this->GetResourceValue("ShowFiles?");?>:</td>
-      <td><input type="hidden" name="show_files" value="N" /><input type="checkbox" name="show_files" value="Y" <?php echo $user["options"]["show_files"] == "Y" ? "checked" : "" ?> /></td>
+      <td><input type="hidden" name="show_files" value="N" /><input type="checkbox" name="show_files" value="Y" <?php echo $user["options"]["show_files"] == "Y" ? "checked=\"checked\"" : "" ?> /></td>
     </tr>
     <tr>
       <td align="right"><?php echo $this->GetResourceValue("ShowSpaces");?>:</td>
-      <td><input type="hidden" name="show_spaces" value="N" /><input type="checkbox" name="show_spaces" value="Y" <?php echo $user["show_spaces"] == "Y" ? "checked" : "" ?> /></td>
+      <td><input type="hidden" name="show_spaces" value="N" /><input type="checkbox" name="show_spaces" value="Y" <?php echo $user["show_spaces"] == "Y" ? "checked=\"checked\"" : "" ?> /></td>
     </tr>
     <tr>
       <td align="right"><?php echo $this->GetResourceValue("DontRedirect");?>:</td>
-      <td><input type="hidden" name="dont_redirect" value="N" /><input type="checkbox" name="dont_redirect" value="Y" <?php echo $user["options"]["dont_redirect"] == "Y" ? "checked" : "" ?> /></td>
+      <td><input type="hidden" name="dont_redirect" value="N" /><input type="checkbox" name="dont_redirect" value="Y" <?php echo $user["options"]["dont_redirect"] == "Y" ? "checked=\"checked\"" : "" ?> /></td>
     </tr>
     <tr>
       <td align="right"><?php echo $this->GetResourceValue("SendWatchMail");?>:</td>
-      <td><input type="hidden" name="send_watchmail" value="N" /><input type="checkbox" name="send_watchmail" value="Y" <?php echo $user["options"]["send_watchmail"] == "Y" ? "checked" : "" ?> /></td>
+      <td><input type="hidden" name="send_watchmail" value="N" /><input type="checkbox" name="send_watchmail" value="Y" <?php echo $user["options"]["send_watchmail"] == "Y" ? "checked=\"checked\"" : "" ?> /></td>
     </tr>
     <!--tr>
       <td align="right"><?php echo $this->GetResourceValue("Typografica");?>:</td>
-      <td><input type="hidden" name="typografica" value="N" /><input type="checkbox" name="typografica" value="Y" <?php echo $user["typografica"] == "Y" ? "checked" : "" ?> /></td>
+      <td><input type="hidden" name="typografica" value="N" /><input type="checkbox" name="typografica" value="Y" <?php echo $user["typografica"] == "Y" ? "checked=\"checked\"" : "" ?> /></td>
     </tr-->
     <tr>
       <td align="right"><?php echo $this->GetResourceValue("YourLanguage");?>:</td>
@@ -177,7 +177,7 @@ else if ($user = $this->GetUser())
           <input class="CancelBtn" onmouseover='this.className="CancelBtn_";'
                                      onmouseout ='this.className="CancelBtn";'
                  type="button" align="top" value="<?php echo $this->GetResourceValue("LogoutButton"); ?>" onclick="document.location='<?php echo $this->href("", "", "action=logout"); ?>'" />
-    </tr>
+    </td></tr>
   </table>
   <br />
 <?php

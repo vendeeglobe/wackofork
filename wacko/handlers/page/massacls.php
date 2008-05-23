@@ -48,15 +48,15 @@ if ($this->UserIsOwner())
         <td valign="top" style="padding-right: 20px">
           <?php echo $this->GetResourceValue("ACLRead"); ?><br />
           <textarea name="read_acl" rows="4" cols="20"><?php echo $readACL["list"] ?></textarea>
-        <td>
+        </td>
         <td valign="top" style="padding-right: 20px">
           <?php echo $this->GetResourceValue("ACLWrite"); ?><br />
           <textarea name="write_acl" rows="4" cols="20"><?php echo $writeACL["list"] ?></textarea>
-        <td>
+        </td>
         <td valign="top" style="padding-right: 20px">
           <?php echo $this->GetResourceValue("ACLComment"); ?><br />
           <textarea name="comment_acl" rows="4" cols="20"><?php echo $commentACL["list"] ?></textarea>
-        <td>
+        </td>
       </tr>
       <tr>
         <td colspan="3">
@@ -73,7 +73,7 @@ if ($this->UserIsOwner())
             }
             ?>
           </select>
-        <td>
+        </td>
       </tr>
       <tr>
         <td colspan="3">

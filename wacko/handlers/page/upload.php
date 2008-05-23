@@ -36,7 +36,7 @@
       {
          echo "<h1>".$this->GetResourceValue("UploadRemoveConfirm")."</h1>";
          echo $this->FormOpen("upload");
-         // !!!!! поставить здесь ссылку на удаляемый файл
+         // !!!!! place here a reference to delete files
          ?>
     <br /><ul>
     <li><?php echo $this->Link( "file:".(($_GET["remove"] == "global")?"":($this->tag."/")).$_GET["file"] ); ?></li>

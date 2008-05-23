@@ -6,7 +6,7 @@ P, TD, LI, SELECT, TEXTAREA {
   line-height: 1.3em;
 }
 
-label {cursor:pointer; cursor:hand;}
+label {cursor:pointer;}
 
 /* Textareas */
 textarea {
@@ -210,7 +210,7 @@ table.upload td.remove- A.remove2-:ACTIVE { color:#ff0000 }
   color: ButtonText;
   border: 1px solid ButtonFace;
   padding: 1px;  margin: 0px;
-  cursor: pointer; cursor: hand;
+  cursor: pointer;
  }
  .toolbar img{
   width: 20px;
@@ -237,12 +237,12 @@ table.upload td.remove- A.remove2-:ACTIVE { color:#ff0000 }
    padding: 2px;
    font: 12px Arial;
  }
- .autocomplete-inplace div          { padding: 2px 5px; cursor: pointer; cursor: hand; }
+ .autocomplete-inplace div          { padding: 2px 5px; cursor: pointer; }
  .autocomplete-inplace div.ac-over- { color:#ffffff; background: #1E9905; }
 
 /* Wiki Formatting ---------------------------------------- */
 dfn { font-variant: small-caps; letter-spacing: 0.1em; font-style: normal; cursor: help; border-bottom: 1px dotted #000; }
-* html dfn { \background: url(javascript:DOTS) repeat-x bottom left; }
+* html dfn { background: url(javascript:DOTS) repeat-x bottom left; }
 
 STRIKE, S { color:#999999 }
 STRIKE A:VISITED, S A:LINK { color:#999999 }
@@ -250,7 +250,12 @@ STRIKE A:VISITED, S A:VISITED { color:#999999 }
 STRIKE IMG, S IMG { filter:Gray }
 cite {color:#888800;font-style:normal;}
 
-.add { font-weight: bold; color:#c00; text-decoration: underline; }
+.add {
+	font-weight: bold;
+	color:#008800;
+	text-decoration: underline;
+	background-color: #efe;
+}
 .del { font-style: italic; color:#c00; text-decoration: line-through; }
 
 .nobr {white-space: nowrap}
@@ -363,4 +368,4 @@ tt { color:#666600; background:#ffffcc; padding: 0 2px }
 
 .cite {color:#ff0000;font-style:normal;}
 /* .mark  { color: #008800;font-style:normal; } */
-.mark { color: #00000; background:#ffaaaa; }
+.mark { color: #000; background:#ffaaaa; }

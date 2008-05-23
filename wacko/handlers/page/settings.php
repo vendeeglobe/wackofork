@@ -27,16 +27,16 @@ if ($this->UserIsOwner() || $this->HasAccess("write",$page["tag"]))
         <td valign="top" style="padding-right: 20px">
           <?php echo $this->GetResourceValue("meta1"); ?>:<br />
           <textarea name="keywords" rows="4" cols="51"><?php echo $this->page["keywords"] ?></textarea>
-        <td>
+        </td>
         <td valign="top" style="padding-right: 20px">
           <?php echo $this->GetResourceValue("meta2"); ?>:<br />
           <textarea name="description" rows="4" cols="51"><?php echo $this->page["description"] ?></textarea>
-        <td>
+        </td>
       </tr>
     </table>
     <table border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td valign="center" nowrap="nowrap">
+        <td valign="middle" nowrap="nowrap">
           <br />
           <?php echo $this->GetResourceValue("SetLang"); ?>:
           <select name="lang">
