@@ -36,6 +36,8 @@ if ($this->IsAdmin() ||
     }
     if ($this->RemovePage($this->tag))
     {
+	  $this->WriteRecentChangesXML();
+      $this->WriteRecentCommentsXML();
       print(str_replace("%1",$this->tag,$this->GetResourceValue("PageRemoved"))."<br />\n");
     }
     if ($this->RemoveWatches($this->tag))
@@ -44,6 +46,7 @@ if ($this->IsAdmin() ||
     }
     if ($this->RemoveComments($this->tag))
     {
+	  $this->WriteRecentCommentsXML();
       print("\n");	  
     }
 

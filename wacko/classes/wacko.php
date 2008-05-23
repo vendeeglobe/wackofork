@@ -918,9 +918,9 @@ class Wacko
    }
 
    $this->WriteRecentChangesXML();
-   $this->WriteSiteMapXML();
    $this->WriteRecentCommentsXML();
-
+   $this->WriteSiteMapXML();
+   
    return $body_r;
  }
 
@@ -2028,7 +2028,7 @@ class Wacko
  function WriteRecentCommentsXML() {
    $xml = "<?xml version=\"1.0\" encoding=\"".$this->GetCharset()."\"?>\n";
    $xml .= "<?xml-stylesheet type=\"text/css\" href=\"".$this->GetConfigValue("theme_url")."css/wakka.css\" media=\"screen\"?>\n";
-   $xml .= "<rss version=\"2.0\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\">\n";
+   $xml .= "<rss version=\"2.0\" xmlns:content=\"http://purl.org/rss/1.0/modules/content/\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\">\n";
    $xml .= "<channel>\n";
    $xml .= "<title>".$this->GetConfigValue("wakka_name").$this->GetResourceValue("RecentCommentsTitelXML")."</title>\n";
    $xml .= "<link>".$this->GetConfigValue("root_url")."</link>\n";
@@ -2058,6 +2058,7 @@ class Wacko
 		 $xml .= "<dc:creator>".$page["user"]."</dc:creator>\n";
 		 $text	= $this->Format($page["body_r"], "post_wacko");
 		 $xml .= "<description><![CDATA[".str_replace("]]>", "]]&gt;", $text)."]]></description>\n";
+		 #$xml .= "<content:encoded><![CDATA[".str_replace("]]>", "]]&gt;", $text)."]]></content:encoded>\n";
          $xml .= "</item>\n";
        }
      }
