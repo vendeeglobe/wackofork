@@ -26,7 +26,7 @@ if($user = $this->GetUser())
          print("<fieldset><legend>".$user["name"].": ".$this->GetResourceValue("MyGroups")."</legend>\n");
 
       $groups_count = MyGroups($user["name"],$al);
-      echo "<i>".$groups_count." ".($groups_count == 1 ? $this->GetResourceValue("Group") : $this->GetResourceValue("Groups"))."</i><br>\n";
+      echo "<i>".$groups_count." ".($groups_count == 1 ? $this->GetResourceValue("Group") : $this->GetResourceValue("Groups"))."</i><br />\n";
 
       if (!$nomark)
          echo "</fieldset>\n";

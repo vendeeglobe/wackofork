@@ -90,7 +90,7 @@
        $remove_mode=1;
       else $remove_mode=0;
 
-      $remove_href = $this->Href("upload", $vars[0], "remove=".($global?"global":"local")."&file=".$filename);
+      $remove_href = $this->Href("upload", $vars[0], "remove=".($global?"global":"local")."&amp;file=".$filename);
       ?>
         <tr>
          <td class="dt-" nowrap="nowrap"><span class="dt2-"><?php echo $dt ?></span>&nbsp;</td>

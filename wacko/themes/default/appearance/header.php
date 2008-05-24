@@ -52,6 +52,7 @@ if ($user["doubleclickedit"] == "Y") {?>
 ?>
       <script src="<?php echo $this->GetConfigValue("root_url");?>js/ufo.js" type="text/javascript"></script>
       <script type="text/javascript">
+	  <![CDATA[
          function cleanupFP9IELeaks()
             {
                __flash_unloadHandler = function() {};
@@ -62,6 +63,8 @@ if ($user["doubleclickedit"] == "Y") {?>
             {
                window.attachEvent("onbeforeunload", cleanupFP9IELeaks);
             }
+			
+		]]>
       </script>
 </head>
 
