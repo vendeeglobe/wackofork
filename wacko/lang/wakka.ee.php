@@ -1,14 +1,14 @@
 <?php
 
 $wakkaResource = array(
-  // logged in panel
+// logged in panel
   "YouAre" => "Tere tulemast, ",
   "YouArePanelLink" => "Settings",
   "YouArePanelName" => "Seadista",
   "LogoutLink" => "Logout",
   "LogoutButton" => "Logi välja",
   "LogoutAreYouSure" => "Kas oled kindel, et tahad välja logida?",
-  // registration panel
+// registration panel
   "RegistrationWelcome" => "Uue kasutaja registreerimine:",
   "RegistrationName" => "Omista ((WackoWiki:DocEnglish/WhatIsNameSurname WikiNimi))",
   "RegistrationPassword" => "Parool (vähemalt 5 tähemärki)",
@@ -20,7 +20,7 @@ $wakkaResource = array(
   "LoginName" => "((WackoWiki:DocEnglish/WhatIsNameSurname WikiNimi))",
   "LoginPassword" => "Parool",
   "LoginButton" => "Sisse!",
-  // other
+// other
   "TopicSearchText" => "Otsi pealkirjades",
   "MsWordVersion" => "Dokument MS Wordi jaoks",
   "MailHello" => "Tere, ",
@@ -151,7 +151,7 @@ $wakkaResource = array(
   "SearchFor" => "Otsi ",
   "TopicSearchResults" => "Otsingu tulemused ",
   "NotFoundInTopics" => "Ei leidunud",
-  
+
   "PostedBy"  => "posted by",
   "ThisIsCommentOn" => "This is a comment on",
   "At" => "at",
@@ -159,7 +159,7 @@ $wakkaResource = array(
   "By" => "by",
   "From" => "from",
   "ReturnToCommented" => "Return to commented page",
-  
+
   "PagesLinkingTo" => "Leht on lingitud",
   "NoPageLinkingTo" => "Leht ei ole lingitud",
   "NoWantedPages" => "<em>Soovitud lehti ei ole. Hästi!</em>",
@@ -257,7 +257,7 @@ $wakkaResource = array(
  "NoWatchers" => "<em>Keegi ei jälgi %1</em>",
  "NotOwnerAndViewWatchers" => "<em>Sa ei ole selle lehe omanik ja seetõttu sa ei saa vaadata nimekirja inmestest kes seda lehte jälgivad.</em>",
 
- //Settings
+//Settings
  "SettingsFor" => " %1 seadistused.",
  "metaDesc" => "META võtmesõnad/kirjeldus, mis lisatakse HTML-i päisesse.",
  "meta1" => "META võtmesõnad",
@@ -279,7 +279,7 @@ $wakkaResource = array(
  "BewareChangeLang" => "Ära muuda keelt, kui sa ei ole päris kindel selles, mida sa teed. Kogu mitte-inglisekeelne sisu võib muuta loetamatuks. Sa saad seda tegevust tagasi pöörata, kui muudad keeleseadistuse tagasi selle algolekusse. ",
  "SetLang" => "Selle lehe keel",
 
- // upload
+// upload
  "UploadFor" => "Faili üleslaadimine",
  "UploadButtonText" => "Nõus",
  "UploadGlobalText" => "üldise juurdepääsuga",
@@ -335,14 +335,14 @@ $wakkaResource = array(
   "MassNeedRedirect" => "Create redirect to the new pages on the old pages",
   "SettingsMassAcls" => "for entire cluster",
   "SettingsMassRename"  => "for entire cluster",
-  
+
   "Next" => "Next",
   "Prev" => "Prev",
 
   "default_bookmarks" => "SisuKord\nViimasedMuudatused\nViimatiKommenteeritud\n((Kasutajad))\n((Registration Registreerimine))",
   "site_bookmarks" => "SisuKord / ViimasedMuudatused / ViimatiKommenteeritud",
 
-  //icons
+//icons
   "outericon" => '<img src="{theme}icons/web.gif" alt="" />',
   "fileicon" => '<img src="{theme}icons/file.gif" alt="" />',
   "pdficon"  => '<img src="{theme}icons/pdf.gif" alt="PDF Document" />',
@@ -351,18 +351,18 @@ $wakkaResource = array(
   "lockicon" => '<img src="{theme}icons/lock.gif" alt="Access denied" />',
   "keyicon" => '<img src="{theme}icons/key.gif" alt="Page with custom access" />',
   "wantedicon" => '?',
-  
-  // My Groups
+
+// My Groups
   "UserGroups" => "Groups of users",
   "MyGroups" => "Group Associations",
   "Group" => "group",
   "Groups" => "groups",
-  
-  // Cache
+
+// Cache
   "ClearCache" => "Clear cache",
   "CacheCleared" => "Cache cleared.",
-  
-  // XML / RSS autodiscovery
+
+// XML / RSS autodiscovery
   "RecentChangesTitelXML" => " - RecentChanges",
   "RecentChangesXML" => "Recent changes to the ",
   "RecentCommentsTitelXML" => " - RecentComments",
@@ -370,11 +370,11 @@ $wakkaResource = array(
   "PageRevisionsXML" => "History/revisions of ",
   "ExportClusterXML" => "Export of entire cluster of ",
   "AccessDeniedXML" => "You're not allowed to access this information.",
-   
+ 
   "RecentChangesRSS" => "RecentChanges in RSS",
   "RecentCommentsRSS" => "RecentComments in RSS",
   "HistoryRevisionsRSS" => "History/revisions of ",
-  
+
   "LastModification" => "Last Modification",
 
 );

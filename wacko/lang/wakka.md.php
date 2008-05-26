@@ -1,26 +1,26 @@
 <?php
 
 $wakkaResource = array(
- // logged in panel
+// logged in panel
   "YouAre" => "Voi ",
   "YouArePanelLink" => "Settings",
   "YouArePanelName" => "Configura",
   "LogoutLink" => "Iesire",
   "LogoutAreYouSure" => "Iesire din sistem?",
   "LogoutButton" => "Iesire din sistem",
-  // registration panel
+// registration panel
   "RegistrationWelcome" => "Registrarea utilizatorului nou:",
   "RegistrationName" => "Alegeti NumePrenume ((WackoWiki:WackoДокументация/ЧтоТакоеИмяФамилия NumePrenume))",
   "RegistrationPassword" => "Parola (nu mai putin de 5 simboluri)",
   "RegistrationButton" => "Inainte!",
   "RegistrationNameOwned" => "Numele deja este ocupat!",
-  // login panel
+// login panel
   "LoginWelcome" => "Entrarea",
   "LoginWelcome2" => " . . . . . . . . [[/Registration Inregistrarea]]",
   "LoginName" => "((WackoWiki:WackoДокументация/ЧтоТакоеИмяФамилия ИмяФамилия))",
   "LoginPassword" => "Parola",
   "LoginButton" => "Intrarea in sistem!",
-  // other
+// other
   "MsWordVersion" => "Versiunea pentru export in Microsoft Word",
   "TopicSearchText" => "Cautarea numai in anteturi",
   "MailHello" => "Noroc, ",
@@ -153,7 +153,7 @@ $wakkaResource = array(
   "SearchFor" => "A cauta",
   "TopicSearchResults" => "Rezultatul cautarii in anteturi ",
   "NotFoundInTopics" => "nu se intalneste in anteturi",
- 
+
   "PostedBy"  => "posted by",
   "ThisIsCommentOn" => "This is a comment on",
   "At" => "at",
@@ -161,7 +161,7 @@ $wakkaResource = array(
   "By" => "by",
   "From" => "from",
   "ReturnToCommented" => "Return to commented page",
- 
+
   "RemoveWatch" => "Scoate monitorizarea",
   "SetWatch" => "Monitorizeaza",
   "history" => "Istoria",
@@ -179,14 +179,14 @@ $wakkaResource = array(
   "AlreadyRegistered" => "Daca deja sunteti inregistrat, atunci intrati aici!",
   "YourLogin" => "WikkiNume al Dvs.",
   "Password" => "Parola (nu mai putin de 5 simboluri)",
- 
+
   "StuffYouNeed" => "Aceste cimpuri trebuie de completat, numai daca va inregistrati pentru prima data (este creat un utilizator nou).",
   "ConfirmPassword" => "Confirarea parolei",
   "Email" => "E-mail",
   "MustBeWikiName" => "Numele de utilizator trebuie sa fie ((WackoWiki:WackoДокументация/ВикиИмя ВикиИменем)) ",
   "SpecifyEmail" => "Trebuie sa indicati adresa e-mail.",
   "NotAEmail" => "Aceasta nu este o adresa e-mail.",
- 
+
   "PasswordsDidntMatch" => "Parolele nu coincid.",
   "SpacesArentAllowed" => "Nu se poate de folosit spatzii libere in parole.",
   "PasswordTooShort" => "Parola este prea skurta.",
@@ -253,13 +253,13 @@ $wakkaResource = array(
   "CodeWasSent" => "Инструкция по восстановлению пароля отправлена Вам по электронной почте.",
   "WrongCode" => "<em>Неверный код</em>",
   "YouWantChangePasswordForUser" => "Смена пароля pentru пользователя %1",
- 
+
   "Watchers" => "Список наблюдающих за %1",
   "NoWatchers" => "<em>За страницей %1 никто не наблюдает</em>",
   "NotOwnerAndViewWatchers" =>"<em>Вы не владеете cтраницей %1 и поэтому не можете получить список наблюдающих за ней</em>",
   "SetLang" => "Выберите язык Paginile",
 
- //Settings
+//Settings
   "SettingsFor"  => "Bloc de reglare %1",
   "metaDesc" => "Ключевые слова/Описание &ndash; поля, вставляемые в HTML-заголовок каждой Paginile (META).",
   "meta1" => "Ключевые слова",
@@ -278,7 +278,7 @@ $wakkaResource = array(
   "SettingsPrint" => "Versiune pentru печати",
   "SettingsMsword" => "Versiune pentru MS Word",
 
- // upload
+// upload
   "UploadFor" => "Incarcarea fishierului",
   "UploadButtonText" => "Загрузить",
   "UploadGlobalText" => "будет доступен всем посетителям",
@@ -340,7 +340,7 @@ $wakkaResource = array(
   "default_bookmarks" => "PageIndex\nRecentChanges\nRecentlyCommented\n((Users))\n((Registration))",
   "site_bookmarks" => "PageIndex / RecentChanges / RecentlyCommented",
 
- //icons
+//icons
   "outericon" => '<img src="{theme}icons/web.gif" alt="" />',
   "fileicon" => '<img src="{theme}icons/file.gif" alt="" />',
   "pdficon"  => '<img src="{theme}icons/pdf.gif" alt="PDF Document" />',
@@ -349,18 +349,18 @@ $wakkaResource = array(
   "lockicon" => '<img src="{theme}icons/lock.gif" alt="Nu aveti acces" />',
   "keyicon"  => '<img src="{theme}icons/key.gif" alt="Pagina cu acces limitat" />',
   "wantedicon" => '?',
-  
-  // My Groups
+
+// My Groups
   "UserGroups" => "Groups of users",
   "MyGroups" => "Group Associations",
   "Group" => "group",
   "Groups" => "groups",
-  
-  // Cache
+
+// Cache
   "ClearCache" => "Clear cache",
   "CacheCleared" => "Cache cleared.",
-  
-  // XML / RSS autodiscovery
+
+// XML / RSS autodiscovery
   "RecentChangesTitelXML" => " - RecentChanges",
   "RecentChangesXML" => "Recent changes to the ",
   "RecentCommentsTitelXML" => " - RecentComments",
@@ -368,11 +368,11 @@ $wakkaResource = array(
   "PageRevisionsXML" => "History/revisions of ",
   "ExportClusterXML" => "Export of entire cluster of ",
   "AccessDeniedXML" => "You're not allowed to access this information.",
-   
+ 
   "RecentChangesRSS" => "RecentChanges in RSS",
   "RecentCommentsRSS" => "RecentComments in RSS",
   "HistoryRevisionsRSS" => "History/revisions of ",
-  
+
   "LastModification" => "Last Modification",
 
 );

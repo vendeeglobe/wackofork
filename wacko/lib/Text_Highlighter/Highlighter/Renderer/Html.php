@@ -30,19 +30,19 @@ require_once (dirname(__FILE__).'/Array.php');
 // BC trick : only define constants if Text/Highlighter.php
 // is not yet included
 if (!defined('HL_NUMBERS_LI')) {
-    /**#@+
-     * Constant for use with $options['numbers']
-     */
-    /**
-     * use numbered list, deprecated, use HL_NUMBERS_OL instaed
-     * @deprecated
-     */
-    define ('HL_NUMBERS_LI'    ,    1);
-    /**
-     * Use 2-column table with line numbers in left column and code in  right column.
-     */
-    define ('HL_NUMBERS_TABLE'    , 2);
-    /**#@-*/
+	/**#@+
+	 * Constant for use with $options['numbers']
+	 */
+	/**
+	 * use numbered list, deprecated, use HL_NUMBERS_OL instaed
+	 * @deprecated
+	 */
+	define ('HL_NUMBERS_LI'    ,    1);
+	/**
+	 * Use 2-column table with line numbers in left column and code in  right column.
+	 */
+	define ('HL_NUMBERS_TABLE'    , 2);
+	/**#@-*/
 }
 
 
@@ -130,51 +130,51 @@ define ('HL_NUMBERS_UL',    3);
 class Text_Highlighter_Renderer_Html extends Text_Highlighter_Renderer_Array
 {
 
-    /**#@+
-     * @access private
-     */
+	/**#@+
+	 * @access private
+	 */
 
-    /**
-     * Line numbering style
-     *
-     * @var integer
-     */
-    var $_numbers = 0;
+	/**
+	 * Line numbering style
+	 *
+	 * @var integer
+	 */
+	var $_numbers = 0;
 
-    /**
-     * For numberered lines - where to start
-     *
-     * @var integer
-     */
-    var $_numbers_start = 0;
+	/**
+	 * For numberered lines - where to start
+	 *
+	 * @var integer
+	 */
+	var $_numbers_start = 0;
 
-    /**
-     * Tab size
-     *
-     * @var integer
-     */
-    var $_tabsize = 4;
+	/**
+	 * Tab size
+	 *
+	 * @var integer
+	 */
+	var $_tabsize = 4;
 
-    /**
-     * Highlighted code
-     *
-     * @var string
-     */
-    var $_output = '';
+	/**
+	 * Highlighted code
+	 *
+	 * @var string
+	 */
+	var $_output = '';
 
-    /**
-     * Mapping of keywords to formatting rules using inline styles
-     *
-     * @var array
-     */
-    var $_style_map = array();
+	/**
+	 * Mapping of keywords to formatting rules using inline styles
+	 *
+	 * @var array
+	 */
+	var $_style_map = array();
 
-    /**
-     * Mapping of keywords to formatting rules using class names
-     *
-     * @var array
-     */
-    var $_class_map = array(
+	/**
+	 * Mapping of keywords to formatting rules using class names
+	 *
+	 * @var array
+	 */
+	var $_class_map = array(
         'main'       => 'hl-main',
         'table'      => 'hl-table',
         'gutter'     => 'hl-gutter',
@@ -194,262 +194,262 @@ class Text_Highlighter_Renderer_Html extends Text_Highlighter_Renderer_Array
         'string'     => 'hl-string',
         'url'        => 'hl-url',
         'var'        => 'hl-var',
-    );
+	);
 
-    /**
-     * Setup for links to online documentation
-     *
-     * This is an array with keys:
-     * - url, ex. http://php.net/%s
-     * - target, ex. _blank, default - no target
-     * - elements, default is <code>array('reserved', 'identifier')</code>
-     *
-     * @var array
-     */
-    var $_doclinks = array();
+	/**
+	 * Setup for links to online documentation
+	 *
+	 * This is an array with keys:
+	 * - url, ex. http://php.net/%s
+	 * - target, ex. _blank, default - no target
+	 * - elements, default is <code>array('reserved', 'identifier')</code>
+	 *
+	 * @var array
+	 */
+	var $_doclinks = array();
 
-    /**#@-*/
-
-
-    /**
-     * Resets renderer state
-     *
-     * @access protected
-     *
-     *
-     * Descendents of Text_Highlighter call this method from the constructor,
-     * passing $options they get as parameter.
-     */
-    function reset()
-    {
-        $this->_output = '';
-        if (isset($this->_options['numbers'])) {
-            $this->_numbers = (int)$this->_options['numbers'];
-            if ($this->_numbers != HL_NUMBERS_LI
-             && $this->_numbers != HL_NUMBERS_UL
-             && $this->_numbers != HL_NUMBERS_OL
-             && $this->_numbers != HL_NUMBERS_TABLE
-             ) {
-                $this->_numbers = 0;
-            }
-        }
-        if (isset($this->_options['tabsize'])) {
-            $this->_tabsize = $this->_options['tabsize'];
-        }
-        if (isset($this->_options['numbers_start'])) {
-            $this->_numbers_start = intval($this->_options['numbers_start']);
-        }
-        if (isset($this->_options['doclinks']) &&
-            is_array($this->_options['doclinks']) &&
-            !empty($this->_options['doclinks']['url'])
-        ) {
-
-            $this->_doclinks = $this->_options['doclinks']; // keys: url, target, elements array
-
-            if (empty($this->_options['doclinks']['elements'])) {
-                $this->_doclinks['elements'] = array('reserved', 'identifier');
-            }
-        }
-        if (isset($this->_options['style_map'])) {
-            $this->_style_map = $this->_options['style_map'];
-        }
-        if (isset($this->_options['class_map'])) {
-            $this->_class_map = array_merge($this->_class_map, $this->_options['class_map']);
-        }
-        $this->_htmlspecialchars = true;
-
-    }
+	/**#@-*/
 
 
-    /**
-     * Given a CSS class name, returns the class name
-     * with language name prepended, if necessary
-     *
-     * @access private
-     *
-     * @param  string $class   Token class
-     */
-    function _getFullClassName($class)
-    {
-        if (!empty($this->_options['use_language'])) {
-            $the_class = $this->_language . '-' . $class;
-        } else {
-            $the_class = $class;
-        }
-        return $the_class;
-    }
+	/**
+	 * Resets renderer state
+	 *
+	 * @access protected
+	 *
+	 *
+	 * Descendents of Text_Highlighter call this method from the constructor,
+	 * passing $options they get as parameter.
+	 */
+	function reset()
+	{
+		$this->_output = '';
+		if (isset($this->_options['numbers'])) {
+			$this->_numbers = (int)$this->_options['numbers'];
+			if ($this->_numbers != HL_NUMBERS_LI
+			&& $this->_numbers != HL_NUMBERS_UL
+			&& $this->_numbers != HL_NUMBERS_OL
+			&& $this->_numbers != HL_NUMBERS_TABLE
+			) {
+				$this->_numbers = 0;
+			}
+		}
+		if (isset($this->_options['tabsize'])) {
+			$this->_tabsize = $this->_options['tabsize'];
+		}
+		if (isset($this->_options['numbers_start'])) {
+			$this->_numbers_start = intval($this->_options['numbers_start']);
+		}
+		if (isset($this->_options['doclinks']) &&
+		is_array($this->_options['doclinks']) &&
+		!empty($this->_options['doclinks']['url'])
+		) {
 
-    /**
-     * Signals that no more tokens are available
-     *
-     * @access public
-     */
-    function finalize()
-    {
+			$this->_doclinks = $this->_options['doclinks']; // keys: url, target, elements array
 
-        // get parent's output
-        parent::finalize();
-        $output = parent::getOutput();
+			if (empty($this->_options['doclinks']['elements'])) {
+				$this->_doclinks['elements'] = array('reserved', 'identifier');
+			}
+		}
+		if (isset($this->_options['style_map'])) {
+			$this->_style_map = $this->_options['style_map'];
+		}
+		if (isset($this->_options['class_map'])) {
+			$this->_class_map = array_merge($this->_class_map, $this->_options['class_map']);
+		}
+		$this->_htmlspecialchars = true;
 
-        $html_output = '';
-
-        $numbers_li = false;
-
-        if (
-            $this->_numbers == HL_NUMBERS_LI ||
-            $this->_numbers == HL_NUMBERS_UL ||
-            $this->_numbers == HL_NUMBERS_OL
-           )
-        {
-            $numbers_li = true;
-        }
-
-        // loop through each class=>content pair
-        foreach ($output AS $token) {
-
-            if ($this->_enumerated) {
-                $key = false;
-                $the_class = $token[0];
-                $content = $token[1];
-            } else {
-                $key = key($token);
-                $the_class = $key;
-                $content = $token[$key];
-            }
-
-            $span = $this->_getStyling($the_class);
-            $decorated_output = $this->_decorate($content, $key);
+	}
 
 
-            if ($numbers_li == true) {
-                // end span tags before end of li, and re-open on next line
-                $lastSpanTag = str_replace("%s</span>", "", $span);
-                $span = sprintf($span, $decorated_output);
-                $span = str_replace("\n", "</span></li>\n<li>$lastSpanTag&nbsp;", $span);
-                $html_output .= $span;
-            } else {
-                $html_output .= sprintf($span, $decorated_output);
-            }
+	/**
+	 * Given a CSS class name, returns the class name
+	 * with language name prepended, if necessary
+	 *
+	 * @access private
+	 *
+	 * @param  string $class   Token class
+	 */
+	function _getFullClassName($class)
+	{
+		if (!empty($this->_options['use_language'])) {
+			$the_class = $this->_language . '-' . $class;
+		} else {
+			$the_class = $class;
+		}
+		return $the_class;
+	}
+
+	/**
+	 * Signals that no more tokens are available
+	 *
+	 * @access public
+	 */
+	function finalize()
+	{
+
+		// get parent's output
+		parent::finalize();
+		$output = parent::getOutput();
+
+		$html_output = '';
+
+		$numbers_li = false;
+
+		if (
+		$this->_numbers == HL_NUMBERS_LI ||
+		$this->_numbers == HL_NUMBERS_UL ||
+		$this->_numbers == HL_NUMBERS_OL
+		)
+		{
+			$numbers_li = true;
+		}
+
+		// loop through each class=>content pair
+		foreach ($output AS $token) {
+
+			if ($this->_enumerated) {
+				$key = false;
+				$the_class = $token[0];
+				$content = $token[1];
+			} else {
+				$key = key($token);
+				$the_class = $key;
+				$content = $token[$key];
+			}
+
+			$span = $this->_getStyling($the_class);
+			$decorated_output = $this->_decorate($content, $key);
 
 
-        }
-
-        // format lists
-        if (!empty($this->_numbers) && $numbers_li == true) {
-
-
-            // additional whitespace for browsers that do not display
-            // empty list items correctly
-            $this->_output = '<li>&nbsp;' . $html_output . '</li>';
-
-            $start = '';
-            if ($this->_numbers == HL_NUMBERS_OL && intval($this->_numbers_start) > 0)  {
-                $start = ' start="' . $this->_numbers_start . '"';
-            }
-
-            $list_tag = 'ol';
-            if ($this->_numbers == HL_NUMBERS_UL)  {
-                $list_tag = 'ul';
-            }
+			if ($numbers_li == true) {
+				// end span tags before end of li, and re-open on next line
+				$lastSpanTag = str_replace("%s</span>", "", $span);
+				$span = sprintf($span, $decorated_output);
+				$span = str_replace("\n", "</span></li>\n<li>$lastSpanTag&nbsp;", $span);
+				$html_output .= $span;
+			} else {
+				$html_output .= sprintf($span, $decorated_output);
+			}
 
 
-            $this->_output = '<' . $list_tag . $start
-                             . ' ' . $this->_getStyling('main', false) . '>'
-                             . $this->_output . '</'. $list_tag .'>';
+		}
 
-        // render a table
-        } else if ($this->_numbers == HL_NUMBERS_TABLE) {
+		// format lists
+		if (!empty($this->_numbers) && $numbers_li == true) {
 
 
-            $start_number = 0;
-            if (intval($this->_numbers_start)) {
-                $start_number = $this->_numbers_start - 1;
-            }
+			// additional whitespace for browsers that do not display
+			// empty list items correctly
+			$this->_output = '<li>&nbsp;' . $html_output . '</li>';
 
-            $numbers = '';
+			$start = '';
+			if ($this->_numbers == HL_NUMBERS_OL && intval($this->_numbers_start) > 0)  {
+				$start = ' start="' . $this->_numbers_start . '"';
+			}
 
-            $nlines = substr_count($html_output,"\n")+1;
-            for ($i=1; $i <= $nlines; $i++) {
-                $numbers .= ($start_number + $i) . "\n";
-            }
-            $this->_output = '<table ' . $this->_getStyling('table', false) . ' width="100%"><tr>' .
+			$list_tag = 'ol';
+			if ($this->_numbers == HL_NUMBERS_UL)  {
+				$list_tag = 'ul';
+			}
+
+
+			$this->_output = '<' . $list_tag . $start
+			. ' ' . $this->_getStyling('main', false) . '>'
+			. $this->_output . '</'. $list_tag .'>';
+
+			// render a table
+		} else if ($this->_numbers == HL_NUMBERS_TABLE) {
+
+
+			$start_number = 0;
+			if (intval($this->_numbers_start)) {
+				$start_number = $this->_numbers_start - 1;
+			}
+
+			$numbers = '';
+
+			$nlines = substr_count($html_output,"\n")+1;
+			for ($i=1; $i <= $nlines; $i++) {
+				$numbers .= ($start_number + $i) . "\n";
+			}
+			$this->_output = '<table ' . $this->_getStyling('table', false) . ' width="100%"><tr>' .
                              '<td '. $this->_getStyling('gutter', false) .' align="right" valign="top">' .
                              '<pre>' . $numbers . '</pre></td><td '. $this->_getStyling('main', false) .
                              ' valign="top"><pre>' .
-                             $html_output . '</pre></td></tr></table>';
-        }
-        if (!$this->_numbers) {
-            $this->_output = '<pre>' . $html_output . '</pre>';
-        }
-        $this->_output = '<div ' . $this->_getStyling('main', false) . '>' . $this->_output . '</div>';
-    }
+			$html_output . '</pre></td></tr></table>';
+		}
+		if (!$this->_numbers) {
+			$this->_output = '<pre>' . $html_output . '</pre>';
+		}
+		$this->_output = '<div ' . $this->_getStyling('main', false) . '>' . $this->_output . '</div>';
+	}
 
 
-    /**
-     * Provides additional formatting to a keyword
-     *
-     * @param string $content Keyword
-     * @return string Keyword with additional formatting
-     * @access public
-     *
-     */
-    function _decorate($content, $key = false)
-    {
-        // links to online documentation
-        if (!empty($this->_doclinks) &&
-            !empty($this->_doclinks['url']) &&
-            in_array($key, $this->_doclinks['elements'])
-        ) {
+	/**
+	 * Provides additional formatting to a keyword
+	 *
+	 * @param string $content Keyword
+	 * @return string Keyword with additional formatting
+	 * @access public
+	 *
+	 */
+	function _decorate($content, $key = false)
+	{
+		// links to online documentation
+		if (!empty($this->_doclinks) &&
+		!empty($this->_doclinks['url']) &&
+		in_array($key, $this->_doclinks['elements'])
+		) {
 
-            $link = '<a href="'. sprintf($this->_doclinks['url'], $content) . '"';
-            if (!empty($this->_doclinks['target'])) {
-                $link.= ' target="' . $this->_doclinks['target'] . '"';
-            }
-            $link .= '>';
-            $link.= $content;
-            $link.= '</a>';
+			$link = '<a href="'. sprintf($this->_doclinks['url'], $content) . '"';
+			if (!empty($this->_doclinks['target'])) {
+				$link.= ' target="' . $this->_doclinks['target'] . '"';
+			}
+			$link .= '>';
+			$link.= $content;
+			$link.= '</a>';
 
-            $content = $link;
+			$content = $link;
 
-        }
+		}
 
-        return $content;
-    }
+		return $content;
+	}
 
-    /**
-     * Returns <code>class</code> and/or <code>style</code> attribute,
-     * optionally enclosed in a <code>span</code> tag
-     *
-     * @param string $class Class name
-     * @paran boolean $span_tag Whether or not to return styling attributes in a <code>&gt;span&lt;</code> tag
-     * @return string <code>span</code> tag or just a <code>class</code> and/or <code>style</code> attributes
-     * @access private
-     */
-    function _getStyling($class, $span_tag = true)
-    {
-        $attrib = '';
-        if (!empty($this->_style_map) &&
-            !empty($this->_style_map[$class])
-        ) {
-            $attrib = 'style="'. $this->_style_map[$class] .'"';
-        }
-        if (!empty($this->_class_map) &&
-            !empty($this->_class_map[$class])
-        ) {
-            if ($attrib) {
-                $attrib .= ' ';
-            }
-            $attrib .= 'class="'. $this->_getFullClassName($this->_class_map[$class]) .'"';
-        }
+	/**
+	 * Returns <code>class</code> and/or <code>style</code> attribute,
+	 * optionally enclosed in a <code>span</code> tag
+	 *
+	 * @param string $class Class name
+	 * @paran boolean $span_tag Whether or not to return styling attributes in a <code>&gt;span&lt;</code> tag
+	 * @return string <code>span</code> tag or just a <code>class</code> and/or <code>style</code> attributes
+	 * @access private
+	 */
+	function _getStyling($class, $span_tag = true)
+	{
+		$attrib = '';
+		if (!empty($this->_style_map) &&
+		!empty($this->_style_map[$class])
+		) {
+			$attrib = 'style="'. $this->_style_map[$class] .'"';
+		}
+		if (!empty($this->_class_map) &&
+		!empty($this->_class_map[$class])
+		) {
+			if ($attrib) {
+				$attrib .= ' ';
+			}
+			$attrib .= 'class="'. $this->_getFullClassName($this->_class_map[$class]) .'"';
+		}
 
-        if ($span_tag) {
-            $span = '<span ' . $attrib . '>%s</span>';
-            return $span;
-        } else {
-            return $attrib;
-        }
+		if ($span_tag) {
+			$span = '<span ' . $attrib . '>%s</span>';
+			return $span;
+		} else {
+			return $attrib;
+		}
 
-    }
+	}
 }
 
 /*

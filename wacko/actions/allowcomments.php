@@ -1,3 +1,3 @@
 <?php
-  $this->config["hide_comments"] = 0;
+$this->config["hide_comments"] = 0;
 ?>

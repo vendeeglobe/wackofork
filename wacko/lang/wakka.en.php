@@ -1,26 +1,26 @@
 <?php
 
 $wakkaResource = array(
-  // logged in panel
+// logged in panel
   "YouAre" => "You are ",
   "YouArePanelLink" => "Settings",
   "YouArePanelName" => "Settings",
   "LogoutLink" => "Logout",
   "LogoutButton" => "Log out",
   "LogoutAreYouSure" => "Do you really want to log out?",
-  // registration panel
+// registration panel
   "RegistrationWelcome" => "New user registration:",
   "RegistrationName" => "Give yourself a ((WackoWiki:DocEnglish/WhatIsNameSurname NameSurname))",
   "RegistrationPassword" => "Password (5+ chars)",
   "RegistrationButton" => "Register me!",
   "RegistrationNameOwned" => "This username is already registered. Please choose another.",
-  // login panel
+// login panel
   "LoginWelcome" => "Login",
   "LoginWelcome2" => " . . . . . . . . ((/Registration Register))",
   "LoginName" => "((WackoWiki:DocEnglish/WhatIsNameSurname NameSurname))",
   "LoginPassword" => "Password",
   "LoginButton" => "Login!",
-  // other
+// other
   "TopicSearchText" => "Search in titles only",
   "MsWordVersion" => "Microsoft Word ready version",
   "MailHello" => "Hello, ",
@@ -257,7 +257,7 @@ $wakkaResource = array(
   "NoWatchers" => "<em>There are no watchers for %1</em>",
   "NotOwnerAndViewWatchers" => "<em>You are not the owner of this page and you can't see list of watchers for it.</em>",
 
-  //Settings
+//Settings
   "SettingsFor" => "Settings for %1",
   "metaDesc" => "META Keywords/Description that get inserted into the HTML headers.",
   "meta1" => "Meta Keywords",
@@ -278,7 +278,7 @@ $wakkaResource = array(
   "BewareChangeLang" => "Don't change language, if you don't know exactly, what are you doing. Change of language setting will lead to renaming of the page according to transliteration rules of selected language. All non-english content will become unreadable also. You could turn those effects backward by returning language setting to its initial value.",
   "SetLang" => "Language of this page",
 
-  // upload
+// upload
   "UploadFor" => "File upload",
   "UploadButtonText" => "Proceed",
   "UploadGlobalText" => "for public access",
@@ -341,7 +341,7 @@ $wakkaResource = array(
   "default_bookmarks" => "PageIndex\nRecentChanges\nRecentlyCommented\n((Users))\n((Registration))",
   "site_bookmarks" => "PageIndex / RecentChanges / RecentlyCommented",
 
-  //icons
+//icons
   "outericon" => '<img src="{theme}icons/web.gif" alt="" />',
   "fileicon" => '<img src="{theme}icons/file.gif" alt="" />',
   "pdficon"  => '<img src="{theme}icons/pdf.gif" alt="PDF Document" />',
@@ -351,17 +351,17 @@ $wakkaResource = array(
   "keyicon" => '<img src="{theme}icons/key.gif" alt="Page with custom access" />',
   "wantedicon" => '?',
 
-  // My Groups
+// My Groups
   "UserGroups" => "Groups of users",
   "MyGroups" => "Group Associations",
   "Group" => "group",
   "Groups" => "groups",
-  
-  // Cache
+
+// Cache
   "ClearCache" => "Clear cache",
   "CacheCleared" => "Cache cleared.",
 
-  // XML / RSS autodiscovery
+// XML / RSS autodiscovery
   "RecentChangesTitelXML" => " - RecentChanges",
   "RecentChangesXML" => "Recent changes to the ",
   "RecentCommentsTitelXML" => " - RecentComments",
@@ -369,11 +369,11 @@ $wakkaResource = array(
   "PageRevisionsXML" => "History/revisions of ",
   "ExportClusterXML" => "Export of entire cluster of ",
   "AccessDeniedXML" => "You're not allowed to access this information.",
-   
+ 
   "RecentChangesRSS" => "RecentChanges in RSS",
   "RecentCommentsRSS" => "RecentComments in RSS",
   "HistoryRevisionsRSS" => "History/revisions of ",
-  
+
   "LastModification" => "Last Modification",
 
 );

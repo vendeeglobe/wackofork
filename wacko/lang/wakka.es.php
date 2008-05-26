@@ -1,26 +1,26 @@
 <?php
 
 $wakkaResource = array(
-  // logged in panel
+// logged in panel
   "YouAre" => "Eres ",
   "YouArePanelLink" => "Settings",
   "YouArePanelName" => "Ajustes",
   "LogoutLink" => "Desconectar",
   "LogoutButton" => "Desconectar",
   "LogoutAreYouSure" => "Estás seguro de querer desconectarte?",
-  // registration panel
+// registration panel
   "RegistrationWelcome" => "Nuevo usuario:",
   "RegistrationName" => "Date un ((WackoWiki:DocEnglish/WhatIsNameSurname NombreDeUsuario))",
   "RegistrationPassword" => "Contraseña (5+ letras)",
   "RegistrationButton" => "Regístrate",
   "RegistrationNameOwned" => "Este nombre ya existe. Escoge otro por favor.",
-  // login panel
+// login panel
   "LoginWelcome" => "Conectar",
   "LoginWelcome2" => " . . . . . . . . [[/Registration Registrarse]]",
   "LoginName" => "((WackoWiki:DocEnglish/WhatIsNameSurname NombreDeUsuario))",
   "LoginPassword" => "Contraseña",
   "LoginButton" => "Conectar",
-  // other
+// other
   "TopicSearchText" => "Buscar solo en titulos",
   "MsWordVersion" => "Version para Microsoft Word",
   "MailHello" => "Hola, ",
@@ -151,7 +151,7 @@ $wakkaResource = array(
   "SearchFor" => "Buscar ",
   "TopicSearchResults" => "Resultado de búsqueda en los topicos para ",
   "NotFoundInTopics" => "no encontrado en los topicos",
-  
+
   "PostedBy"  => "posted by",
   "ThisIsCommentOn" => "This is a comment on",
   "At" => "at",
@@ -159,7 +159,7 @@ $wakkaResource = array(
   "By" => "por",
   "From" => "from",
   "ReturnToCommented" => "Return to commented page",
-    
+
   "PagesLinkingTo" => "Páginas vinculadas a",
   "NoPageLinkingTo" => "no hay ninguna página vinculada a",
   "NoWantedPages" => "<em>No hay páginas deseadas. Muy bien!</em>",
@@ -257,7 +257,7 @@ $wakkaResource = array(
   "NoWatchers" => "<em>No hay vigilantes para %1</em>",
   "NotOwnerAndViewWatchers" =>"<em>No eres el propietario de esta página y no puedes ver la lista de vigilantes.</em>",
 
-  //Settings
+//Settings
   "SettingsFor" => "Ajustes para %1",
   "metaDesc" => "META Palabras clave/Descripción insertadas en las cabeceras de HTML.",
   "meta1" => "Meta Palabras clave",
@@ -278,7 +278,7 @@ $wakkaResource = array(
   "BewareChangeLang" => "No cambies el idioma, si no sabes exactamente lo que haces. El ajuste de cambio de idioma presupone cambiar el nombre de la página en acuerdo con las reglas de transliteración del idioma seleccionado. Todo contenido no-español será ilegible. Podrá anular esos efectos volviendo a ajustar el idioma original.",
   "SetLang" => "Idioma de esta página",
 
-  // upload
+// upload
   "UploadFor" => "Subir archivo",
   "UploadButtonText" => "Seguir",
   "UploadGlobalText" => "para acceso público",
@@ -341,7 +341,7 @@ $wakkaResource = array(
   "default_bookmarks" => "IndiceDePaginas\nUltimasModificaciones\nUltimosCommentarios\n((Usuarios))\n((Registrarse))",
   "site_bookmarks" => "IndiceDePaginas / UltimasModificaciones / UltimosCommentarios",
 
-  //icons
+//icons
   "outericon" => '<img src="{theme}icons/web.gif" alt="" />',
   "fileicon" => '<img src="{theme}icons/file.gif" alt="" />',
   "pdficon"  => '<img src="{theme}icons/pdf.gif" alt="PDF Document" />',
@@ -350,18 +350,18 @@ $wakkaResource = array(
   "lockicon" => '<img src="{theme}icons/lock.gif" alt="Accesso negado" />',
   "keyicon" => '<img src="{theme}icons/key.gif" alt="Página con acceso especial" />',
   "wantedicon" => '?',
-  
-  // My Groups
+
+// My Groups
   "UserGroups" => "Grupos de usuarios", 
   "MyGroups" => "Group Associations",
   "Group" => "group",
   "Groups" => "groups",
-  
-  // Cache
+
+// Cache
   "ClearCache" => "Clear cache",
   "CacheCleared" => "Cache cleared.",
-  
-  // XML / RSS autodiscovery
+
+// XML / RSS autodiscovery
   "RecentChangesTitelXML" => " - RecentChanges",
   "RecentChangesXML" => "Recent changes to the ",
   "RecentCommentsTitelXML" => " - RecentComments",
@@ -369,11 +369,11 @@ $wakkaResource = array(
   "PageRevisionsXML" => "History/revisions of ",
   "ExportClusterXML" => "Export of entire cluster of ",
   "AccessDeniedXML" => "You're not allowed to access this information.",
-   
+ 
   "RecentChangesRSS" => "RecentChanges in RSS",
   "RecentCommentsRSS" => "RecentComments in RSS",
   "HistoryRevisionsRSS" => "History/revisions of ",
-  
+
   "LastModification" => "Last Modification",
 
 );

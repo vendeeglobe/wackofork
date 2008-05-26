@@ -1,26 +1,26 @@
 <?php
 
 $wakkaResource = array(
-  // logged in panel
+// logged in panel
   "YouAre" => "Du er ",
   "YouArePanelLink" => "Indstillinger",
   "YouArePanelName" => "Indstillinger",
   "LogoutLink" => "Log af",
   "LogoutButton" => "Log af",
   "LogoutAreYouSure" => "Er du sikker på, at du vil logge af?",
-  // registration panel
+// registration panel
   "RegistrationWelcome" => "Ny bruger registrering:",
   "RegistrationName" => "Vælg dit wikinavn ((WackoWiki:DocEnglish/WhatIsNameSurname NameSurname))",
   "RegistrationPassword" => "Password (5+ chars)",
   "RegistrationButton" => "Registrer mig!",
   "RegistrationNameOwned" => "Dette brugernavn er allerede i brug. Vælg et andet.",
-  // login panel
+// login panel
   "LoginWelcome" => "Log ind",
   "LoginWelcome2" => " . . . . . . . . ((/Registrering Registrering))",
   "LoginName" => "((WackoWiki:DocEnglish/WhatIsNameSurname NameSurname))",
   "LoginPassword" => "Password",
   "LoginButton" => "Log ind!",
-  // other
+// other
   "TopicSearchText" => "Søg i titler",
   "MsWordVersion" => "Kopieringsvenlig version",
   "MailHello" => "Hej, ",
@@ -151,7 +151,7 @@ $wakkaResource = array(
   "SearchFor" => "Søg efter ",
   "TopicSearchResults" => "Emnesøgning for ",
   "NotFoundInTopics" => "ikke fundet blandt emnerne",
-  
+
   "PostedBy"  => "posted by",
   "ThisIsCommentOn" => "This is a comment on",
   "At" => "at",
@@ -159,7 +159,7 @@ $wakkaResource = array(
   "By" => "af",
   "From" => "from",
   "ReturnToCommented" => "Return to commented page",
-      
+
   "PagesLinkingTo" => "Sider som linker til",
   "NoPageLinkingTo" => "Ingen sider linker til",
   "NoWantedPages" => "<em>Ingen eftersøgte sider. Godt!</em>",
@@ -257,7 +257,7 @@ $wakkaResource = array(
   "NoWatchers" => "<em>Ingen abonnenter til %1</em>",
   "NotOwnerAndViewWatchers" => "<em>Du har ikke adgang til denne information.</em>",
 
-  //Settings
+//Settings
   "SettingsFor" => "Indstillinger for %1",
   "metaDesc" => "META Keywords/Description metadata.",
   "meta1" => "Meta Keywords",
@@ -278,7 +278,7 @@ $wakkaResource = array(
   "BewareChangeLang" => "Vær opmærksom på at ændring af sidens sprog vil ændre sprogformatet og eventuelt kan betyde at eksisterende tekst bliver noget rod.",
   "SetLang" => "Sidens sprog",
 
-  // upload
+// upload
   "UploadFor" => "Filupload",
   "UploadButtonText" => "Fortsæt",
   "UploadGlobalText" => "for alle",
@@ -334,7 +334,7 @@ $wakkaResource = array(
   "MassNeedRedirect" => "Opret henvisning hertil på den gamle side",
   "SettingsMassAcls" => "for hele området",
   "SettingsMassRename" => "for hele området",
-  
+
 
 
   "Next" => "Næste",
@@ -343,7 +343,7 @@ $wakkaResource = array(
   "default_bookmarks" => "((Indhold))\n((Opdateringer))\n((Kommentarer))\n((Brugere))\n((Registrering))",
   "site_bookmarks" => "Indhold / Opdateringer / Kommentarer",
 
-  //icons
+//icons
   "outericon" => '<img src="{theme}icons/web.gif" alt="" border="0" />',
   "fileicon" => '<img src="{theme}icons/file.gif" alt="" border="0" />',
   "pdficon"  => '<img src="{theme}icons/pdf.gif" alt="PDF Document" />',
@@ -352,18 +352,18 @@ $wakkaResource = array(
   "lockicon" => '<img src="{theme}icons/lock.gif" alt="Access denied" />',
   "keyicon" => '<img src="{theme}icons/key.gif" alt="Page with custom access" />',
   "wantedicon" => '?',
-  
-  // My Groups
+
+// My Groups
   "UserGroups" => "Brugergrupper",
   "MyGroups" => "Group Associations",
   "Group" => "group",
   "Groups" => "groups",
-  
-  // Cache
+
+// Cache
   "ClearCache" => "Clear cache",
   "CacheCleared" => "Cache cleared.",
-  
-  // XML / RSS autodiscovery
+
+// XML / RSS autodiscovery
   "RecentChangesTitelXML" => " - RecentChanges",
   "RecentChangesXML" => "Recent changes to the ",
   "RecentCommentsTitelXML" => " - RecentComments",
@@ -371,11 +371,11 @@ $wakkaResource = array(
   "PageRevisionsXML" => "History/revisions of ",
   "ExportClusterXML" => "Export of entire cluster of ",
   "AccessDeniedXML" => "You're not allowed to access this information.",
-   
+ 
   "RecentChangesRSS" => "RecentChanges in RSS",
   "RecentCommentsRSS" => "RecentComments in RSS",
   "HistoryRevisionsRSS" => "History/revisions of ",
-  
+
   "LastModification" => "Last Modification",
 
 );

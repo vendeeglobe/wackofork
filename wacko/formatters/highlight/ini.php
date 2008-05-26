@@ -1,7 +1,7 @@
 <?php
 /*
-INI formatter by NonTroppo (originally by Rijk van Geijtenbeek)
-*/
+ INI formatter by NonTroppo (originally by Rijk van Geijtenbeek)
+ */
 
 $text = htmlspecialchars($text, ENT_QUOTES);
 

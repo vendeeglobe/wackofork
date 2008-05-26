@@ -1,7 +1,7 @@
 <?php
 
 $wackoAllResource = array(
-  //link templates
+//link templates
   "tpl.childpage" => '<a {aname} href="{pagelink}" class="{class}">{accicon}{icon}{page}</a>',
   "tpl.parentpage" => '<a {aname} href="{pagelink}" class="{class}">{accicon}{icon}{page}</a>',
   "tpl.equalpage" => '<a {aname} href="{pagelink}" class="{class}">{accicon}{icon}{page}</a>',
@@ -27,7 +27,7 @@ $wackoAllResource = array(
   "tpl.wlocalfile" => '<span class="missingpage" title="{title}">{text}</span>',
   "tpl.lan" => '<a href="{url}" target="_blank" title="{title}" class="{class}">{icon}{text}</a>',
 
-  //icons
+//icons
   "childicon" => '!/',
   "parenticon" => '../',
   "equalicon" => '',

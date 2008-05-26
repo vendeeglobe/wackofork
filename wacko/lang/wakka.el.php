@@ -1,26 +1,26 @@
 <?php
 
 $wakkaResource = array(
-  // logged in panel
+// logged in panel
   "YouAre"      => "Είσαι ο ",
   "YouArePanelLink" => "Settings",
   "YouArePanelName" => "Ρυθμίσεις",
   "LogoutLink"  => "Αποσύνδεση",
   "LogoutButton"  => "Αποσύνδεση",
   "LogoutAreYouSure"  => "Είσαι σίγουρος;",
-  // registration panel
+// registration panel
   "RegistrationWelcome" => "Εγγραφή Νέου Χρήστη:",
   "RegistrationName" => "Δώσε ένα ((WackoWiki:DocEnglish/WhatIsNameSurname NameSurname))",
   "RegistrationPassword" => "Συνθηματικό (5+ χαρακτήρες)",
   "RegistrationButton" => "Έγγραψέ με!",
   "RegistrationNameOwned" => "Αυτό το όνομα χρήστη είναι ήδη καταχωρημένο. Παρακαλώ επιλέξτε ένα διαφορετικό.",
-  // login panel
+// login panel
   "LoginWelcome" => "Σύνδεση",
   "LoginWelcome2" => " . . . . . . . . ((/Registration Εγγραφή))",
   "LoginName" => "((WackoWiki:DocEnglish/WhatIsNameSurname NameSurname))",
   "LoginPassword" => "Συνθηματικό",
   "LoginButton" => "Σύνδεση!",
-  // other
+// other
   "TopicSearchText" => "Αναζήτηση μόνο σε τίτλους",
   "MsWordVersion" => "Microsoft Word ready version",
   "MailHello" => "Γειά, ",
@@ -257,7 +257,7 @@ $wakkaResource = array(
   "NoWatchers" => "<em>There are no watchers for %1</em>",
   "NotOwnerAndViewWatchers" => "<em>You are not the owner of this page and you can't see list of watchers for it.</em>",
 
-  //Settings
+//Settings
   "SettingsFor" => "Ρυθμίσεις για %1",
   "metaDesc" => "META Keywords/Description that get inserted into the HTML headers.",
   "meta1" => "Λέξεις Κλειδιά",
@@ -278,7 +278,7 @@ $wakkaResource = array(
   "BewareChangeLang" => "Μην αλλάζετε την γλώσσα, εάν δεν γνωρίζεται ακριβώς, τι κάνετε. Η αλλαγή της ρύθμισης της γλώσσας θα οδηγήσει στην μετονομασία της σελίδας ανάλογα με τους κανόνες μετάφρασης της επιλεγμένης γλώσσας. Όλα τα μη-αγγλικά περιεχόμενα θα γίνουν μη-αναγνώσιμα επίσης. Μπορείτε να γυρίσετε πίσω σε αυτές τις ιδιότητες με το επιλέγοντας την ρύθμιση της γλώσσας στον αρχική τιμή.",
   "SetLang" => "Η γλώσσα αυτής της σελίδας",
 
-  // upload
+// upload
   "UploadFor" => "Ανέβασε αρχείο",
   "UploadButtonText" => "Προχώρησε",
   "UploadGlobalText" => "για δημόσια προβολή",
@@ -334,14 +334,14 @@ $wakkaResource = array(
   "MassNeedRedirect" => "Create redirect to the new pages on the old pages",
   "SettingsMassAcls" => "για ολόκληρο το cluster",
   "SettingsMassRename" => "για ολόκληρο το cluster",
-  
+
   "Next" => "Επόμενο",
   "Prev" => "Προηγούμενο",
 
   "default_bookmarks" => "PageIndex\nRecentChanges\nRecentlyCommented\n((Users))\n((Registration))",
   "site_bookmarks" => "PageIndex / RecentChanges / RecentlyCommented",
 
-  //icons
+//icons
   "outericon" => '<img src="{theme}icons/web.gif" alt="" />',
   "fileicon" => '<img src="{theme}icons/file.gif" alt="" />',
   "pdficon" => '<img src="{theme}icons/pdf.gif" alt="PDF Document" />',
@@ -351,18 +351,18 @@ $wakkaResource = array(
   "keyicon" => '<img src="{theme}icons/key.gif" alt="Page with custom access" />',
   "wantedicon" => '?',
 
-  // My Groups
+// My Groups
   "UserGroups" => "Groups of users",
   "MyGroups" => "Group Associations",
   "Group" => "group",
   "Groups" => "groups",
 
-  // Cache
+// Cache
   "ClearCache" => "Καθαρισμός Προσωρινής μνήμης",
   "CacheCleared" => "Η προσωρινή μνήμη καθάρισε.",
-  
-  
-  // XML / RSS autodiscovery
+
+
+// XML / RSS autodiscovery
   "RecentChangesTitelXML" => " - RecentChanges",
   "RecentChangesXML" => "Recent changes to the ",
   "RecentCommentsTitelXML" => " - RecentComments",
@@ -370,11 +370,11 @@ $wakkaResource = array(
   "PageRevisionsXML" => "History/revisions of ",
   "ExportClusterXML" => "Export of entire cluster of ",
   "AccessDeniedXML" => "You're not allowed to access this information.",
-   
+ 
   "RecentChangesRSS" => "RecentChanges in RSS",
   "RecentCommentsRSS" => "RecentComments in RSS",
   "HistoryRevisionsRSS" => "History/revisions of ",
-  
+
   "LastModification" => "Last Modification",
 
 );

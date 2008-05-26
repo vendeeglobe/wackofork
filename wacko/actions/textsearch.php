@@ -1,4 +1,4 @@
 <?php
- $form=1;
- include("actions/search.php");
+$form=1;
+include("actions/search.php");
 ?>

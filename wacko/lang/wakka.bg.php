@@ -1,26 +1,26 @@
 <?php
 
 $wakkaResource = array(
-  // logged in panel
+// logged in panel
   "YouAre" => "Вие сте ",
   "YouArePanelLink" => "Settings",
   "YouArePanelName" => "Настройки",
   "LogoutLink" => "Изход",
   "LogoutButton" => "Изход от системата",
   "LogoutAreYouSure" => "Излизате ли от системата?",
-  // registration panel
+// registration panel
   "RegistrationWelcome" => "Регистрация на нов потребител:",
   "RegistrationName" => "Задайте своето ((WackoWiki:DocEnglish/WhatIsNameSurname NameSurname))",
   "RegistrationPassword" => "Парола (не по-къса от 5 символа)",
   "RegistrationButton" => "Карай нататък!",
   "RegistrationNameOwned" => "Желаното име е вече заето!",
-  // login panel
+// login panel
   "LoginWelcome" => "Вход",
   "LoginWelcome2" => " . . . . . . . . [[/Регистрация Регистрация]]",
   "LoginName" => "((WackoWiki:DocEnglish/WhatIsNameSurname NameSurname))",
   "LoginPassword" => "Парола",
   "LoginButton" => "Влез!",
-  // other
+// other
   "TopicSearchText" => "Търси само в заглавните",
   "MsWordVersion" => "Версия за експорт в Microsoft Word",
   "MailHello" => "Здравейте, ",
@@ -154,7 +154,7 @@ $wakkaResource = array(
   "SearchFor" => "Търси",
   "TopicSearchResults" => "Резултати за заглавието на търсената фраза ",
   "NotFoundInTopics" => "няма в заглавието ",
-  
+
   "PostedBy"  => "posted by",
   "ThisIsCommentOn" => "This is a comment on",
   "At" => "at",
@@ -162,7 +162,7 @@ $wakkaResource = array(
   "By" => "by",
   "From" => "from",
   "ReturnToCommented" => "Return to commented page",
-    
+
   "RemoveWatch" => "Спри огледа",
   "SetWatch" => "Оглед",
   "history" => "история",
@@ -209,7 +209,7 @@ $wakkaResource = array(
   "Tree:SiteTitle" => "Дърво на сайта",
   "Tree:Empty" => "%1&nbsp;няма подстраници",
   "search_title_help" => "",
-  
+
   "RenameText" => "Преименувай...",
   "NewName" => "Въведете ново име за тази страница",
   "RenameButton" => "Преименувай!",
@@ -252,12 +252,12 @@ $wakkaResource = array(
   "CodeWasSent" => "Инструкцията за паролата е изпратена на email.",
   "WrongCode" => "<em>Неверен код</em>",
   "YouWantChangePasswordForUser" => "Промяна на парола за %1",
-  
+
    "Watchers" => "Списък на следящите %1",
   "NoWatchers" => "<em>Страница %1 не е следена</em>",
   "NotOwnerAndViewWatchers" => "<em>Не сте собственик на %1 и не може да получите списък на хората, които я следят.</em>",
 
-  //Settings
+//Settings
   "SettingsFor" => "Настройки на %1",
   "metaDesc" => "Ключови думи/Описание  (за HTML МЕТА таговете).",
   "meta1" => "Ключови думи",
@@ -278,7 +278,7 @@ $wakkaResource = array(
   "BewareChangeLang" => "Не променяйте езика. След подобна промяна е възможно да не разберете как да върнете нещата обратно.",
   "SetLang" => "Език на тази страница",
 
-  // upload
+// upload
   "UploadFor" => "Качване на файл",
   "UploadButtonText" => "Качване",
   "UploadGlobalText" => "за всички",
@@ -340,7 +340,7 @@ $wakkaResource = array(
 
   "default_bookmarks" => "((Каталог))\n((ПоследниПромени))\n((НовиКоментари))\n((Потребители))\n((Регистрация))",
   "site_bookmarks" => "((Каталог)) / ((ПоследниПромени)) / ((НовиКоментари))",
-  //icons
+//icons
   "outericon" => '<img src="{theme}icons/web.gif" alt="" />',
   "fileicon" => '<img src="{theme}icons/file.gif" alt="" />',
   "pdficon"  => '<img src="{theme}icons/pdf.gif" alt="PDF Document" />',
@@ -349,18 +349,18 @@ $wakkaResource = array(
   "lockicon" => '<img src="{theme}icons/lock.gif" alt="Вам запрещён доступ" />',
   "keyicon" => '<img src="{theme}icons/key.gif" alt="Страница с ограниченным доступом" />',
   "wantedicon" => '?',
-  
-  // My Groups
+
+// My Groups
   "UserGroups" => "Группы пользователей",
   "MyGroups" => "Group Associations",
   "Group" => "group",
   "Groups" => "groups",
-  
-  // Cache
+
+// Cache
   "ClearCache" => "Clear cache",
   "CacheCleared" => "Cache cleared.",
-  
-  // XML / RSS autodiscovery
+
+// XML / RSS autodiscovery
   "RecentChangesTitelXML" => " - RecentChanges",
   "RecentChangesXML" => "Recent changes to the ",
   "RecentCommentsTitelXML" => " - RecentComments",
@@ -368,11 +368,11 @@ $wakkaResource = array(
   "PageRevisionsXML" => "History/revisions of ",
   "ExportClusterXML" => "Export of entire cluster of ",
   "AccessDeniedXML" => "You're not allowed to access this information.",
-   
+ 
   "RecentChangesRSS" => "RecentChanges in RSS",
   "RecentCommentsRSS" => "RecentComments in RSS",
   "HistoryRevisionsRSS" => "History/revisions of ",
-  
+
   "LastModification" => "Last Modification",
 
 );

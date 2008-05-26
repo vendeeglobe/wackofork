@@ -1,26 +1,26 @@
 <?php
 
 $wakkaResource = array(
-  // logged in panel
+// logged in panel
   "YouAre" => "Jij bent ",
   "YouArePanelLink" => "Settings",
   "YouArePanelName" => "Settings",
   "LogoutLink" => "Uitloggen",
   "LogoutButton" => "Log uit",
   "LogoutAreYouSure" => "Weet u zeker dat u wilt uitloggen ?",
-  // registration panel
+// registration panel
   "RegistrationWelcome" => "Nieuwe gebruikers registratie:",
   "RegistrationName" => "Geef een ((WackoWiki:DocEnglish/WhatIsNameSurname Wiki-naam)) op",
   "RegistrationPassword" => "Wachtwoord (>=5 tekens)",
   "RegistrationButton" => "Registreer mij!",
   "RegistrationNameOwned" => "Deze naam is al geregistreerd, Kies a.u.b. een andere.",
-  // login panel
+// login panel
   "LoginWelcome" => "Inloggen",
   "LoginWelcome2" => " . . . . . . . . [[/Registration Registreren]]",
   "LoginName" => "((WackoWiki:DocEnglish/WhatIsNameSurname Gebruikersnaam))",
   "LoginPassword" => "Wachtwoord",
   "LoginButton" => "Login!",
-  // other
+// other
   "TopicSearchText" => "Zoek alleen in paginatitels",
   "MsWordVersion" => "Versie gereed voor Microsoft Word",
   "MailHello" => "Hallo, ",
@@ -151,7 +151,7 @@ $wakkaResource = array(
   "SearchFor" => "Zoek naar ",
   "TopicSearchResults" => "Zoekresultaat voor het onderwerp ",
   "NotFoundInTopics" => "Niet gevonden in de onderwerpen",
-  
+
   "PostedBy"  => "posted by",
   "ThisIsCommentOn" => "This is a comment on",
   "At" => "at",
@@ -159,7 +159,7 @@ $wakkaResource = array(
   "By" => "door",  
   "From" => "from",
   "ReturnToCommented" => "Return to commented page",
-    
+
   "PagesLinkingTo" => "Pagina's met verwijzingen naar ",
   "NoPageLinkingTo" => "Geen pagina bevat links naar",
   "NoWantedPages" => "<em>Geen gewenste pagina's. Zo hoort dat!</em>",
@@ -201,7 +201,7 @@ $wakkaResource = array(
   "Someone commented" => " heeft een reactie toegevoegd aan deze pagina waarop u een abonnement heeft: ",
   "AlertReferringPages" => "Voor deze pagina zijn er verwijzingen vanaf de volgende pagina",
   "UnknownAction" => "Unknown action",
-  
+
   "EditIcon" => "(Bewerk)",
   "LinksTree:Level>4 warning" => "Verwijzingenboom ondersteunt niet meer dan 4 niveaus",
   "LinksTree:Title" => "Verwijzingenboom",
@@ -258,7 +258,7 @@ $wakkaResource = array(
   "NotOwnerAndViewWatchers" => "<em>U bent niet de eigenaar van deze pagina, en kunt de lijst van watchers dus niet bekijken.</em",
   "MeasuredTime" => "Tijd",
 
-  //Settings
+//Settings
   "SettingsFor" => "Instellingen voor %1",
   "metaDesc" => "Meta-keywords/-beschrijving die in de HTML-headers terechtkomen.",
   "meta1" => "Meta-keywords",
@@ -281,7 +281,7 @@ $wakkaResource = array(
 
   "SettingsMassAcls" => "ACL's (rechten) voor gehele cluster",
 
-  // upload
+// upload
   "UploadFor" => "Upload bestand",
   "UploadButtonText" => "Doorgaan",
   "UploadGlobalText" => "voor alle gebruikers",
@@ -344,7 +344,7 @@ $wakkaResource = array(
   "default_bookmarks" => "PageIndex\nRecentChanges\nRecentlyCommented\n((Users))\n((Registration))",
   "site_bookmarks" => "PageIndex / RecentChanges / RecentlyCommented",
 
-  //icons
+//icons
   "outericon" => '<img src="{theme}icons/web.gif" alt="" />',
   "fileicon" => '<img src="{theme}icons/file.gif" alt="" />',
   "pdficon"  => '<img src="{theme}icons/pdf.gif" alt="PDF Document" />',
@@ -353,18 +353,18 @@ $wakkaResource = array(
   "lockicon" => '<img src="{theme}icons/lock.gif" alt="Geen toegang" />',
   "keyicon" => '<img src="{theme}icons/key.gif" alt="Pagina met specifieke toegangsrechten" />',
   "wantedicon" => '?',
-  
-  // My Groups
+
+// My Groups
   "UserGroups" => "Gebruikersgroepen",
   "MyGroups" => "Group Associations",
   "Group" => "group",
   "Groups" => "groups",
-  
-  // Cache
+
+// Cache
   "ClearCache" => "Clear cache",
   "CacheCleared" => "Cache cleared.",
-  
-  // XML / RSS autodiscovery
+
+// XML / RSS autodiscovery
   "RecentChangesTitelXML" => " - RecentChanges",
   "RecentChangesXML" => "Recent changes to the ",
   "RecentCommentsTitelXML" => " - RecentComments",
@@ -372,11 +372,11 @@ $wakkaResource = array(
   "PageRevisionsXML" => "History/revisions of ",
   "ExportClusterXML" => "Export of entire cluster of ",
   "AccessDeniedXML" => "You're not allowed to access this information.",
-   
+ 
   "RecentChangesRSS" => "RecentChanges in RSS",
   "RecentCommentsRSS" => "RecentComments in RSS",
   "HistoryRevisionsRSS" => "History/revisions of ",
-  
+
   "LastModification" => "Last Modification",
 
 );

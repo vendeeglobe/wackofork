@@ -1,26 +1,26 @@
 <?php
 
 $wakkaResource = array(
-  // logged in panel
+// logged in panel
   "YouAre" => "",
   "YouArePanelLink" => "Settings",
   "YouArePanelName" => "Ustawienia",
   "LogoutLink"  => "Wyloguj",
   "LogoutButton"  => "Wyloguj",
   "LogoutAreYouSure"  => "Czy na pewno chcesz siê wylogowaæ?",
-  // registration panel
+// registration panel
   "RegistrationWelcome" => "Rejestracja nowego u¿ytkownika:",
   "RegistrationName" => "Wprowad¼ swoje ((WackoWiki:DocEnglish/WhatIsNameSurname ImiêNazwisko))",
   "RegistrationPassword" => "Has³o (min. 5 znaków)",
   "RegistrationButton" => "Zarejestruj!",
   "RegistrationNameOwned" => "Przepraszamy! Ta nazwa jest ju¿ zajêta. Prosimy o wybranie innej nazwy u¿ytkownika.",
-  // login panel
+// login panel
   "LoginWelcome" => "Zaloguj siê",
   "LoginWelcome2" => " . . . . . . . . a mo¿e potrzebujesz siê [[/Rejestracja zarejestrowaæ]]?",
   "LoginName" => "Twoje ((WackoWiki:DocEnglish/WhatIsNameSurname ImiêNazwisko))",
   "LoginPassword" => "Has³o",
   "LoginButton" => "Zaloguj!",
-  // other
+// other
   "TopicSearchText" => "Wyszukiwanie wy³±cznie w¶ród tytu³ów",
   "MsWordVersion" => "Wersja dla Microsoft Word",
   "MailHello" => "Cze¶æ, ",
@@ -151,7 +151,7 @@ $wakkaResource = array(
   "SearchFor" => "Znajd¼ ",
   "TopicSearchResults" => "Tematy - wyniki wyszukiwania: ",
   "NotFoundInTopics" => "wyszukiwanego s³owa nie odnaleziono w tematach",
-  
+
   "PostedBy"  => "posted by",
   "ThisIsCommentOn" => "This is a comment on",
   "At" => "at",
@@ -159,7 +159,7 @@ $wakkaResource = array(
   "By" => "by",  
   "From" => "from",
   "ReturnToCommented" => "Return to commented page",
-  
+
   "PagesLinkingTo" => "Dokumenty zawieraj±ce odno¶nik do",
   "NoPageLinkingTo" => "¯aden dokument nie zawiera odno¶nika do strony: ",
   "NoWantedPages" => "<em>W tej chwili nie ma stron, które nale¿a³oby utworzyæ</em>",
@@ -257,7 +257,7 @@ $wakkaResource = array(
   "NoWatchers" => "<em>Nie ma obserwatorów na %1</em>",
   "NotOwnerAndViewWatchers" => "<em>Nie jeste¶ w³a¶cicielem tej strony i nie mo¿esz zobaczyæ listy jej obserwatorów.</em>",
 
-  //Settings
+//Settings
   "SettingsFor" => "Ustawienia dla %1",
   "metaDesc" => "S³owa kluczowe/Opis META które zostan± dodane do nag³ówków HTML.",
   "meta1" => "S³owa kluczowe Meta",
@@ -278,7 +278,7 @@ $wakkaResource = array(
   "BewareChangeLang" => "Nie zmieniaj jêzyka, je¿eli nie wiesz dok³adnie co robisz. Zmiana ustawieñ jêzykowych prowadzi do zmian nazw stron zgodnie z regu³ami transliteracji wybranego jêzyka. Ponadto ca³a nie-angielska zawarto¶æ stanie siê nieczytelna. Mo¿esz cofn±æ te zmiany powracaj±c do pierwotnych warto¶ci ustawieñ jêzykowych.",
   "SetLang" => "Jêzyk tej strony",
 
-  // upload
+// upload
   "UploadFor"  => "Plik wgrany",
   "UploadButtonText" => "Kontynuuj",
   "UploadGlobalText" => "do publicznego dostêpu",
@@ -341,7 +341,7 @@ $wakkaResource = array(
   "default_bookmarks" => "IndexStron\nOstatnieZmiany\nOstatnioKomentowane\n((U¿ytkownicy))\n((Rejestracja))",
   "site_bookmarks" => "IndexStron / OstatnieZmiany / OstatnioKomentowane",
 
-  //icons
+//icons
   "outericon" => '<img src="{theme}icons/web.gif" alt="" />',
   "fileicon" => '<img src="{theme}icons/file.gif" alt="" />',
   "pdficon"  => '<img src="{theme}icons/pdf.gif" alt="PDF Document" />',
@@ -350,18 +350,18 @@ $wakkaResource = array(
   "lockicon" => '<img src="{theme}icons/lock.gif" alt="Dostêp zabroniony" />',
   "keyicon" => '<img src="{theme}icons/key.gif" alt="Strona z niestandardowym dostêpem" />',
   "wantedicon" => '?',
-  
-  // My Groups
+
+// My Groups
   "UserGroups" => "Groups of users",
   "MyGroups" => "Group Associations",
   "Group" => "group",
   "Groups" => "groups",
-  
-  // Cache
+
+// Cache
   "ClearCache" => "Clear cache",
   "CacheCleared" => "Cache cleared.",
-  
-  // XML / RSS autodiscovery
+
+// XML / RSS autodiscovery
   "RecentChangesTitelXML" => " - RecentChanges",
   "RecentChangesXML" => "Recent changes to the ",
   "RecentCommentsTitelXML" => " - RecentComments",
@@ -369,11 +369,11 @@ $wakkaResource = array(
   "PageRevisionsXML" => "History/revisions of ",
   "ExportClusterXML" => "Export of entire cluster of ",
   "AccessDeniedXML" => "You're not allowed to access this information.",
-   
+ 
   "RecentChangesRSS" => "RecentChanges in RSS",
   "RecentCommentsRSS" => "RecentComments in RSS",
   "HistoryRevisionsRSS" => "History/revisions of ",
-  
+
   "LastModification" => "Last Modification",
 
 );

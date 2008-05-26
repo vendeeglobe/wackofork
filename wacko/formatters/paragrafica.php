@@ -4,13 +4,13 @@
 
 // this formatter WISELY replace <BR>s with paragraphs.
 
- $this->UseClass("paragrafica", "formatters/classes/");
+$this->UseClass("paragrafica", "formatters/classes/");
 
- // we got pure HTML on input.
- $para = &new paragrafica( $this );
- $result = $para->correct($text);
- $this->SetTocArray($para->toc);
+// we got pure HTML on input.
+$para = &new paragrafica( $this );
+$result = $para->correct($text);
+$this->SetTocArray($para->toc);
 
- echo $result;
+echo $result;
 
 ?>

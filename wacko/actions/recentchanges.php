@@ -1,6 +1,6 @@
-<?php 
+<?php
 
 $root="";
-include("actions/changes.php") 
+include("actions/changes.php")
 
 ?>

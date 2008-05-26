@@ -14,39 +14,39 @@ $xml .= "<generator>WackoWiki ".WACKO_VERSION."</generator>\n";//!!!
 
 if ($this->HasAccess("read"))
 {
- // load revisions for this page
- if ($pages = $this->LoadRevisions($this->tag))
- {
-  $max = 10;
+	// load revisions for this page
+	if ($pages = $this->LoadRevisions($this->tag))
+	{
+		$max = 10;
 
-  $c = 0;
-  $_GET["b"] = -1;
-  $_GET["fastdiff"] = 1;
-  foreach ($pages as $page)
-  {
-   $c++;
-   if (($c <= $max) && $c>1)
-   {
-    $xml .= "<item>\n";
-    $xml .= "<title>".$page["time"]."</title>\n";
-    $xml .= "<link>".$this->href("show").($this->GetConfigValue("rewrite_mode")?"?":"&amp;")."time=".urlencode($page["time"])."</link>\n";
-    $_GET["a"] = $_GET["b"];
-    $_GET["b"] = $page["id"];
-    $diff = $this->IncludeBuffered("handlers/page/diff.php", "oops");
+		$c = 0;
+		$_GET["b"] = -1;
+		$_GET["fastdiff"] = 1;
+		foreach ($pages as $page)
+		{
+			$c++;
+			if (($c <= $max) && $c>1)
+			{
+				$xml .= "<item>\n";
+				$xml .= "<title>".$page["time"]."</title>\n";
+				$xml .= "<link>".$this->href("show").($this->GetConfigValue("rewrite_mode")?"?":"&amp;")."time=".urlencode($page["time"])."</link>\n";
+				$_GET["a"] = $_GET["b"];
+				$_GET["b"] = $page["id"];
+				$diff = $this->IncludeBuffered("handlers/page/diff.php", "oops");
 
-    $xml .= "<description>".str_replace("<", "&lt;", str_replace("&", "&amp;", $diff))."</description>\n";
-    $xml .= "</item>\n";
-   }
-  }
- }
+				$xml .= "<description>".str_replace("<", "&lt;", str_replace("&", "&amp;", $diff))."</description>\n";
+				$xml .= "</item>\n";
+			}
+		}
+	}
 }
 else
 {
- $xml .= "<item>\n";
- $xml .= "<title>Error</title>\n";
- $xml .= "<link>".$this->href("show")."</link>\n";
- $xml .= "<description>".$this->GetResourceValue("AccessDeniedXML")."</description>\n";
- $xml .= "</item>\n";
+	$xml .= "<item>\n";
+	$xml .= "<title>Error</title>\n";
+	$xml .= "<link>".$this->href("show")."</link>\n";
+	$xml .= "<description>".$this->GetResourceValue("AccessDeniedXML")."</description>\n";
+	$xml .= "</item>\n";
 }
 
 $xml .= "</channel>\n";

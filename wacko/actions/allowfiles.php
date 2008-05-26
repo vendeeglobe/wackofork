@@ -1,3 +1,3 @@
 <?php
-  $this->config["hide_files"] = 0;
+$this->config["hide_files"] = 0;
 ?>

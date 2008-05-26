@@ -5,18 +5,18 @@
  * @author Davey Shafik <davey@php.net>
  * @copyright Copyright 2003 Davey Shafik and Synaptic Media. All Rights Reserved.
  */
- $options['color']['tags'] = "red";
- $options['color']['attributes'] = "#800000";
- $options['color']['other'] = "#A6A6A6";
- $options['color']['comment'] = "gray";
- $options['color']['attributevalues'] = "blue";
- $options['color']['entities'] = "orange";
- $options['color']['digits'] = "green";
- $options['line_numbers'] = false;
- if ($options["notypo"]!==false) $options["notypo"] = true;
+$options['color']['tags'] = "red";
+$options['color']['attributes'] = "#800000";
+$options['color']['other'] = "#A6A6A6";
+$options['color']['comment'] = "gray";
+$options['color']['attributevalues'] = "blue";
+$options['color']['entities'] = "orange";
+$options['color']['digits'] = "green";
+$options['line_numbers'] = false;
+if ($options["notypo"]!==false) $options["notypo"] = true;
 
- $css = htmlspecialchars($text);
- $keywords = array(  
+$css = htmlspecialchars($text);
+$keywords = array(
   'azimuth',
   'background-attachment',
   'background-color',
@@ -117,10 +117,10 @@
   'widows',
   'word-spacing',
   'z-index',
- );
+);
 
- // These should NOT be followed by a -
- $special_keywords = array(  'color',
+// These should NOT be followed by a -
+$special_keywords = array(  'color',
   'background',
   'border',
   'margin',
@@ -135,65 +135,65 @@
   'border-bottom',
   'border-right',
   'border-left'
- );
- // These should NOT be preceeded by a -
- $special_keyword2 = array(  'height',
+  );
+  // These should NOT be preceeded by a -
+  $special_keyword2 = array(  'height',
   'left',
   'bottom',
   'top',
   'right',
   'size',
   'width'
- );
+  );
 
- $css = str_replace(":","\:",$css);
+  $css = str_replace(":","\:",$css);
 
- foreach($keywords as $i) {
+  foreach($keywords as $i) {
    $css = str_replace($i,'<span style="color: ##oct##;">' .$i. '</span>',$css);
- }
+  }
 
- foreach($special_keywords as $i) {
+  foreach($special_keywords as $i) {
    $css = str_replace($i . '\:','<span style="color: ##oct##;">' .$i. '</span>\:',$css);
- }
+  }
 
- foreach($special_keyword2 as $i) {
+  foreach($special_keyword2 as $i) {
    $css = ereg_replace('[^-y]' . $i,'<span style="color: ##oct##;">' .$i. '</span>',$css);
- }
+  }
 
- $css = preg_replace(
+  $css = preg_replace(
          '/(\.?)(.*)(\s?\{?)/s',
          "&nbsp;<span style=\"color: ##ocv##;\">$1$2</span>$3",
-         $css);
+  $css);
 
- $css = preg_replace("/(\#[0-9a-fA-F]+|\d+(px))/", "<span style=\"color: ".$options['color']['digits'].";\">$1</span>",$css);
+  $css = preg_replace("/(\#[0-9a-fA-F]+|\d+(px))/", "<span style=\"color: ".$options['color']['digits'].";\">$1</span>",$css);
 
- $css = str_replace("\:","<span style=\"color: ".$options['color']['attributes']."; font-weight: bold;\">:</span>",$css);
- $css = str_replace("{", "<span style=\"color: ".$options['color']['attributes']."; font-weight: bold;\">{</span>",$css);
- $css = str_replace("}", "<span style=\"color: ".$options['color']['attributes']."; font-weight: bold;\">}</span>",$css);
+  $css = str_replace("\:","<span style=\"color: ".$options['color']['attributes']."; font-weight: bold;\">:</span>",$css);
+  $css = str_replace("{", "<span style=\"color: ".$options['color']['attributes']."; font-weight: bold;\">{</span>",$css);
+  $css = str_replace("}", "<span style=\"color: ".$options['color']['attributes']."; font-weight: bold;\">}</span>",$css);
 
- $css = preg_replace(
+  $css = preg_replace(
          '!/\*(.*?)\*/!es',
          '"<span style=\"color: '.$options['color']['comment'].';\">/*".strip_tags("$1")."*/</span>"',
-         $css);
+  $css);
 
- $css = str_replace("##oct##", $options['color']['tags'], $css);
- $css = str_replace("##ocv##", $options['color']['attributevalues'], $css);
+  $css = str_replace("##oct##", $options['color']['tags'], $css);
+  $css = str_replace("##ocv##", $options['color']['attributevalues'], $css);
 
- if ($options['line_numbers'] == true) {
+  if ($options['line_numbers'] == true) {
    $lines = preg_split("/(\n|<br \/>)/s",$css);
    $source = '<ol>';
    $i = 0;
    foreach ($lines as $line) {
-     $i += 1;
-     $source .= '<li id="l' .$i. '">' .trim($line). "</li>";
+   	$i += 1;
+   	$source .= '<li id="l' .$i. '">' .trim($line). "</li>";
    }
    $source .= '</ol>';
- }
+  }
 
-if ($options["notypo"]) echo "<!--no"."typo-->";
-if (!$options["nopre"]) echo "<div class=\"code\"><pre>";
-echo preg_replace("/\&nbsp\;/", "", str_replace("\t","  ",$css), 1);
-if (!$options["nopre"]) echo "</pre></div>";
-if ($options["notypo"]) echo "<!--/no"."typo-->";
+  if ($options["notypo"]) echo "<!--no"."typo-->";
+  if (!$options["nopre"]) echo "<div class=\"code\"><pre>";
+  echo preg_replace("/\&nbsp\;/", "", str_replace("\t","  ",$css), 1);
+  if (!$options["nopre"]) echo "</pre></div>";
+  if ($options["notypo"]) echo "<!--/no"."typo-->";
 
-?>
+  ?>
