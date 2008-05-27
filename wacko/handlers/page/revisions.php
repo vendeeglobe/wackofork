@@ -13,7 +13,7 @@ if ($this->HasAccess("read")) {
 		$output .= "<tr>\n";
 		$output .= "<td><input type=\"submit\" value=\"".$this->GetResourceValue("ShowDifferencesButton")."\" /></td>";
 		$output .= "<td><input type=\"checkbox\" name=\"fastdiff\" />\n".$this->GetResourceValue("SimpleDiff");
-		$output .= "&nbsp;&nbsp;&nbsp;<a href=\"".$this->href("revisions.xml")."\"><img src=\"".$this->GetConfigValue("theme_url")."icons/xml.gif"."\" align=\"middle\" style=\"border : 0px;\" title=\"".$this->GetResourceValue("RevisionXMLTip")."\" alt=\"XML\" /></a>";
+		$output .= "&nbsp;&nbsp;&nbsp;<a href=\"".$this->href("revisions.xml")."\"><img src=\"".$this->GetConfigValue("theme_url")."icons/xml.gif"."\" title=\"".$this->GetResourceValue("RevisionXMLTip")."\" alt=\"XML\" /></a>";
 		$output .= "</td></tr>\n";
 		$output .= "</table>\n";
 		$output .= "<table border=\"0\" cellspacing=\"0\" cellpadding=\"1\">\n";

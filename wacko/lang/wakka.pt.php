@@ -67,6 +67,8 @@ $wakkaResource = array(
   "RevisionTip" => "Clique para ver revisões recentes",
   "RevisionXMLTip" => "Clique para ver revisões recentes em formato XML.",
   "ReferrersTip" => "Clique para ver uma lista de URLs que referenciam esta página",
+  "RecentCommentsXMLTip" => "Click to view recent comments in XML format.",
+  "RecentChangesXMLTip" => "Click to view recent changes in XML format.",
   "ReferrersText" => "Referenciadores",
   "SearchText" => "Pesquisa: ",
 
