@@ -103,7 +103,6 @@ STRIKE, S A:HOVER { color:#cc3300 }
 STRIKE, S A.outerlink:LINK { color:#999999 }
 STRIKE, S A.outerlink:VISITED { color:#999999 }
 STRIKE, S A.outerlink:HOVER { color:#cc3300 }
-S IMG { filter:Gray }
 
 cite {color:#888800;font-style:normal;}
 .center { text-align: center; }

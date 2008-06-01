@@ -87,7 +87,6 @@ cite { color: #888800; font-style: normal }
 
 p.auto { margin: 0px; padding: 0px; font-size: 100% }
 strike a:visited, s a:visited, strike, s, strike a:visited, s a:link { color: #999999 }
-strike img, s img { filter: Gray }
 table.dtable { width: 100%; border: 0px none; border-collapse: collapse }
 table.dtable tr td { border-width: 0px; border-color: #999999; border-style: none; padding: 4px; vertical-align: top }
 table.upload td { padding: 2px 5px 2px 5px; vertical-align: bottom }

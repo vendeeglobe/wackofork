@@ -247,7 +247,6 @@ dfn { font-variant: small-caps; letter-spacing: 0.1em; font-style: normal; curso
 STRIKE, S { color:#999999 }
 STRIKE A:VISITED, S A:LINK { color:#999999 }
 STRIKE A:VISITED, S A:VISITED { color:#999999 }
-STRIKE IMG, S IMG { filter:Gray }
 cite {color:#888800;font-style:normal;}
 
 .add {
